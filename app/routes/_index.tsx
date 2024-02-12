@@ -3,7 +3,9 @@ import { Header } from "~/components/layout/Header";
 import { Hero } from "~/components/hero/Hero";
 import { Navigation } from "~/components/layout/Navigation";
 import { Logo } from "~/icons/Logo";
-import React from "react";
+import { PropsWithChildren } from "react";
+import { ClientsBanner } from "~/components/clients/ClientsBanner";
+import clsx from "clsx";
 
 export const meta: MetaFunction = () => {
   return [
@@ -32,10 +34,10 @@ export const links: LinksFunction = () => {
 export default function Index() {
   return (
     <main className="min-h-[200vh]">
-      <div className="border-b border-neutral-950">
-        <div className="max-w-7xl mx-auto p-4 md:p-6">
+      <div className="border-b border-neutral-950 sticky top-0 left-0 w-full bg-dark">
+        <SectionWrapper>
           <Header>
-            <Logo className="text-white w-[84px]" />
+            <Logo className="text-white w-[84px] min-w-[84px]" />
 
             <div className="flex gap-6">
               <Navigation />
@@ -46,12 +48,30 @@ export default function Index() {
               </div>
             </div>
           </Header>
-        </div>
+        </SectionWrapper>
       </div>
 
-      <div className="p-4 md:p-6 max-w-7xl mx-auto mt-10 lg:mt-20">
+      <SectionWrapper className="my-10 lg:my-20 xl:my-24">
         <Hero />
+      </SectionWrapper>
+
+      <div className="bg-neutral-950">
+        <SectionWrapper className="lg:p-12">
+          <ClientsBanner />
+        </SectionWrapper>
       </div>
     </main>
+  );
+}
+
+interface SectionWrapperProps extends PropsWithChildren {
+  className?: string;
+}
+
+function SectionWrapper({ children, className }: SectionWrapperProps) {
+  return (
+    <div className={clsx("p-4 md:p-6 mx-auto max-w-7xl", className)}>
+      {children}
+    </div>
   );
 }
