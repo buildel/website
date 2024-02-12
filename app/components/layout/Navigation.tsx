@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, NavLinkProps } from "@remix-run/react";
 interface NavigationProps {}
 
 export const Navigation: React.FC<NavigationProps> = () => {
@@ -6,12 +7,16 @@ export const Navigation: React.FC<NavigationProps> = () => {
     <nav>
       <ul className="flex items-center gap-3">
         <li>
-          <button>Sign in</button>
+          <NavigationLink to="#">Documentation</NavigationLink>
         </li>
         <li>
-          <button>Sign up</button>
+          <NavigationLink to="#">Pricing</NavigationLink>
         </li>
       </ul>
     </nav>
   );
+};
+
+export const NavigationLink = (props: NavLinkProps) => {
+  return <NavLink to="#" {...props} />;
 };

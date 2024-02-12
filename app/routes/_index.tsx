@@ -3,6 +3,7 @@ import { Header } from "~/components/layout/Header";
 import { Hero } from "~/components/hero/Hero";
 import { Navigation } from "~/components/layout/Navigation";
 import { Logo } from "~/icons/Logo";
+import React from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -31,15 +32,26 @@ export const links: LinksFunction = () => {
 export default function Index() {
   return (
     <main className="min-h-[200vh]">
-      <div className="max-w-7xl mx-auto">
-        <Header>
-          <Logo className="text-white w-[84px]" />
+      <div className="border-b border-neutral-950">
+        <div className="max-w-7xl mx-auto p-4 md:p-6">
+          <Header>
+            <Logo className="text-white w-[84px]" />
 
-          <Navigation />
-        </Header>
+            <div className="flex gap-6">
+              <Navigation />
+
+              <div className="flex gap-2">
+                <button>CTA1</button>
+                <button>CTA2</button>
+              </div>
+            </div>
+          </Header>
+        </div>
       </div>
 
-      <Hero />
+      <div className="p-4 md:p-6 max-w-7xl mx-auto mt-10 lg:mt-20">
+        <Hero />
+      </div>
     </main>
   );
 }
