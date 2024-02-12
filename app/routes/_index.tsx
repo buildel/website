@@ -57,7 +57,7 @@ export default function Index() {
         </SectionWrapper>
       </div>
 
-      <div className="bg-neutral-950">
+      <div className="bg-[#383838]">
         <SectionWrapper className="lg:p-12">
           <ClientsBanner />
         </SectionWrapper>

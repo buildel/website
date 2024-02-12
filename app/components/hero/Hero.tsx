@@ -1,18 +1,27 @@
 import React, { PropsWithChildren } from "react";
 import { Link } from "@remix-run/react";
 import { Button } from "~/components/buttons/Button";
+import { HeroAnimatedWord } from "~/components/hero/HeroAnimatedWord";
 interface HeroProps {}
 
 export const Hero: React.FC<HeroProps> = () => {
   return (
     <section className="relative z-10 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-center">
       <div className="flex flex-col gap-4 lg:gap-8">
-        <p>
-          Buildel 1.2 is now available! <Link to="#">Learn more</Link>
+        <p className="text-sm flex gap-1 items-center">
+          <span className="px-2 py-0.5 rounded-full bg-secondary-300 text-secondary-900">
+            New!
+          </span>
+          <Link to="#" className="hover:underline">
+            Buildel 1.2
+          </Link>
         </p>
         <h1 className="text-5xl md:text-7xl">
           AI Automation for{" "}
-          <span className="text-secondary-500">Everybody</span>
+          <HeroAnimatedWord
+            words={["Everybody", "Technical People", "Marketers", "You"]}
+          />
+          {/*<span className="text-secondary-500">Everybody</span>*/}
         </h1>
 
         <h2 className="md:text-xl">
