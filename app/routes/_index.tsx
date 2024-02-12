@@ -10,8 +10,8 @@ import { Interfaces } from "~/components/interfaces/Interfaces";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Buildel" },
+    { name: "description", content: "Build your own AI app without hassle." },
   ];
 };
 
