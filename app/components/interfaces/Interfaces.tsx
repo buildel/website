@@ -1,4 +1,7 @@
 import React from "react";
+import { TabGroup } from "~/components/tabs/TabGroup";
+import { Tab, TabButton } from "~/components/tabs/Tab";
+import { InterfaceTabButton } from "~/components/interfaces/InterfaceTabButton";
 interface InterfacesProps {}
 
 export const Interfaces: React.FC<InterfacesProps> = () => {
@@ -12,6 +15,21 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
           qui.
         </p>
       </header>
+
+      <div className="mt-10 lg:mt-14">
+        <TabGroup defaultActiveTab="chat">
+          <div className="w-full grid grid-cols-4 gap-2">
+            <InterfaceTabButton tabId="chat">Chat</InterfaceTabButton>
+            <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton>
+            <InterfaceTabButton tabId="providers">Providers</InterfaceTabButton>
+            <InterfaceTabButton tabId="api-tools">Api Tools</InterfaceTabButton>
+          </div>
+
+          <Tab tabId="chat">Chat1</Tab>
+          <Tab tabId="memory">memory</Tab>
+          <Tab tabId="api-tools">api-tools</Tab>
+        </TabGroup>
+      </div>
     </section>
   );
 };

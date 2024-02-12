@@ -1,7 +1,8 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Link } from "@remix-run/react";
 import { Button } from "~/components/buttons/Button";
 import { HeroAnimatedWord } from "~/components/hero/HeroAnimatedWord";
+import { ArrowRight } from "~/icons/ArrowRight";
 interface HeroProps {}
 
 export const Hero: React.FC<HeroProps> = () => {
@@ -30,7 +31,12 @@ export const Hero: React.FC<HeroProps> = () => {
         </h2>
 
         <div className="flex gap-3 lg:gap-4">
-          <Button>Start building</Button>
+          <Button className="group flex gap-1 items-center">
+            <div>Start building</div>
+
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-[3px] transition " />
+          </Button>
+
           <Button type="outlined">Book A Demo</Button>
         </div>
       </div>

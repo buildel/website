@@ -35,7 +35,7 @@ export const links: LinksFunction = () => {
 export default function Index() {
   return (
     <main className="min-h-[200vh]">
-      <div className="border-b border-neutral-950 sticky top-0 left-0 z-20 w-full bg-dark">
+      <div className="border-b border-neutral-900 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
           <header className="flex gap-4 justify-between items-center">
             <Logo className="h-[12px]" />
@@ -43,7 +43,7 @@ export default function Index() {
             <div className="flex items-center gap-6">
               <Navigation />
 
-              <Button variant="basic" type="filled" className="!py-2">
+              <Button variant="basic" type="filled" className="!py-1">
                 Sign up
               </Button>
             </div>
@@ -65,7 +65,7 @@ export default function Index() {
         <ClientsBanner />
       </SectionWrapper>
 
-      <SectionWrapper className="my-10 lg:my-20">
+      <SectionWrapper className="py-10 lg:py-20">
         <Interfaces />
       </SectionWrapper>
     </main>
@@ -86,12 +86,12 @@ function SectionWrapper({ children, className }: SectionWrapperProps) {
 
 function DotsMask() {
   return (
-    <div className="pointer-events-none absolute z-1 left-0 right-0 top-0 bottom-0 bg-hero-pattern bg-no-repeat bg-mask" />
+    <div className="pointer-events-none absolute z-1 left-0 right-0 top-0 bottom-0 bg-hero-pattern bg-no-repeat dots-mask" />
   );
 }
 
 function CircleMask() {
   return (
-    <div className="hidden pointer-events-none test-mask z-0 w-[800px] h-[800px] absolute -left-1/4 -top-1/3  bg-no-repeat md:block" />
+    <div className="hidden pointer-events-none radial-mask z-0 w-[800px] h-[800px] absolute -left-1/4 -top-1/3 bg-no-repeat md:block" />
   );
 }
