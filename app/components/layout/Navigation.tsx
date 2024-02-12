@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, NavLinkProps } from "@remix-run/react";
+import clsx from "clsx";
 interface NavigationProps {}
 
 export const Navigation: React.FC<NavigationProps> = () => {
@@ -17,6 +18,14 @@ export const Navigation: React.FC<NavigationProps> = () => {
   );
 };
 
-export const NavigationLink = (props: NavLinkProps) => {
-  return <NavLink to="#" {...props} />;
+export const NavigationLink = ({ className, ...rest }: NavLinkProps) => {
+  return (
+    <NavLink
+      className={clsx(
+        "text-white transition hover:text-neutral-100",
+        className
+      )}
+      {...rest}
+    />
+  );
 };

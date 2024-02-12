@@ -148,6 +148,9 @@ export default {
       fontFamily: {
         sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        "hero-pattern": "url('/assets/dots-background.svg')",
+      },
     },
   },
   plugins: [],

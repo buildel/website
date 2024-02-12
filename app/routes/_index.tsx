@@ -1,11 +1,11 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { Header } from "~/components/layout/Header";
 import { Hero } from "~/components/hero/Hero";
 import { Navigation } from "~/components/layout/Navigation";
 import { Logo } from "~/icons/Logo";
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 import { ClientsBanner } from "~/components/clients/ClientsBanner";
 import clsx from "clsx";
+import { Button } from "~/components/buttons/Button";
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,26 +34,28 @@ export const links: LinksFunction = () => {
 export default function Index() {
   return (
     <main className="min-h-[200vh]">
-      <div className="border-b border-neutral-950 sticky top-0 left-0 w-full bg-dark">
+      <div className="border-b border-neutral-950 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
-          <Header>
+          <header className="flex gap-4 justify-between items-center">
             <Logo className="text-white w-[84px] min-w-[84px]" />
 
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               <Navigation />
 
-              <div className="flex gap-2">
-                <button>CTA1</button>
-                <button>CTA2</button>
-              </div>
+              <Button variant="basic" type="filled" className="!py-2">
+                Sign up
+              </Button>
             </div>
-          </Header>
+          </header>
         </SectionWrapper>
       </div>
 
-      <SectionWrapper className="my-10 lg:my-20 xl:my-24">
-        <Hero />
-      </SectionWrapper>
+      <div className="relative py-10 lg:py-20 xl:py-24">
+        <div className="absolute z-1 left-0 right-0 top-0 bottom-0 bg-hero-pattern bg-no-repeat bg-mask" />
+        <SectionWrapper>
+          <Hero />
+        </SectionWrapper>
+      </div>
 
       <div className="bg-neutral-950">
         <SectionWrapper className="lg:p-12">

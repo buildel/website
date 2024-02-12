@@ -3,7 +3,7 @@ interface ClientsBannerProps {}
 
 export const ClientsBanner: React.FC<ClientsBannerProps> = () => {
   return (
-    <section className="bg-neutral-950">
+    <section>
       <ClientsList />
     </section>
   );
