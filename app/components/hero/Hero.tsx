@@ -16,12 +16,12 @@ export const Hero: React.FC<HeroProps> = () => {
             Buildel 1.2
           </Link>
         </p>
+
         <h1 className="text-5xl md:text-7xl">
           AI Automation for{" "}
           <HeroAnimatedWord
             words={["Everybody", "Technical People", "Marketers", "You"]}
           />
-          {/*<span className="text-secondary-500">Everybody</span>*/}
         </h1>
 
         <h2 className="md:text-xl">

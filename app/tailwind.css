@@ -9,3 +9,6 @@
     mask-image: linear-gradient(-155deg,  rgb(18, 18, 18) 0 30%, transparent 50% 100%);
 }
 
+.test-mask{
+   background: radial-gradient(#205d83 0 1%, transparent 50% 90%);
+}

@@ -2,10 +2,11 @@ import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Hero } from "~/components/hero/Hero";
 import { Navigation } from "~/components/layout/Navigation";
 import { Logo } from "~/icons/Logo";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { ClientsBanner } from "~/components/clients/ClientsBanner";
 import clsx from "clsx";
 import { Button } from "~/components/buttons/Button";
+import { Interfaces } from "~/components/interfaces/Interfaces";
 
 export const meta: MetaFunction = () => {
   return [
@@ -37,7 +38,7 @@ export default function Index() {
       <div className="border-b border-neutral-950 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
           <header className="flex gap-4 justify-between items-center">
-            <Logo className="text-white w-[84px] min-w-[84px]" />
+            <Logo className="h-[20px]" />
 
             <div className="flex items-center gap-6">
               <Navigation />
@@ -50,18 +51,23 @@ export default function Index() {
         </SectionWrapper>
       </div>
 
-      <div className="relative py-10 lg:py-20 xl:py-24">
-        <div className="absolute z-1 left-0 right-0 top-0 bottom-0 bg-hero-pattern bg-no-repeat bg-mask" />
-        <SectionWrapper>
+      <div className="relative py-10 lg:py-20">
+        <DotsMask />
+
+        <SectionWrapper className="relative">
+          <CircleMask />
+
           <Hero />
         </SectionWrapper>
       </div>
 
-      <div className="bg-[#383838]">
-        <SectionWrapper className="lg:p-12">
-          <ClientsBanner />
-        </SectionWrapper>
-      </div>
+      <SectionWrapper className="lg:p-12">
+        <ClientsBanner />
+      </SectionWrapper>
+
+      <SectionWrapper className="my-10 lg:my-20">
+        <Interfaces />
+      </SectionWrapper>
     </main>
   );
 }
@@ -75,5 +81,17 @@ function SectionWrapper({ children, className }: SectionWrapperProps) {
     <div className={clsx("p-4 md:p-6 mx-auto max-w-7xl", className)}>
       {children}
     </div>
+  );
+}
+
+function DotsMask() {
+  return (
+    <div className="pointer-events-none absolute z-1 left-0 right-0 top-0 bottom-0 bg-hero-pattern bg-no-repeat bg-mask" />
+  );
+}
+
+function CircleMask() {
+  return (
+    <div className="hidden pointer-events-none test-mask z-0 w-[800px] h-[800px] absolute -left-1/4 -top-1/3  bg-no-repeat md:block" />
   );
 }

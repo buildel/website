@@ -11,7 +11,13 @@ export const ClientsBanner: React.FC<ClientsBannerProps> = () => {
 
 function ClientsList() {
   return (
-    <ul className="flex gap-4">
+    <ul className="flex gap-4 justify-center">
+      <li>google</li>
+      <li>ey</li>
+      <li>google</li>
+      <li>ey</li>
+      <li>google</li>
+      <li>ey</li>
       <li>google</li>
       <li>ey</li>
     </ul>
