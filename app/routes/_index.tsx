@@ -1,4 +1,6 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { Header } from "~/components/layout/Header";
+import { Hero } from "~/components/hero/Hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,35 +9,29 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap",
+    },
+  ];
+};
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li  className='text-green-500'>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer" className='text-primary-500'>
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <main>
+      <Header>Header</Header>
+
+      <Hero />
+    </main>
   );
 }
