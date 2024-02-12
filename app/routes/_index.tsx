@@ -38,7 +38,7 @@ export default function Index() {
       <div className="border-b border-neutral-950 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
           <header className="flex gap-4 justify-between items-center">
-            <Logo className="h-[20px]" />
+            <Logo className="h-[12px]" />
 
             <div className="flex items-center gap-6">
               <Navigation />
