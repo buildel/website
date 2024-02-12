@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
 interface HeroAnimatedWordProps {
   words: string[];
 }
@@ -21,9 +22,13 @@ export const HeroAnimatedWord: React.FC<HeroAnimatedWordProps> = ({
       {words.map((word, index) => (
         <div
           key={word}
-          className={`text-secondary-500 absolute w-full transition-opacity duration-400 ease-out transform ${
-            index === currentWordIndex ? "opacity-100" : "opacity-0"
-          }`}
+          className={clsx(
+            `text-secondary-500 absolute w-full transition-opacity duration-700`,
+            {
+              "opacity-100": currentWordIndex === index,
+              "opacity-0": currentWordIndex !== index,
+            }
+          )}
         >
           {word}
         </div>
