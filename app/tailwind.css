@@ -4,11 +4,20 @@
 
 
 
-.bg-mask{
+.dots-mask{
     @apply bg-cover;
     mask-image: linear-gradient(-155deg,  rgb(18, 18, 18) 0 30%, transparent 50% 100%);
 }
 
-.test-mask{
+.radial-mask{
    background: radial-gradient(#205d83 0 1%, transparent 50% 90%);
 }
+
+/*.blue-sunshine-mask{*/
+/*    background: radial-gradient( #205d83 0 10%, transparent 50% 90%);*/
+/*}*/
+
+/*.orange-sunshine-mask{*/
+/*    background: radial-gradient( #de8411 0 5%, transparent 50% 90%);*/
+/*}*/
+
