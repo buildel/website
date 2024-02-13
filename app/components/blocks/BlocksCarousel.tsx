@@ -9,12 +9,19 @@ interface BlocksCarouselProps {
 export const BlocksCarousel: React.FC<BlocksCarouselProps> = ({
   direction = "ltr",
 }) => {
-  const [emblaRef] = useEmblaCarousel({ loop: true, direction, align: "end" }, [
-    Autoplay({ delay: 1500 }),
-  ]);
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      direction,
+      align: "end",
+      watchSlides: false,
+      watchDrag: false,
+    },
+    [Autoplay({ delay: 1500 })]
+  );
 
   return (
-    <div className="overflow-hidden w-full max-w-[3000px]" ref={emblaRef}>
+    <div className="overflow-hidden w-full" ref={emblaRef}>
       <div className="flex" dir={direction}>
         {[...Array(15)].map((_, index) => (
           <Slide key={index} />
