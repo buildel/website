@@ -242,8 +242,6 @@ export default function Index() {
             <Button>Start building for free</Button>
           </section>
         </SectionWrapper>
-
-        <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"></div>
       </main>
 
       <footer className="h-[20vh] border-t border-neutral-950">
