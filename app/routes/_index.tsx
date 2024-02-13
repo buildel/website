@@ -217,18 +217,31 @@ export default function Index() {
           </SectionWrapper>
         </div>
 
-        <div className="my-10 lg:my-20">
-          <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
+        <div className="my-10 lg:my-20 relative ">
+          <div className="h-[60vh] w-full absolute top-1/2 left-0 right-0 -translate-y-1/2  z-0 colored-gradient" />
+
+          <SectionWrapper className="relative py-10 lg:pt-20 lg:pb-24">
             <Workflows />
           </SectionWrapper>
         </div>
 
-        <div className="my-10 lg:my-20 h-[30vh]">
-          <SectionWrapper>a</SectionWrapper>
+        <div className="my-4 lg:my-10">
+          <SectionWrapper>
+            <section className="flex flex-col gap-3 items-center lg:gap-8">
+              <header>
+                <h2 className="text-4xl max-w-[800px] mx-auto text-center">
+                  Stop struggling with your scripts Start creating workflows 10X
+                  faster — with n8n
+                </h2>
+              </header>
+
+              <Button>Start building for free</Button>
+            </section>
+          </SectionWrapper>
         </div>
       </main>
 
-      <footer className="h-[20vh]">
+      <footer className="h-[20vh] border-t border-neutral-950">
         <SectionWrapper className="py-10 lg:py-24">
           <p>FOOTER</p>
         </SectionWrapper>
