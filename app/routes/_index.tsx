@@ -10,7 +10,7 @@ import { Interfaces } from "~/components/interfaces/Interfaces";
 import { Discord } from "~/icons/Discord";
 import { Code } from "~/icons/Code";
 import { Workflows } from "~/components/workflows/Workflows";
-import { BlocksCarousel } from "~/components/blocks/BlocksCarousel";
+import { BlocksSection } from "~/components/blocks/BlocksSection";
 
 export const meta: MetaFunction = () => {
   return [
@@ -227,27 +227,7 @@ export default function Index() {
         </div>
 
         <div className="bg-zinc-900 my-10 lg:my-20 py-10 lg:py-24">
-          <section>
-            <header className="mb-4 lg:mb-14 text-center p-4">
-              <h2 className="text-4xl max-w-[800px] mx-auto text-center mb-2">
-                Over 30 blocks
-              </h2>
-              <p className="text-sm md:text-base max-w-3xl mx-auto">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
-                fuga pariatur repellendus. Ad asperiores beatae facilis id, illo
-                molestiae qui.
-              </p>{" "}
-            </header>
-
-            <div className="relative flex flex-col gap-3">
-              <BlocksCarousel />
-
-              <BlocksCarousel direction="rtl" />
-
-              <div className="pointer-events-none h-full w-[20%] max-w-[500px] absolute top-0 bottom-0 left-0 bg-gradient-to-r from-zinc-900" />
-              <div className="pointer-events-none h-full w-[20%] max-w-[500px] absolute top-0 bottom-0 right-0 bg-gradient-to-l from-zinc-900 " />
-            </div>
-          </section>
+          <BlocksSection />
         </div>
 
         <SectionWrapper className="my-4 lg:my-20 xl:my-24">
@@ -262,6 +242,8 @@ export default function Index() {
             <Button>Start building for free</Button>
           </section>
         </SectionWrapper>
+
+        <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"></div>
       </main>
 
       <footer className="h-[20vh] border-t border-neutral-950">
