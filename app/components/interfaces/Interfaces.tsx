@@ -20,7 +20,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
 
       <div className="mt-10 lg:mt-14">
         <TabGroup defaultActiveTab="chat">
-          <div className="w-full grid grid-cols-4 gap-2 mb-8 lg:mb-10">
+          <div className="w-full grid grid-cols-4 gap-2 mb-8 lg:mb-12">
             <InterfaceTabButton tabId="chat">Chat</InterfaceTabButton>
             <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton>
             <InterfaceTabButton tabId="providers">Providers</InterfaceTabButton>
@@ -41,11 +41,11 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
 function ChatInterface() {
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
-      <div className="w-full rounded-lg bg-zinc-900 border border-neutral-950 h-[30vh]">
+      <div className="w-full rounded-lg bg-dark/60 h-[30vh]">
         <p>aa</p>
       </div>
 
-      <div className="w-full rounded-lg bg-zinc-900 border border-neutral-950">
+      <div className="w-full rounded-lg bg-dark/60">
         <p>aa</p>
       </div>
     </div>

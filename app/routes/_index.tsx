@@ -7,6 +7,9 @@ import { ClientsBanner } from "~/components/clients/ClientsBanner";
 import clsx from "clsx";
 import { Button } from "~/components/buttons/Button";
 import { Interfaces } from "~/components/interfaces/Interfaces";
+import { Discord } from "~/icons/Discord";
+import { Code } from "~/icons/Code";
+import { Workflows } from "~/components/workflows/Workflows";
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,7 +37,7 @@ export const links: LinksFunction = () => {
 };
 export default function Index() {
   return (
-    <main className="min-h-[200vh]">
+    <>
       <div className="border-b border-neutral-900 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
           <header className="flex gap-4 justify-between items-center">
@@ -51,24 +54,186 @@ export default function Index() {
         </SectionWrapper>
       </div>
 
-      <div className="relative py-10 lg:py-20">
-        <DotsMask />
+      <main>
+        <div className="relative py-10 lg:py-20">
+          <DotsMask />
 
-        <SectionWrapper className="relative">
-          <CircleMask />
+          <SectionWrapper className="relative">
+            <CircleMask />
 
-          <Hero />
+            <Hero />
+          </SectionWrapper>
+        </div>
+
+        <SectionWrapper className="lg:p-12">
+          <ClientsBanner />
         </SectionWrapper>
-      </div>
 
-      <SectionWrapper className="lg:p-12">
-        <ClientsBanner />
-      </SectionWrapper>
+        <div className="colored-gradient my-10 lg:my-20">
+          <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
+            <Interfaces />
+          </SectionWrapper>
+        </div>
 
-      <SectionWrapper className="py-10 lg:py-20">
-        <Interfaces />
-      </SectionWrapper>
-    </main>
+        {/*<div className="test mt-10 lg:mt-20">*/}
+        {/*  <SectionWrapper className="py-10 lg:py-24 h-[50vh]">*/}
+        {/*    <p>aaa</p>*/}
+        {/*  </SectionWrapper>*/}
+        {/*</div>*/}
+
+        <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
+          <section>
+            <header className="text-center">
+              <h2 className="text-3xl md:text-5xl mb-2">
+                From idea to production, fast.
+              </h2>
+              <p className="text-sm md:text-base max-w-3xl mx-auto">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+                fuga pariatur repellendus. Ad asperiores beatae facilis id, illo
+                molestiae qui.
+              </p>
+            </header>
+
+            <div className="relative mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:mt-16">
+              <div className="hidden pointer-events-none radial-mask z-0 w-[800px] aspect-square lg:w-[1000px] absolute top-1/4 right-1/2 translate-x-1/2 bg-no-repeat md:block" />
+
+              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6" />
+                  <h3 className="text-xl">No Code Required</h3>
+                </header>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores, laborum veritatis? Delectus excepturi nostrum
+                  quaerat.
+                </p>
+              </article>
+
+              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6" />
+                  <h3 className="text-xl">Pre-built Use Cases</h3>
+                </header>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores, laborum veritatis? Delectus excepturi nostrum
+                  quaerat.
+                </p>
+              </article>
+
+              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6" />
+                  <h3 className="text-xl">White-Glove Support</h3>
+                </header>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores, laborum veritatis? Delectus excepturi nostrum
+                  quaerat.
+                </p>
+              </article>
+
+              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6" />
+                  <h3 className="text-xl">White-Glove Support</h3>
+                </header>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores, laborum veritatis? Delectus excepturi nostrum
+                  quaerat.
+                </p>
+              </article>
+
+              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6" />
+                  <h3 className="text-xl">White-Glove Support</h3>
+                </header>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores, laborum veritatis? Delectus excepturi nostrum
+                  quaerat.
+                </p>
+              </article>
+
+              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6" />
+                  <h3 className="text-xl">White-Glove Support</h3>
+                </header>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores, laborum veritatis? Delectus excepturi nostrum
+                  quaerat.
+                </p>
+              </article>
+            </div>
+          </section>
+        </SectionWrapper>
+
+        <div className="one-step-gradient">
+          <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
+            <section className="relative">
+              <header className="text-center mb-10 lg:mb-14">
+                <h2 className="relative text-3xl md:text-5xl mb-2">
+                  Something about <span className="text-secondary-500">EL</span>
+                </h2>
+                <p className="text-sm md:text-base max-w-3xl mx-auto">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+                  fuga pariatur repellendus. Ad asperiores beatae facilis id,
+                  illo molestiae qui.
+                </p>
+              </header>
+
+              <div className="h-[50vh] bg-zinc-900/80 border border-neutral-950 rounded-lg">
+                aaa
+              </div>
+            </section>
+          </SectionWrapper>
+        </div>
+
+        <div className="bg-zinc-900 border-b border-neutral-950">
+          <SectionWrapper className="py-10 lg:py-24">
+            <section className="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_300px] items-center">
+              <h2 className="text-2xl md:text-4xl">
+                <span className="font-bold">Join our growing community.</span>{" "}
+                Find inspiration, support and connect with other builders.
+              </h2>
+
+              <a
+                href="#"
+                className="lg:ml-auto lg:mr-0 bg-white px-5 py-3 rounded text-dark w-fit flex gap-2 items-center lg:text-xl transition"
+              >
+                <Discord className="w-6 h-6 lg:w-8 lg:h-8" /> Join on Discord
+              </a>
+            </section>
+          </SectionWrapper>
+        </div>
+
+        <div className="my-10 lg:my-20">
+          <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
+            <Workflows />
+          </SectionWrapper>
+        </div>
+
+        <div className="my-10 lg:my-20 h-[30vh]">
+          <SectionWrapper>a</SectionWrapper>
+        </div>
+      </main>
+
+      <footer className="h-[20vh]">
+        <SectionWrapper className="py-10 lg:py-24">
+          <p>FOOTER</p>
+        </SectionWrapper>
+      </footer>
+    </>
   );
 }
 

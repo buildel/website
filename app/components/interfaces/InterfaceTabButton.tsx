@@ -15,10 +15,9 @@ export const InterfaceTabButton: React.FC<TabButtonProps> = ({
     <TabButton
       tabId={tabId}
       className={clsx(
-        "p-2 border rounded-lg hover:bg-zinc-900 hover:border-neutral-900 transition",
+        "p-2 rounded-lg hover:bg-neutral-300/10  transition",
         {
-          "bg-zinc-900 border-neutral-900": isActive,
-          "bg-transparent border-neutral-950": !isActive,
+          "bg-neutral-300/10": isActive,
         },
         className
       )}

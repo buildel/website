@@ -21,3 +21,11 @@
 /*    background: radial-gradient( #de8411 0 5%, transparent 50% 90%);*/
 /*}*/
 
+.colored-gradient{
+    background: radial-gradient(ellipse at 100% 100%, hsl(254 100% 6% / 0.07), #4422ff0f, transparent),
+    linear-gradient(to bottom right, #0f1b1b, #141726, #37172f, #082c36);
+}
+
+.one-step-gradient{
+    background: linear-gradient(to top, #18181B, #121212)
+}
