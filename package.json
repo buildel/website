@@ -15,8 +15,6 @@
     "@remix-run/react": "^2.6.0",
     "@remix-run/serve": "^2.6.0",
     "clsx": "^2.1.0",
-    "embla-carousel-autoplay": "8.0.0-rc22",
-    "embla-carousel-react": "8.0.0-rc22",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
