@@ -55,9 +55,9 @@ export default function Index() {
       </div>
 
       <main>
-        <div className="relative py-10 lg:py-20">
-          <DotsMask />
+        <DotsMask />
 
+        <div className="relative py-10 lg:py-20">
           <SectionWrapper className="relative">
             <CircleMask />
 
