@@ -1,5 +1,5 @@
 import React from "react";
-import { InfiniteCardsCarousel } from "~/components/blocks/BlocksCarousel";
+import { InfiniteCardsCarousel } from "./InfiniteCardsCarousel";
 
 const blocks = [
   {
