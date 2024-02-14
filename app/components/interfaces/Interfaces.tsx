@@ -12,6 +12,7 @@ import { TabGroup } from "~/components/tabs/TabGroup";
 import { BuildelProvider, useBuildelSocket } from "../buildel/BuildelSocket";
 import { IWorkflowConfig, chatWorkflowConfig } from "./WorkflowConfigs";
 import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
+import { useResize } from "../useResize";
 
 interface InterfacesProps {}
 
@@ -96,7 +97,7 @@ function ChatInterface() {
 
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
-      <div className="w-full rounded-lg bg-dark/60 h-[30vh]">
+      <div className="w-full rounded-lg h-[30vh]">
         <SimpleWorkflowRenderer config={chatWorkflowConfig} />
       </div>
 
@@ -108,13 +109,18 @@ function ChatInterface() {
 }
 
 function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
-  const { blocks } = config.config;
+  const { blocks, connections } = config.config;
   const container = useRef<HTMLDivElement>(null);
+  const blockPositions = useRef<
+    Map<string, { rect: DOMRect; offset: { left: number; top: number } }>
+  >(new Map());
   const [containerSize, setContainerSize] = useState<DOMRect | undefined>();
+  const windowSize = useResize();
 
   useIsomorphicLayoutEffect(() => {
     setContainerSize(container.current?.getBoundingClientRect());
-  }, []);
+    console.log("containerSize", containerSize);
+  }, [windowSize]);
 
   const positionEdges = useMemo(
     () =>
@@ -139,7 +145,7 @@ function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
           maxY: 0,
         }
       ),
-    [blocks, containerSize]
+    [blocks, containerSize, windowSize]
   );
 
   const blocksWithNormalizedPositions = useMemo(
@@ -165,21 +171,85 @@ function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
   );
 
   return (
-    <div className="w-full h-full p-4 flex">
+    <div className="w-full h-full p-4 flex relative bg-dark bg-hero-pattern bg-[size:300%] rounded-lg">
       <div className="w-full relative" ref={container}>
         {blocksWithNormalizedPositions.map((block, index) => {
           return (
             <div
+              ref={(element) => {
+                blockPositions.current.set(block.name, {
+                  offset: {
+                    left: element?.offsetLeft || 0,
+                    top: element?.offsetTop || 0,
+                  },
+                  rect: element?.getBoundingClientRect() || new DOMRect(),
+                });
+              }}
               key={index}
-              className="absolute bg-white rounded-lg p-4 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md"
+              className="absolute bg-neutral-800 rounded-lg p-4 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md"
               style={{
                 left: block.position.x + "%",
                 top: block.position.y + "%",
               }}
             >
-              <h3 className="text-dark">{block.name}</h3>
+              <h3 className="text-light">{block.name}</h3>
             </div>
           );
+        })}
+        {connections.flatMap((connection, index) => {
+          const fromPosition = blockPositions.current.get(
+            connection.from.block_name
+          );
+          const toPosition = blockPositions.current.get(
+            connection.to.block_name
+          );
+          if (!fromPosition || !toPosition) return null;
+
+          const outputPosition = {
+            text: {
+              top: fromPosition.offset.top,
+              left: fromPosition.offset.left + fromPosition.rect.width / 2,
+            },
+            worker: {
+              top: fromPosition.offset.top - fromPosition.rect.height / 2,
+              left: fromPosition.offset.left,
+            },
+          }[connection.from.type] || { top: 0, left: 0 };
+
+          const inputPosition = {
+            text: {
+              top: toPosition.offset.top,
+              left: toPosition.offset.left - toPosition.rect.width / 2,
+            },
+            controller: {
+              top: toPosition.offset.top + toPosition.rect.height / 2,
+              left: toPosition.offset.left,
+            },
+          }[connection.to.type] || { top: 0, left: 0 };
+
+          return [
+            // <div
+            //   className="absolute h-2 w-2  -translate-x-1/2 -translate-y-1/2"
+            //   style={outputPosition}
+            //   key={index}
+            // ></div>,
+            // <div
+            //   className="absolute h-2 w-2 bg-red-500 -translate-x-1/2 -translate-y-1/2"
+            //   style={inputPosition}
+            //   key={index + "2"}
+            // ></div>,
+            <svg className="absolute w-full h-full">
+              <line
+                className="stroke-current"
+                strokeDasharray={3}
+                style={{ strokeWidth: 1 }}
+                x1={outputPosition.left}
+                y1={outputPosition.top}
+                x2={inputPosition.left}
+                y2={inputPosition.top}
+              />
+            </svg>,
+          ];
         })}
       </div>
     </div>
