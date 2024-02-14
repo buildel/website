@@ -327,10 +327,10 @@ function SimpleWorkflowRenderer({
             //   style={inputPosition}
             //   key={index + "2"}
             // ></div>,
-            <svg className="absolute w-full h-full">
+            <svg key={index} className="absolute w-full h-full">
               <line
-                className="stroke-current animate"
-                strokeDasharray={3}
+                className={clsx("stroke-current animate-dashdraw")}
+                strokeDasharray={6}
                 style={{ strokeWidth: 1 }}
                 x1={outputPosition.left}
                 y1={outputPosition.top}

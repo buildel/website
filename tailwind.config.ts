@@ -163,11 +163,17 @@ export default {
       animation: {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        dashdraw: "dash 4s linear infinite reverse",
       },
       keyframes: {
         scroll: {
           to: {
             transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+        dash: {
+          to: {
+            "stroke-dashoffset": "200",
           },
         },
       },

@@ -2,7 +2,7 @@ import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Hero } from "~/components/hero/Hero";
 import { Navigation } from "~/components/layout/Navigation";
 import { Logo } from "~/icons/Logo";
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren } from "react";
 import { ClientsBanner } from "~/components/clients/ClientsBanner";
 import clsx from "clsx";
 import { Button } from "~/components/buttons/Button";
