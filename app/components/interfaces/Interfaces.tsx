@@ -40,7 +40,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
             <div className="w-full grid grid-cols-4 gap-2 mb-8 lg:mb-12">
               <InterfaceTabButton tabId="chat">Chat</InterfaceTabButton>
               <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton>
-              <InterfaceTabButton tabId="providers">
+              <InterfaceTabButton tabId="multiple-models">
                 Multiple Models
               </InterfaceTabButton>
               <InterfaceTabButton tabId="api-tools">
@@ -51,8 +51,15 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
             <Tab tabId="chat">
               <ChatInterface config={chatWorkflowConfig} />
             </Tab>
-            <Tab tabId="memory">memory</Tab>
-            <Tab tabId="api-tools">api-tools</Tab>
+            <Tab tabId="memory">
+              <ChatInterface config={chatWorkflowConfig} />
+            </Tab>
+            <Tab tabId="multiple-models">
+              <ChatInterface config={chatWorkflowConfig} />
+            </Tab>
+            <Tab tabId="api-tools">
+              <ChatInterface config={chatWorkflowConfig} />
+            </Tab>
           </TabGroup>
         </BuildelProvider>
       </div>
@@ -149,7 +156,7 @@ function ChatInterface({ config }: { config: IWorkflowConfig }) {
         <ChatWrapper className="h-full !py-4 relative">
           <ChatHeader className="mb-1">
             <div className="flex gap-2 items-center">
-              <ChatHeading>Simple Chat</ChatHeading>
+              <ChatHeading>{config.name}</ChatHeading>
               <ChatStatus connectionStatus={status} />
             </div>
           </ChatHeader>

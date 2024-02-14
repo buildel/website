@@ -24,14 +24,7 @@ export const Hero: React.FC<HeroProps> = () => {
         <h1 className="text-5xl md:text-7xl">
           AI Automation for{" "}
           <HeroAnimatedWord
-            words={[
-              "Everybody",
-              "Sales",
-              "Engineers",
-              "Marketeers",
-              "Sales",
-              "You",
-            ]}
+            words={["Everybody", "Sales", "Engineers", "Marketeers", "You"]}
           />
         </h1>
 

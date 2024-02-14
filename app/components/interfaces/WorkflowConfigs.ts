@@ -23,7 +23,7 @@ export interface IWorkflowConfig {
 }
 
 export const chatWorkflowConfig: IWorkflowConfig = {
-  name: "Simple Chat",
+  name: "Chat",
   config: {
     version: "1",
     blocks: [
@@ -47,13 +47,6 @@ export const chatWorkflowConfig: IWorkflowConfig = {
         inputs: [],
         position: { x: -130.4596274474532, y: -400 },
         type: "chat",
-      },
-      {
-        name: "api_call_tool_1",
-        opts: { name: "api_call_tool_1" },
-        inputs: [],
-        position: { x: -476.31397540089324, y: -123.80126072252631 },
-        type: "api_call_tool",
       },
     ],
     connections: [
