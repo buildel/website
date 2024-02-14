@@ -7,7 +7,7 @@ interface HeroProps {}
 
 export const Hero: React.FC<HeroProps> = () => {
   return (
-    <section className="relative z-10 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-center">
+    <section className="relative z-10 grid grid-cols-1 gap-10 lg:gap-4 lg:grid-cols-2 lg:items-center">
       <div className="flex flex-col gap-4 lg:gap-8">
         <p className="text-sm flex gap-1 items-center">
           <Link
@@ -48,10 +48,14 @@ export const Hero: React.FC<HeroProps> = () => {
           </a>
         </div>
       </div>
-      {/* 
-      <div className="min-h-[40vh] flex justify-center items-center">
-        Animation here
-      </div> */}
+
+      <div className="hidden lg:block lg:w-3/4 lg:absolute lg:top-1/2 lg:-translate-y-[45%] lg:left-1/2">
+        <img
+          src="/assets/hero-image.webp"
+          className="w-full"
+          alt="Buildel preview"
+        />
+      </div>
     </section>
   );
 };

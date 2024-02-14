@@ -74,17 +74,19 @@ export default function Index() {
       <main>
         <DotsMask />
 
-        <div className="relative py-10 lg:py-20">
-          <SectionWrapper className="relative">
-            <CircleMask />
+        <div className="overflow-hidden">
+          <div className="relative py-10 lg:py-20">
+            <SectionWrapper className="relative">
+              <CircleMask />
 
-            <Hero />
+              <Hero />
+            </SectionWrapper>
+          </div>
+
+          <SectionWrapper className="lg:p-12">
+            <ClientsBanner />
           </SectionWrapper>
         </div>
-
-        <SectionWrapper className="lg:p-12">
-          <ClientsBanner />
-        </SectionWrapper>
 
         <div className="colored-gradient my-10 lg:my-20">
           <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
