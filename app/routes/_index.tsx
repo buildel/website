@@ -244,8 +244,8 @@ export default function Index() {
           <section className="flex flex-col gap-3 items-center lg:gap-8">
             <header>
               <h2 className="text-4xl max-w-[800px] mx-auto text-center">
-                Stop struggling with your scripts Start creating workflows 10X
-                faster — with n8n
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius,
+                sit.
               </h2>
             </header>
 
@@ -254,11 +254,11 @@ export default function Index() {
         </SectionWrapper>
       </main>
 
-      <footer className="h-[20vh] border-t border-neutral-950">
-        <SectionWrapper className="py-10 lg:py-24">
-          <p>FOOTER</p>
-        </SectionWrapper>
-      </footer>
+      {/*<footer className="h-[20vh] border-t border-neutral-950">*/}
+      {/*  <SectionWrapper className="py-10 lg:py-24">*/}
+      {/*    <p>FOOTER</p>*/}
+      {/*  </SectionWrapper>*/}
+      {/*</footer>*/}
     </>
   );
 }
