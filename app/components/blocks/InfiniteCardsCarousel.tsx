@@ -9,7 +9,8 @@ export const InfiniteCardsCarousel = ({
   className,
 }: {
   items: {
-    name: string;
+    type: string;
+    description: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -60,11 +61,11 @@ export const InfiniteCardsCarousel = ({
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
         containerRef.current.style.setProperty("--animation-duration", "80s");
+      } else if (speed === "normal") {
+        containerRef.current.style.setProperty("--animation-duration", "120s");
+      } else {
+        containerRef.current.style.setProperty("--animation-duration", "160s");
       }
     }
   };
@@ -88,14 +89,13 @@ export const InfiniteCardsCarousel = ({
         {items.map((item) => (
           <li
             className="bg-zinc-900/50 w-[350px] max-w-full relative rounded-lg border border-neutral-950 hover:border-neutral-900 flex-shrink-0 p-6 md:w-[450px]"
-            key={item.name}
+            key={item.type}
           >
             <article>
-              <h5 className="text-white">{item.name}</h5>
-              <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe,
-                vero!
-              </p>
+              <h5 className="text-white capitalize">
+                {item.type.split("_").join(" ")}
+              </h5>
+              <p className="text-sm">{item.description}</p>
             </article>
           </li>
         ))}

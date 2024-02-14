@@ -1,25 +1,12 @@
 import React from "react";
 import { InfiniteCardsCarousel } from "./InfiniteCardsCarousel";
-
-const blocks = [
-  {
-    name: "Charles Dickens",
-  },
-  {
-    name: "Charles Dickens 2",
-  },
-  {
-    name: "Charles Dickens 3",
-  },
-  {
-    name: "Charles Dickens 4",
-  },
-  {
-    name: "Charles Dickens 5",
-  },
-];
+import { useLoaderData } from "@remix-run/react";
+import { loader } from "~/routes/_index";
 
 export const BlocksSection: React.FC = () => {
+  const { blockTypes } = useLoaderData<typeof loader>();
+
+  const half = Math.floor(blockTypes.length / 2);
   return (
     <section>
       <header className="mb-4 lg:mb-14 text-center p-4">
@@ -34,9 +21,17 @@ export const BlocksSection: React.FC = () => {
       </header>
 
       <div className="relative flex flex-col gap-3">
-        <InfiniteCardsCarousel items={blocks} direction="right" speed="slow" />
+        <InfiniteCardsCarousel
+          items={blockTypes.slice(0, half)}
+          direction="right"
+          speed="slow"
+        />
 
-        <InfiniteCardsCarousel items={blocks} direction="left" speed="normal" />
+        <InfiniteCardsCarousel
+          items={blockTypes.slice(half, blockTypes.length)}
+          direction="left"
+          speed="normal"
+        />
       </div>
     </section>
   );

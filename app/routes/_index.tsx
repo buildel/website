@@ -11,6 +11,8 @@ import { Discord } from "~/icons/Discord";
 import { Code } from "~/icons/Code";
 import { Workflows } from "~/components/workflows/Workflows";
 import { BlocksSection } from "~/components/blocks/BlocksSection";
+import { json } from "@remix-run/node";
+import { BlockTypeApi } from "~/api/blockTypesApi";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,6 +20,13 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Build your own AI app without hassle." },
   ];
 };
+
+export async function loader() {
+  const blockTypesApi = new BlockTypeApi();
+  const res = await blockTypesApi.getBlockTypes();
+
+  return json({ blockTypes: res.data });
+}
 
 export const links: LinksFunction = () => {
   return [
