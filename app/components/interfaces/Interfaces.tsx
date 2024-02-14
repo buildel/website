@@ -1,9 +1,17 @@
 import { BuildelRunStatus, BuildelSocket } from "@buildel/buildel";
-import React, { useEffect } from "react";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { InterfaceTabButton } from "~/components/interfaces/InterfaceTabButton";
 import { Tab } from "~/components/tabs/Tab";
 import { TabGroup } from "~/components/tabs/TabGroup";
 import { BuildelProvider, useBuildelSocket } from "../buildel/BuildelSocket";
+import { IWorkflowConfig, chatWorkflowConfig } from "./WorkflowConfigs";
+import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
 
 interface InterfacesProps {}
 
@@ -89,11 +97,90 @@ function ChatInterface() {
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
       <div className="w-full rounded-lg bg-dark/60 h-[30vh]">
-        <p>aa</p>
+        <SimpleWorkflowRenderer config={chatWorkflowConfig} />
       </div>
 
       <div className="w-full rounded-lg bg-dark/60">
         <p>aa</p>
+      </div>
+    </div>
+  );
+}
+
+function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
+  const { blocks } = config.config;
+  const container = useRef<HTMLDivElement>(null);
+  const [containerSize, setContainerSize] = useState<DOMRect | undefined>();
+
+  useIsomorphicLayoutEffect(() => {
+    setContainerSize(container.current?.getBoundingClientRect());
+  }, []);
+
+  const positionEdges = useMemo(
+    () =>
+      blocks.reduce(
+        (acc, block) => {
+          const xPadding = containerSize?.width || 200;
+          const yPadding = containerSize?.height || 200;
+          if (block.position.x - xPadding < acc.minX)
+            acc.minX = block.position.x - xPadding;
+          if (block.position.x + xPadding > acc.maxX)
+            acc.maxX = block.position.x + xPadding;
+          if (block.position.y - yPadding < acc.minY)
+            acc.minY = block.position.y - yPadding;
+          if (block.position.y + yPadding > acc.maxY)
+            acc.maxY = block.position.y + yPadding;
+          return acc;
+        },
+        {
+          minX: 0,
+          maxX: 0,
+          minY: 0,
+          maxY: 0,
+        }
+      ),
+    [blocks, containerSize]
+  );
+
+  const blocksWithNormalizedPositions = useMemo(
+    () =>
+      blocks.map((block) => {
+        const totalWidth = positionEdges.maxX - positionEdges.minX;
+        const totalHeight = positionEdges.maxY - positionEdges.minY;
+
+        const normalizedX =
+          ((block.position.x - positionEdges.minX) / totalWidth) * 100;
+        const normalizedY =
+          ((block.position.y - positionEdges.minY) / totalHeight) * 100;
+
+        return {
+          ...block,
+          position: {
+            x: normalizedX,
+            y: normalizedY,
+          },
+        };
+      }),
+    [blocks, positionEdges]
+  );
+
+  return (
+    <div className="w-full h-full p-4 flex">
+      <div className="w-full relative" ref={container}>
+        {blocksWithNormalizedPositions.map((block, index) => {
+          return (
+            <div
+              key={index}
+              className="absolute bg-white rounded-lg p-4 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md"
+              style={{
+                left: block.position.x + "%",
+                top: block.position.y + "%",
+              }}
+            >
+              <h3 className="text-dark">{block.name}</h3>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
