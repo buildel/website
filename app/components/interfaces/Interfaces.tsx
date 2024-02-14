@@ -1,18 +1,26 @@
-import { BuildelRunStatus, BuildelSocket } from "@buildel/buildel";
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { InterfaceTabButton } from "~/components/interfaces/InterfaceTabButton";
 import { Tab } from "~/components/tabs/Tab";
 import { TabGroup } from "~/components/tabs/TabGroup";
-import { BuildelProvider, useBuildelSocket } from "../buildel/BuildelSocket";
+import { BuildelProvider, usePipelineRun } from "../buildel/BuildelSocket";
 import { IWorkflowConfig, chatWorkflowConfig } from "./WorkflowConfigs";
 import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
-import { useResize } from "../useResize";
+import { IMessage, MessageRole } from "~/components/interfaces/chat.types";
+import cloneDeep from "lodash.clonedeep";
+import { v4 as uuidv4 } from "uuid";
+import {
+  ChatGeneratingAnimation,
+  ChatHeader,
+  ChatHeading,
+  ChatMessagesWrapper,
+  ChatStatus,
+  ChatWrapper,
+  IntroPanel,
+} from "~/components/interfaces/Chat.components";
+import { ChatInput } from "~/components/interfaces/ChatInput";
+import clsx from "clsx";
+import { ChatMessages } from "~/components/interfaces/ChatMessages";
+import { useResize } from "../useResize"
 
 interface InterfacesProps {}
 
@@ -57,43 +65,70 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
 };
 
 function ChatInterface() {
-  const buildel = useBuildelSocket();
+  const [messages, setMessages] = useState<IMessage[]>([]);
+  const [isGenerating, setIsGenerating] = useState(false);
 
-  useEffect(() => {
-    if (!buildel.buildel) return;
+  const onBlockOutput = (
+    blockId: string,
+    _outputName: string,
+    payload: unknown
+  ) => {
+    // todo: just text_output for now
+    if (!blockId.includes("text_output_1")) return;
 
-    const run = buildel.buildel.run(75, {
-      onBlockOutput: (
-        blockId: string,
-        outputName: string,
-        payload: unknown
-      ) => {
-        console.log(
-          `Output from block ${blockId}, output ${outputName}:`,
-          payload
-        );
-      },
-      onBlockStatusChange: (blockId: string, isWorking: boolean) => {
-        console.log(`Block ${blockId} is ${isWorking ? "working" : "stopped"}`);
-      },
-      onStatusChange: (status: BuildelRunStatus) => {
-        console.log(`Status changed: ${status}`);
-      },
-      onBlockError: (blockId: string, errors: string[]) => {
-        console.log(`Block ${blockId} errors: ${errors}`);
-      },
+    setMessages((prev) => {
+      const tmpPrev = cloneDeep(prev);
+      const lastMessage = tmpPrev[tmpPrev.length - 1];
+
+      if (lastMessage && lastMessage.role === "ai") {
+        tmpPrev[tmpPrev.length - 1].message += (
+          payload as { message: string }
+        ).message;
+
+        return tmpPrev;
+      }
+
+      return [
+        ...prev,
+        {
+          id: uuidv4(),
+          role: "ai",
+          message: (payload as { message: string }).message,
+          created_at: new Date(),
+        },
+      ];
     });
+  };
 
-    run.start().then(() => {
-      console.log("started");
-    });
+  const onBlockStatusChange = (blockId: string, isWorking: boolean) => {
+    if (blockId.includes("text_input_1") && isWorking) {
+      setIsGenerating(true);
+    }
+    // @todo handle this chat block name
+    if (blockId.includes("chat_1") && !isWorking) {
+      setIsGenerating(false);
+    }
+  };
 
-    return () => {
-      run.stop().then(() => {
-        console.log("stopped");
-      });
+  const { status, push } = usePipelineRun({
+    onBlockOutput,
+    onBlockStatusChange,
+  });
+
+  const handlePush = (message: string) => {
+    if (!message.trim()) return;
+
+    const newMessage = {
+      message,
+      id: uuidv4(),
+      role: "user" as MessageRole,
+      created_at: new Date(),
     };
-  }, [buildel.buildel]);
+
+    setMessages((prev) => [...prev, newMessage]);
+
+    push("text_input_1" + ":input", message);
+  };
 
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
@@ -101,8 +136,34 @@ function ChatInterface() {
         <SimpleWorkflowRenderer config={chatWorkflowConfig} />
       </div>
 
-      <div className="w-full rounded-lg bg-dark/60">
-        <p>aa</p>
+      <div className="w-full rounded-lg bg-dark/80">
+        <ChatWrapper className="max-w-[820px] h-full !py-4 relative">
+          <ChatHeader className="mb-1">
+            <div className="flex gap-2 items-center">
+              <ChatHeading>Simple Chat</ChatHeading>
+              <ChatStatus connectionStatus={status} />
+            </div>
+          </ChatHeader>
+
+          <ChatMessagesWrapper>
+            <ChatMessages messages={messages} />
+
+            <ChatGeneratingAnimation
+              messages={messages}
+              isGenerating={isGenerating}
+            />
+          </ChatMessagesWrapper>
+
+          <ChatInput
+            onSubmit={handlePush}
+            disabled={status !== "running"}
+            generating={isGenerating}
+          />
+
+          <IntroPanel className={clsx({ hidden: !!messages.length })}>
+            <p>Ask me anything!</p>
+          </IntroPanel>
+        </ChatWrapper>
       </div>
     </div>
   );

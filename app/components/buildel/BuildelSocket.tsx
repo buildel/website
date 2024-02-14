@@ -1,5 +1,5 @@
-import { BuildelSocket } from "@buildel/buildel";
-import { createContext, useContext, useEffect, useState } from "react";
+import { BuildelRun, BuildelRunStatus, BuildelSocket } from "@buildel/buildel";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const BuildelContext = createContext<{
   buildel: BuildelSocket | null;
@@ -45,4 +45,71 @@ export function useBuildelSocket() {
   }
 
   return context;
+}
+
+interface UsePipelineRunProps {
+  onBlockOutput?: (
+    blockId: string,
+    outputName: string,
+    payload: unknown
+  ) => void;
+  onBlockStatusChange?: (blockId: string, isWorking: boolean) => void;
+}
+
+export function usePipelineRun(props?: UsePipelineRunProps) {
+  const buildel = useBuildelSocket();
+  const runRef = useRef<BuildelRun>();
+  const [status, setStatus] = useState<BuildelRunStatus>("idle");
+
+  const push = (topic: string, payload: any) => {
+    if (!runRef.current) return;
+
+    runRef.current.push(topic, payload);
+  };
+
+  useEffect(() => {
+    if (!buildel.buildel) return;
+
+    const run = buildel.buildel.run(75, {
+      onBlockOutput: (
+        blockId: string,
+        outputName: string,
+        payload: unknown
+      ) => {
+        console.log(
+          `Output from block ${blockId}, output ${outputName}:`,
+          payload
+        );
+
+        props?.onBlockOutput?.(blockId, outputName, payload);
+      },
+      onBlockStatusChange: (blockId: string, isWorking: boolean) => {
+        console.log(`Block ${blockId} is ${isWorking ? "working" : "stopped"}`);
+
+        props?.onBlockStatusChange?.(blockId, isWorking);
+      },
+      onStatusChange: (status: BuildelRunStatus) => {
+        console.log(`Status changed: ${status}`);
+
+        setStatus(status);
+      },
+      onBlockError: (blockId: string, errors: string[]) => {
+        console.log(`Block ${blockId} errors: ${errors}`);
+      },
+    });
+
+    run.start().then(() => {
+      console.log("started");
+    });
+
+    runRef.current = run;
+
+    return () => {
+      run.stop().then(() => {
+        console.log("stopped");
+      });
+    };
+  }, [buildel.buildel]);
+
+  return { status, push };
 }
