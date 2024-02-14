@@ -84,9 +84,93 @@ export const chatWorkflowConfig: IWorkflowConfig = {
   },
 };
 
+export const multipleChatsWorkflowConfig: IWorkflowConfig = {
+  runId: 77,
+  name: "MultipleModels",
+  interface_config: { input: "Input", output: "Output", chat: "Leader" },
+  config: {
+    version: "1",
+    blocks: [
+      {
+        name: "Leader",
+        opts: {
+          api_key: "OpenAI",
+          api_type: "openai",
+          chat_memory_type: "rolling",
+          description: "",
+          endpoint: "https://api.openai.com/v1/chat/completions",
+          messages: [],
+          model: "gpt-3.5-turbo-1106",
+          prompt_template: "{{text_input_1:output}}",
+          system_message:
+            "You are a helpful assistant. Use available tools to answer questions.",
+          temperature: 0.7,
+        },
+        inputs: [],
+        position: { x: -285, y: -85 },
+        type: "chat",
+      },
+      {
+        name: "SpanishTranslator",
+        opts: {
+          api_key: "Gemini",
+          api_type: "google",
+          chat_memory_type: "off",
+          description: "Spanish translator",
+          endpoint:
+            "https://us-central1-aiplatform.googleapis.com/v1/projects/ferrous-linker-412611/locations/us-central1/publishers/google/models",
+          messages: [],
+          model: "gemini-pro",
+          prompt_template: "{{Leader:chat}}",
+          system_message: "Translate to spanish.",
+          temperature: 0.7,
+        },
+        inputs: [],
+        position: { x: -284.19225370319464, y: 198.6648983644884 },
+        type: "chat",
+      },
+      {
+        name: "Input",
+        opts: { pull: "on" },
+        inputs: [],
+        position: { x: -737.1007948137706, y: -12.913779357691794 },
+        type: "text_input",
+      },
+      {
+        name: "Output",
+        opts: { stream_timeout: 500 },
+        inputs: [],
+        position: { x: 162.30073656403613, y: -13.315666892449428 },
+        type: "text_output",
+      },
+    ],
+    connections: [
+      {
+        from: {
+          block_name: "SpanishTranslator",
+          output_name: "chat",
+          type: "worker",
+        },
+        to: { block_name: "Leader", input_name: "tool", type: "controller" },
+        opts: { reset: true },
+      },
+      {
+        from: { block_name: "Input", output_name: "output", type: "text" },
+        to: { block_name: "Leader", input_name: "input", type: "text" },
+        opts: { reset: true },
+      },
+      {
+        from: { block_name: "Leader", output_name: "output", type: "text" },
+        to: { block_name: "Output", input_name: "input", type: "text" },
+        opts: { reset: true },
+      },
+    ],
+  },
+};
+
 export const toolsWorkflowConfig: IWorkflowConfig = {
-  runId: 75,
-  name: "spacex",
+  runId: 78,
+  name: "SpaceX",
   interface_config: {
     input: "Input",
     output: "Output",
@@ -118,14 +202,14 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
           "GetWikipediaArticle:tool->tool?reset=true",
         ],
 
-        position: { x: -59.329715835489935, y: 31.4184335678394 },
+        position: { x: -50, y: -100 },
         type: "chat",
       },
       {
         name: "Input",
         opts: { pull: "on" },
         inputs: [],
-        position: { x: -388.99154236228895, y: -130.96831820918106 },
+        position: { x: -450, y: -130 },
         type: "text_input",
       },
       {
@@ -133,7 +217,7 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
         opts: { stream_timeout: 500 },
         inputs: ["SpaceXSpecialist:output->input?reset=true"],
 
-        position: { x: 236.250399661308, y: -130.74411793947291 },
+        position: { x: 380, y: -130 },
         type: "text_output",
       },
       {
@@ -149,7 +233,7 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
           url: "https://api.spacexdata.com/v5/launches/latest",
         },
         inputs: [],
-        position: { x: -394.11313058396496, y: 152.62690766843747 },
+        position: { x: -600, y: 150 },
         type: "api_call_tool",
       },
       {
@@ -166,7 +250,7 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
           url: "https://api.spacexdata.com/v4/crew/{{crew_member_id}}",
         },
         inputs: [],
-        position: { x: -53.63769350371808, y: 204.40039502470992 },
+        position: { x: -30, y: 200 },
         type: "api_call_tool",
       },
       {
@@ -183,7 +267,7 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
           url: "https://en.wikipedia.org/w/rest.php/v1/page/{{article_slug}}",
         },
         inputs: [],
-        position: { x: 303.14365333075585, y: 159.25417097314335 },
+        position: { x: 600, y: 160 },
         type: "api_call_tool",
       },
     ],

@@ -6,6 +6,7 @@ import { BuildelProvider, usePipelineRun } from "../buildel/BuildelSocket";
 import {
   IWorkflowConfig,
   chatWorkflowConfig,
+  multipleChatsWorkflowConfig,
   toolsWorkflowConfig,
 } from "./WorkflowConfigs";
 import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
@@ -43,13 +44,13 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
           <TabGroup defaultActiveTab="chat">
             <div className="w-full grid grid-cols-4 gap-2 mb-8 lg:mb-12">
               <InterfaceTabButton tabId="chat">Chat</InterfaceTabButton>
-              {/* <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton>
+              {/* <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton> */}
               <InterfaceTabButton tabId="multiple-models">
                 Multiple Models
               </InterfaceTabButton>
               <InterfaceTabButton tabId="api-tools">
                 Api Tools
-              </InterfaceTabButton> */}
+              </InterfaceTabButton>
             </div>
 
             <Tab tabId="chat">
@@ -57,13 +58,13 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
             </Tab>
             {/* <Tab tabId="memory">
               <ChatInterface config={chatWorkflowConfig} />
-            </Tab>
+</Tab> */}
             <Tab tabId="multiple-models">
-              <ChatInterface config={chatWorkflowConfig} />
+              <ChatInterface config={multipleChatsWorkflowConfig} />
             </Tab>
             <Tab tabId="api-tools">
               <ChatInterface config={toolsWorkflowConfig} />
-            </Tab> */}
+            </Tab>
           </TabGroup>
         </BuildelProvider>
       </div>

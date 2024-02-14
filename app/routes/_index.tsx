@@ -110,43 +110,62 @@ export default function Index() {
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
-                  <Code className="w-6 h-6" />
+                  {/* <Code className="w-6 h-6" /> */}
                   <h3 className="text-xl">No Code Required</h3>
+                  <p>
+                    You don't need to write a single line of code. Just pick and
+                    connect the blocks and you are good to go.
+                  </p>
                 </header>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
-                  <Code className="w-6 h-6" />
+                  {/* <Code className="w-6 h-6" /> */}
                   <h3 className="text-xl">Pre-built Use Cases</h3>
+                  <p>
+                    We have pre-built use cases that you can use to get started
+                    quickly.
+                  </p>
                 </header>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
-                  <Code className="w-6 h-6" />
                   <h3 className="text-xl">Bring Your Own Keys</h3>
+                  <p>
+                    You can use your own API keys for the blocks that need them.
+                  </p>
                 </header>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
-                  <Code className="w-6 h-6" />
                   <h3 className="text-xl">Open Source</h3>
+                  <p>
+                    Buildel is open source. You can host it for free on your own
+                    and contribute to it.
+                  </p>
                 </header>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
-                  <Code className="w-6 h-6" />
                   <h3 className="text-xl">Multiple Providers</h3>
+                  <p>
+                    We support multiple providers for the same type of block.
+                    Use OpenAI, Google, Mistral and many more.
+                  </p>
                 </header>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
-                  <Code className="w-6 h-6" />
                   <h3 className="text-xl">Different Interfaces</h3>
+                  <p>
+                    You can build different interfaces for the same workflow.
+                    Use chat, api, or any other interface.
+                  </p>
                 </header>
               </article>
             </div>
@@ -161,11 +180,14 @@ export default function Index() {
                   Use <span className="text-secondary-500">EL</span> to build
                   workflows
                 </h2>
-                {/* <p className="text-sm md:text-base max-w-3xl mx-auto">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
-                  fuga pariatur repellendus. Ad asperiores beatae facilis id,
-                  illo molestiae qui.
-                </p> */}
+                <p className="text-sm md:text-base max-w-3xl mx-auto">
+                  You can use EL to build sophisticated workflows that fulfill
+                  all your needs. No need to write code, just ask EL to do it
+                  for you.
+                </p>
+                <div className="items-center flex justify-center mt-8 p-4 overflow-hidden">
+                  <img src="/assets/EL.png" className="rounded-lg" />
+                </div>
               </header>
 
               {/* <div className="h-[50vh] bg-zinc-900/80 border border-neutral-950 rounded-lg">
