@@ -4,6 +4,7 @@ import { ItemList } from "~/components/list/ItemList";
 
 import { ChatSize, IMessage, MessageRole } from "./chat.types";
 import clsx from "clsx";
+import { ChatMarkdown } from "~/components/interfaces/ChatMarkdown";
 
 interface ChatMessagesProps {
   messages: IMessage[];
@@ -26,7 +27,7 @@ export function ChatMessages({ messages, initialMessages }: ChatMessagesProps) {
       items={reversed}
       renderItem={(msg) => (
         <ChatMessage role={msg.role}>
-          <p className="text-xs text-neutral-100">{msg.message}</p>
+          <ChatMarkdown>{msg.message}</ChatMarkdown>
         </ChatMessage>
       )}
     />

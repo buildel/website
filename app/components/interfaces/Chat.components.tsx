@@ -145,7 +145,7 @@ export const IntroPanel = ({
   return (
     <article
       className={clsx(
-        "p-4 bg-dark/50 rounded-xl text-neutral-100 text-sm absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
+        "p-4 bg-dark/50 rounded-xl text-neutral-100 text-sm absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 border border-neutral-950",
         className
       )}
     >

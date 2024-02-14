@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import clsx from "clsx";
+import { Send } from "~/icons/Send";
 
 interface ChatInputProps {
   onSubmit: (message: string) => void;
@@ -40,7 +41,7 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
       className={clsx(
         "relative w-full overflow-hidden rounded-full border border-neutral-950 bg-dark/50",
         {
-          "outline outline-[1px] outline-offset-1 outline-primary-500 ":
+          "outline outline-[1px] outline-offset-1 outline-primary-400":
             isFocused,
         }
       )}
@@ -57,9 +58,9 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
 
       <button
         disabled={isDisabled}
-        className="absolute top-1/2 right-1 -translate-y-1/2 text-white w-6 h-6 rounded-full bg-primary-600 hover:bg-primary-500 flex justify-center items-center disabled:bg-neutral-950 disabled:text-neutral-300"
+        className="absolute top-1/2 right-1 -translate-y-1/2 text-neutral-100 w-6 h-6 rounded-full bg-primary-600 hover:bg-primary-500 flex justify-center items-center disabled:bg-neutral-950 disabled:text-neutral-300"
       >
-        send
+        <Send className={clsx("w-3 h-3")} />
         {/*<Icon*/}
         {/*  size="none"*/}
         {/*  iconName={generating ? "loader" : "send"}*/}

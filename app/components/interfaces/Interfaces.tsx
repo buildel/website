@@ -144,16 +144,16 @@ function ChatInterface() {
   };
 
   return (
-    <div className="flex flex-col gap-4 lg:flex-row">
-      <div className="w-full rounded-lg h-[30vh]">
+    <div className="grid grid-rows-[350px_350px] grid-cols-1 md:grid-cols-2 md:grid-rows-[450px] gap-4">
+      <div className="w-full rounded-lg h-full">
         <SimpleWorkflowRenderer
           config={chatWorkflowConfig}
           blockStates={blockStates}
         />
       </div>
 
-      <div className="w-full rounded-lg bg-dark/80">
-        <ChatWrapper className="max-w-[820px] h-full !py-4 relative">
+      <div className="w-full rounded-lg bg-dark/80 h-full">
+        <ChatWrapper className="h-full !py-4 relative">
           <ChatHeader className="mb-1">
             <div className="flex gap-2 items-center">
               <ChatHeading>Simple Chat</ChatHeading>

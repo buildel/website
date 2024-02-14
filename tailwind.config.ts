@@ -5,6 +5,15 @@ export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#EBEBEB",
+            fontSize: "12px",
+            lineHeight: "20px",
+          },
+        },
+      },
       colors: {
         dark: "#121212",
 
