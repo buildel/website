@@ -6,16 +6,16 @@ const blocks = [
     name: "Charles Dickens",
   },
   {
-    name: "Charles Dickens",
+    name: "Charles Dickens 2",
   },
   {
-    name: "Charles Dickens",
+    name: "Charles Dickens 3",
   },
   {
-    name: "Charles Dickens",
+    name: "Charles Dickens 4",
   },
   {
-    name: "Charles Dickens",
+    name: "Charles Dickens 5",
   },
 ];
 
