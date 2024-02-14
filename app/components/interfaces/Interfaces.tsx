@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TabGroup } from "~/components/tabs/TabGroup";
 import { Tab, TabButton } from "~/components/tabs/Tab";
 import { InterfaceTabButton } from "~/components/interfaces/InterfaceTabButton";
 interface InterfacesProps {}
-
+import { BuildelRunStatus, BuildelSocket } from "@buildel/buildel";
 export const Interfaces: React.FC<InterfacesProps> = () => {
+  useEffect(() => {
+    const organizationId = 27;
+    const authUrl = "/buildel/auth";
+    const buildel = new BuildelSocket(organizationId, { authUrl });
+
+    const run = buildel.run(75, {
+      onBlockOutput: (
+        blockId: string,
+        outputName: string,
+        payload: unknown
+      ) => {
+        console.log(
+          `Output from block ${blockId}, output ${outputName}:`,
+          payload
+        );
+      },
+      onBlockStatusChange: (blockId: string, isWorking: boolean) => {
+        console.log(`Block ${blockId} is ${isWorking ? "working" : "stopped"}`);
+      },
+      onStatusChange: (status: BuildelRunStatus) => {
+        console.log(`Status changed: ${status}`);
+      },
+      onBlockError: (blockId: string, errors: string[]) => {
+        console.log(`Block ${blockId} errors: ${errors}`);
+      },
+    });
+
+    buildel.connect().then(() => run.start());
+
+    return () => {
+      buildel.disconnect();
+    };
+  }, []);
+
   return (
     <section>
       <header className="text-center">
