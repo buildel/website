@@ -15,6 +15,11 @@ export interface IWorkflowConfig {
       opts: { reset: boolean };
     }[];
   };
+  interface_config: {
+    input: string;
+    output: string;
+    chat: string;
+  };
 }
 
 export const chatWorkflowConfig: IWorkflowConfig = {
@@ -76,5 +81,10 @@ export const chatWorkflowConfig: IWorkflowConfig = {
         opts: { reset: true },
       },
     ],
+  },
+  interface_config: {
+    input: "text_input_1",
+    output: "text_output_1",
+    chat: "chat_1",
   },
 };

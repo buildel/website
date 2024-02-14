@@ -11,6 +11,7 @@ interface ChatInputProps {
 export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const inputRef = React.createRef<HTMLInputElement>();
 
   const isDisabled = useMemo(() => {
     return disabled || generating || !value.trim();
@@ -33,6 +34,7 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
     e.preventDefault();
     onSubmit(value);
     setValue("");
+    inputRef.current?.focus();
   };
 
   return (
@@ -54,6 +56,7 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
         onFocus={onFocus}
         onBlur={onBlur}
         onChange={onChange}
+        ref={inputRef}
       />
 
       <button

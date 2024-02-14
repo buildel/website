@@ -31,11 +31,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
         <h2 className="text-3xl md:text-5xl mb-2">
           Try <span className="text-secondary-500">Buildel</span> Interfaces
         </h2>
-        <p className="text-sm md:text-base max-w-3xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At fuga
-          pariatur repellendus. Ad asperiores beatae facilis id, illo molestiae
-          qui.
-        </p>
+        <p className="text-sm md:text-base max-w-3xl mx-auto"></p>
       </header>
 
       <div className="mt-10 lg:mt-14">
@@ -45,7 +41,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
               <InterfaceTabButton tabId="chat">Chat</InterfaceTabButton>
               <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton>
               <InterfaceTabButton tabId="providers">
-                Providers
+                Multiple Models
               </InterfaceTabButton>
               <InterfaceTabButton tabId="api-tools">
                 Api Tools
@@ -53,7 +49,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
             </div>
 
             <Tab tabId="chat">
-              <ChatInterface />
+              <ChatInterface config={chatWorkflowConfig} />
             </Tab>
             <Tab tabId="memory">memory</Tab>
             <Tab tabId="api-tools">api-tools</Tab>
@@ -64,12 +60,12 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
   );
 };
 
-function ChatInterface() {
+function ChatInterface({ config }: { config: IWorkflowConfig }) {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [blockStates, setBlockStates] = useState<Map<string, boolean>>(() => {
     const blockStates = new Map<string, boolean>();
-    chatWorkflowConfig.config.blocks.forEach((block) => {
+    config.config.blocks.forEach((block) => {
       blockStates.set(block.name, false);
     });
     return blockStates;
@@ -81,7 +77,7 @@ function ChatInterface() {
     payload: unknown
   ) => {
     // todo: just text_output for now
-    if (!blockId.includes("text_output_1")) return;
+    if (!blockId.includes(config.interface_config.output)) return;
 
     setMessages((prev) => {
       const tmpPrev = cloneDeep(prev);
@@ -108,11 +104,11 @@ function ChatInterface() {
   };
 
   const onBlockStatusChange = (blockId: string, isWorking: boolean) => {
-    if (blockId.includes("text_input_1") && isWorking) {
+    if (blockId.includes(config.interface_config.input) && isWorking) {
       setIsGenerating(true);
     }
     // @todo handle this chat block name
-    if (blockId.includes("chat_1") && !isWorking) {
+    if (blockId.includes(config.interface_config.chat) && !isWorking) {
       setIsGenerating(false);
     }
 
@@ -140,16 +136,13 @@ function ChatInterface() {
 
     setMessages((prev) => [...prev, newMessage]);
 
-    push("text_input_1" + ":input", message);
+    push(config.interface_config.input + ":input", message);
   };
 
   return (
     <div className="grid grid-rows-[350px_350px] grid-cols-1 md:grid-cols-2 md:grid-rows-[450px] gap-4">
       <div className="w-full rounded-lg h-full">
-        <SimpleWorkflowRenderer
-          config={chatWorkflowConfig}
-          blockStates={blockStates}
-        />
+        <SimpleWorkflowRenderer config={config} blockStates={blockStates} />
       </div>
 
       <div className="w-full rounded-lg bg-dark/80 h-full">
