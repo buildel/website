@@ -20,7 +20,7 @@ import {
 import { ChatInput } from "~/components/interfaces/ChatInput";
 import clsx from "clsx";
 import { ChatMessages } from "~/components/interfaces/ChatMessages";
-import { useResize } from "../useResize"
+import { useResize } from "../useResize";
 
 interface InterfacesProps {}
 
@@ -67,6 +67,13 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
 function ChatInterface() {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [blockStates, setBlockStates] = useState<Map<string, boolean>>(() => {
+    const blockStates = new Map<string, boolean>();
+    chatWorkflowConfig.config.blocks.forEach((block) => {
+      blockStates.set(block.name, false);
+    });
+    return blockStates;
+  });
 
   const onBlockOutput = (
     blockId: string,
@@ -108,6 +115,12 @@ function ChatInterface() {
     if (blockId.includes("chat_1") && !isWorking) {
       setIsGenerating(false);
     }
+
+    setBlockStates((prev) => {
+      const newBlockStates = new Map(prev);
+      newBlockStates.set(blockId, isWorking);
+      return newBlockStates;
+    });
   };
 
   const { status, push } = usePipelineRun({
@@ -133,7 +146,10 @@ function ChatInterface() {
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
       <div className="w-full rounded-lg h-[30vh]">
-        <SimpleWorkflowRenderer config={chatWorkflowConfig} />
+        <SimpleWorkflowRenderer
+          config={chatWorkflowConfig}
+          blockStates={blockStates}
+        />
       </div>
 
       <div className="w-full rounded-lg bg-dark/80">
@@ -169,7 +185,13 @@ function ChatInterface() {
   );
 }
 
-function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
+function SimpleWorkflowRenderer({
+  config,
+  blockStates,
+}: {
+  config: IWorkflowConfig;
+  blockStates: Map<string, boolean>;
+}) {
   const { blocks, connections } = config.config;
   const container = useRef<HTMLDivElement>(null);
   const blockPositions = useRef<
@@ -180,7 +202,6 @@ function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
 
   useIsomorphicLayoutEffect(() => {
     setContainerSize(container.current?.getBoundingClientRect());
-    console.log("containerSize", containerSize);
   }, [windowSize]);
 
   const positionEdges = useMemo(
@@ -247,7 +268,14 @@ function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
                 });
               }}
               key={index}
-              className="absolute bg-neutral-800 rounded-lg p-4 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md"
+              className={clsx(
+                "absolute bg-neutral-800 rounded-lg p-4 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
+                {
+                  ["border-primary-500 bg-primary-500"]: blockStates.get(
+                    block.name
+                  ),
+                }
+              )}
               style={{
                 left: block.position.x + "%",
                 top: block.position.y + "%",
@@ -301,7 +329,7 @@ function SimpleWorkflowRenderer({ config }: { config: IWorkflowConfig }) {
             // ></div>,
             <svg className="absolute w-full h-full">
               <line
-                className="stroke-current"
+                className="stroke-current animate"
                 strokeDasharray={3}
                 style={{ strokeWidth: 1 }}
                 x1={outputPosition.left}
