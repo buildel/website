@@ -54,9 +54,10 @@ interface UsePipelineRunProps {
     payload: unknown
   ) => void;
   onBlockStatusChange?: (blockId: string, isWorking: boolean) => void;
+  runId: number;
 }
 
-export function usePipelineRun(props?: UsePipelineRunProps) {
+export function usePipelineRun(props: UsePipelineRunProps) {
   const buildel = useBuildelSocket();
   const runRef = useRef<BuildelRun>();
   const [status, setStatus] = useState<BuildelRunStatus>("idle");
@@ -70,7 +71,7 @@ export function usePipelineRun(props?: UsePipelineRunProps) {
   useEffect(() => {
     if (!buildel.buildel) return;
 
-    const run = buildel.buildel.run(75, {
+    const run = buildel.buildel.run(props.runId, {
       onBlockOutput: (
         blockId: string,
         outputName: string,

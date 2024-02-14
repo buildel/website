@@ -56,7 +56,7 @@ export default function Index() {
             <div className="flex items-center gap-6">
               <Navigation />
 
-              <a href="https://buildel-web.fly.dev">
+              <a href="https://app.buildel.ai">
                 <Button
                   variant="basic"
                   type="filled"
@@ -98,11 +98,11 @@ export default function Index() {
               <h2 className="text-3xl md:text-5xl mb-2">
                 From idea to production, fast.
               </h2>
-              <p className="text-sm md:text-base max-w-3xl mx-auto">
+              {/* <p className="text-sm md:text-base max-w-3xl mx-auto">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
                 fuga pariatur repellendus. Ad asperiores beatae facilis id, illo
                 molestiae qui.
-              </p>
+              </p> */}
             </header>
 
             <div className="relative mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:mt-16">
@@ -113,12 +113,6 @@ export default function Index() {
                   <Code className="w-6 h-6" />
                   <h3 className="text-xl">No Code Required</h3>
                 </header>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, laborum veritatis? Delectus excepturi nostrum
-                  quaerat.
-                </p>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
@@ -126,64 +120,34 @@ export default function Index() {
                   <Code className="w-6 h-6" />
                   <h3 className="text-xl">Pre-built Use Cases</h3>
                 </header>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, laborum veritatis? Delectus excepturi nostrum
-                  quaerat.
-                </p>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
                   <Code className="w-6 h-6" />
-                  <h3 className="text-xl">White-Glove Support</h3>
+                  <h3 className="text-xl">Bring Your Own Keys</h3>
                 </header>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, laborum veritatis? Delectus excepturi nostrum
-                  quaerat.
-                </p>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
                   <Code className="w-6 h-6" />
-                  <h3 className="text-xl">White-Glove Support</h3>
+                  <h3 className="text-xl">Open Source</h3>
                 </header>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, laborum veritatis? Delectus excepturi nostrum
-                  quaerat.
-                </p>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
                   <Code className="w-6 h-6" />
-                  <h3 className="text-xl">White-Glove Support</h3>
+                  <h3 className="text-xl">Multiple Providers</h3>
                 </header>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, laborum veritatis? Delectus excepturi nostrum
-                  quaerat.
-                </p>
               </article>
 
               <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
                 <header className="mb-2 flex flex-col gap-2">
                   <Code className="w-6 h-6" />
-                  <h3 className="text-xl">White-Glove Support</h3>
+                  <h3 className="text-xl">Different Interfaces</h3>
                 </header>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores, laborum veritatis? Delectus excepturi nostrum
-                  quaerat.
-                </p>
               </article>
             </div>
           </section>
@@ -194,18 +158,19 @@ export default function Index() {
             <section className="relative">
               <header className="text-center mb-10 lg:mb-14">
                 <h2 className="relative text-3xl md:text-5xl mb-2">
-                  Something about <span className="text-secondary-500">EL</span>
+                  Use <span className="text-secondary-500">EL</span> to build
+                  workflows
                 </h2>
-                <p className="text-sm md:text-base max-w-3xl mx-auto">
+                {/* <p className="text-sm md:text-base max-w-3xl mx-auto">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
                   fuga pariatur repellendus. Ad asperiores beatae facilis id,
                   illo molestiae qui.
-                </p>
+                </p> */}
               </header>
 
-              <div className="h-[50vh] bg-zinc-900/80 border border-neutral-950 rounded-lg">
+              {/* <div className="h-[50vh] bg-zinc-900/80 border border-neutral-950 rounded-lg">
                 aaa
-              </div>
+              </div> */}
             </section>
           </SectionWrapper>
         </div>
@@ -219,7 +184,7 @@ export default function Index() {
               </h2>
 
               <a
-                href="#"
+                href="https://discord.gg/Yzex6E7e"
                 className="lg:ml-auto lg:mr-0 bg-white px-5 py-3 rounded text-dark w-fit flex gap-2 items-center lg:text-xl transition"
               >
                 <Discord className="w-6 h-6 lg:w-8 lg:h-8" /> Join on Discord
@@ -228,13 +193,13 @@ export default function Index() {
           </SectionWrapper>
         </div>
 
-        <div className="my-10 lg:my-20 relative ">
+        {/* <div className="my-10 lg:my-20 relative ">
           <div className="h-[60vh] w-full absolute top-1/2 left-0 right-0 -translate-y-1/2  z-0 colored-gradient" />
 
           <SectionWrapper className="relative py-10 lg:pt-20 lg:pb-24">
             <Workflows />
           </SectionWrapper>
-        </div>
+        </div> */}
 
         <div className="bg-zinc-900 my-10 lg:my-20 py-10 lg:py-24">
           <BlocksSection />
@@ -244,8 +209,7 @@ export default function Index() {
           <section className="flex flex-col gap-3 items-center lg:gap-8">
             <header>
               <h2 className="text-4xl max-w-[800px] mx-auto text-center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius,
-                sit.
+                Bring your AI ideas to life with Buildel
               </h2>
             </header>
 
