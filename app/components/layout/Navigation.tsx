@@ -6,14 +6,14 @@ interface NavigationProps {}
 export const Navigation: React.FC<NavigationProps> = () => {
   return (
     <nav>
-      <ul className="flex items-center gap-3">
+      {/* <ul className="flex items-center gap-3">
         <li>
           <NavigationLink to="#">Documentation</NavigationLink>
         </li>
         <li>
           <NavigationLink to="#">Pricing</NavigationLink>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 };

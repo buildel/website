@@ -56,9 +56,16 @@ export default function Index() {
             <div className="flex items-center gap-6">
               <Navigation />
 
-              <Button variant="basic" type="filled" className="!py-1">
-                Sign up
-              </Button>
+              <a href="https://buildel-web.fly.dev">
+                <Button
+                  variant="basic"
+                  type="filled"
+                  className="!py-1"
+                  tabIndex={-1}
+                >
+                  Sign up
+                </Button>
+              </a>
             </div>
           </header>
         </SectionWrapper>
