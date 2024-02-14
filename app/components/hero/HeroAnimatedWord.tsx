@@ -12,13 +12,13 @@ export const HeroAnimatedWord: React.FC<HeroAnimatedWordProps> = ({
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="overflow-hidden h-[72px] relative">
+    <div className="h-[72px] relative">
       {words.map((word, index) => (
         <div
           key={word}

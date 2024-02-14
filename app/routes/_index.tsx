@@ -92,12 +92,6 @@ export default function Index() {
           </SectionWrapper>
         </div>
 
-        {/*<div className="test mt-10 lg:mt-20">*/}
-        {/*  <SectionWrapper className="py-10 lg:py-24 h-[50vh]">*/}
-        {/*    <p>aaa</p>*/}
-        {/*  </SectionWrapper>*/}
-        {/*</div>*/}
-
         <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
           <section>
             <header className="text-center">
