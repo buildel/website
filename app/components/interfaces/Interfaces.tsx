@@ -259,7 +259,7 @@ function SimpleWorkflowRenderer({
   );
 
   return (
-    <div className="w-full h-full p-4 flex relative bg-dark bg-hero-pattern bg-[size:300%] rounded-lg">
+    <div className="w-full h-full p-4 flex relative bg-dark/80 bg-hero-pattern bg-[size:300%] rounded-lg">
       <div className="w-full relative" ref={container}>
         {blocksWithNormalizedPositions.map((block, index) => {
           return (
