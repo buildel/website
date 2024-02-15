@@ -261,7 +261,11 @@ function Link({
   ...rest
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <a className={clsx("text-primary-500", className)} {...rest}>
+    <a
+      className={clsx("text-primary-500 underline", className)}
+      {...rest}
+      target="_blank"
+    >
       {children}
     </a>
   );
