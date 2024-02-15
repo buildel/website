@@ -1,26 +1,18 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { Hero } from "~/components/hero/Hero";
-import { Navigation } from "~/components/layout/Navigation";
-import { Logo } from "~/icons/Logo";
-import { PropsWithChildren } from "react";
 import { ClientsBanner } from "~/components/clients/ClientsBanner";
-import clsx from "clsx";
 import { Button } from "~/components/buttons/Button";
 import { Interfaces } from "~/components/interfaces/Interfaces";
-import { Discord } from "~/icons/Discord";
-import { Code } from "~/icons/Code";
 import { Workflows } from "~/components/workflows/Workflows";
 import { BlocksSection } from "~/components/blocks/BlocksSection";
-import { json } from "@remix-run/node";
 import { BlockTypeApi } from "~/api/blockTypesApi";
-import { Puzzle } from "~/icons/Puzzle";
-import { DocumentChart } from "~/icons/DocumentChart";
-import { ChatBubble } from "~/icons/ChatBubble";
-import { LockClosed } from "~/icons/LockClosed";
-import { GlobeEurope } from "~/icons/GlobeEurope";
-import { Meteors } from "~/components/meteors/Meteors";
 import { PropertiesSection } from "~/components/properites/PropertiesSection";
 import { SectionWrapper } from "~/components/layout/Layout.components";
+import { Header } from "~/components/layout/Header";
+import { ElSection } from "~/components/el/ElSection";
+import { CommunitySection } from "~/components/community/CommunitySection";
+import { Footer } from "~/components/layout/Footer";
 
 export const meta: MetaFunction = () => {
   return [
@@ -58,24 +50,7 @@ export default function Index() {
     <>
       <div className="border-b border-neutral-900 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
-          <header className="flex gap-4 justify-between items-center">
-            <Logo className="h-[24px]" />
-
-            <div className="flex items-center gap-6">
-              <Navigation />
-
-              <a href="https://app.buildel.ai">
-                <Button
-                  variant="basic"
-                  type="filled"
-                  className="!py-1"
-                  tabIndex={-1}
-                >
-                  Sign up
-                </Button>
-              </a>
-            </div>
-          </header>
+          <Header />
         </SectionWrapper>
       </div>
 
@@ -108,44 +83,13 @@ export default function Index() {
 
         <div className="one-step-gradient">
           <SectionWrapper className="py-10 lg:pt-20 lg:pb-24">
-            <section className="relative">
-              <header className="text-center mb-10 lg:mb-14">
-                <h2 className="relative text-3xl md:text-5xl mb-2">
-                  Use <span className="text-secondary-500">EL</span> to build
-                  workflows
-                </h2>
-                <p className="text-sm md:text-base max-w-3xl mx-auto">
-                  You can use EL to build sophisticated workflows that fulfill
-                  all your needs. No need to write code, just ask EL to do it
-                  for you.
-                </p>
-                <div className="items-center flex justify-center mt-8 p-4 overflow-hidden">
-                  <img src="/assets/EL.png" className="rounded-lg" />
-                </div>
-              </header>
-
-              {/* <div className="h-[50vh] bg-zinc-900/80 border border-neutral-950 rounded-lg">
-                aaa
-              </div> */}
-            </section>
+            <ElSection />
           </SectionWrapper>
         </div>
 
         <div className="bg-zinc-900 border-b border-neutral-950">
           <SectionWrapper className="py-10 lg:py-24">
-            <section className="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_300px] items-center">
-              <h2 className="text-2xl md:text-4xl">
-                <span className="font-bold">Join our growing community.</span>{" "}
-                Find inspiration, support and connect with other builders.
-              </h2>
-
-              <a
-                href="https://discord.gg/Yzex6E7e"
-                className="lg:ml-auto lg:mr-0 bg-white px-5 py-3 rounded text-dark w-fit flex gap-2 items-center lg:text-xl transition"
-              >
-                <Discord className="w-6 h-6 lg:w-8 lg:h-8" /> Join on Discord
-              </a>
-            </section>
+            <CommunitySection />
           </SectionWrapper>
         </div>
 
@@ -174,24 +118,11 @@ export default function Index() {
         </SectionWrapper>
       </main>
 
-      <footer className="border-t border-neutral-950">
+      <div className="border-t border-neutral-950">
         <SectionWrapper className="py-10 lg:py-16">
-          <Logo className="w-[80px] text-neutral-100" />
-
-          <p className="text-xs mt-2 max-w-[400px] text-neutral-200">
-            Boost Efficiency & Automate Tasks: Build Your AI Dream Team in
-            Minutes without Writing a Line of Code
-          </p>
-
-          <a
-            href="https://discord.gg/Yzex6E7e"
-            target="_blank "
-            className="text-neutral-200 hover:text-neutral-100"
-          >
-            <Discord className="w-5 h-5 mt-3" />
-          </a>
+          <Footer />
         </SectionWrapper>
-      </footer>
+      </div>
     </>
   );
 }

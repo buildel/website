@@ -26,16 +26,22 @@ import { ChatInput } from "~/components/interfaces/ChatInput";
 import clsx from "clsx";
 import { ChatMessages } from "~/components/interfaces/ChatMessages";
 import { useResize } from "../useResize";
+import {
+  Section,
+  SectionHeader,
+  SectionHeading,
+  SectionSubheading,
+} from "~/components/layout/Layout.components";
 
 interface InterfacesProps {}
 
 export const Interfaces: React.FC<InterfacesProps> = () => {
   return (
-    <section>
-      <header className="text-center">
-        <h2 className="text-3xl md:text-5xl mb-2">Try Buildel Interfaces</h2>
-        <p className="text-sm md:text-base max-w-3xl mx-auto"></p>
-      </header>
+    <Section>
+      <SectionHeader>
+        <SectionHeading>Try Buildel Interfaces</SectionHeading>
+        <SectionSubheading></SectionSubheading>
+      </SectionHeader>
 
       <div className="mt-10 lg:mt-14">
         <BuildelProvider>
@@ -66,7 +72,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
           </TabGroup>
         </BuildelProvider>
       </div>
-    </section>
+    </Section>
   );
 };
 

@@ -11,8 +11,15 @@ export const SectionWrapper: React.FC<
   );
 };
 
-export const Section: React.FC<PropsWithChildren> = ({ children }) => {
-  return <section>{children}</section>;
+interface SectionProps {
+  className?: string;
+}
+
+export const Section: React.FC<PropsWithChildren<SectionProps>> = ({
+  children,
+  className,
+}) => {
+  return <section className={className}>{children}</section>;
 };
 
 interface SectionHeaderProps {
@@ -24,6 +31,19 @@ export const SectionHeader: React.FC<PropsWithChildren<SectionHeaderProps>> = ({
   children,
 }) => {
   return <header className={clsx("text-center", className)}>{children}</header>;
+};
+
+interface TextAccentProps {
+  className?: string;
+}
+
+export const TextAccent: React.FC<PropsWithChildren<TextAccentProps>> = ({
+  children,
+  className,
+}) => {
+  return (
+    <span className={clsx("text-secondary-500", className)}>{children}</span>
+  );
 };
 
 interface SectionHeadingProps {
