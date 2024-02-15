@@ -13,11 +13,11 @@ export const BlocksSection: React.FC = () => {
         <h2 className="text-4xl max-w-[800px] mx-auto text-center mb-2">
           Over 30 blocks
         </h2>
-        <p className="text-sm md:text-base max-w-3xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At fuga
-          pariatur repellendus. Ad asperiores beatae facilis id, illo molestiae
-          qui.
-        </p>
+        {/*<p className="text-sm md:text-base max-w-3xl mx-auto">*/}
+        {/*  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At fuga*/}
+        {/*  pariatur repellendus. Ad asperiores beatae facilis id, illo molestiae*/}
+        {/*  qui.*/}
+        {/*</p>*/}
       </header>
 
       <div className="relative flex flex-col gap-3">
