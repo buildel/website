@@ -13,6 +13,12 @@ import { Workflows } from "~/components/workflows/Workflows";
 import { BlocksSection } from "~/components/blocks/BlocksSection";
 import { json } from "@remix-run/node";
 import { BlockTypeApi } from "~/api/blockTypesApi";
+import { Puzzle } from "~/icons/Puzzle";
+import { DocumentChart } from "~/icons/DocumentChart";
+import { ChatBubble } from "~/icons/ChatBubble";
+import { LockClosed } from "~/icons/LockClosed";
+import { GlobeEurope } from "~/icons/GlobeEurope";
+import { Meteors } from "~/components/meteors/Meteors";
 
 export const meta: MetaFunction = () => {
   return [
@@ -100,75 +106,111 @@ export default function Index() {
               <h2 className="text-3xl md:text-5xl mb-2">
                 From idea to production, fast.
               </h2>
-              {/* <p className="text-sm md:text-base max-w-3xl mx-auto">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
-                fuga pariatur repellendus. Ad asperiores beatae facilis id, illo
-                molestiae qui.
-              </p> */}
+
+              <p className="text-sm md:text-base max-w-3xl mx-auto">
+                Whether crafting a basic application or architecting an advanced
+                AI-driven solution, Buildel supports your development journey at
+                every step
+              </p>
             </header>
 
             <div className="relative mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:mt-16">
               <div className="hidden pointer-events-none radial-mask z-0 w-[800px] aspect-square lg:w-[1000px] absolute top-1/4 right-1/2 translate-x-1/2 bg-no-repeat md:block" />
 
-              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
-                <header className="mb-2 flex flex-col gap-2">
-                  {/* <Code className="w-6 h-6" /> */}
+              <article className="group overflow-hidden relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="relative z-10 mb-2 flex flex-col gap-2">
+                  <Puzzle className="w-6 h-6 mb-2" />
+
                   <h3 className="text-xl">No Code Required</h3>
+
                   <p>
                     You don't need to write a single line of code. Just pick and
                     connect the blocks and you are good to go.
                   </p>
                 </header>
+
+                <div className="hidden group-hover:block">
+                  <Meteors />
+                </div>
               </article>
 
-              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
-                <header className="mb-2 flex flex-col gap-2">
-                  {/* <Code className="w-6 h-6" /> */}
+              <article className="group overflow-hidden relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="relative z-10 mb-2 flex flex-col gap-2">
+                  <DocumentChart className="w-6 h-6 mb-2" />
+
                   <h3 className="text-xl">Pre-built Use Cases</h3>
                   <p>
                     We have pre-built use cases that you can use to get started
                     quickly.
                   </p>
                 </header>
+
+                <div className="hidden group-hover:block">
+                  <Meteors />
+                </div>
               </article>
 
-              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
-                <header className="mb-2 flex flex-col gap-2">
+              <article className="group overflow-hidden relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="relative z-10 mb-2 flex flex-col gap-2">
+                  <LockClosed className="w-6 h-6 mb-2" />
+
                   <h3 className="text-xl">Bring Your Own Keys</h3>
                   <p>
                     You can use your own API keys for the blocks that need them.
                   </p>
                 </header>
+
+                <div className="hidden group-hover:block">
+                  <Meteors />
+                </div>
               </article>
 
-              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
-                <header className="mb-2 flex flex-col gap-2">
+              <article className="group overflow-hidden relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="relative z-10 mb-2 flex flex-col gap-2">
+                  <Code className="w-6 h-6 mb-2" />
+
                   <h3 className="text-xl">Open Source</h3>
                   <p>
                     Buildel is open source. You can host it for free on your own
                     and contribute to it.
                   </p>
                 </header>
+
+                <div className="hidden group-hover:block">
+                  <Meteors />
+                </div>
               </article>
 
-              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
-                <header className="mb-2 flex flex-col gap-2">
+              <article className="group overflow-hidden relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="relative z-10 mb-2 flex flex-col gap-2">
+                  <GlobeEurope className="w-6 h-6 mb-2" />
+
                   <h3 className="text-xl">Multiple Providers</h3>
                   <p>
                     We support multiple providers for the same type of block.
                     Use OpenAI, Google, Mistral and many more.
                   </p>
                 </header>
+
+                <div className="hidden group-hover:block">
+                  <Meteors />
+                </div>
               </article>
 
-              <article className="relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
-                <header className="mb-2 flex flex-col gap-2">
+              <article className="group overflow-hidden relative p-4 rounded-lg bg-zinc-900/50 border border-neutral-950 hover:border-neutral-900 lg:p-6">
+                <header className="relative z-10 mb-2 flex flex-col gap-2">
+                  <ChatBubble className="w-6 h-6 mb-2" />
+
                   <h3 className="text-xl">Different Interfaces</h3>
                   <p>
                     You can build different interfaces for the same workflow.
                     Use chat, api, or any other interface.
                   </p>
                 </header>
+
+                <div className="hidden group-hover:block">
+                  <Meteors />
+                </div>
               </article>
             </div>
           </section>
