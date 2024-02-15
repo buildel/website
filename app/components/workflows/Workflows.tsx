@@ -9,28 +9,22 @@ import { Button } from "~/components/buttons/Button";
 const data = [
   {
     id: 0,
-    heading: "Lorem ipsum dolor sit amet.",
-    paragraph: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-          assumenda aut autem consequuntur debitis dignissimos distinctio dolore
-          dolorum est in inventore, ipsam necessitatibus, nesciunt officiis
-          pariatur placeat reiciendis, ut vel.`,
-    src: "#",
+    heading: "Access Buildel API easily with our client SDK.",
+    paragraph: `
+Buildel offers a straightforward and secure method for incorporating your Buildel Workflows into end-user web experiences. To ensure secure access to our applications directly from client-side code, we've integrated a Client SDK with an authentication mechanism.`,
+    src: "/assets/client-sdk.webp",
   },
   {
     id: 1,
-    heading: "Lorem ipsum sit amet.",
-    paragraph: `Debitis dignissimos distinctio dolore
-          dolorum est in inventore, ipsam necessitatibus, nesciunt officiis
-          pariatur placeat reiciendis, ut vel.`,
-    src: "#",
+    heading: "Integrate an workflow on your website with a embedded chatbot.",
+    paragraph: `It allows for a straightforward integration, offering your visitors the convenience of engaging with Buildel Chat directly on your site..`,
+    src: "/assets/website-chatbot.webp",
   },
   {
     id: 2,
-    heading: "Lorem ipsum dolor sit amet dolor sit amet.",
-    paragraph: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-          assumenda aut autem consequuntur debitis dignissimos distinctio dolore
-          dolorum est in inventore, ipsam.`,
-    src: "#",
+    heading: "Connect to Our Custom API.",
+    paragraph: `Easily integrate your chatbot with our API by following these straightforward instructions.`,
+    src: "/assets/open-ai.webp",
   },
 ];
 
@@ -38,11 +32,12 @@ export const Workflows: React.FC = () => {
   return (
     <section>
       <header className="text-center mb-10 lg:mb-14">
-        <h2 className="text-3xl md:text-5xl mb-2">Some of what's possible</h2>
+        <h2 className="text-3xl md:text-5xl mb-2">
+          Integrate Buildel to your app
+        </h2>
         <p className="text-sm md:text-base max-w-3xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At fuga
-          pariatur repellendus. Ad asperiores beatae facilis id, illo molestiae
-          qui.
+          Seamlessly Integrate Workflows to Elevate User Experience and
+          Streamline Operations.
         </p>
       </header>
 
@@ -54,11 +49,11 @@ export const Workflows: React.FC = () => {
         <WorkflowsAnimatedMobileList list={data} />
       </div>
 
-      <a href="#" className="block w-fit mx-auto mt-10 lg:mt-20">
-        <Button tabIndex={-1} variant="basic">
-          Learn more
-        </Button>
-      </a>
+      {/*<a href="#" className="block w-fit mx-auto mt-10 lg:mt-20">*/}
+      {/*  <Button tabIndex={-1} variant="basic">*/}
+      {/*    Learn more*/}
+      {/*  </Button>*/}
+      {/*</a>*/}
     </section>
   );
 };

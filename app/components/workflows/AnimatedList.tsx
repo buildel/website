@@ -61,7 +61,7 @@ export const WorkflowAnimatedContentHeading = ({
 export const WorkflowAnimatedContentParagraph = ({
   children,
 }: PropsWithChildren) => {
-  return <p className="text-sm lg:text-base">{children}</p>;
+  return <p className="text-sm lg:text-base text-neutral-100">{children}</p>;
 };
 
 interface WorkflowsAnimatedListProps {
@@ -83,12 +83,13 @@ export const WorkflowsAnimatedList = ({ list }: WorkflowsAnimatedListProps) => {
                 "opacity-100": isActive,
               })}
             >
-              <div
-                className={clsx("w-full aspect-square rounded-lg", {
-                  "bg-blue-500": index % 2 === 0,
-                  "bg-green-500": index % 2 !== 0,
-                })}
-              />
+              <img src={el.src} className="w-full rounded-md" />
+              {/*<div*/}
+              {/*  className={clsx("w-full aspect-square rounded-lg", {*/}
+              {/*    "bg-blue-500": index % 2 === 0,*/}
+              {/*    "bg-green-500": index % 2 !== 0,*/}
+              {/*  })}*/}
+              {/*/>*/}
             </WorkflowAnimatedImage>
 
             <WorkflowAnimatedContent
@@ -127,23 +128,26 @@ export const WorkflowsAnimatedMobileList = ({
   };
 
   return (
-    <div className="grid grid-cols-1 gap-4">
-      <div className="h-[30vh] w-full sticky top-[75px] transition-all duration-500">
+    <div className="grid grid-cols-1 gap-4 max-w-[360px] mx-auto md:max-w-xl">
+      <div className="h-[330px] w-full sticky top-[75px] transition-all duration-500 md:h-[530px]">
         {list.map((el, index) => {
           const isActive = index === activeIndex;
           return (
             <div
               key={el.id}
               className={clsx(
-                "absolute top-0 bottom-0 left-0 right-0 rounded-lg",
+                "absolute top-0 bottom-0 left-0 right-0 rounded-lg overflow-hidden",
                 {
-                  "bg-blue-500": index % 2 === 0,
-                  "bg-green-500": index % 2 !== 0,
                   "opacity-0": !isActive,
                   "opacity-100": isActive,
                 }
               )}
-            />
+            >
+              <img
+                src={el.src}
+                className="h-full rounded-md object-contain mx-auto"
+              />
+            </div>
           );
         })}
       </div>

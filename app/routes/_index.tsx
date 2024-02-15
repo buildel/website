@@ -259,13 +259,13 @@ export default function Index() {
           </SectionWrapper>
         </div>
 
-        {/* <div className="my-10 lg:my-20 relative ">
+        <div className="my-10 lg:my-20 relative ">
           <div className="h-[60vh] w-full absolute top-1/2 left-0 right-0 -translate-y-1/2  z-0 colored-gradient" />
 
           <SectionWrapper className="relative py-10 lg:pt-20 lg:pb-24">
             <Workflows />
           </SectionWrapper>
-        </div> */}
+        </div>
 
         <div className="bg-zinc-900 my-10 lg:my-20 py-10 lg:py-24">
           <BlocksSection />

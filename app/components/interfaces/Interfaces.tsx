@@ -33,9 +33,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
   return (
     <section>
       <header className="text-center">
-        <h2 className="text-3xl md:text-5xl mb-2">
-          Try <span className="text-secondary-500">Buildel</span> Interfaces
-        </h2>
+        <h2 className="text-3xl md:text-5xl mb-2">Try Buildel Interfaces</h2>
         <p className="text-sm md:text-base max-w-3xl mx-auto"></p>
       </header>
 
