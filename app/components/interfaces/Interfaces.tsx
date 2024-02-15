@@ -273,7 +273,7 @@ function SimpleWorkflowRenderer({
               }}
               key={index}
               className={clsx(
-                "absolute bg-neutral-800 rounded-lg p-4 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
+                "absolute bg-zinc-800/70 rounded-md p-3 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
                 {
                   ["border-primary-500 bg-primary-500"]: blockStates.get(
                     block.name
@@ -285,7 +285,9 @@ function SimpleWorkflowRenderer({
                 top: block.position.y + "%",
               }}
             >
-              <h3 className="text-light">{block.name}</h3>
+              <h3 className="text-neutral-100 text-sm capitalize whitespace-nowrap">
+                {block.name.split("_").join(" ")}
+              </h3>
             </div>
           );
         })}
