@@ -279,11 +279,12 @@ function SimpleWorkflowRenderer({
               }}
               key={index}
               className={clsx(
-                "absolute bg-zinc-800/70 rounded-md p-3 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
+                "absolute rounded-md p-3 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
                 {
-                  ["border-primary-500 bg-primary-500"]: blockStates.get(
+                  "border-primary-500 bg-primary-500": blockStates.get(
                     block.name
                   ),
+                  "bg-zinc-800/70": !blockStates.get(block.name),
                 }
               )}
               style={{
