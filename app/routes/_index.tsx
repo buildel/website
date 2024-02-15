@@ -284,11 +284,24 @@ export default function Index() {
         </SectionWrapper>
       </main>
 
-      {/*<footer className="h-[20vh] border-t border-neutral-950">*/}
-      {/*  <SectionWrapper className="py-10 lg:py-24">*/}
-      {/*    <p>FOOTER</p>*/}
-      {/*  </SectionWrapper>*/}
-      {/*</footer>*/}
+      <footer className="border-t border-neutral-950">
+        <SectionWrapper className="py-10 lg:py-16">
+          <Logo className="w-[80px] text-neutral-100" />
+
+          <p className="text-xs mt-2 max-w-[400px] text-neutral-200">
+            Boost Efficiency & Automate Tasks: Build Your AI Dream Team in
+            Minutes without Writing a Line of Code
+          </p>
+
+          <a
+            href="https://discord.gg/Yzex6E7e"
+            target="_blank "
+            className="text-neutral-200 hover:text-neutral-100"
+          >
+            <Discord className="w-5 h-5 mt-3" />
+          </a>
+        </SectionWrapper>
+      </footer>
     </>
   );
 }
