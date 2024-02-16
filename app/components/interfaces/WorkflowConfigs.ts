@@ -28,19 +28,19 @@ export const chatWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
-        name: "text_input_1",
+        name: "Input",
 
         position: { x: -600.5837364388194, y: -400 },
         type: "text_input",
       },
       {
-        name: "text_output_1",
+        name: "Output",
 
         position: { x: 400.78785017928647, y: -400 },
         type: "text_output",
       },
       {
-        name: "chat_1",
+        name: "Chat",
 
         position: { x: -130.4596274474532, y: -400 },
         type: "chat",
@@ -49,16 +49,16 @@ export const chatWorkflowConfig: IWorkflowConfig = {
     connections: [
       {
         from: {
-          block_name: "text_input_1",
+          block_name: "Input",
           output_name: "output",
           type: "text",
         },
-        to: { block_name: "chat_1", input_name: "input", type: "text" },
+        to: { block_name: "Chat", input_name: "input", type: "text" },
         opts: { reset: true },
       },
       {
-        from: { block_name: "chat_1", output_name: "output", type: "text" },
-        to: { block_name: "text_output_1", input_name: "input", type: "text" },
+        from: { block_name: "Chat", output_name: "output", type: "text" },
+        to: { block_name: "Output", input_name: "input", type: "text" },
         opts: { reset: true },
       },
       {
@@ -67,15 +67,15 @@ export const chatWorkflowConfig: IWorkflowConfig = {
           output_name: "tool",
           type: "worker",
         },
-        to: { block_name: "chat_1", input_name: "tool", type: "controller" },
+        to: { block_name: "Chat", input_name: "tool", type: "controller" },
         opts: { reset: true },
       },
     ],
   },
   interface_config: {
-    input: "text_input_1",
-    output: "text_output_1",
-    chat: "chat_1",
+    input: "Input",
+    output: "Output",
+    chat: "Chat",
   },
 };
 
