@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
       <div className="flex items-center gap-6">
         <Navigation />
 
-        <a href="https://app.buildel.ai">
+        <a href="https://app.buildel.ai/register">
           <Button variant="basic" type="filled" className="!py-1" tabIndex={-1}>
             Sign up
           </Button>

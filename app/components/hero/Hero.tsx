@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = () => {
       <div className="flex flex-col gap-4 lg:gap-8">
         <p className="text-sm flex gap-1 items-center">
           <Link
-            to="https://app.buildel.ai"
+            to="https://app.buildel.ai/register"
             className="flex gap-2 items-center group"
           >
             <span className="px-2 py-0.5 rounded-full bg-secondary-300 text-secondary-900">
@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = () => {
         </h2>
 
         <div className="flex gap-3 lg:gap-4">
-          <a href="https://app.buildel.ai">
+          <a href="https://app.buildel.ai/register">
             <Button className="group flex gap-1 items-center" tabIndex={-1}>
               <div>Start building</div>
 
