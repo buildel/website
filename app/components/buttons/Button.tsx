@@ -19,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   const typeStyles = () => {
     switch (concatVariantAndType(type, variant)) {
       case "primaryFilled":
-        return "border-primary-500 bg-primary-500 hover:bg-primary-600 hover:border-primary-400 text-white";
+        return "border-primary-500 bg-primary-500 hover:bg-primary-600 hover:border-primary-400 text-dark";
       case "basicFilled":
         return "border-white bg-white hover:bg-neutral-50 text-dark";
       case "primaryOutlined":
