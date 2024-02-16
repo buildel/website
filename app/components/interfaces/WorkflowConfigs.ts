@@ -217,3 +217,71 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
     ],
   },
 };
+
+export const memoryWorkflowConfig: IWorkflowConfig = {
+  runId: 76,
+  name: "Memory",
+  interface_config: {
+    input: "Input",
+    output: "Output",
+    chat: "MistralSpecialist",
+  },
+  config: {
+    version: "1",
+    blocks: [
+      {
+        name: "Input",
+        position: { x: -461, y: -90 },
+        type: "text_input",
+      },
+      {
+        name: "Output",
+        position: { x: 362.11130905646735, y: -83.69933240048226 },
+        type: "text_output",
+      },
+      {
+        name: "MistralSpecialist",
+        position: { x: -34.05048600717532, y: -85.17404547868819 },
+        type: "chat",
+      },
+      {
+        name: "MistralKnowledge",
+        position: { x: -55.03860579709465, y: 319.62444837871897 },
+        type: "document_search",
+      },
+    ],
+    connections: [
+      {
+        from: { block_name: "Input", output_name: "output", type: "text" },
+        to: {
+          block_name: "MistralSpecialist",
+          input_name: "input",
+          type: "text",
+        },
+        opts: { reset: true },
+      },
+      {
+        from: {
+          block_name: "MistralSpecialist",
+          output_name: "output",
+          type: "text",
+        },
+        to: { block_name: "Output", input_name: "input", type: "text" },
+        opts: { reset: true },
+      },
+      {
+        from: {
+          block_name: "MistralKnowledge",
+          output_name: "tool",
+          type: "worker",
+        },
+        to: {
+          block_name: "MistralSpecialist",
+          input_name: "tool",
+          type: "controller",
+        },
+        opts: { reset: true },
+      },
+    ],
+  },
+};

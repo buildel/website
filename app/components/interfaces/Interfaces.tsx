@@ -6,6 +6,7 @@ import { BuildelProvider, usePipelineRun } from "../buildel/BuildelSocket";
 import {
   IWorkflowConfig,
   chatWorkflowConfig,
+  memoryWorkflowConfig,
   multipleChatsWorkflowConfig,
   toolsWorkflowConfig,
 } from "./WorkflowConfigs";
@@ -39,7 +40,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
   return (
     <Section>
       <SectionHeader>
-        <SectionHeading>Try Buildel Interfaces</SectionHeading>
+        <SectionHeading>Try Buildel Workflows</SectionHeading>
         <SectionSubheading></SectionSubheading>
       </SectionHeader>
 
@@ -48,7 +49,7 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
           <TabGroup defaultActiveTab="chat">
             <div className="w-full grid grid-cols-4 gap-2 mb-8 lg:mb-12">
               <InterfaceTabButton tabId="chat">Chat</InterfaceTabButton>
-              {/* <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton> */}
+              <InterfaceTabButton tabId="memory">Memory</InterfaceTabButton>
               <InterfaceTabButton tabId="multiple-models">
                 Multiple Models
               </InterfaceTabButton>
@@ -60,9 +61,9 @@ export const Interfaces: React.FC<InterfacesProps> = () => {
             <Tab tabId="chat">
               <ChatInterface config={chatWorkflowConfig} />
             </Tab>
-            {/* <Tab tabId="memory">
-              <ChatInterface config={chatWorkflowConfig} />
-</Tab> */}
+            <Tab tabId="memory">
+              <ChatInterface config={memoryWorkflowConfig} />
+            </Tab>
             <Tab tabId="multiple-models">
               <ChatInterface config={multipleChatsWorkflowConfig} />
             </Tab>
