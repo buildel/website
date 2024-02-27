@@ -165,7 +165,9 @@ export default {
       },
       fontFamily: {
         sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
-        primary: ["Gilroy", ...defaultTheme.fontFamily.sans],
+        primaryMedium: ["Gilroy-Medium", "sans"],
+        primaryBold: ["Gilroy-Bold", "sans"],
+        primaryExtraBold: ["Gilroy-ExtraBold", "sans"],
         secondary: ["Avenir", ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
