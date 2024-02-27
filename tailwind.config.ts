@@ -165,6 +165,8 @@ export default {
       },
       fontFamily: {
         sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
+        primary: ["Gilroy", ...defaultTheme.fontFamily.sans],
+        secondary: ["Avenir", ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/dots-background.svg')",
