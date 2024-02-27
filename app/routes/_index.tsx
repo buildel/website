@@ -9,7 +9,7 @@ import { BlocksSection } from "~/components/blocks/BlocksSection";
 import { BlockTypeApi } from "~/api/blockTypesApi";
 import { PropertiesSection } from "~/components/properites/PropertiesSection";
 import { SectionWrapper } from "~/components/layout/Layout.components";
-import { Header } from "~/components/layout/Header";
+import { LegacyHeader } from "~/components/layout/LegacyHeader";
 import { ElSection } from "~/components/el/ElSection";
 import { CommunitySection } from "~/components/community/CommunitySection";
 import { Footer } from "~/components/layout/Footer";
@@ -50,7 +50,7 @@ export default function Index() {
     <>
       <div className="border-b border-neutral-900 sticky top-0 left-0 z-20 w-full bg-dark">
         <SectionWrapper>
-          <Header />
+          <LegacyHeader />
         </SectionWrapper>
       </div>
 

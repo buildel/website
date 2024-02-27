@@ -1,21 +1,62 @@
-import React from "react";
-import { Logo } from "~/icons/Logo";
-import { Navigation } from "~/components/layout/Navigation";
-import { Button } from "~/components/buttons/Button";
+import { NavLink } from "@remix-run/react";
+import { Button } from "~/components/shared/Button";
+import { GithubLogo } from "~/icons/GithubLogo";
+import { DiscordLogo } from "~/icons/DiscordLogo";
+import { MobileMenu } from "~/components/shared/MobileMenu";
 
-export const Header: React.FC = () => {
+const routes = [
+  { name: "Product", path: "/product" },
+  { name: "Docs", path: "/docs" },
+  { name: "Pricing", path: "/pricing" },
+];
+
+export const Header = () => {
   return (
-    <header className="flex gap-4 justify-between items-center">
-      <Logo className="h-[24px]" />
+    <header className="flex items-center justify-center h-20 sticky top-0 z-20">
+      <div className="flex items-center justify-between layout">
+        <div className="flex items-center">
+          <img
+            src="./buildel-by-elp-logo.svg"
+            alt="Buildel: built by EL Passion logo"
+          />
 
-      <div className="flex items-center gap-6">
-        <Navigation />
+          <nav className="hidden lg:flex items-center gap-x-10 ml-16">
+            {routes.map((route) => (
+              <NavLink
+                to={route.path}
+                key={route.path}
+                className="ml-4 text-black/50 hover:text-black transition"
+              >
+                {route.name}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
 
-        <a href="https://app.buildel.ai/register">
-          <Button variant="basic" type="filled" className="!py-1" tabIndex={-1}>
+        <div className="flex items-center gap-x-5">
+          <a
+            href="https://github.com/elpassion/buildel"
+            target="_blank"
+            rel="noreferrer"
+            className="h-8 w-8 flex justify-center items-center"
+          >
+            <GithubLogo className="text-2xl text-black/50 hover:text-black" />
+          </a>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+            className="h-8 w-8 flex justify-center items-center"
+          >
+            <DiscordLogo className="text-2xl text-black/50 hover:text-black" />
+          </a>
+
+          <MobileMenu />
+          <Button mode="dark" className="hidden md:flex">
             Sign up
           </Button>
-        </a>
+        </div>
       </div>
     </header>
   );

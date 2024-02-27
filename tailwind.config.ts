@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
@@ -13,6 +14,9 @@ export default {
             lineHeight: "20px",
           },
         },
+      },
+      blur: {
+        accent: "250px",
       },
       colors: {
         dark: "#121212",
@@ -79,6 +83,11 @@ export default {
           "800": "#854D0E",
           "900": "#713F12",
         },
+        "brand-blue": {
+          900: "#4348BB",
+          100: "#C8C9EB",
+        },
+        "accent-blue": "#1117A9",
         blue: {
           "50": "#eff6ff",
           "100": "#dbeafe",
@@ -189,5 +198,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        ".h1-desktop": {
+          "font-size": "4.375em",
+          "font-family": "Gilroy-ExtraBold",
+        },
+        ".h1-mobile": {
+          "font-size": "2.5em",
+          "font-family": "Gilroy-ExtraBold",
+        },
+      });
+    }),
+  ],
 } satisfies Config;
