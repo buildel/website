@@ -14,15 +14,15 @@
 @layer base {
   @font-face {
     font-family: "Gilroy-Bold";
-    src: url("/assets/fonts/GilroyBold.ttf");
+    src: url("/assets/fonts/Gilroy-Bold.ttf");
   }
   @font-face {
     font-family: "Gilroy-ExtraBold";
-    src: url("/assets/fonts/GilroyExtraBold.ttf");
+    src: url("/assets/fonts/Gilroy-ExtraBold.ttf");
   }
   @font-face {
     font-family: "Gilroy-Medium";
-    src: url("/assets/fonts/GilroyMedium.ttf");
+    src: url("/assets/fonts/Gilroy-Medium.ttf");
   }
 }
 
