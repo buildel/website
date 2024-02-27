@@ -12,13 +12,13 @@ dependencies:
     specifier: ^0.0.2
     version: 0.0.2
   '@remix-run/node':
-    specifier: ^2.6.0
+    specifier: ^2.7.2
     version: 2.7.2(typescript@5.3.3)
   '@remix-run/react':
-    specifier: ^2.6.0
+    specifier: ^2.7.2
     version: 2.7.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
   '@remix-run/serve':
-    specifier: ^2.6.0
+    specifier: ^2.7.2
     version: 2.7.2(typescript@5.3.3)
   clsx:
     specifier: ^2.1.0
