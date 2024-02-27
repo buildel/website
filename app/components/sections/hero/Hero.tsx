@@ -4,18 +4,20 @@ import { Button } from "~/components/shared/Button";
 export const buttons = {
   main: {
     label: "Start building ✨",
+    href: "https://app.buildel.ai/register",
   },
   second: {
     label: "Book a demo",
+    href: "https://forms.gle/ZYJKCNuX4XySTdMz7",
   },
 };
 
 export const Hero = () => {
   return (
-    <section className="bg-white h-[90vh] w-full relative overflow-hidden">
+    <section className="bg-white h-[70vh] w-full relative overflow-hidden">
       <Header />
 
-      <div className="w-full flex items-center h-3/4 layout mx-auto">
+      <div className="w-full flex items-center h-3/4 layout">
         <div className="text-black relative z-10 flex flex-col w-full lg:w-1/2">
           <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
             AI Automation
@@ -25,13 +27,15 @@ export const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-neutral-800 max-w-[505px] w-full mt-5">
+          <p className="text-neutral-800 max-w-[505px] w-full mt-5 font-secondary text-lg">
             Boost Efficiency & Automate Tasks: Build Your AI Dream Team in
             Minutes without Writing a Line of Code
           </p>
           <div className="flex items-center gap-x-4 mt-10">
-            <Button mode="dark">{buttons.main.label}</Button>
-            <Button mode="dark" variant="secondary">
+            <Button mode="dark" href={buttons.main.href}>
+              {buttons.main.label}
+            </Button>
+            <Button mode="dark" variant="secondary" href={buttons.second.href}>
               {buttons.second.label}
             </Button>
           </div>

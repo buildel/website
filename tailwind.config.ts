@@ -168,7 +168,7 @@ export default {
         primaryMedium: ["Gilroy-Medium", "sans"],
         primaryBold: ["Gilroy-Bold", "sans"],
         primaryExtraBold: ["Gilroy-ExtraBold", "sans"],
-        secondary: ["Avenir", ...defaultTheme.fontFamily.sans],
+        secondary: ["Avenir", "sans"],
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/dots-background.svg')",

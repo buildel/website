@@ -28,7 +28,7 @@
 
 .layout {
   @apply w-full max-w-[1168px];
-  @apply px-4;
+  @apply px-4 mx-auto;
 }
 
 .radial-mask {
