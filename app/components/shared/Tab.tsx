@@ -25,7 +25,7 @@ export const Tab = ({
         }
       )}
     >
-      {icon} <span className='text-nowrap inline-block'>{children}</span>
+      {icon} <span className='whitespace-nowrap block'>{children}</span>
     </button>
   );
 };
