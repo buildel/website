@@ -1,9 +1,13 @@
 import { Grid } from "~/icons/Grid";
 import { Benefit, IBenefit } from "~/components/sections/benefits/Benefit";
+import { UserGroup } from "~/icons/UserGroup";
+import { Keys } from "~/icons/Keys";
+import { Shapes } from "~/icons/Shapes";
+import { Puzzle } from "~/icons/Puzzle";
 
 const benefits: IBenefit[] = [
   {
-    icon: <Grid className="text-2xl" />,
+    icon: <Puzzle className="text-2xl" />,
     title: "No code required",
     description:
       "You don't need to write a single line of code. Just pick and connect the blocks and you are good to go",
@@ -15,18 +19,18 @@ const benefits: IBenefit[] = [
       "We have pre-built use cases that you can use to get started quickly",
   },
   {
-    icon: <Grid className="text-2xl" />,
+    icon: <Keys className="text-2xl" />,
     title: "Bring your own keys",
     description: "You can use your own API keys for the blocks that need them",
   },
   {
-    icon: <Grid className="text-2xl" />,
+    icon: <UserGroup className="text-2xl" />,
     title: "Open source",
     description:
       "Buildel is open source. You can host it for free on your own and contribute to it",
   },
   {
-    icon: <Grid className="text-2xl" />,
+    icon: <Shapes className="text-2xl" />,
     title: "Different interfaces",
     description:
       "You can build different interfaces for the same workflow. Use chat, api, or any other interface",
