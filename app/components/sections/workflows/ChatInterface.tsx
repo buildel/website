@@ -103,7 +103,7 @@ export const ChatInterface = ({ config }: ChatInterfaceProps) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-4 bg-neutral-100 p-4 relative overflow-hidden min-h-[70vh] lg:h-[100vh] w-full">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 bg-neutral-100 p-4 relative overflow-hidden min-h-[70vh] lg:max-h-[600px] lg:h-[100vh] w-full">
       <div className="w-full md:w-1/3 rounded-lg h-[200px] lg:h-full z-10">
         <SimpleWorkflowRenderer config={config} blockStates={blockStates} />
       </div>

@@ -11,6 +11,9 @@ const routes = [
   { name: "Pricing", path: "/pricing" },
 ];
 
+const githubUrl = "https://github.com/elpassion/buildel";
+const discordUrl = "https://discord.gg/SUXs7FyRT2";
+
 export const Header = () => {
   const afterScrollClasses = ["border-b", "border-neutral-100", "bg-white"];
 
@@ -59,7 +62,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-x-5">
           <a
-            href="https://github.com/elpassion/buildel"
+            href={githubUrl}
             target="_blank"
             rel="noreferrer"
             className="h-8 w-8 flex justify-center items-center"
@@ -68,7 +71,7 @@ export const Header = () => {
           </a>
 
           <a
-            href="#"
+            href={discordUrl}
             target="_blank"
             rel="noreferrer"
             className="h-8 w-8 flex justify-center items-center"
