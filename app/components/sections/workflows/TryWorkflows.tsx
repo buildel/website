@@ -8,6 +8,8 @@ import { BuildelProvider } from "~/components/buildel/BuildelSocket";
 import {
   chatWorkflowConfig,
   memoryWorkflowConfig,
+  multipleChatsWorkflowConfig,
+  toolsWorkflowConfig,
 } from "~/components/interfaces/WorkflowConfigs";
 import { ChatInterface } from "~/components/sections/workflows/ChatInterface";
 
@@ -46,6 +48,12 @@ export const TryWorkflows = () => {
   const getConfig = (workflow: Workflow) => {
     if (workflow === Workflow.Chat) return chatWorkflowConfig;
     if (workflow === Workflow.Memory) return memoryWorkflowConfig;
+    if (workflow === Workflow.MultipleModels) {
+      return multipleChatsWorkflowConfig;
+    }
+    if (workflow === Workflow.APITools) {
+      return toolsWorkflowConfig;
+    }
     return chatWorkflowConfig;
   };
 

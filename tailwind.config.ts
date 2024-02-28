@@ -218,6 +218,10 @@ export default {
           "font-size": "2.5em",
           "font-family": "Gilroy-ExtraBold",
         },
+        ".h2-mobile": {
+          "font-size": "2em",
+          "font-family": "Gilroy-ExtraBold",
+        },
       });
     }),
   ],

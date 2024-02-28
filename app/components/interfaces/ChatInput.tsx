@@ -40,7 +40,7 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
     <form
       onSubmit={submitForm}
       className={clsx(
-        "relative w-full overflow-hidden flex items-center gap-x-2",
+        "relative w-full flex items-center gap-x-2",
         {
           "outline-offset-1 outline-primary-400": isFocused,
         }
@@ -48,7 +48,7 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
     >
       <input
         disabled={disabled}
-        className="bg-neutral-100 w-full !outline-none text-base text-neutral-950 py-2 pl-4 pr-8 placeholder:text-neutral-400 rounded-lg"
+        className="bg-neutral-100 w-full text-base text-neutral-950 py-2 px-4 placeholder:text-neutral-400 rounded-lg focus:outline focus:outline-neutral-700"
         placeholder="Ask a question..."
         value={value}
         onFocus={onFocus}

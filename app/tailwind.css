@@ -11,6 +11,12 @@
   );
 }
 
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-b from-brand-blue-900 to-brand-blue-100 text-transparent bg-clip-text;
+  }
+}
+
 @layer base {
   @font-face {
     font-family: "Gilroy-Bold";

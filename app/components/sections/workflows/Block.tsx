@@ -1,37 +1,17 @@
 import clsx from "clsx";
 import { MutableRefObject } from "react";
-import { BlockName } from "~/components/interfaces/WorkflowConfigs";
+import { IBlock } from "~/components/interfaces/WorkflowConfigs";
+import { useBlockContent } from "~/components/sections/workflows/useBlockContent";
 
 interface BlockProps {
-  block: {
-    name: string;
-    position: {
-      x: number;
-      y: number;
-    };
-  };
+  block: IBlock;
   blockStates: Map<string, boolean>;
   blockPositions: MutableRefObject<
     Map<string, { rect: DOMRect; offset: { left: number; top: number } }>
   >;
 }
 export const Block = ({ blockPositions, blockStates, block }: BlockProps) => {
-  const renderPillContent = () => {
-    if (block.name === BlockName.MistralAI) {
-      return (
-        <img
-          src="/assets/models/mistral-ai.png"
-          className="h-6"
-          alt="Mistral AI logo"
-        />
-      );
-    }
-    return (
-      <p className="text-neutral-100 text-sm capitalize whitespace-nowrap">
-        {block.name.split("_").join(" ")}
-      </p>
-    );
-  };
+  const { renderContent } = useBlockContent(block);
 
   return (
     <div
@@ -45,7 +25,7 @@ export const Block = ({ blockPositions, blockStates, block }: BlockProps) => {
         });
       }}
       className={clsx(
-        "absolute rounded-full px-3 py-1.5 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
+        "absolute rounded-full px-3 py-1.5 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition z-[1]",
         {
           "border-primary-500 bg-primary-500": blockStates.get(block.name),
           "bg-neutral-950": !blockStates.get(block.name),
@@ -56,7 +36,7 @@ export const Block = ({ blockPositions, blockStates, block }: BlockProps) => {
         top: block.position.y + "%",
       }}
     >
-      {renderPillContent()}
+      {renderContent()}
     </div>
   );
 };

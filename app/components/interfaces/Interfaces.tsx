@@ -308,7 +308,7 @@ export function SimpleWorkflowRenderer({
           return [
             <svg key={index} className="absolute w-full h-full">
               <line
-                className={clsx("stroke-current animate-dashdraw text-black")}
+                className={clsx("stroke-current animate-dashdraw text-neutral-400")}
                 strokeDasharray={6}
                 style={{ strokeWidth: 1 }}
                 x1={outputPosition.left}

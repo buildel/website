@@ -11,16 +11,19 @@ export enum BlockName {
   CrewMember = "CrewMember",
   Wikipedia = "WikipediaArticle",
 }
+
+export interface IBlock {
+  name: BlockName;
+  type: string;
+  position: { x: number; y: number };
+}
+
 export interface IWorkflowConfig {
   runId: number;
   name: string;
   config: {
     version: string;
-    blocks: {
-      name: BlockName;
-      position: { x: number; y: number };
-      type: string;
-    }[];
+    blocks: IBlock[];
     connections: {
       from: { block_name: string; output_name: string; type: string };
       to: { block_name: string; input_name: string; type: string };
@@ -159,17 +162,17 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
       },
       {
         name: BlockName.Input,
-        position: { x: -450, y: -130 },
+        position: { x: -700, y: -130 },
         type: "text_input",
       },
       {
         name: BlockName.Output,
-        position: { x: 380, y: -130 },
+        position: { x: 580, y: -130 },
         type: "text_output",
       },
       {
         name: BlockName.LatestLaunch,
-        position: { x: -600, y: 150 },
+        position: { x: -800, y: 150 },
         type: "api_call_tool",
       },
       {
@@ -179,7 +182,7 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
       },
       {
         name: BlockName.Wikipedia,
-        position: { x: 600, y: 160 },
+        position: { x: 700, y: 160 },
         type: "api_call_tool",
       },
     ],

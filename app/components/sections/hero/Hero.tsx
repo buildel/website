@@ -13,13 +13,13 @@ export const buttons = {
 
 export const Hero = () => {
   return (
-    <section className="bg-white h-[75vh] w-full relative" id="hero">
+    <section className="bg-white max-h-[800px] h-[75vh] w-full relative" id="hero">
       <div className="w-full flex items-center h-3/4 layout pt-24">
         <div className="text-black relative z-10 flex flex-col w-full lg:w-1/2">
           <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
             AI Automation
             <br /> for{" "}
-            <span className="bg-gradient-to-b from-brand-blue-900 to-brand-blue-100 text-transparent bg-clip-text">
+            <span className="gradient-text">
               everybody
             </span>
           </h1>
