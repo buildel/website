@@ -3,6 +3,7 @@ import { Button } from "~/components/shared/Button";
 import { GithubLogo } from "~/icons/GithubLogo";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { MobileMenu } from "~/components/shared/MobileMenu";
+import { useEffect } from "react";
 
 const routes = [
   { name: "Product", path: "/product" },
@@ -11,8 +12,31 @@ const routes = [
 ];
 
 export const Header = () => {
+  const afterScrollClasses = ["border-b", "border-neutral-100", "bg-white"];
+
+  useEffect(() => {
+    const toggleHeaderClasses = () => {
+      const header = document.querySelector("header");
+      if (window.scrollY > 250) {
+        afterScrollClasses.forEach((className) =>
+          header?.classList.add(className)
+        );
+      } else {
+        afterScrollClasses.forEach((className) =>
+          header?.classList.remove(className)
+        );
+      }
+    };
+
+    window.addEventListener("scroll", toggleHeaderClasses);
+
+    return () => {
+      window.removeEventListener("scroll", toggleHeaderClasses);
+    };
+  }, []);
+
   return (
-    <header className="flex items-center justify-center h-20 fixed top-0 z-20 w-full">
+    <header className="flex items-center justify-center h-20 fixed top-0 z-20 w-full transition-all">
       <div className="flex items-center justify-between layout">
         <div className="flex items-center">
           <img

@@ -1,4 +1,3 @@
-import { Header } from "~/components/layout/Header";
 import { Button } from "~/components/shared/Button";
 
 export const buttons = {
@@ -14,7 +13,7 @@ export const buttons = {
 
 export const Hero = () => {
   return (
-    <section className="bg-white h-[75vh] w-full relative">
+    <section className="bg-white h-[75vh] w-full relative" id="hero">
       <div className="w-full flex items-center h-3/4 layout pt-24">
         <div className="text-black relative z-10 flex flex-col w-full lg:w-1/2">
           <h1 className="h1-mobile lg:h1-desktop text-neutral-950">

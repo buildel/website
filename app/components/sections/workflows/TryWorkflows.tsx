@@ -82,7 +82,7 @@ export const TryWorkflows = () => {
   ];
 
   return (
-    <section className="w-full h-auto lg:h-[100vh] bg-grey-background flex flex-col md:items-center py-6 lg:py-20">
+    <section className="w-full h-auto lg:min-h-[100vh] bg-grey-background flex flex-col md:items-center py-6 lg:py-20">
       <h2 className="text-neutral-950 h2-desktop ml-4 lg:ml-0">Try Buildel workflows</h2>
 
       <nav className="pl-4 lg:pl-0 mt-4 lg:mt-16 flex items-center w-full lg:w-auto overflow-x-auto overflow-y-hidden">
