@@ -14,10 +14,8 @@ export const buttons = {
 
 export const Hero = () => {
   return (
-    <section className="bg-white h-[70vh] w-full relative overflow-hidden">
-      <Header />
-
-      <div className="w-full flex items-center h-3/4 layout">
+    <section className="bg-white h-[75vh] w-full relative">
+      <div className="w-full flex items-center h-3/4 layout pt-24">
         <div className="text-black relative z-10 flex flex-col w-full lg:w-1/2">
           <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
             AI Automation
@@ -42,7 +40,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block bg-accent-blue rounded-full absolute w-[530px] h-[530px] top-0 right-0 blur-accent" />
+      <div className="hidden lg:block bg-accent-blue rounded-full absolute w-[530px] h-[530px] -top-1/3 right-0 blur-accent" />
       <img
         src="./dots-constellation.png"
         className="object-cover absolute h-full w-full top-0 z-0"

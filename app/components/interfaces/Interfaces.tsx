@@ -33,6 +33,7 @@ import {
   SectionHeading,
   SectionSubheading,
 } from "~/components/layout/Layout.components";
+import { Block } from "~/components/sections/workflows/Block";
 
 interface InterfacesProps {}
 
@@ -187,16 +188,14 @@ function ChatInterface({ config }: { config: IWorkflowConfig }) {
             generating={isGenerating}
           />
 
-          <IntroPanel className={clsx({ hidden: !!messages.length })}>
-            <p>Ask me anything!</p>
-          </IntroPanel>
+          <IntroPanel className={clsx({ hidden: !!messages.length })} />
         </ChatWrapper>
       </div>
     </div>
   );
 }
 
-function SimpleWorkflowRenderer({
+export function SimpleWorkflowRenderer({
   config,
   blockStates,
 }: {
@@ -264,39 +263,16 @@ function SimpleWorkflowRenderer({
   );
 
   return (
-    <div className="w-full h-full p-4 flex relative bg-dark/80 bg-hero-pattern bg-[size:300%] rounded-lg">
+    <div className="w-full h-full p-4 flex relative bg-[size:300%] rounded-lg">
       <div className="w-full relative" ref={container}>
         {blocksWithNormalizedPositions.map((block, index) => {
           return (
-            <div
-              ref={(element) => {
-                blockPositions.current.set(block.name, {
-                  offset: {
-                    left: element?.offsetLeft || 0,
-                    top: element?.offsetTop || 0,
-                  },
-                  rect: element?.getBoundingClientRect() || new DOMRect(),
-                });
-              }}
+            <Block
               key={index}
-              className={clsx(
-                "absolute rounded-md p-3 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-md transition",
-                {
-                  "border-primary-500 bg-primary-500": blockStates.get(
-                    block.name
-                  ),
-                  "bg-zinc-800/70": !blockStates.get(block.name),
-                }
-              )}
-              style={{
-                left: block.position.x + "%",
-                top: block.position.y + "%",
-              }}
-            >
-              <h3 className="text-neutral-100 text-sm capitalize whitespace-nowrap">
-                {block.name.split("_").join(" ")}
-              </h3>
-            </div>
+              block={block}
+              blockStates={blockStates}
+              blockPositions={blockPositions}
+            />
           );
         })}
         {connections.flatMap((connection, index) => {
@@ -331,19 +307,9 @@ function SimpleWorkflowRenderer({
           }[connection.to.type] || { top: 0, left: 0 };
 
           return [
-            // <div
-            //   className="absolute h-2 w-2  -translate-x-1/2 -translate-y-1/2"
-            //   style={outputPosition}
-            //   key={index}
-            // ></div>,
-            // <div
-            //   className="absolute h-2 w-2 bg-red-500 -translate-x-1/2 -translate-y-1/2"
-            //   style={inputPosition}
-            //   key={index + "2"}
-            // ></div>,
             <svg key={index} className="absolute w-full h-full">
               <line
-                className={clsx("stroke-current animate-dashdraw")}
+                className={clsx("stroke-current animate-dashdraw text-black")}
                 strokeDasharray={6}
                 style={{ strokeWidth: 1 }}
                 x1={outputPosition.left}

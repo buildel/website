@@ -88,6 +88,7 @@ export default {
           100: "#C8C9EB",
         },
         "accent-blue": "#1117A9",
+        "grey-background": "#F7F7F7",
         blue: {
           "50": "#eff6ff",
           "100": "#dbeafe",
@@ -210,6 +211,10 @@ export default {
           "font-family": "Gilroy-ExtraBold",
         },
         ".h1-mobile": {
+          "font-size": "2.5em",
+          "font-family": "Gilroy-ExtraBold",
+        },
+        ".h2-desktop": {
           "font-size": "2.5em",
           "font-family": "Gilroy-ExtraBold",
         },

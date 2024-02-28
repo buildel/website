@@ -1,6 +1,5 @@
-import React, { useMemo, useState } from "react";
+import { FormEvent, ChangeEvent, useMemo, useState, createRef } from "react";
 import clsx from "clsx";
-import { Send } from "~/icons/Send";
 
 interface ChatInputProps {
   onSubmit: (message: string) => void;
@@ -11,7 +10,7 @@ interface ChatInputProps {
 export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = React.createRef<HTMLInputElement>();
+  const inputRef = createRef<HTMLInputElement>();
 
   const isDisabled = useMemo(() => {
     return disabled || generating || !value.trim();
@@ -25,13 +24,13 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
     setIsFocused(false);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+  const updateValue = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    setValue(target.value);
   };
 
-  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = (event: FormEvent<HTMLFormElement>) => {
     if (isDisabled) return;
-    e.preventDefault();
+    event.preventDefault();
     onSubmit(value);
     setValue("");
     inputRef.current?.focus();
@@ -39,37 +38,25 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
 
   return (
     <form
-      onSubmit={handleOnSubmit}
+      onSubmit={submitForm}
       className={clsx(
-        "relative w-full overflow-hidden rounded-full border border-neutral-950 bg-dark/50",
+        "relative w-full overflow-hidden flex items-center gap-x-2",
         {
-          "outline outline-[1px] outline-offset-1 outline-primary-400":
-            isFocused,
+          "outline-offset-1 outline-primary-400": isFocused,
         }
       )}
     >
       <input
         disabled={disabled}
-        className="bg-transparent !border-none w-full !outline-none text-sm text-neutral-200 py-1.5 pl-3 pr-8 placeholder:text-neutral-600"
+        className="bg-neutral-100 w-full !outline-none text-base text-neutral-950 py-2 pl-4 pr-8 placeholder:text-neutral-400 rounded-lg"
         placeholder="Ask a question..."
         value={value}
         onFocus={onFocus}
         onBlur={onBlur}
-        onChange={onChange}
+        onChange={updateValue}
         ref={inputRef}
       />
-
-      <button
-        disabled={isDisabled}
-        className="absolute top-1/2 right-1 -translate-y-1/2 text-neutral-100 w-6 h-6 rounded-full bg-primary-600 hover:bg-primary-500 flex justify-center items-center disabled:bg-neutral-950 disabled:text-neutral-300"
-      >
-        <Send className={clsx("w-3 h-3")} />
-        {/*<Icon*/}
-        {/*  size="none"*/}
-        {/*  iconName={generating ? "loader" : "send"}*/}
-        {/*  className={clsx("text-sm", { "animate-spin": generating })}*/}
-        {/*/>*/}
-      </button>
+      <button className="px-4 py-2 rounded-lg bg-black text-white">Send</button>
     </form>
   );
 }

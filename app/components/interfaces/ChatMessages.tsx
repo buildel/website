@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useMemo } from "react";
+import { PropsWithChildren, useMemo } from "react";
 
 import { ItemList } from "~/components/list/ItemList";
 
@@ -21,13 +21,13 @@ export function ChatMessages({ messages, initialMessages }: ChatMessagesProps) {
   return (
     <ItemList
       className={clsx(
-        "flex flex-col-reverse gap-2 min-w-full w-full h-[97%] overflow-y-auto pr-1 prose"
+        "flex flex-col-reverse gap-2 min-w-full w-full h-[97%] overflow-y-auto prose"
       )}
       itemClassName="w-full"
       items={reversed}
-      renderItem={(msg) => (
-        <ChatMessage role={msg.role}>
-          <ChatMarkdown>{msg.message}</ChatMarkdown>
+      renderItem={({ role, message }) => (
+        <ChatMessage role={role}>
+          <ChatMarkdown>{message}</ChatMarkdown>
         </ChatMessage>
       )}
     />
@@ -40,16 +40,16 @@ interface ChatMessageProps {
 
 function ChatMessage({ role, children }: PropsWithChildren<ChatMessageProps>) {
   return (
-    <article
+    <div
       className={clsx(
-        "w-full max-w-[60%] min-h-[30px] rounded-t-xl border border-neutral-950 px-2 py-1.5 prose ",
+        "w-max max-w-[60%] min-h-[30px] rounded-t-xl px-3 py-2 prose",
         {
-          "bg-dark/40 rounded-br-xl": role === "ai",
-          "bg-dark/40 rounded-bl-xl ml-auto mr-0": role !== "ai",
+          "bg-neutral-100 text-neutral-950 rounded-br-xl": role === "ai",
+          "bg-black text-white rounded-bl-xl ml-auto mr-0": role === "user",
         }
       )}
     >
       {children}
-    </article>
+    </div>
   );
 }

@@ -12,7 +12,7 @@ const routes = [
 
 export const Header = () => {
   return (
-    <header className="flex items-center justify-center h-20 sticky top-0 z-20">
+    <header className="flex items-center justify-center h-20 fixed top-0 z-20 w-full">
       <div className="flex items-center justify-between layout">
         <div className="flex items-center">
           <img

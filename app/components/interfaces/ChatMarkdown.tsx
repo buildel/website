@@ -93,7 +93,7 @@ function Paragraph({
   return (
     <p
       className={clsx(
-        "my-2 break-words whitespace-pre-wrap text-xs",
+        "my-2 break-words whitespace-pre-wrap text-base",
         className
       )}
       {...rest}
@@ -110,7 +110,7 @@ function Span({
 }: React.ParamHTMLAttributes<HTMLSpanElement>) {
   return (
     <span
-      className={clsx("break-words whitespace-pre-wrap text-xs", className)}
+      className={clsx("break-words whitespace-pre-wrap text-base", className)}
       {...rest}
     >
       {children}
@@ -125,7 +125,7 @@ function Div({
 }: React.ParamHTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={clsx("break-words whitespace-pre-wrap text-xs", className)}
+      className={clsx("break-words whitespace-pre-wrap text-base", className)}
       {...rest}
     >
       {children}
@@ -141,7 +141,7 @@ function H6({
   return (
     <h6
       className={clsx(
-        "break-words whitespace-pre-wrap text-neutral-100 text-xs",
+        "break-words whitespace-pre-wrap text-neutral-100 text-base",
         className
       )}
       {...rest}
@@ -158,7 +158,7 @@ function H5({
   return (
     <h5
       className={clsx(
-        "break-words whitespace-pre-wrap text-xs text-neutral-100",
+        "break-words whitespace-pre-wrap text-base text-neutral-100",
         className
       )}
       {...rest}
@@ -247,7 +247,7 @@ function Li({
 }: React.ParamHTMLAttributes<HTMLLIElement>) {
   return (
     <li
-      className={clsx("!m-0 marker:text-neutral-100 text-xs", className)}
+      className={clsx("!m-0 marker:text-neutral-100 text-base", className)}
       {...rest}
     >
       {children}
@@ -279,7 +279,7 @@ function Pre({
   return (
     <pre
       className={clsx(
-        "rounded my-1 bg-neutral-950 break-words whitespace-pre-wrap text-neutral-100 text-xs p-2",
+        "rounded my-1 bg-neutral-950 break-words whitespace-pre-wrap text-neutral-100 text-base p-2",
         className
       )}
       {...rest}
@@ -297,7 +297,7 @@ function Code({
   return (
     <code
       className={clsx(
-        "my-1 bg-neutral-950 break-words whitespace-pre-wrap text-neutral-100 text-xs",
+        "my-1 bg-neutral-950 break-words whitespace-pre-wrap text-neutral-100 text-base",
         className
       )}
       {...rest}

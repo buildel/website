@@ -14,7 +14,7 @@ export const ChatWrapper: React.FC<PropsWithChildren<ChatWrapperProps>> = ({
   return (
     <div
       className={clsx(
-        "w-full rounded-lg py-2 px-3 flex flex-col gap-2",
+        "w-full rounded-xl border border-neutral-100 px-3 pt-2 pb-3 flex flex-col gap-2 max-h-[400px]",
         className
       )}
     >
@@ -23,11 +23,9 @@ export const ChatWrapper: React.FC<PropsWithChildren<ChatWrapperProps>> = ({
   );
 };
 
-export const ChatHeading: React.FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <h3 className="flex gap-2 items-center text-neutral-100">{children}</h3>
-  );
-};
+export const ChatHeading: React.FC<PropsWithChildren> = ({ children }) => (
+  <h3 className="flex gap-2 items-center text-neutral-950">{children}</h3>
+);
 
 interface ChatHeaderProps {
   className?: string;
@@ -56,7 +54,7 @@ export const ChatMessagesWrapper: React.FC<
   return (
     <div
       className={clsx(
-        "w-full border border-neutral-950 rounded-lg px-2 py-3 grow max-h-[calc(100%-80px)]",
+        "w-full rounded-lg grow max-h-[calc(100%-80px)]",
         className
       )}
     >
@@ -119,17 +117,32 @@ export const ChatStatus = ({ connectionStatus }: ChatStatusProps) => {
   return (
     <div
       title={mappedStatusToText}
-      className="py-0.5 px-1 bg-dark rounded flex gap-1 items-center"
+      className={clsx(
+        "py-0.5 px-1.5 bg-green-200 rounded-full flex gap-1 items-center",
+        {
+          "bg-red-100": connectionStatus === "idle",
+          "bg-green-100": connectionStatus === "running",
+          "bg-orange-100": connectionStatus === "starting",
+        }
+      )}
     >
       <div
-        className={clsx("w-[6px] h-[6px] rounded-full", {
+        className={clsx("w-2 h-2 rounded-full", {
           "bg-red-500": connectionStatus === "idle",
           "bg-green-500": connectionStatus === "running",
           "bg-orange-500": connectionStatus === "starting",
         })}
       />
 
-      <span className="text-xs text-neutral-200">{mappedStatusToText}</span>
+      <span
+        className={clsx("text-xs text-green-600", {
+          "text-red-500": connectionStatus === "idle",
+          "text-green-500": connectionStatus === "running",
+          "text-orange-500": connectionStatus === "starting",
+        })}
+      >
+        {mappedStatusToText}
+      </span>
     </div>
   );
 };
@@ -138,18 +151,16 @@ interface IntroPanelProps {
   className?: string;
 }
 
-export const IntroPanel = ({
-  children,
-  className,
-}: PropsWithChildren<IntroPanelProps>) => {
+export const IntroPanel = ({ className }: IntroPanelProps) => {
   return (
-    <article
+    <div
       className={clsx(
-        "p-4 bg-dark/50 rounded-xl text-neutral-100 text-sm absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 border border-neutral-950",
+        "p-4 rounded-xl text-neutral-950 text-sm absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center",
         className
       )}
     >
-      {children}
-    </article>
+      <p className="text-lg">Hey! 👋</p>
+      <p>Ask me anything!</p>
+    </div>
   );
 };
