@@ -1,10 +1,23 @@
+export enum BlockName {
+  Input = "Input",
+  Output = "Output",
+  Chat = "Chat",
+  MistralAI = "MistralSpecialist",
+  MistralVectorDB = "MistralKnowledge",
+  Leader = "Leader",
+  SpanishTranslator = "SpanishTranslator",
+  SpaceX = "SpaceX",
+  LatestLaunch = "LatestLaunch",
+  CrewMember = "CrewMember",
+  Wikipedia = "WikipediaArticle",
+}
 export interface IWorkflowConfig {
   runId: number;
   name: string;
   config: {
     version: string;
     blocks: {
-      name: string;
+      name: BlockName;
       position: { x: number; y: number };
       type: string;
     }[];
@@ -28,20 +41,17 @@ export const chatWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
-        name: "Input",
-
+        name: BlockName.Input,
         position: { x: -600.5837364388194, y: -400 },
         type: "text_input",
       },
       {
-        name: "Output",
-
+        name: BlockName.Output,
         position: { x: 400.78785017928647, y: -400 },
         type: "text_output",
       },
       {
-        name: "Chat",
-
+        name: BlockName.Chat,
         position: { x: -130.4596274474532, y: -400 },
         type: "chat",
       },
@@ -87,24 +97,22 @@ export const multipleChatsWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
-        name: "Leader",
-
+        name: BlockName.Leader,
         position: { x: -285, y: -85 },
         type: "chat",
       },
       {
-        name: "SpanishTranslator",
-
+        name: BlockName.SpanishTranslator,
         position: { x: -284.19225370319464, y: 198.6648983644884 },
         type: "chat",
       },
       {
-        name: "Input",
+        name: BlockName.Input,
         position: { x: -737.1007948137706, y: -12.913779357691794 },
         type: "text_input",
       },
       {
-        name: "Output",
+        name: BlockName.Output,
         position: { x: 162.30073656403613, y: -13.315666892449428 },
         type: "text_output",
       },
@@ -145,37 +153,32 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
-        name: "SpaceX",
-
+        name: BlockName.SpaceX,
         position: { x: -50, y: -100 },
         type: "chat",
       },
       {
-        name: "Input",
+        name: BlockName.Input,
         position: { x: -450, y: -130 },
         type: "text_input",
       },
       {
-        name: "Output",
-
+        name: BlockName.Output,
         position: { x: 380, y: -130 },
         type: "text_output",
       },
       {
-        name: "LatestLaunch",
-
+        name: BlockName.LatestLaunch,
         position: { x: -600, y: 150 },
         type: "api_call_tool",
       },
       {
-        name: "CrewMember",
-
+        name: BlockName.CrewMember,
         position: { x: -30, y: 200 },
         type: "api_call_tool",
       },
       {
-        name: "WikipediaArticle",
-
+        name: BlockName.Wikipedia,
         position: { x: 600, y: 160 },
         type: "api_call_tool",
       },
@@ -230,22 +233,22 @@ export const memoryWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
-        name: "Input",
+        name: BlockName.Input,
         position: { x: -461, y: -90 },
         type: "text_input",
       },
       {
-        name: "Output",
+        name: BlockName.Output,
         position: { x: 362.11130905646735, y: -83.69933240048226 },
         type: "text_output",
       },
       {
-        name: "MistralSpecialist",
+        name: BlockName.MistralAI,
         position: { x: -34.05048600717532, y: -85.17404547868819 },
         type: "chat",
       },
       {
-        name: "MistralKnowledge",
+        name: BlockName.MistralVectorDB,
         position: { x: -55.03860579709465, y: 319.62444837871897 },
         type: "document_search",
       },

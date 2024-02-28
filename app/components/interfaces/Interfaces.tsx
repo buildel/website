@@ -195,13 +195,14 @@ function ChatInterface({ config }: { config: IWorkflowConfig }) {
   );
 }
 
+interface SimpleWorkflowRendererProps {
+  config: IWorkflowConfig;
+  blockStates: Map<string, boolean>;
+}
 export function SimpleWorkflowRenderer({
   config,
   blockStates,
-}: {
-  config: IWorkflowConfig;
-  blockStates: Map<string, boolean>;
-}) {
+}: SimpleWorkflowRendererProps) {
   const { blocks, connections } = config.config;
   const container = useRef<HTMLDivElement>(null);
   const blockPositions = useRef<
@@ -265,16 +266,14 @@ export function SimpleWorkflowRenderer({
   return (
     <div className="w-full h-full p-4 flex relative bg-[size:300%] rounded-lg">
       <div className="w-full relative" ref={container}>
-        {blocksWithNormalizedPositions.map((block, index) => {
-          return (
-            <Block
-              key={index}
-              block={block}
-              blockStates={blockStates}
-              blockPositions={blockPositions}
-            />
-          );
-        })}
+        {blocksWithNormalizedPositions.map((block, index) => (
+          <Block
+            key={index}
+            block={block}
+            blockStates={blockStates}
+            blockPositions={blockPositions}
+          />
+        ))}
         {connections.flatMap((connection, index) => {
           const fromPosition = blockPositions.current.get(
             connection.from.block_name

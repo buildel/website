@@ -5,7 +5,10 @@ import { API } from "~/icons/API";
 import { Tab } from "~/components/shared/Tab";
 import { useState } from "react";
 import { BuildelProvider } from "~/components/buildel/BuildelSocket";
-import { chatWorkflowConfig } from "~/components/interfaces/WorkflowConfigs";
+import {
+  chatWorkflowConfig,
+  memoryWorkflowConfig,
+} from "~/components/interfaces/WorkflowConfigs";
 import { ChatInterface } from "~/components/sections/workflows/ChatInterface";
 
 enum Workflow {
@@ -38,6 +41,12 @@ export const TryWorkflows = () => {
 
   const switchWorkflow = (workflow: Workflow) => {
     setWorkFlow(workflow);
+  };
+
+  const getConfig = (workflow: Workflow) => {
+    if (workflow === Workflow.Chat) return chatWorkflowConfig;
+    if (workflow === Workflow.Memory) return memoryWorkflowConfig;
+    return chatWorkflowConfig;
   };
 
   const tabs = [
@@ -83,7 +92,9 @@ export const TryWorkflows = () => {
 
   return (
     <section className="w-full h-auto lg:min-h-[100vh] bg-grey-background flex flex-col md:items-center py-6 lg:py-20">
-      <h2 className="text-neutral-950 h2-desktop ml-4 lg:ml-0">Try Buildel workflows</h2>
+      <h2 className="text-neutral-950 h2-desktop ml-4 lg:ml-0">
+        Try Buildel workflows
+      </h2>
 
       <nav className="pl-4 lg:pl-0 mt-4 lg:mt-16 flex items-center w-full lg:w-auto overflow-x-auto overflow-y-hidden">
         {tabs.map((tab) => (
@@ -100,9 +111,7 @@ export const TryWorkflows = () => {
       </nav>
 
       <BuildelProvider>
-        {workflow === Workflow.Chat && (
-          <ChatInterface config={chatWorkflowConfig} />
-        )}
+        <ChatInterface key={workflow} config={getConfig(workflow)} />
       </BuildelProvider>
     </section>
   );

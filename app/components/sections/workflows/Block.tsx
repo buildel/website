@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { MutableRefObject } from "react";
+import { BlockName } from "~/components/interfaces/WorkflowConfigs";
 
 interface BlockProps {
   block: {
@@ -15,6 +16,23 @@ interface BlockProps {
   >;
 }
 export const Block = ({ blockPositions, blockStates, block }: BlockProps) => {
+  const renderPillContent = () => {
+    if (block.name === BlockName.MistralAI) {
+      return (
+        <img
+          src="/assets/models/mistral-ai.png"
+          className="h-6"
+          alt="Mistral AI logo"
+        />
+      );
+    }
+    return (
+      <p className="text-neutral-100 text-sm capitalize whitespace-nowrap">
+        {block.name.split("_").join(" ")}
+      </p>
+    );
+  };
+
   return (
     <div
       ref={(element) => {
@@ -38,9 +56,7 @@ export const Block = ({ blockPositions, blockStates, block }: BlockProps) => {
         top: block.position.y + "%",
       }}
     >
-      <h3 className="text-neutral-100 text-sm capitalize whitespace-nowrap">
-        {block.name.split("_").join(" ")}
-      </h3>
+      {renderPillContent()}
     </div>
   );
 };
