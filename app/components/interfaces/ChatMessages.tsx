@@ -45,7 +45,7 @@ function ChatMessage({ role, children }: PropsWithChildren<ChatMessageProps>) {
         "max-w-[80%] lg:max-w-[60%] min-h-[30px] rounded-t-xl px-3 py-2 prose",
         {
           "bg-neutral-100 text-neutral-950 rounded-br-xl": role === "ai",
-          "bg-black text-white rounded-bl-xl ml-auto mr-0": role === "user",
+          "bg-neutral-950 text-white rounded-bl-xl ml-auto mr-0": role === "user",
         }
       )}
     >

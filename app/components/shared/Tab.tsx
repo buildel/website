@@ -18,7 +18,7 @@ export const Tab = ({
     <button
       onClick={onClick}
       className={clsx(
-        "flex items-center justify-center gap-x-2 rounded-full py-1.5 px-3 text-black text-md",
+        "flex items-center justify-center gap-x-2 rounded-full py-1.5 px-3 text-neutral-950 text-md",
         className,
         {
           "bg-white": active,

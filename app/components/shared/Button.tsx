@@ -24,12 +24,12 @@ export const Button = ({
         rel="noreferrer"
         className={twMerge(
           clsx(
-            `font-primaryBold px-6 py-3 rounded-lg bg-black text-white ${className}`,
+            `font-primaryBold px-6 py-3 rounded-lg bg-neutral-950 text-white ${className}`,
             {
-              "bg-white text-black": mode === "light",
-              "bg-transparent border border-black text-black hover:bg-black hover:text-white transition-colors hover:-translate-y-1":
+              "bg-white text-neutral-950": mode === "light",
+              "bg-transparent border border-neutral-950 text-neutral-950 hover:bg-neutral-950 hover:text-white transition-colors hover:-translate-y-1":
                 mode === "dark" && variant === "secondary",
-              "bg-black text-white transition-all hover:-translate-y-1 hover:drop-shadow-2xl":
+              "bg-neutral-950 text-white transition-all hover:-translate-y-1 hover:drop-shadow-2xl":
                 mode === "dark" && variant === "primary",
             }
           )
@@ -44,12 +44,12 @@ export const Button = ({
     <button
       className={twMerge(
         clsx(
-          `font-primaryBold px-6 py-3 rounded-lg bg-black text-white ${className}`,
+          `font-primaryBold px-6 py-3 rounded-lg bg-neutral-950 text-white ${className}`,
           {
-            "bg-white text-black": mode === "light",
-            "bg-transparent border border-black text-black hover:bg-black hover:text-white transition-colors hover:-translate-y-1":
+            "bg-white text-neutral-950": mode === "light",
+            "bg-transparent border border-neutral-950 text-neutral-950 hover:bg-neutral-950 hover:text-white transition-colors hover:-translate-y-1":
               mode === "dark" && variant === "secondary",
-            "bg-black text-white transition-all hover:-translate-y-1 hover:drop-shadow-2xl":
+            "bg-neutral-950 text-white transition-all hover:-translate-y-1 hover:drop-shadow-2xl":
               mode === "dark" && variant === "primary",
           }
         )

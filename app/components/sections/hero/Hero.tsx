@@ -15,7 +15,7 @@ export const Hero = () => {
   return (
     <section className="bg-white max-h-[800px] h-[75vh] w-full relative" id="hero">
       <div className="w-full flex items-center h-3/4 layout pt-24">
-        <div className="text-black relative z-10 flex flex-col w-full lg:w-1/2">
+        <div className="relative z-10 flex flex-col w-full lg:w-1/2">
           <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
             AI Automation
             <br /> for{" "}

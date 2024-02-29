@@ -56,7 +56,7 @@ export function ChatInput({ onSubmit, generating, disabled }: ChatInputProps) {
         onChange={updateValue}
         ref={inputRef}
       />
-      <button className="px-4 py-2 rounded-lg bg-black text-white">Send</button>
+      <button className="px-4 py-2 rounded-lg bg-neutral-900 text-white">Send</button>
     </form>
   );
 }

@@ -52,7 +52,7 @@ export const Header = () => {
               <NavLink
                 to={route.path}
                 key={route.path}
-                className="ml-4 text-black/50 hover:text-black transition"
+                className="ml-4 text-neutral-950/50 hover:text-neutral-950 transition"
               >
                 {route.name}
               </NavLink>
@@ -67,7 +67,7 @@ export const Header = () => {
             rel="noreferrer"
             className="h-8 w-8 flex justify-center items-center"
           >
-            <GithubLogo className="text-2xl text-black/50 hover:text-black" />
+            <GithubLogo className="text-2xl text-neutral-950/50 hover:text-neutral-950" />
           </a>
 
           <a
@@ -76,7 +76,7 @@ export const Header = () => {
             rel="noreferrer"
             className="h-8 w-8 flex justify-center items-center"
           >
-            <DiscordLogo className="text-2xl text-black/50 hover:text-black" />
+            <DiscordLogo className="text-2xl text-neutral-950/50 hover:text-neutral-950" />
           </a>
 
           <MobileMenu />
