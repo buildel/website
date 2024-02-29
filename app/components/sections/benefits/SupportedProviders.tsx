@@ -12,9 +12,9 @@ export const SupportedProviders = () => {
         Supported providers
       </p>
 
-      <ul className="flex items-center gap-x-10 mt-5 lg:mt-0">
+      <ul className="grid grid-cols-2 lg:flex items-center lg:gap-x-10 mt-5 lg:mt-0 w-3/4 lg:w-auto">
         {providers.map((provider, index) => (
-          <li key={index} className="h-14 flex items-center">
+          <li key={index} className="h-14 flex items-center justify-center w-max">
             <img
               src={`/assets/models/${provider}`}
               className="grayscale"
