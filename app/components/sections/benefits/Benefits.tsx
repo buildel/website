@@ -43,7 +43,7 @@ const content = {
   title: 'From <span class="gradient-text">idea</span> to production',
   subtitle:
     "Whether crafting a basic application or architecting an advanced AI-driven solution, Buildel supports your development journey at every step",
-  cta: "Start building ✨",
+  cta: { label: "Start building ✨", href: "https://app.buildel.ai/register" },
 };
 
 export const Benefits = () => {
@@ -66,8 +66,12 @@ export const Benefits = () => {
 
         <SupportedProviders />
 
-        <Button mode="dark" className="mt-7 lg:mt-11 w-full lg:w-max">
-          {content.cta}
+        <Button
+          mode="dark"
+          href={content.cta.href}
+          className="mt-7 lg:mt-11 w-full lg:w-max"
+        >
+          {content.cta.label}
         </Button>
       </div>
 
