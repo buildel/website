@@ -29,10 +29,10 @@ export const Hero = () => {
             Minutes without Writing a Line of Code
           </p>
           <div className="flex items-center gap-x-4 mt-10">
-            <Button mode="dark" href={buttons.main.href}>
+            <Button mode="dark" externalHref={buttons.main.href}>
               {buttons.main.label}
             </Button>
-            <Button mode="dark" variant="secondary" href={buttons.second.href}>
+            <Button mode="dark" variant="secondary" externalHref={buttons.second.href}>
               {buttons.second.label}
             </Button>
           </div>
