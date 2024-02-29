@@ -4,6 +4,8 @@ import { UserGroup } from "~/icons/UserGroup";
 import { Keys } from "~/icons/Keys";
 import { Shapes } from "~/icons/Shapes";
 import { Puzzle } from "~/icons/Puzzle";
+import { SupportedProviders } from "~/components/sections/benefits/SupportedProviders";
+import { Button } from "~/components/shared/Button";
 
 const benefits: IBenefit[] = [
   {
@@ -54,6 +56,10 @@ export const Benefits = () => {
           <Benefit key={index} benefit={benefit} />
         ))}
       </ul>
+
+      <SupportedProviders />
+
+      <Button mode="dark" className='mt-7 lg:mt-11 w-full lg:w-max'>Start building ✨</Button>
     </section>
   );
 };
