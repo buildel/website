@@ -40,7 +40,7 @@ const benefits: IBenefit[] = [
 ];
 
 const content = {
-  title: 'From <span className="gradient-text">idea</span> to production',
+  title: 'From <span class="gradient-text">idea</span> to production',
   subtitle:
     "Whether crafting a basic application or architecting an advanced AI-driven solution, Buildel supports your development journey at every step",
   cta: "Start building ✨",
@@ -50,9 +50,10 @@ export const Benefits = () => {
   return (
     <section className="relative">
       <div className="layout flex flex-col items-start lg:items-center justify-center pt-20 pb-10">
-        <h2 className="h2-mobile lg:h2-desktop text-neutral-950 z-[1]">
-          {content.title}
-        </h2>
+        <h2
+          className="h2-mobile lg:h2-desktop text-neutral-950 z-[1]"
+          dangerouslySetInnerHTML={{ __html: content.title }}
+        />
         <p className="text-neutral-800 w-full lg:w-2/3 text-left lg:text-center mt-4 z-[1]">
           {content.subtitle}
         </p>
