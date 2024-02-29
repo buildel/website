@@ -69,7 +69,7 @@ export const Benefits = () => {
         <Button
           mode="dark"
           externalHref={content.cta.href}
-          className="mt-7 lg:mt-11 w-full lg:w-max"
+          className="mt-7 lg:mt-11 w-full flex justify-center lg:w-max"
         >
           {content.cta.label}
         </Button>

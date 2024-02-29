@@ -3,6 +3,8 @@ import { loader } from "~/routes/new";
 import { useMemo, useState } from "react";
 import { Tab } from "~/components/shared/Tab";
 import { Button } from "~/components/shared/Button";
+import { motion } from "framer-motion";
+import { listing, listItem } from "~/components/sections/blocks/animations";
 
 const categories = ["Communication", "Audio", "Text"] as const;
 type Category = (typeof categories)[number];
@@ -29,7 +31,7 @@ export const Blocks = () => {
   console.log(blockTypes);
 
   return (
-    <section className="layout flex flex-col items-center py-20">
+    <section className="layout flex flex-col items-start lg:items-center py-20">
       <h2 className="h2-mobile lg:h2-desktop text-neutral-950">
         Over <span className="gradient-text">20 blocks</span> to fulfill your
         needs
@@ -48,16 +50,26 @@ export const Blocks = () => {
         ))}
       </div>
 
-      <div className="w-3/4 min-h-[250px] grid grid-cols-2 gap-x-5 gap-y-10 mt-10">
+      <motion.div
+        key={activeCategory}
+        variants={listing}
+        initial="hidden"
+        animate="show"
+        className="w-full lg:w-3/4 min-h-[250px] grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 my-10"
+      >
         {filteredBlocks.map((block) => (
-          <div key={block.type} className="text-neutral-950">
+          <motion.div
+            variants={listItem}
+            key={block.type}
+            className="block-item text-neutral-950"
+          >
             <p className="capitalize text-xl font-primaryExtraBold">
               {block.type.split("_").join(" ")}
             </p>
             <p className="font-secondary mt-3">{block.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <Button mode="dark" href="/docs">
         Read docs

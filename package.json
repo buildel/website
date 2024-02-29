@@ -17,6 +17,7 @@
     "@remix-run/react": "^2.7.2",
     "@remix-run/serve": "^2.7.2",
     "clsx": "^2.1.0",
+    "framer-motion": "^11.0.6",
     "isbot": "^4.1.0",
     "lodash.clonedeep": "^4.5.0",
     "markdown-to-jsx": "^7.4.1",
