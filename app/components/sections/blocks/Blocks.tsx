@@ -26,10 +26,6 @@ export const Blocks = () => {
     });
   }, [blockTypes, activeCategory]);
 
-  console.log("filtered", filteredBlocks);
-
-  console.log(blockTypes);
-
   return (
     <section className="layout flex flex-col items-start lg:items-center py-20">
       <h2 className="h2-mobile lg:h2-desktop text-neutral-950">
@@ -40,6 +36,7 @@ export const Blocks = () => {
       <div className="flex items-center p-1 rounded-full bg-neutral-50 mt-10">
         {categories.map((category, index) => (
           <Tab
+            mode="light"
             key={index}
             gradientText
             active={category === activeCategory}

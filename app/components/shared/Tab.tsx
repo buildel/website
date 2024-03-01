@@ -7,6 +7,7 @@ interface TabProps {
   className?: string;
   gradientText?: boolean;
   onClick: () => void;
+  mode: "light" | "dark";
 }
 export const Tab = ({
   icon,
@@ -14,16 +15,21 @@ export const Tab = ({
   active,
   className,
   gradientText,
+  mode,
   onClick,
 }: PropsWithChildren<TabProps>) => {
   return (
     <button
       onClick={onClick}
       className={clsx(
-        "flex items-center justify-center gap-x-2 rounded-full py-1.5 px-3 text-neutral-950 text-md",
+        "flex items-center justify-center gap-x-2 rounded-full py-1.5 px-3 text-md",
         className,
         {
-          "bg-white font-primaryBold": active,
+          "text-neutral-950": !active && mode === "light",
+          "bg-white text-neutral-950 font-primaryBold": active && mode === "light",
+
+          "text-white": !active && mode === "dark",
+          "bg-dark-background": active && mode === "dark",
         }
       )}
     >

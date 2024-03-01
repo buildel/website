@@ -7,6 +7,8 @@ import { Benefits } from "~/components/sections/benefits/Benefits";
 import { Blocks } from "~/components/sections/blocks/Blocks";
 import { BlockTypeApi } from "~/api/blockTypesApi";
 import { json } from "@remix-run/node";
+import { JoinCommunity } from "~/components/sections/community/JoinCommunity";
+import { Integration } from "~/components/sections/integration/Integration";
 
 export async function loader() {
   const blockTypesApi = new BlockTypeApi();
@@ -25,6 +27,8 @@ export default function Index() {
       <AskToBuildWorkflow />
       <Benefits />
       <Blocks />
+      <JoinCommunity />
+      <Integration />
     </main>
   );
 }

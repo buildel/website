@@ -12,6 +12,14 @@ export const listing: Variants = {
       ease: "easeOut",
     },
   },
+  reveal: {
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      staggerChildren: 0.2,
+      ease: "easeOut",
+    },
+  },
 };
 
 export const listItem: Variants = {

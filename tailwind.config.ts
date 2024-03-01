@@ -89,6 +89,7 @@ export default {
         },
         "accent-blue": "#1117A9",
         "grey-background": "#F7F7F7",
+        "dark-background": "#101010",
         blue: {
           "50": "#eff6ff",
           "100": "#dbeafe",
@@ -175,12 +176,21 @@ export default {
         "hero-pattern": "url('/assets/dots-background.svg')",
       },
       animation: {
+        shimmer: "shimmer 2s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         dashdraw: "dash 4s linear infinite reverse",
         "meteor-effect": "meteor 5s linear infinite",
       },
       keyframes: {
+        shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
+        },
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
           "70%": { opacity: "1" },
@@ -221,6 +231,18 @@ export default {
         ".h2-mobile": {
           "font-size": "2em",
           "font-family": "Gilroy-ExtraBold",
+        },
+        ".h3-desktop": {
+          "font-size": "2.25em",
+          "font-family": "Gilroy-ExtraBold",
+        },
+        ".h4-desktop": {
+          "font-size": "1.75em",
+          "font-family": "Gilroy-Bold",
+        },
+        ".h4-mobile": {
+          "font-size": "1.25em",
+          "font-family": "Gilroy-Bold",
         },
       });
     }),

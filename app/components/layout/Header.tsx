@@ -4,15 +4,13 @@ import { GithubLogo } from "~/icons/GithubLogo";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { MobileMenu } from "~/components/shared/MobileMenu";
 import { useEffect } from "react";
+import { urls } from "~/utils/urls";
 
 const routes = [
   { name: "Product", path: "/product" },
   { name: "Docs", path: "/docs" },
   { name: "Pricing", path: "/pricing" },
 ];
-
-const githubUrl = "https://github.com/elpassion/buildel";
-const discordUrl = "https://discord.gg/SUXs7FyRT2";
 
 export const Header = () => {
   const afterScrollClasses = ["border-b", "border-neutral-100", "bg-white"];
@@ -62,7 +60,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-x-5">
           <a
-            href={githubUrl}
+            href={urls.githubRepo}
             target="_blank"
             rel="noreferrer"
             className="h-8 w-8 flex justify-center items-center"
@@ -71,7 +69,7 @@ export const Header = () => {
           </a>
 
           <a
-            href={discordUrl}
+            href={urls.discordServer}
             target="_blank"
             rel="noreferrer"
             className="h-8 w-8 flex justify-center items-center"
@@ -80,7 +78,7 @@ export const Header = () => {
           </a>
 
           <MobileMenu />
-          <Button mode="dark" className="hidden md:flex">
+          <Button mode="dark" className="hidden lg:flex">
             Sign up
           </Button>
         </div>

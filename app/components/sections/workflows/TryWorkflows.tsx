@@ -108,6 +108,7 @@ export const TryWorkflows = () => {
         {tabs.map((tab) => (
           <Tab
             key={tab.name}
+            mode="light"
             className="w-max lg:w-[170px]"
             icon={tab.icon}
             active={workflow === tab.name}
