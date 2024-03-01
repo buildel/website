@@ -1,7 +1,8 @@
 import { IconProps } from "~/icons/icons.types";
+import { motion } from "framer-motion";
 
 export const BurgerMenu = ({ className }: IconProps) => (
-  <svg
+  <motion.svg
     className={className}
     width="1em"
     height="1em"
@@ -10,23 +11,32 @@ export const BurgerMenu = ({ className }: IconProps) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <g clipPath="url(#clip0_417_948)">
-      <path
+      <motion.path
         d="M15.0765 2.69284H1.27795"
         stroke="currentColor"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.2 }}
         strokeWidth="1.14"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
+      <motion.path
         d="M15.0765 8H1.27795"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ delay: 0.2, duration: 0.1 }}
         stroke="currentColor"
         strokeWidth="1.14"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
+      <motion.path
         d="M15.0765 13.3071H1.27795"
         stroke="currentColor"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ delay: 0.3, duration: 0.1 }}
         strokeWidth="1.14"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -42,5 +52,5 @@ export const BurgerMenu = ({ className }: IconProps) => (
         />
       </clipPath>
     </defs>
-  </svg>
+  </motion.svg>
 );

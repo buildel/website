@@ -4,13 +4,7 @@ import { GithubLogo } from "~/icons/GithubLogo";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { MobileMenu } from "~/components/shared/MobileMenu";
 import { useEffect } from "react";
-import { urls } from "~/utils/urls";
-
-const routes = [
-  { name: "Product", path: "/product" },
-  { name: "Docs", path: "/docs" },
-  { name: "Pricing", path: "/pricing" },
-];
+import { urls, routes } from "~/utils/urls";
 
 export const Header = () => {
   const afterScrollClasses = ["border-b", "border-neutral-100", "bg-white"];
