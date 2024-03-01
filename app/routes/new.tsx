@@ -9,6 +9,7 @@ import { BlockTypeApi } from "~/api/blockTypesApi";
 import { json } from "@remix-run/node";
 import { JoinCommunity } from "~/components/sections/community/JoinCommunity";
 import { Integration } from "~/components/sections/integration/Integration";
+import { Footer } from "~/components/layout/Footer";
 
 export async function loader() {
   const blockTypesApi = new BlockTypeApi();
@@ -29,6 +30,7 @@ export default function Index() {
       <Blocks />
       <JoinCommunity />
       <Integration />
+      <Footer />
     </main>
   );
 }

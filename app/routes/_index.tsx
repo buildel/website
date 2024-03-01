@@ -12,7 +12,7 @@ import { SectionWrapper } from "~/components/layout/Layout.components";
 import { LegacyHeader } from "~/components/layout/LegacyHeader";
 import { ElSection } from "~/components/el/ElSection";
 import { CommunitySection } from "~/components/community/CommunitySection";
-import { Footer } from "~/components/layout/Footer";
+import { LegacyFooter } from "~/components/layout/LegacyFooter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -120,7 +120,7 @@ export default function Index() {
 
       <div className="border-t border-neutral-950">
         <SectionWrapper className="py-10 lg:py-16">
-          <Footer />
+          <LegacyFooter />
         </SectionWrapper>
       </div>
     </>

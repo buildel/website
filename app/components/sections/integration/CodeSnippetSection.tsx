@@ -55,7 +55,7 @@ export const CodeSnippetSection = ({
         )}
         <img
           src={`/assets/${imageDirectory}/${activeTab.toLowerCase()}.png`}
-          className={clsx("w-full max-w-[630px] rounded-2xl", {
+          className={clsx("w-full max-w-[630px] rounded-lg lg:rounded-2xl", {
             "mt-14": technologiesTabs.length === 1,
           })}
           alt=""

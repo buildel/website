@@ -236,6 +236,10 @@ export default {
           "font-size": "2.25em",
           "font-family": "Gilroy-ExtraBold",
         },
+        ".h3-mobile": {
+          "font-size": "1.75em",
+          "font-family": "Gilroy-ExtraBold",
+        },
         ".h4-desktop": {
           "font-size": "1.75em",
           "font-family": "Gilroy-Bold",

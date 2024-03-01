@@ -41,7 +41,7 @@ export const Header = () => {
       <div className="flex items-center justify-between layout">
         <div className="flex items-center">
           <img
-            src="./buildel-by-elp-logo.svg"
+            src="/buildel-by-elp-logo-black.svg"
             alt="Buildel: built by EL Passion logo"
           />
 
@@ -63,7 +63,7 @@ export const Header = () => {
             href={urls.githubRepo}
             target="_blank"
             rel="noreferrer"
-            className="h-8 w-8 flex justify-center items-center"
+            className="h-8 w-8 hidden lg:flex justify-center items-center"
           >
             <GithubLogo className="text-2xl text-neutral-950/50 hover:text-neutral-950" />
           </a>
@@ -72,7 +72,7 @@ export const Header = () => {
             href={urls.discordServer}
             target="_blank"
             rel="noreferrer"
-            className="h-8 w-8 flex justify-center items-center"
+            className="h-8 w-8 hidden lg:flex justify-center items-center"
           >
             <DiscordLogo className="text-2xl text-neutral-950/50 hover:text-neutral-950" />
           </a>
