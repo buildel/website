@@ -28,7 +28,7 @@ export const CodeSnippetSection = ({
   imageDirectory,
 }: CodeSnippetSectionProps) => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-start justify-between layout pb-14">
+    <div className="flex flex-col-reverse lg:flex-row items-start justify-between layout pb-14 lg:h-[500px]">
       <div className="flex flex-col w-full lg:w-2/5 mt-14">
         {title}
         <p className="mt-4 mb-6 text-neutral-300 font-secondary">{subtitle}</p>

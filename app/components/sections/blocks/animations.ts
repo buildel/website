@@ -9,7 +9,8 @@ export const listing: Variants = {
     transition: {
       delay: 0.1,
       staggerChildren: 0.2,
-      ease: "easeOut",
+      ease: "anticipate",
+      bounce: 0,
     },
   },
   reveal: {
@@ -17,12 +18,26 @@ export const listing: Variants = {
     transition: {
       delay: 0.1,
       staggerChildren: 0.2,
-      ease: "easeOut",
+      ease: "easeInOut",
+      bounce: 0,
     },
   },
 };
 
 export const listItem: Variants = {
-  hidden: { opacity: 0, y: 100 },
-  show: { opacity: 1, y: 0 },
+  hidden: {
+    opacity: 0,
+    y: 120,
+    scale: 0.3,
+    filter: "blur(8px)",
+    originX: 0,
+    originY: 1,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.3, type: "tween" },
+  },
 };
