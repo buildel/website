@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IMessage, MessageRole } from "~/components/interfaces/chat.types";
 import cloneDeep from "lodash.clonedeep";
 import { v4 as uuidv4 } from "uuid";
@@ -14,7 +14,6 @@ import {
 } from "~/components/interfaces/Chat.components";
 import { ChatMessages } from "~/components/interfaces/ChatMessages";
 import { ChatInput } from "~/components/interfaces/ChatInput";
-import clsx from "clsx";
 import { IWorkflowConfig } from "~/components/interfaces/WorkflowConfigs";
 import { SimpleWorkflowRenderer } from "~/components/interfaces/Interfaces";
 
@@ -116,22 +115,24 @@ export const ChatInterface = ({ config }: ChatInterfaceProps) => {
           </div>
         </ChatHeader>
 
-        <ChatMessagesWrapper>
-          <ChatMessages messages={messages} />
+        {messages.length > 0 ? (
+          <ChatMessagesWrapper className="h-[calc(100%-80px)]">
+            <ChatMessages messages={messages} />
 
-          <ChatGeneratingAnimation
-            messages={messages}
-            isGenerating={isGenerating}
-          />
-        </ChatMessagesWrapper>
+            <ChatGeneratingAnimation
+              messages={messages}
+              isGenerating={isGenerating}
+            />
+          </ChatMessagesWrapper>
+        ) : (
+          <IntroPanel onPredefinedMessageClick={updatesMessagesHistory} />
+        )}
 
         <ChatInput
           onSubmit={updatesMessagesHistory}
           disabled={status !== "running"}
           generating={isGenerating}
         />
-
-        <IntroPanel className={clsx({ hidden: !!messages.length })} />
       </ChatWrapper>
 
       <div className="absolute top-0 z-[2] w-full h-[200px] bg-gradient-to-b from-grey-background to-neutral-100/0" />
