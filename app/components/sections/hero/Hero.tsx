@@ -1,4 +1,10 @@
 import { Button } from "~/components/shared/Button";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  wrapperVariants,
+  letterVariants,
+} from "~/components/sections/hero/animations";
+import { useEffect, useState } from "react";
 
 export const buttons = {
   main: {
@@ -11,17 +17,49 @@ export const buttons = {
   },
 };
 
+const words = ["everybody", "sales", "engineers", "marketeers", "you"];
+
 export const Hero = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
-    <section className="bg-white max-h-[800px] h-[75vh] w-full relative" id="hero">
+    <section
+      className="bg-white max-h-[800px] h-[75vh] w-full relative"
+      id="hero"
+    >
       <div className="w-full flex items-center h-3/4 layout pt-24">
         <div className="relative z-10 flex flex-col w-full lg:w-1/2">
           <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
             AI Automation
-            <br /> for{" "}
-            <span className="gradient-text">
-              everybody
-            </span>
+            <br /> for <span className="sr-only">{words[index]}</span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={index}
+                initial="hide"
+                animate="show"
+                aria-hidden
+                variants={wrapperVariants}
+              >
+                {words[index].split("").map((letter, idx) => (
+                  <motion.span
+                    key={`${letter}-${idx}`}
+                    className="inline-block gradient-text"
+                    exit={{ opacity: 0 }}
+                    variants={letterVariants}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.span>
+            </AnimatePresence>
           </h1>
 
           <p className="text-neutral-800 max-w-[505px] w-full mt-5 font-secondary text-lg">
@@ -32,7 +70,11 @@ export const Hero = () => {
             <Button mode="dark" externalHref={buttons.main.href}>
               {buttons.main.label}
             </Button>
-            <Button mode="dark" variant="secondary" externalHref={buttons.second.href}>
+            <Button
+              mode="dark"
+              variant="secondary"
+              externalHref={buttons.second.href}
+            >
               {buttons.second.label}
             </Button>
           </div>
