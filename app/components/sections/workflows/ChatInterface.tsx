@@ -6,6 +6,7 @@ import { usePipelineRun } from "~/components/buildel/BuildelSocket";
 import { IWorkflowConfig } from "~/components/interfaces/WorkflowConfigs";
 import { SimpleWorkflowRenderer } from "~/components/interfaces/Interfaces";
 import { Workflow } from "~/utils/enums";
+import { LoadingSpinner } from "~/components/shared/LoadingSpinner";
 
 interface ChatInterfaceProps {
   config: IWorkflowConfig;
@@ -102,7 +103,10 @@ export const ChatInterface = ({
       <div className="w-full rounded-lg h-[400px] lg:h-full z-10 relative">
         {status === "idle" && (
           <div className="w-full h-full absolute bg-neutral-50/70 z-10 flex items-center justify-center text-black">
-            <p>Loading workflow...</p>
+            <p className="bg-white pl-3 pr-4 py-1.5 font-primaryBold border border-neutral-100 rounded-full">
+              <LoadingSpinner className="text-neutral-950" />
+              Loading workflow
+            </p>
           </div>
         )}
         <SimpleWorkflowRenderer
