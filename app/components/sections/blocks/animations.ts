@@ -13,15 +13,6 @@ export const listing: Variants = {
       bounce: 0,
     },
   },
-  reveal: {
-    opacity: 1,
-    transition: {
-      delay: 0.1,
-      staggerChildren: 0.2,
-      ease: "easeInOut",
-      bounce: 0,
-    },
-  },
 };
 
 export const listItem: Variants = {

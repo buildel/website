@@ -51,7 +51,8 @@ export const Blocks = () => {
         key={activeCategory}
         variants={listing}
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true }}
         className="w-full lg:w-3/4 min-h-[250px] grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 my-10"
       >
         {filteredBlocks.map((block) => (

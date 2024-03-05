@@ -6,6 +6,7 @@ import { Shapes } from "~/icons/Shapes";
 import { Puzzle } from "~/icons/Puzzle";
 import { SupportedProviders } from "~/components/sections/benefits/SupportedProviders";
 import { Button } from "~/components/shared/Button";
+import { motion } from "framer-motion";
 
 const benefits: IBenefit[] = [
   {
@@ -54,15 +55,36 @@ export const Benefits = () => {
           className="h2-mobile lg:h2-desktop text-neutral-950 z-[1]"
           dangerouslySetInnerHTML={{ __html: content.title }}
         />
-        <p className="text-neutral-800 w-full lg:w-2/3 text-left lg:text-center mt-4 z-[1]">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-neutral-800 w-full lg:w-2/3 text-left lg:text-center mt-4 z-[1]"
+        >
           {content.subtitle}
-        </p>
+        </motion.p>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-11 gap-5 z-[1]">
+        <motion.ul
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                ease: "easeInOut",
+                bounce: 0,
+              },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-11 gap-5 z-[1]"
+        >
           {benefits.map((benefit, index) => (
             <Benefit key={index} benefit={benefit} />
           ))}
-        </ul>
+        </motion.ul>
 
         <SupportedProviders />
 
