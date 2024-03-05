@@ -4,7 +4,7 @@ export const urls = {
 };
 
 export const routes = [
-  { name: "Product", path: "/product" },
+  // { name: "Product", path: "/product" },
   { name: "Docs", path: "/docs" },
-  { name: "Pricing", path: "/pricing" },
+  // { name: "Pricing", path: "/pricing" },
 ];

@@ -3,25 +3,19 @@ import { IMessage, MessageRole } from "~/components/interfaces/chat.types";
 import cloneDeep from "lodash.clonedeep";
 import { v4 as uuidv4 } from "uuid";
 import { usePipelineRun } from "~/components/buildel/BuildelSocket";
-import {
-  ChatGeneratingAnimation,
-  ChatHeader,
-  ChatHeading,
-  ChatMessagesWrapper,
-  ChatStatus,
-  ChatWrapper,
-  IntroPanel,
-} from "~/components/interfaces/Chat.components";
-import { ChatMessages } from "~/components/interfaces/ChatMessages";
-import { ChatInput } from "~/components/interfaces/ChatInput";
 import { IWorkflowConfig } from "~/components/interfaces/WorkflowConfigs";
 import { SimpleWorkflowRenderer } from "~/components/interfaces/Interfaces";
+import { Workflow } from "~/utils/enums";
 
 interface ChatInterfaceProps {
   config: IWorkflowConfig;
+  currentWorkflow: Workflow;
 }
 
-export const ChatInterface = ({ config }: ChatInterfaceProps) => {
+export const ChatInterface = ({
+  config,
+  currentWorkflow,
+}: ChatInterfaceProps) => {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [blockStates, setBlockStates] = useState<Map<string, boolean>>(() => {
@@ -101,39 +95,25 @@ export const ChatInterface = ({ config }: ChatInterfaceProps) => {
     push(config.interface_config.input + ":input", message);
   };
 
+  const aiAnswers = messages.filter((message) => message.role === "ai");
+
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-4 bg-neutral-100 p-4 relative overflow-hidden min-h-[70vh] lg:max-h-[600px] lg:h-[100vh] w-full">
-      <div className="w-full md:w-1/3 rounded-lg h-[200px] lg:h-full z-10">
-        <SimpleWorkflowRenderer config={config} blockStates={blockStates} />
-      </div>
-
-      <ChatWrapper className="h-[300px] lg:h-full relative w-full md:w-1/3 rounded-lg bg-white z-10">
-        <ChatHeader className="mb-1">
-          <div className="flex gap-2 items-center">
-            <ChatHeading>{config.name}</ChatHeading>
-            <ChatStatus connectionStatus={status} />
+      <div className="w-full rounded-lg h-[200px] lg:h-full z-10 relative">
+        {status === "idle" && (
+          <div className="w-full h-full absolute bg-neutral-50/70 z-10 flex items-center justify-center text-black">
+            <p>Loading workflow...</p>
           </div>
-        </ChatHeader>
-
-        {messages.length > 0 ? (
-          <ChatMessagesWrapper className="h-[calc(100%-80px)]">
-            <ChatMessages messages={messages} />
-
-            <ChatGeneratingAnimation
-              messages={messages}
-              isGenerating={isGenerating}
-            />
-          </ChatMessagesWrapper>
-        ) : (
-          <IntroPanel onPredefinedMessageClick={updatesMessagesHistory} />
         )}
-
-        <ChatInput
-          onSubmit={updatesMessagesHistory}
-          disabled={status !== "running"}
-          generating={isGenerating}
+        <SimpleWorkflowRenderer
+          aiAnswers={aiAnswers}
+          currentWorkflow={currentWorkflow}
+          isGenerating={isGenerating}
+          config={config}
+          blockStates={blockStates}
+          onMessageSend={updatesMessagesHistory}
         />
-      </ChatWrapper>
+      </div>
 
       <div className="absolute top-0 z-[2] w-full h-[200px] bg-gradient-to-b from-grey-background to-neutral-100/0" />
       <img

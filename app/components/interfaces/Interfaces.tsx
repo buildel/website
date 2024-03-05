@@ -21,7 +21,6 @@ import {
   ChatMessagesWrapper,
   ChatStatus,
   ChatWrapper,
-  IntroPanel,
 } from "~/components/interfaces/Chat.components";
 import { ChatInput } from "~/components/interfaces/ChatInput";
 import clsx from "clsx";
@@ -34,6 +33,7 @@ import {
   SectionSubheading,
 } from "~/components/layout/Layout.components";
 import { Block } from "~/components/sections/workflows/Block";
+import { Workflow } from "~/utils/enums";
 
 interface InterfacesProps {}
 
@@ -160,10 +160,6 @@ function ChatInterface({ config }: { config: IWorkflowConfig }) {
 
   return (
     <div className="grid grid-rows-[350px_350px] grid-cols-1 md:grid-cols-2 md:grid-rows-[450px] gap-4">
-      <div className="w-full rounded-lg h-full">
-        <SimpleWorkflowRenderer config={config} blockStates={blockStates} />
-      </div>
-
       <div className="w-full rounded-lg bg-dark/80 h-full">
         <ChatWrapper className="h-full !py-4 relative">
           <ChatHeader className="mb-1">
@@ -187,8 +183,6 @@ function ChatInterface({ config }: { config: IWorkflowConfig }) {
             disabled={status !== "running"}
             generating={isGenerating}
           />
-
-          <IntroPanel className={clsx({ hidden: !!messages.length })} />
         </ChatWrapper>
       </div>
     </div>
@@ -198,10 +192,17 @@ function ChatInterface({ config }: { config: IWorkflowConfig }) {
 interface SimpleWorkflowRendererProps {
   config: IWorkflowConfig;
   blockStates: Map<string, boolean>;
+  onMessageSend: (message: string) => void;
+  aiAnswers: IMessage[];
+  isGenerating: boolean;
+  currentWorkflow: Workflow;
 }
 export function SimpleWorkflowRenderer({
   config,
   blockStates,
+  onMessageSend,
+  aiAnswers,
+  currentWorkflow,
 }: SimpleWorkflowRendererProps) {
   const { blocks, connections } = config.config;
   const container = useRef<HTMLDivElement>(null);
@@ -269,15 +270,19 @@ export function SimpleWorkflowRenderer({
         {blocksWithNormalizedPositions.map((block, index) => (
           <Block
             key={index}
+            currentWorkflow={currentWorkflow}
             block={block}
             blockStates={blockStates}
             blockPositions={blockPositions}
+            onMessageSend={onMessageSend}
+            aiAnswers={aiAnswers}
           />
         ))}
         {connections.flatMap((connection, index) => {
           const fromPosition = blockPositions.current.get(
             connection.from.block_name
           );
+
           const toPosition = blockPositions.current.get(
             connection.to.block_name
           );
@@ -286,7 +291,7 @@ export function SimpleWorkflowRenderer({
           const outputPosition = {
             text: {
               top: fromPosition.offset.top,
-              left: fromPosition.offset.left + fromPosition.rect.width / 2,
+              left: fromPosition.offset.left,
             },
             worker: {
               top: fromPosition.offset.top - fromPosition.rect.height / 2,
@@ -297,7 +302,7 @@ export function SimpleWorkflowRenderer({
           const inputPosition = {
             text: {
               top: toPosition.offset.top,
-              left: toPosition.offset.left - toPosition.rect.width / 2,
+              left: toPosition.offset.left,
             },
             controller: {
               top: toPosition.offset.top + toPosition.rect.height / 2,
@@ -308,7 +313,9 @@ export function SimpleWorkflowRenderer({
           return [
             <svg key={index} className="absolute w-full h-full">
               <line
-                className={clsx("stroke-current animate-dashdraw text-neutral-400")}
+                className={clsx(
+                  "stroke-current animate-dashdraw text-neutral-400"
+                )}
                 strokeDasharray={6}
                 style={{ strokeWidth: 1 }}
                 x1={outputPosition.left}

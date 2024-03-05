@@ -45,18 +45,18 @@ export const chatWorkflowConfig: IWorkflowConfig = {
     blocks: [
       {
         name: BlockName.Input,
-        position: { x: -600.5837364388194, y: -400 },
+        position: { x: -490.5837364388194, y: -1700 },
         type: "text_input",
       },
       {
-        name: BlockName.Output,
-        position: { x: 400.78785017928647, y: -400 },
-        type: "text_output",
+        name: BlockName.Chat,
+        position: { x: -500.4596274474532, y: -900 },
+        type: "chat",
       },
       {
-        name: BlockName.Chat,
-        position: { x: -130.4596274474532, y: -400 },
-        type: "chat",
+        name: BlockName.Output,
+        position: { x: -500.78785017928647, y: -100 },
+        type: "text_output",
       },
     ],
     connections: [
@@ -100,23 +100,23 @@ export const multipleChatsWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
+        name: BlockName.Input,
+        position: { x: -740, y: -300 },
+        type: "text_input",
+      },
+      {
         name: BlockName.Leader,
-        position: { x: -285, y: -85 },
+        position: { x: -485, y: 0 },
         type: "chat",
       },
       {
         name: BlockName.SpanishTranslator,
-        position: { x: -284.19225370319464, y: 198.6648983644884 },
+        position: { x: -1000, y: 0 },
         type: "chat",
       },
       {
-        name: BlockName.Input,
-        position: { x: -737.1007948137706, y: -12.913779357691794 },
-        type: "text_input",
-      },
-      {
         name: BlockName.Output,
-        position: { x: 162.30073656403613, y: -13.315666892449428 },
+        position: { x: -740, y: 300 },
         type: "text_output",
       },
     ],
@@ -156,34 +156,34 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
     version: "1",
     blocks: [
       {
-        name: BlockName.SpaceX,
-        position: { x: -50, y: -100 },
-        type: "chat",
-      },
-      {
         name: BlockName.Input,
         position: { x: -700, y: -130 },
         type: "text_input",
       },
       {
-        name: BlockName.Output,
-        position: { x: 580, y: -130 },
-        type: "text_output",
+        name: BlockName.SpaceX,
+        position: { x: -700, y: 350 },
+        type: "chat",
       },
       {
         name: BlockName.LatestLaunch,
-        position: { x: -800, y: 150 },
+        position: { x: 100, y: 100 },
         type: "api_call_tool",
       },
       {
         name: BlockName.CrewMember,
-        position: { x: -30, y: 200 },
+        position: { x: 10, y: 300 },
         type: "api_call_tool",
       },
       {
         name: BlockName.Wikipedia,
-        position: { x: 700, y: 160 },
+        position: { x: -60, y: 480 },
         type: "api_call_tool",
+      },
+      {
+        name: BlockName.Output,
+        position: { x: -600, y: 800 },
+        type: "text_output",
       },
     ],
     connections: [
@@ -241,19 +241,19 @@ export const memoryWorkflowConfig: IWorkflowConfig = {
         type: "text_input",
       },
       {
-        name: BlockName.Output,
-        position: { x: 362.11130905646735, y: -83.69933240048226 },
-        type: "text_output",
-      },
-      {
         name: BlockName.MistralAI,
-        position: { x: -34.05048600717532, y: -85.17404547868819 },
+        position: { x: 0, y: 200 },
         type: "chat",
       },
       {
         name: BlockName.MistralVectorDB,
-        position: { x: -55.03860579709465, y: 319.62444837871897 },
+        position: { x: -900, y: 200 },
         type: "document_search",
+      },
+      {
+        name: BlockName.Output,
+        position: { x: -461, y: 700 },
+        type: "text_output",
       },
     ],
     connections: [

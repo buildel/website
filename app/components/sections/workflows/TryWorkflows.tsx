@@ -12,13 +12,7 @@ import {
   toolsWorkflowConfig,
 } from "~/components/interfaces/WorkflowConfigs";
 import { ChatInterface } from "~/components/sections/workflows/ChatInterface";
-
-enum Workflow {
-  Chat = "Chat",
-  Memory = "Memory",
-  MultipleModels = "Multiple models",
-  APITools = "API tools",
-}
+import { Workflow } from "~/utils/enums";
 
 export const TryWorkflows = () => {
   const [workflow, setWorkFlow] = useState(Workflow.Chat);
@@ -120,7 +114,7 @@ export const TryWorkflows = () => {
       </nav>
 
       <BuildelProvider>
-        <ChatInterface key={workflow} config={getConfig(workflow)} />
+        <ChatInterface key={workflow} config={getConfig(workflow)} currentWorkflow={workflow} />
       </BuildelProvider>
     </section>
   );

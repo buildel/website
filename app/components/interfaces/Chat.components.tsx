@@ -2,6 +2,8 @@ import React, { PropsWithChildren, useMemo } from "react";
 import { IMessage } from "./chat.types";
 import { BuildelRunStatus } from "@buildel/buildel";
 import clsx from "clsx";
+import { Workflow } from "~/utils/enums";
+import { Chat } from "~/components/interfaces/initial-views/Chat";
 
 interface ChatWrapperProps {
   className?: string;
@@ -149,12 +151,21 @@ export const ChatStatus = ({ connectionStatus }: ChatStatusProps) => {
 
 interface IntroPanelProps {
   onPredefinedMessageClick: (message: string) => void;
+  currentWorkflow: Workflow;
 }
 
-export const IntroPanel = ({ onPredefinedMessageClick }: IntroPanelProps) => {
+export const IntroPanel = ({
+  onPredefinedMessageClick,
+  currentWorkflow,
+}: IntroPanelProps) => {
   const topics = ["Tell a joke", "What was first, egg or chicken?"];
 
   // TODO/UX: Order of sections here below to should be reversed
+
+  if (currentWorkflow === Workflow.Chat) {
+    return <Chat onPredefinedMessageClick={onPredefinedMessageClick} />;
+  }
+
   return (
     <div className="h-full p-4 rounded-xl text-neutral-950 text-sm flex flex-col items-center justify-center">
       <div className="flex items-start gap-x-4">
