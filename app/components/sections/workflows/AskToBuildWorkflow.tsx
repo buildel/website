@@ -1,4 +1,5 @@
 import { Button } from "~/components/shared/Button";
+import { Illustration } from "~/components/sections/workflows/illustration";
 
 export const AskToBuildWorkflow = () => (
   <section className="flex items-center bg-grey-background pb-20">
@@ -17,11 +18,7 @@ export const AskToBuildWorkflow = () => (
         </Button>
       </div>
 
-      <img
-        src="/assets/views/ask-el.png"
-        className="w-full lg:w-auto lg:h-[400px] lg:mr-14"
-        alt="ask el view"
-      />
+      <Illustration />
     </div>
   </section>
 );
