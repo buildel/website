@@ -56,7 +56,7 @@ export const Input = ({
     >
       <form
         onSubmit={(event) => event.preventDefault()}
-        className="flex items-center w-[300px] lg:w-full h-10 bg-neutral-100 pl-3 pr-1 rounded-xl"
+        className="flex items-center w-[300px] lg:w-full h-12 lg:h-10 bg-neutral-100 pl-3 pr-1 rounded-xl"
       >
         <input
           type="text"
@@ -66,7 +66,7 @@ export const Input = ({
           placeholder="Ask me anything..."
         />
         <button
-          className="bg-neutral-950 h-8 w-8 flex items-center justify-center rounded-lg"
+          className="bg-neutral-950 h-9 w-9 lg:h-8 lg:w-8 flex items-center justify-center rounded-lg"
           onClick={() => {
             onClick(message);
             setMessage("");
@@ -116,7 +116,7 @@ export const Output = ({ messages = [] }: OutputProps) => {
   const restMessages = messages.length - 1;
 
   return (
-    <div className="min-h-10 text-neutral-950 w-[400px] flex justify-center items-center">
+    <div className="min-h-10 text-neutral-950 w-full lg:w-[400px] flex justify-center items-center">
       {messages.length === 0 && (
         <p className="bg-white px-4 py-2 rounded-lg text-neutral-800 max-w-max flex justify-center">
           Ask AI anything to see response here

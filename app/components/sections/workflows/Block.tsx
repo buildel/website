@@ -13,7 +13,7 @@ import {
   SpanishTranslator,
   VectorDatabase,
   Wikipedia,
-} from "~/components/sections/workflows/useBlockContent";
+} from "~/components/sections/workflows/BlockTypes";
 import { IMessage } from "~/components/interfaces/chat.types";
 import { Workflow } from "~/utils/enums";
 
