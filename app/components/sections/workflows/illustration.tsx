@@ -14,24 +14,22 @@ const block: Variants = {
   },
 };
 export const Illustration = () => (
-  <svg
+  <motion.svg
     className="w-full max-w-[600px] h-full max-h-[524px]"
+    initial={{ opacity: 0, scale: 0 }}
+    viewport={{ once: true }}
+    whileInView={{
+      opacity: 1,
+      scale: 1,
+      originY: 1,
+      transition: { duration: 0.3, bounce: 2 },
+    }}
     viewBox="0 0 600 524"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <motion.g id="Frame 231">
-      <motion.g
-        id="chat box"
-        initial={{ opacity: 0, scale: 0 }}
-        viewport={{ once: true }}
-        whileInView={{
-          opacity: 1,
-          scale: 1,
-          originY: 1,
-          transition: { duration: 0.3, bounce: 2 },
-        }}
-      >
+    <g id="Frame 231">
+      <motion.g id="chat box">
         <rect x="112" y="33" width="414" height="427" rx="12" fill="white" />
         <g id="Frame 72">
           <g id="Frame 71">
@@ -451,7 +449,7 @@ export const Illustration = () => (
           </g>
         </motion.g>
       </motion.g>
-    </motion.g>
+    </g>
     <defs>
       <clipPath id="clip0_613_2684">
         <rect
@@ -462,5 +460,5 @@ export const Illustration = () => (
         />
       </clipPath>
     </defs>
-  </svg>
+  </motion.svg>
 );
