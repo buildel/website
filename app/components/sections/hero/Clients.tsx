@@ -9,8 +9,8 @@ const clients = [
 ];
 
 export const Clients = () => (
-  <div className="flex flex-col layout py-10">
-    <h3 className="text-neutral-800 font-primaryBold w-full max-w-[400px] text-xl">
+  <div className="flex flex-col layout py-10 items-start lg:items-center z-[2] relative">
+    <h3 className="text-neutral-800 font-primaryBold w-full max-w-[400px] text-xl text-left lg:text-center">
       Trusted by multiple clients from various industries with individual needs
     </h3>
     <motion.ul
@@ -21,7 +21,7 @@ export const Clients = () => (
       }}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-3 lg:flex lg:items-center mt-10 gap-11 lg:gap-x-14 w-full overflow-x-auto overflow-y-hidden"
+      className="grid grid-cols-3 lg:justify-center lg:flex lg:items-center mt-10 gap-11 lg:gap-x-14 w-full overflow-x-auto overflow-y-hidden"
     >
       {clients.map((client, index) => (
         <motion.li

@@ -35,11 +35,11 @@ export const Hero = () => {
       className="bg-white max-h-[800px] h-[75vh] w-full relative"
       id="hero"
     >
-      <div className="w-full flex items-center h-3/4 layout pt-24">
-        <div className="relative z-10 flex flex-col w-full lg:w-1/2">
-          <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
-            AI Automation
-            <br /> for <span className="sr-only">{words[index]}</span>
+      <div className="w-full flex items-center h-full layout pt-24">
+        <div className="relative z-10 flex flex-col w-full items-start lg:items-center">
+          <h1 className="h1-mobile lg:h1-desktop text-neutral-950 text-left lg:text-center leading-tight">
+            AI Automation for <br />
+            <span className="sr-only">{words[index]}</span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={index}
@@ -62,7 +62,7 @@ export const Hero = () => {
             </AnimatePresence>
           </h1>
 
-          <p className="text-neutral-800 max-w-[505px] w-full mt-5 font-secondary text-lg">
+          <p className="text-neutral-800 max-w-[570px] w-full mt-5 font-secondary text-base lg:text-lg text-left lg:text-center">
             Boost Efficiency & Automate Tasks: Build Your AI Dream Team in
             Minutes without Writing a Line of Code
           </p>
@@ -81,7 +81,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block bg-accent-blue rounded-full absolute w-[530px] h-[530px] -top-1/3 right-0 blur-accent" />
+      <div className="hidden lg:block bg-accent-blue rounded-full absolute w-[530px] h-[530px] z-[2] -top-1/3 right-0 blur-accent" />
       <img
         src="./dots-constellation.png"
         className="object-cover absolute h-full w-full top-0 z-0"
