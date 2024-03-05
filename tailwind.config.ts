@@ -170,7 +170,7 @@ export default {
         primaryMedium: ["Gilroy-Medium", "sans"],
         primaryBold: ["Gilroy-Bold", "sans"],
         primaryExtraBold: ["Gilroy-ExtraBold", "sans"],
-        secondary: ["Avenir", "sans"],
+        secondary: ["Avenir Next", "sans"],
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/dots-background.svg')",

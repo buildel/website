@@ -30,11 +30,30 @@
     font-family: "Gilroy-Medium";
     src: url("/assets/fonts/Gilroy-Medium.ttf");
   }
+  @font-face {
+    font-family: "Avenir Next";
+    font-weight: 400;
+    src: url("/assets/fonts/AvenirNext-Regular.otf");
+  }
+  @font-face {
+    font-family: "Avenir Next";
+    font-weight: 500;
+    src: url("/assets/fonts/AvenirNext-Medium.otf");
+  }
+  @font-face {
+    font-family: "Avenir Next";
+    font-weight: 600;
+    src: url("/assets/fonts/AvenirNext-DemiBold.otf");
+  }
 }
 
 .layout {
   @apply w-full max-w-[1168px];
   @apply px-4 mx-auto;
+}
+
+p {
+  font-family: "Avenir Next", sans-serif;
 }
 
 .radial-mask {
