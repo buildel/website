@@ -3,14 +3,16 @@ import { MutableRefObject } from "react";
 import { BlockName, IBlock } from "~/components/interfaces/WorkflowConfigs";
 import {
   AIChat,
+  CrewMember,
   Input,
+  LatestLaunch,
   Leader,
   MistralAI,
   Output,
   SpaceXAPI,
   SpanishTranslator,
-  useBlockContent,
   VectorDatabase,
+  Wikipedia,
 } from "~/components/sections/workflows/useBlockContent";
 import { IMessage } from "~/components/interfaces/chat.types";
 import { Workflow } from "~/utils/enums";
@@ -33,8 +35,6 @@ export const Block = ({
   aiAnswers,
   currentWorkflow,
 }: BlockProps) => {
-  const { renderContent } = useBlockContent(block);
-
   return (
     <div
       ref={(element) => {
@@ -59,8 +59,6 @@ export const Block = ({
         top: block.position.y + "%",
       }}
     >
-      {renderContent()}
-
       {block.name === BlockName.Input && (
         <Input
           currentWorkflow={currentWorkflow}
@@ -68,6 +66,11 @@ export const Block = ({
           conversationStarted={(aiAnswers || []).length > 0}
         />
       )}
+      {block.name === BlockName.LatestLaunch && <LatestLaunch />}
+
+      {block.name === BlockName.CrewMember && <CrewMember />}
+
+      {block.name === BlockName.Wikipedia && <Wikipedia />}
 
       {block.name === BlockName.Leader && (
         <Leader triggered={!!blockStates.get(BlockName.Leader)} />

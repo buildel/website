@@ -1,41 +1,9 @@
-import { BlockName, IBlock } from "~/components/interfaces/WorkflowConfigs";
 import { Database } from "~/icons/Database";
 import { motion } from "framer-motion";
 import { Send } from "~/icons/Send";
 import { useRef, useState } from "react";
 import { IMessage } from "~/components/interfaces/chat.types";
 import { Workflow } from "~/utils/enums";
-
-export const useBlockContent = (block: IBlock) => {
-  const renderContent = () => {
-    if (block.name === BlockName.CrewMember)
-      return (
-        <div className="bg-neutral-950 flex items-center font-mono px-3 py-1.5 gap-x-2 rounded-lg">
-          <p className="text-green-400">GET</p>
-          <p className="text-neutral-300 font-mono">/crew/:id</p>
-        </div>
-      );
-
-    if (block.name === BlockName.Wikipedia)
-      return (
-        <div className="bg-neutral-950 flex items-center px-3 py-1.5 gap-x-2 rounded-lg">
-          <p className="text-white">Wikipedia</p>
-        </div>
-      );
-
-    if (block.name === BlockName.LatestLaunch)
-      return (
-        <div className="bg-neutral-950 flex items-center font-mono px-3 py-1.5 gap-x-2 rounded-lg">
-          <p className="text-green-400">GET</p>
-          <p className="text-neutral-300">/launches/latest</p>
-        </div>
-      );
-
-    return null;
-  };
-
-  return { renderContent };
-};
 
 interface InputProps {
   onClick: (message: string) => void;
@@ -51,11 +19,13 @@ const chatTopics = [
 
 const memoryTopics = ["Who is now CTO in EL Passion?", "What is ELP Coin?"];
 
-const multiModelTopics = [];
+const multiModelTopics = [""];
 
 const getPredefinedTopics = (currentWorkflow: Workflow) => {
   if (currentWorkflow === Workflow.Chat) return chatTopics;
   if (currentWorkflow === Workflow.Memory) return memoryTopics;
+  if (currentWorkflow === Workflow.MultipleModels) return multiModelTopics;
+  if (currentWorkflow === Workflow.APITools) return [];
 };
 export const Input = ({
   onClick,
@@ -82,15 +52,15 @@ export const Input = ({
             }
           : {}
       }
-      className="bg-white rounded-2xl p-1.5"
+      className="bg-white rounded-2xl p-1.5 w-full"
     >
       <form
         onSubmit={(event) => event.preventDefault()}
-        className="flex items-center w-full h-10 bg-neutral-100 pl-3 pr-1 rounded-xl"
+        className="flex items-center w-[300px] lg:w-full h-10 bg-neutral-100 pl-3 pr-1 rounded-xl"
       >
         <input
           type="text"
-          className="bg-neutral-100 focus:outline-0 text-black lg:w-[400px] w-full"
+          className="bg-neutral-100 focus:outline-0 text-black lg:w-[400px] w-[260px]"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           placeholder="Ask me anything..."
@@ -110,13 +80,38 @@ export const Input = ({
   );
 };
 
+export const CrewMember = () => {
+  return (
+    <div className="bg-neutral-950 flex items-center font-mono px-3 py-1.5 gap-x-2 rounded-lg">
+      <p className="text-green-400">GET</p>
+      <p className="text-neutral-300 font-mono text-sm lg:text-base">/crew/:id</p>
+    </div>
+  );
+};
+
+export const Wikipedia = () => {
+  return (
+    <div className="bg-neutral-950 flex items-center px-3 py-1.5 gap-x-2 rounded-lg">
+      <p className="text-white text-sm lg:text-base">Wikipedia</p>
+    </div>
+  );
+};
+
+export const LatestLaunch = () => {
+  return (
+    <div className="bg-neutral-950 flex items-center font-mono px-3 py-1.5 gap-x-2 rounded-lg">
+      <p className="text-green-400">GET</p>
+      <p className="text-neutral-300 text-sm lg:text-base">/launches/latest</p>
+    </div>
+  );
+};
+
 interface OutputProps {
   messages: IMessage[];
 }
+
 export const Output = ({ messages = [] }: OutputProps) => {
   const latestMessage = messages[messages.length - 1];
-
-  console.log(messages);
 
   const restMessages = messages.length - 1;
 
@@ -196,7 +191,7 @@ export const SpaceXAPI = () => {
 export const Leader = ({ triggered }: BlockProps) => {
   return (
     <motion.div
-      className="bg-neutral-950 p-3 rounded-lg w-[180px]"
+      className="bg-neutral-950 p-3 rounded-lg w-full lg:w-[180px]"
       animate={{ scale: triggered ? 1.08 : 1 }}
     >
       <img src="/assets/models/openai-white.svg" alt="openai logo" />
@@ -211,7 +206,7 @@ export const Leader = ({ triggered }: BlockProps) => {
 export const SpanishTranslator = ({ triggered }: BlockProps) => {
   return (
     <motion.div
-      className="bg-neutral-950 p-3 rounded-lg w-[180px]"
+      className="bg-neutral-950 p-3 rounded-lg w-max lg:w-[180px]"
       animate={{ scale: triggered ? 1.08 : 1 }}
     >
       <img src="/assets/models/gemini.svg" className="h-5" alt="openai logo" />

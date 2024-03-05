@@ -9,6 +9,7 @@ import {
   memoryWorkflowConfig,
   multipleChatsWorkflowConfig,
   toolsWorkflowConfig,
+  BlockName,
 } from "./WorkflowConfigs";
 import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
 import { IMessage, MessageRole } from "~/components/interfaces/chat.types";
@@ -242,6 +243,8 @@ export function SimpleWorkflowRenderer({
     [blocks, containerSize, windowSize]
   );
 
+  const centered = [BlockName.Input, BlockName.Chat, BlockName.Output];
+
   const blocksWithNormalizedPositions = useMemo(
     () =>
       blocks.map((block) => {
@@ -253,80 +256,88 @@ export function SimpleWorkflowRenderer({
         const normalizedY =
           ((block.position.y - positionEdges.minY) / totalHeight) * 100;
 
+        let position = {
+          x: normalizedX,
+          y: normalizedY,
+        };
+
+        if (centered.includes(block.name)) {
+          position = {
+            x: 50,
+            y: normalizedY,
+          };
+        }
+
         return {
           ...block,
-          position: {
-            x: normalizedX,
-            y: normalizedY,
-          },
+          position,
         };
       }),
     [blocks, positionEdges]
   );
 
   return (
-    <div className="w-full h-full p-4 flex relative bg-[size:300%] rounded-lg">
-      <div className="w-full relative" ref={container}>
-        {blocksWithNormalizedPositions.map((block, index) => (
-          <Block
-            key={index}
-            currentWorkflow={currentWorkflow}
-            block={block}
-            blockStates={blockStates}
-            blockPositions={blockPositions}
-            onMessageSend={onMessageSend}
-            aiAnswers={aiAnswers}
-          />
-        ))}
-        {connections.flatMap((connection, index) => {
-          const fromPosition = blockPositions.current.get(
-            connection.from.block_name
-          );
+    <div
+      className="w-full h-full flex relative bg-[size:300%] rounded-lg"
+      ref={container}
+    >
+      {blocksWithNormalizedPositions.map((block, index) => (
+        <Block
+          key={index}
+          currentWorkflow={currentWorkflow}
+          block={block}
+          blockStates={blockStates}
+          blockPositions={blockPositions}
+          onMessageSend={onMessageSend}
+          aiAnswers={aiAnswers}
+        />
+      ))}
+      {connections.flatMap((connection, index) => {
+        const fromPosition = blockPositions.current.get(
+          connection.from.block_name
+        );
 
-          const toPosition = blockPositions.current.get(
-            connection.to.block_name
-          );
-          if (!fromPosition || !toPosition) return null;
+        const toPosition = blockPositions.current.get(connection.to.block_name);
+        if (!fromPosition || !toPosition) return null;
 
-          const outputPosition = {
-            text: {
-              top: fromPosition.offset.top,
-              left: fromPosition.offset.left,
-            },
-            worker: {
-              top: fromPosition.offset.top - fromPosition.rect.height / 2,
-              left: fromPosition.offset.left,
-            },
-          }[connection.from.type] || { top: 0, left: 0 };
+        const outputPosition = {
+          text: {
+            top: fromPosition.offset.top,
+            left: fromPosition.offset.left,
+          },
+          worker: {
+            top: fromPosition.offset.top - fromPosition.rect.height / 2,
+            left: fromPosition.offset.left,
+          },
+        }[connection.from.type] || { top: 0, left: 0 };
 
-          const inputPosition = {
-            text: {
-              top: toPosition.offset.top,
-              left: toPosition.offset.left,
-            },
-            controller: {
-              top: toPosition.offset.top + toPosition.rect.height / 2,
-              left: toPosition.offset.left,
-            },
-          }[connection.to.type] || { top: 0, left: 0 };
+        const inputPosition = {
+          text: {
+            top: toPosition.offset.top,
+            left: toPosition.offset.left,
+          },
+          controller: {
+            top: toPosition.offset.top + toPosition.rect.height / 2,
+            left: toPosition.offset.left,
+          },
+        }[connection.to.type] || { top: 0, left: 0 };
 
-          return [
-            <svg key={index} className="absolute w-full h-full">
-              <line
-                className={clsx(
-                  "stroke-current animate-dashdraw text-neutral-400"
-                )}
-                strokeDasharray={6}
-                style={{ strokeWidth: 1 }}
-                x1={outputPosition.left}
-                y1={outputPosition.top}
-                x2={inputPosition.left}
-                y2={inputPosition.top}
-              />
-            </svg>,
-          ];
-        })}
-      </div>
+        return [
+          <svg key={index} className="absolute w-full h-full">
+            <line
+              className={clsx(
+                "stroke-current animate-dashdraw text-neutral-400"
+              )}
+              strokeDasharray={6}
+              style={{ strokeWidth: 1 }}
+              x1={outputPosition.left}
+              y1={outputPosition.top}
+              x2={inputPosition.left}
+              y2={inputPosition.top}
+            />
+          </svg>,
+        ];
+      })}
     </div>
   );
 }

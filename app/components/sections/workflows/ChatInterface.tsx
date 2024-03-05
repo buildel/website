@@ -98,8 +98,8 @@ export const ChatInterface = ({
   const aiAnswers = messages.filter((message) => message.role === "ai");
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-4 bg-neutral-100 p-4 relative overflow-hidden min-h-[70vh] lg:max-h-[600px] lg:h-[100vh] w-full">
-      <div className="w-full rounded-lg h-[200px] lg:h-full z-10 relative">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 bg-neutral-100 relative overflow-hidden min-h-[70vh] lg:max-h-[600px] lg:h-[100vh] w-full">
+      <div className="w-full rounded-lg h-[400px] lg:h-full z-10 relative">
         {status === "idle" && (
           <div className="w-full h-full absolute bg-neutral-50/70 z-10 flex items-center justify-center text-black">
             <p>Loading workflow...</p>
