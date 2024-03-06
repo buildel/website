@@ -14,7 +14,7 @@ const sitemap = [
   {
     groupName: "Resources",
     links: [
-      { label: "Documentation", href: "/new" },
+      // { label: "Documentation", href: "/new" },
       { label: "Changelog", href: "/new" },
       { label: "Privacy Policy", href: "/new" },
     ],
