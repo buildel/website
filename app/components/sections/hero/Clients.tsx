@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 
-const clients = [
-  { name: "EL Passion", logo: "el-passion-logo.svg" },
-  { name: "EL Passion", logo: "el-passion-logo.svg" },
-  { name: "EL Passion", logo: "el-passion-logo.svg" },
-  { name: "EL Passion", logo: "el-passion-logo.svg" },
-  { name: "EL Passion", logo: "el-passion-logo.svg" },
-];
+const clients = [{ name: "EL Passion", logo: "el-passion-logo.svg" }];
 
 export const Clients = () => (
   <div className="flex flex-col layout py-10 items-start lg:items-center z-[2] relative">

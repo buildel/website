@@ -7,6 +7,7 @@ import { Puzzle } from "~/icons/Puzzle";
 import { SupportedProviders } from "~/components/sections/benefits/SupportedProviders";
 import { Button } from "~/components/shared/Button";
 import { motion } from "framer-motion";
+import { urls } from "~/utils/urls";
 
 const benefits: IBenefit[] = [
   {
@@ -44,7 +45,7 @@ const content = {
   title: 'From <span class="gradient-text">idea</span> to production',
   subtitle:
     "Whether crafting a basic application or architecting an advanced AI-driven solution, Buildel supports your development journey at every step",
-  cta: { label: "Start building ✨", href: "https://app.buildel.ai/register" },
+  cta: { label: "Start building ✨", href: urls.registerBuildel },
 };
 
 export const Benefits = () => {

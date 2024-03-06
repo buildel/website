@@ -68,10 +68,6 @@ export const Blocks = () => {
           </motion.div>
         ))}
       </motion.div>
-
-      <Button mode="dark" href="/docs">
-        Read docs
-      </Button>
     </section>
   );
 };

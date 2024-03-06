@@ -1,5 +1,6 @@
 import { Button } from "~/components/shared/Button";
 import { Illustration } from "~/components/sections/workflows/illustration";
+import { urls } from "~/utils/urls";
 
 export const AskToBuildWorkflow = () => (
   <section className="flex items-center bg-grey-background pb-20">
@@ -13,7 +14,7 @@ export const AskToBuildWorkflow = () => (
           You can use EL to build sophisticated workflows that fulfill all your
           needs. No need to write code, just ask EL to do it for you.
         </p>
-        <Button mode="dark" className="w-max">
+        <Button mode="dark" className="w-max" externalHref={urls.bookDemo}>
           Book a demo
         </Button>
       </div>

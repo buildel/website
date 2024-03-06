@@ -32,19 +32,19 @@ export const Button = ({
     )
   );
 
+  if (externalHref) {
+    return (
+      <a href={externalHref} target="_blank" rel="noreferrer" className={style}>
+        {children}
+      </a>
+    );
+  }
+
   if (href) {
     return (
       <NavLink to={href} className={style}>
         {children}
       </NavLink>
-    );
-  }
-
-  if (externalHref) {
-    return (
-      <a href={href} target="_blank" rel="noreferrer" className={style}>
-        {children}
-      </a>
     );
   }
 

@@ -72,7 +72,11 @@ export const Header = () => {
           </a>
 
           <MobileMenu />
-          <Button mode="dark" className="hidden lg:flex">
+          <Button
+            mode="dark"
+            className="hidden lg:flex"
+            externalHref={urls.registerBuildel}
+          >
             Sign up
           </Button>
         </div>

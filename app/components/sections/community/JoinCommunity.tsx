@@ -1,5 +1,6 @@
 import { Button } from "~/components/shared/Button";
 import { DiscordLogo } from "~/icons/DiscordLogo";
+import { urls } from "~/utils/urls";
 
 export const JoinCommunity = () => {
   return (
@@ -10,7 +11,11 @@ export const JoinCommunity = () => {
           other builders
         </h4>
 
-        <Button mode="light" className="w-full lg:w-max">
+        <Button
+          mode="light"
+          className="w-full lg:w-max z-[1]"
+          externalHref={urls.discordServer}
+        >
           <DiscordLogo className="text-xl" />
           Join on Discord
         </Button>
@@ -21,7 +26,7 @@ export const JoinCommunity = () => {
         />
       </div>
 
-      <div className='w-3/4 bottom-[100px] absolute bg-[#7177FF] h-[60px] z-[1] rounded-full blur-[200px]' />
+      <div className="w-3/4 bottom-[100px] absolute bg-[#7177FF] h-[60px] z-[1] rounded-full blur-[200px]" />
 
       <img
         src="/assets/background-transition.png"
