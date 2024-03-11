@@ -4,7 +4,7 @@ import { urls } from "~/utils/urls";
 
 export const JoinCommunity = () => {
   return (
-    <div className="w-full flex justify-center items-center py-16 relative px-4 lg:px-0">
+    <div className="w-full flex justify-center items-center py-16 relative px-4 lg:px-0 lg:h-[500px]">
       <div className="layout !p-4 lg:!p-8 flex flex-col bg-black rounded-2xl z-[2] relative">
         <h4 className="h4-mobile lg:h4-desktop w-full lg:w-2/3 mb-7">
           Join our growing community. Find inspiration, support and connect with
@@ -21,7 +21,7 @@ export const JoinCommunity = () => {
         </Button>
         <img
           src="/assets/community-banner.png"
-          className="hidden lg:block absolute top-0 right-0 w-full h-full object-cover"
+          className="hidden lg:block absolute top-0 right-0 w-full"
           alt="community banner background"
         />
       </div>
