@@ -11,27 +11,22 @@ interface InputProps {
   currentWorkflow: Workflow;
 }
 
-const chatTopics = [
-  "Tell a joke",
-  "What was first, egg or chicken?",
-  "Write email to my boss",
-];
-
-const memoryTopics = ["Who is now CTO in EL Passion?", "What is ELP Coin?"];
-
-const multiModelTopics = [""];
-
-const getPredefinedTopics = (currentWorkflow: Workflow) => {
-  if (currentWorkflow === Workflow.Chat) return chatTopics;
-  if (currentWorkflow === Workflow.Memory) return memoryTopics;
-  if (currentWorkflow === Workflow.MultipleModels) return multiModelTopics;
-  if (currentWorkflow === Workflow.APITools) return [];
+const getExamplePrompt = (currentWorkflow: Workflow) => {
+  if (currentWorkflow === Workflow.Chat) {
+    return "Give me 5 use-cases of AI automation";
+  }
+  if (currentWorkflow === Workflow.Memory) {
+    return "";
+  }
+  if (currentWorkflow === Workflow.MultipleModels) {
+    return "Translate 'how are you' to Spanish";
+  }
+  if (currentWorkflow === Workflow.APITools) {
+    return "Check latest launch and each of crew member";
+  }
 };
-export const Input = ({
-  onClick,
-  currentWorkflow,
-  conversationStarted,
-}: InputProps) => {
+
+export const Input = ({ onClick, currentWorkflow }: InputProps) => {
   const [message, setMessage] = useState("");
   const count = useRef(0);
 
@@ -63,7 +58,7 @@ export const Input = ({
           className="bg-neutral-100 focus:outline-0 text-black lg:w-[400px] w-[260px]"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          placeholder="Ask me anything..."
+          placeholder={getExamplePrompt(currentWorkflow)}
         />
         <button
           className="bg-neutral-950 h-9 w-9 lg:h-8 lg:w-8 flex items-center justify-center rounded-lg"
@@ -84,7 +79,9 @@ export const CrewMember = () => {
   return (
     <div className="bg-neutral-950 flex items-center font-mono px-3 py-1.5 gap-x-2 rounded-lg">
       <p className="text-green-400">GET</p>
-      <p className="text-neutral-300 font-mono text-sm lg:text-base">/crew/:id</p>
+      <p className="text-neutral-300 font-mono text-sm lg:text-base">
+        /crew/:id
+      </p>
     </div>
   );
 };
