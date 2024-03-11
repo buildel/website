@@ -14,7 +14,22 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:url" content="https://buildel.ai" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Buildel" />
         <meta property="og:image" content="https://buildel.ai/og-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="buildel.ai" />
+        <meta property="twitter:url" content="https://buildel.ai" />
+        <meta name="twitter:title" content="Buildel" />
+        <meta
+          name="twitter:description"
+          content="Build your own AI app without hassle."
+        />
+        <meta name="twitter:image" content="https://buildel.ai/og-image.png" />
+
         <script
           defer
           data-domain="buildel.ai"
