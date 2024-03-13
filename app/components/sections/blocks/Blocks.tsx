@@ -20,13 +20,13 @@ export const Blocks = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="w-full lg:w-3/4 min-h-[250px] grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-10 my-10"
+        className="w-full grid lg:w-3/4 min-h-[250px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 mb-10"
       >
         {blockTypes.map((block) => (
           <motion.div
             variants={listItem}
             key={block.type}
-            className="block-item text-neutral-950"
+            className="block-item text-neutral-950 p-4 bg-neutral-50 rounded-lg"
           >
             <p className="capitalize text-xl font-primaryExtraBold">
               {block.type.split("_").join(" ")}

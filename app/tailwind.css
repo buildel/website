@@ -60,14 +60,6 @@ p {
   background: radial-gradient(#205d83 0 1%, transparent 50% 90%);
 }
 
-/*.blue-sunshine-mask{*/
-/*    background: radial-gradient( #205d83 0 10%, transparent 50% 90%);*/
-/*}*/
-
-/*.orange-sunshine-mask{*/
-/*    background: radial-gradient( #de8411 0 5%, transparent 50% 90%);*/
-/*}*/
-
 .colored-gradient {
   background: radial-gradient(
       ellipse at 100% 100%,

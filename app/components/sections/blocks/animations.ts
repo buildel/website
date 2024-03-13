@@ -8,7 +8,7 @@ export const listing: Variants = {
     opacity: 1,
     transition: {
       delay: 0.1,
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       ease: "anticipate",
       bounce: 0,
     },
