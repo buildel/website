@@ -13,16 +13,16 @@ interface InputProps {
 
 const getExamplePrompt = (currentWorkflow: Workflow) => {
   if (currentWorkflow === Workflow.Chat) {
-    return "Give me 5 use-cases of AI automation";
+    return "eg. Give me 5 use-cases of AI automation";
   }
   if (currentWorkflow === Workflow.Memory) {
     return "";
   }
   if (currentWorkflow === Workflow.MultipleModels) {
-    return "Translate 'how are you' to Spanish";
+    return "eg. Translate 'how are you' to Spanish";
   }
   if (currentWorkflow === Workflow.APITools) {
-    return "Check latest launch and each of crew member";
+    return "eg. Check latest launch and each of crew member";
   }
 };
 
