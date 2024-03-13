@@ -4,7 +4,6 @@ import {
   WorkflowsAnimatedList,
   WorkflowsAnimatedMobileList,
 } from "~/components/workflows/AnimatedList";
-import { Button } from "~/components/buttons/Button";
 
 const data = [
   {
