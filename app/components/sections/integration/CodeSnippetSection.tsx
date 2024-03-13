@@ -32,7 +32,7 @@ export const CodeSnippetSection = ({
       <div className="flex flex-col w-full lg:w-2/5 mt-14">
         {title}
         <p className="mt-4 mb-6 text-neutral-300 font-secondary">{subtitle}</p>
-        <Button mode="light" href={cta.href} className="w-max">
+        <Button mode="light" externalHref={cta.href} className="w-max">
           {cta.label}
         </Button>
       </div>

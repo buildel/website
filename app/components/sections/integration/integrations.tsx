@@ -10,7 +10,7 @@ export const clientSDK = {
   imageDirectory: "snippets/js-client-sdk" as const,
   subtitle:
     "You can use EL to build sophisticated workflows that fulfill all your needs. No need to write code, just ask EL to do it for you.",
-  cta: { label: "See documentation", href: urls.docs },
+  cta: { label: "See documentation", href: urls.documentation.interfaces },
   technologiesTabs: ["NextJS", "Remix"],
 };
 
@@ -24,7 +24,7 @@ export const embed = {
   subtitle:
     "It allows for a straightforward integration, offering your visitors the convenience of engaging with Buildel Chat directly on your site.",
   imageDirectory: "snippets/embed" as const,
-  cta: { label: "See documentation", href: urls.docs },
+  cta: { label: "See documentation", href: urls.documentation.interfaces },
   technologiesTabs: ["HTML", "React"],
 };
 
@@ -38,6 +38,6 @@ export const openAI = {
   subtitle:
     "It allows for a straightforward integration, offering your visitors the convenience of engaging with Buildel Chat directly on your site.",
   imageDirectory: "snippets/openai-interface" as const,
-  cta: { label: "See documentation", href: urls.docs },
+  cta: { label: "See documentation", href: urls.documentation.interfaces },
   technologiesTabs: ["openai-interface"],
 };

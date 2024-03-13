@@ -40,15 +40,30 @@ export const Header = () => {
           />
 
           <nav className="hidden lg:flex items-center gap-x-10 ml-16">
-            {routes.map((route) => (
-              <NavLink
-                to={route.path}
-                key={route.path}
-                className="ml-4 text-neutral-950/50 hover:text-neutral-950 transition"
-              >
-                {route.name}
-              </NavLink>
-            ))}
+            {routes.map((route) => {
+              if (route.external) {
+                return (
+                  <a
+                    key={route.path}
+                    href={route.path}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="ml-4 text-neutral-950/50 hover:text-neutral-950 transition"
+                  >
+                    {route.name}
+                  </a>
+                );
+              }
+              return (
+                <NavLink
+                  to={route.path}
+                  key={route.path}
+                  className="ml-4 text-neutral-950/50 hover:text-neutral-950 transition"
+                >
+                  {route.name}
+                </NavLink>
+              );
+            })}
           </nav>
         </div>
 

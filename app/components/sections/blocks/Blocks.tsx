@@ -1,30 +1,12 @@
 import { useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/new";
-import { useMemo, useState } from "react";
-import { Tab } from "~/components/shared/Tab";
-import { Button } from "~/components/shared/Button";
+import { loader } from "~/routes/_index";
 import { motion } from "framer-motion";
 import { listing, listItem } from "~/components/sections/blocks/animations";
-
-const categories = ["Communication", "Audio", "Text"] as const;
-type Category = (typeof categories)[number];
+import { Button } from "~/components/shared/Button";
+import { urls } from "~/utils/urls";
 
 export const Blocks = () => {
   const { blockTypes } = useLoaderData<typeof loader>();
-
-  const [activeCategory, setActiveCategory] =
-    useState<Category>("Communication");
-
-  const filteredBlocks = useMemo(() => {
-    return blockTypes.filter((block) => {
-      if (activeCategory === "Communication") {
-        return block.groups.includes("llms");
-      }
-      if (activeCategory === "Audio") {
-        return block.groups.includes("audio");
-      }
-    });
-  }, [blockTypes, activeCategory]);
 
   return (
     <section className="layout flex flex-col items-start lg:items-center py-20">
@@ -33,29 +15,14 @@ export const Blocks = () => {
         needs
       </h2>
 
-      <div className="flex items-center p-1 rounded-full bg-neutral-50 mt-10">
-        {categories.map((category, index) => (
-          <Tab
-            mode="light"
-            key={index}
-            gradientText
-            active={category === activeCategory}
-            onClick={() => setActiveCategory(category)}
-          >
-            {category}
-          </Tab>
-        ))}
-      </div>
-
       <motion.div
-        key={activeCategory}
         variants={listing}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="w-full lg:w-3/4 min-h-[250px] grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 my-10"
+        className="w-full lg:w-3/4 min-h-[250px] grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-10 my-10"
       >
-        {filteredBlocks.map((block) => (
+        {blockTypes.map((block) => (
           <motion.div
             variants={listItem}
             key={block.type}
@@ -68,6 +35,10 @@ export const Blocks = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      <Button mode="dark" externalHref={urls.documentation.blocks}>
+        Read docs
+      </Button>
     </section>
   );
 };
