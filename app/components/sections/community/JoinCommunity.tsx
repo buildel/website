@@ -29,7 +29,7 @@ export const JoinCommunity = () => {
       <div className="w-3/4 bottom-[100px] absolute bg-[#7177FF] h-[60px] z-[1] rounded-full blur-[200px]" />
 
       <img
-        src="/assets/background-transition.png"
+        src="/assets/background-transition1.webp"
         alt="transition"
         className="absolute top-0 left-0 w-full h-full object-cover bg-dark-background"
       />
