@@ -12,7 +12,7 @@ export const Header = () => {
   useEffect(() => {
     const toggleHeaderClasses = () => {
       const header = document.querySelector("header");
-      if (window.scrollY > 250) {
+      if (window.scrollY > 50) {
         afterScrollClasses.forEach((className) =>
           header?.classList.add(className)
         );
@@ -34,10 +34,12 @@ export const Header = () => {
     <header className="flex items-center justify-center h-20 fixed top-0 z-20 w-full transition-all">
       <div className="flex items-center justify-between layout">
         <div className="flex items-center">
-          <img
-            src="/buildel-by-elp-logo-black.svg"
-            alt="Buildel: built by EL Passion logo"
-          />
+          <a href="/" className="flex items-center">
+            <img
+              src="/buildel-by-elp-logo-black.svg"
+              alt="Buildel: built by EL Passion logo"
+            />
+          </a>
 
           <nav className="hidden lg:flex items-center gap-x-10 ml-16">
             {routes.map((route) => {

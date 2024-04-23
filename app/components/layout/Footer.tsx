@@ -5,18 +5,11 @@ import { NavLink } from "@remix-run/react";
 
 const sitemap = [
   {
-    groupName: "Product",
-    links: [
-      { label: "How it works", href: "/new" },
-      { label: "About us", href: "/new" },
-    ],
-  },
-  {
     groupName: "Resources",
     links: [
-      // { label: "Documentation", href: "/new" },
-      { label: "Changelog", href: "/new" },
-      { label: "Privacy Policy", href: "/new" },
+      { label: "Documentation", href: "https://docs.buildel.ai" },
+      { label: "Terms and Conditions", href: "/terms-and-conditions" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
 ];
@@ -48,8 +41,13 @@ export const Footer = () => {
               <p>{item.groupName}</p>
               <ul className="mt-3 flex flex-col">
                 {item.links.map((link) => (
-                  <li key={link.label} className='mt-2'>
-                    <NavLink to={link.href} className='text-neutral-400 hover:text-neutral-100'>{link.label}</NavLink>
+                  <li key={link.label} className="mt-2">
+                    <NavLink
+                      to={link.href}
+                      className="text-neutral-400 hover:text-neutral-100"
+                    >
+                      {link.label}
+                    </NavLink>
                   </li>
                 ))}
               </ul>

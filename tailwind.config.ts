@@ -214,6 +214,7 @@ export default {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     plugin(({ addUtilities }) => {
       addUtilities({
         ".h1-desktop": {
