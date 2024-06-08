@@ -75,6 +75,14 @@ export const HeroHeader = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+export const HeroPreHeader = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <p className="text-neutral-800 max-w-[570px] w-full mb-5 font-secondary text-base lg:text-lg text-left lg:text-center">
+      {children}
+    </p>
+  );
+};
+
 export const HeroSubheader = ({ children }: { children: React.ReactNode }) => {
   return (
     <p className="text-neutral-800 max-w-[570px] w-full mt-5 font-secondary text-base lg:text-lg text-left lg:text-center">
