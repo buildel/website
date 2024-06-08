@@ -59,7 +59,7 @@ export const HeroContainer = ({
       </div>
       <div className="hidden lg:block bg-accent-blue rounded-full absolute w-[530px] h-[530px] z-[2] -top-1/3 right-0 blur-accent" />
       <img
-        src="./dots-constellation.png"
+        src="/dots-constellation.png"
         className="object-cover absolute h-full w-full top-0 z-0"
         alt=""
       />
