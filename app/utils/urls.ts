@@ -9,10 +9,12 @@ export const urls = {
     blocks: `${DOCS_BASE_URL}/docs/category/blocks`,
     interfaces: `${DOCS_BASE_URL}/docs/interfaces`,
   },
+  blog: "/blog",
 };
 
 export const routes = [
   // { name: "Product", path: "/product" },
   { name: "Docs", path: urls.documentation.home, external: true },
+  { name: "Blog", path: urls.blog, external: false },
   // { name: "Pricing", path: "/pricing" },
 ];
