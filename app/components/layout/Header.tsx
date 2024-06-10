@@ -3,11 +3,12 @@ import { Button } from "~/components/shared/Button";
 import { GithubLogo } from "~/icons/GithubLogo";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { MobileMenu } from "~/components/shared/MobileMenu";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { urls, routes } from "~/utils/urls";
 
 export const Header = () => {
   const afterScrollClasses = ["border-b", "border-neutral-100", "bg-white"];
+  const hasRendered = useRef(false);
 
   useEffect(() => {
     const toggleHeaderClasses = () => {
@@ -22,6 +23,11 @@ export const Header = () => {
         );
       }
     };
+
+    if (!hasRendered.current) {
+      toggleHeaderClasses();
+      hasRendered.current = true;
+    }
 
     window.addEventListener("scroll", toggleHeaderClasses);
 
