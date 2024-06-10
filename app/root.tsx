@@ -16,13 +16,8 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://buildel.ai/og-image.png" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="buildel.ai" />
-        <meta name="twitter:image" content="https://buildel.ai/og-image.png" />
 
         <script
           defer
@@ -49,6 +44,7 @@ export const meta: MetaFunction = (a) => {
   return generateMetadata({
     title,
     description,
+    type: "website",
     image: "https://buildel.ai/og-image.png",
     keywords: [],
   });

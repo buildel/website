@@ -2,11 +2,13 @@ export function generateMetadata({
   title,
   description,
   image,
+  type,
 }: {
   title: string;
   description: string;
   keywords: string[];
   image: string;
+  type: "website" | "article";
 }): Record<string, unknown>[] {
   return [
     { title: title },
@@ -29,5 +31,7 @@ export function generateMetadata({
     { property: "og:image", content: image },
     { property: "og:image:url", content: image },
     { property: "twitter:image", content: image },
+
+    { property: "og:type", content: type },
   ];
 }

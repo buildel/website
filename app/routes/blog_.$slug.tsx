@@ -10,6 +10,7 @@ export const meta: MetaFunction = () => {
       "Introducing new blocks: Browser Tool and CSV Search, Mermaid Support, File Input and more.",
     image: "https://buildel.ai/og-image-0_1.png",
     keywords: [],
+    type: "article",
   });
 };
 
