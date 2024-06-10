@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  { name: "EL Passion", logo: "el-passion-logo.svg" },
+  { name: "EL Passion", logo: "elp_logo_default.svg" },
   { name: "EY", logo: "EY-logo.svg" },
 ];
 
