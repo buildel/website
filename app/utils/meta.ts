@@ -10,19 +10,24 @@ export function generateMetadata({
 }): Record<string, unknown>[] {
   return [
     { title: title },
-    { name: "og:title", content: title },
-    { name: "twitter:title", content: title },
+    { property: "og:title", content: title },
+    { property: "twitter:title", content: title },
 
     {
       name: "description",
       content: description,
     },
     {
-      name: "twitter:description",
+      property: "og:description",
+      content: description,
+    },
+    {
+      property: "twitter:description",
       content: description,
     },
 
-    { name: "og:image", content: image },
-    { name: "twitter:image", content: image },
+    { property: "og:image", content: image },
+    { property: "og:image:url", content: image },
+    { property: "twitter:image", content: image },
   ];
 }
