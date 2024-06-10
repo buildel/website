@@ -1,12 +1,14 @@
 import {
   Links,
   Meta,
+  MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 
 import "./tailwind.css";
+import { generateMetadata } from "./utils/meta";
 
 export default function App() {
   return (
@@ -15,19 +17,11 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta property="og:url" content="https://buildel.ai" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Buildel" />
         <meta property="og:image" content="https://buildel.ai/og-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="buildel.ai" />
-        <meta property="twitter:url" content="https://buildel.ai" />
-        <meta name="twitter:title" content="Buildel" />
-        <meta
-          name="twitter:description"
-          content="Build your own AI app without hassle."
-        />
         <meta name="twitter:image" content="https://buildel.ai/og-image.png" />
 
         <script
@@ -47,3 +41,15 @@ export default function App() {
     </html>
   );
 }
+
+export const meta: MetaFunction = (a) => {
+  const title = "Buildel";
+  const description = "Build your own AI app without hassle.";
+
+  return generateMetadata({
+    title,
+    description,
+    image: "https://buildel.ai/og-image.png",
+    keywords: [],
+  });
+};

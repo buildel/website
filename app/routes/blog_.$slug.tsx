@@ -1,12 +1,16 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
+import { generateMetadata } from "~/utils/meta";
 import { BlogPost } from "~/views/BlogPost";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Buildel" },
-    { name: "description", content: "Build your own AI app without hassle." },
-  ];
+  return generateMetadata({
+    title: "Introducing Buildel 0.1",
+    description:
+      "Introducing new blocks: Browser Tool and CSV Search, Mermaid Support, File Input and more.",
+    image: "https://buildel.ai/og-image-0_1.png",
+    keywords: [],
+  });
 };
 
 export async function loader() {
@@ -30,4 +34,5 @@ export const links: LinksFunction = () => {
     },
   ];
 };
+
 export default BlogPost;
