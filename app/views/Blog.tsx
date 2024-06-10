@@ -16,32 +16,11 @@ interface IPost {
 
 const posts: IPost[] = [
   {
-    title: "Introducing Buildel 2.1",
-    date: "Thu, Apr 18, 2024",
+    title: "Introducing Buildel 0.1",
+    date: "Mon, Jun 10, 2024",
     description:
-      "We are thrilled to unveil the latest milestone in our journey: Buildel 2.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
-    slug: "buildel-2_1",
-  },
-  {
-    title: "Introducing Buildel 2.1",
-    date: "Thu, Apr 18, 2024",
-    description:
-      "We are thrilled to unveil the latest milestone in our journey: Buildel 2.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
-    slug: "buildel-2_1",
-  },
-  {
-    title: "Introducing Buildel 2.1",
-    date: "Thu, Apr 18, 2024",
-    description:
-      "We are thrilled to unveil the latest milestone in our journey: Buildel 2.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
-    slug: "buildel-2_1",
-  },
-  {
-    title: "Introducing Buildel 2.1",
-    date: "Thu, Apr 18, 2024",
-    description:
-      "We are thrilled to unveil the latest milestone in our journey: Buildel 2.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
-    slug: "buildel-2_1",
+      "We are thrilled to unveil the latest milestone in our journey: Buildel 0.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
+    slug: "buildel-0_1",
   },
 ];
 
