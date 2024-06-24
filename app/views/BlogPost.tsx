@@ -1,4 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
+import { ReactNode } from "react";
 import { Footer } from "~/components/layout/Footer";
 import { Header } from "~/components/layout/Header";
 import { JoinCommunity } from "~/components/sections/community/JoinCommunity";
@@ -10,32 +11,60 @@ import {
 } from "~/components/sections/hero/Hero";
 
 export const BlogPost = () => {
-  const slug = useLoaderData()
-  console.log(slug);
-  
-  return(
-  <main className="bg-white w-full h-full">
-    <Header />
-    <Hero />
-    <Post />
-    <JoinCommunity />
-    <Footer />
-  </main>
-)};
+  const slug = useLoaderData();
 
-const Hero = () => {
+  return (
+    <main className="bg-white w-full h-full">
+      <Header />
+      {slug === data.slug ? (
+        <>
+          <Hero title={data.title} date={data.date} />
+          <Post article={data.article} />
+        </>
+      ) : (
+        <p className="h-full">This article doesn't exist</p>
+      )}
+      <JoinCommunity />
+      <Footer />
+    </main>
+  );
+};
+
+const Hero = ({
+  date,
+  title: { text, animatedText },
+}: {
+  date: string;
+  title: { text: string; animatedText: string };
+}) => {
   return (
     <HeroContainer className="max-h-[30rem]">
-      <HeroPreHeader>Mon, Jun 10, 2024</HeroPreHeader>
+      <HeroPreHeader>{date}</HeroPreHeader>
       <HeroHeader>
-        Introducing Buildel <AnimatedWords words={["0.1", "0.1"]} />
+        {text}
+        <AnimatedWords words={[animatedText, animatedText]} />
       </HeroHeader>
     </HeroContainer>
   );
 };
 
-const Post = () => {
-  return (
+const Post = ({ article }: { article: ReactNode }) => {
+  return <>{article}</>;
+};
+
+const Video = ({ src }: { src: string }) => {
+  return <video src={src} controls className="rounded-xl" autoPlay></video>;
+};
+
+const Image = ({ src, alt }: { src: string; alt: string }) => {
+  return <img src={src} alt={alt} className="w-full rounded-xl object-cover" />;
+};
+
+const data = {
+  slug: "buildel-0_1",
+  date: "Mon, Jun 10, 2024",
+  title: { text: "Introducing Buildel", animatedText: "0.1" },
+  article: (
     <article
       className="layout prose lg:prose-xl color-black prose-p:color-black pb-16"
       style={{ color: "var(--tw-prose-body)" }}
@@ -160,13 +189,5 @@ const Post = () => {
         <a href="https://www.elpassion.com">@EL Passion</a>.
       </p>
     </article>
-  );
-};
-
-const Video = ({ src }: { src: string }) => {
-  return <video src={src} controls className="rounded-xl" autoPlay></video>;
-};
-
-const Image = ({ src, alt }: { src: string; alt: string }) => {
-  return <img src={src} alt={alt} className="w-full rounded-xl object-cover" />;
+  ),
 };
