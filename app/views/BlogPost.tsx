@@ -1,3 +1,4 @@
+import { useLoaderData } from "@remix-run/react";
 import { Footer } from "~/components/layout/Footer";
 import { Header } from "~/components/layout/Header";
 import { JoinCommunity } from "~/components/sections/community/JoinCommunity";
@@ -8,7 +9,11 @@ import {
   HeroPreHeader,
 } from "~/components/sections/hero/Hero";
 
-export const BlogPost = () => (
+export const BlogPost = () => {
+  const slug = useLoaderData()
+  console.log(slug);
+  
+  return(
   <main className="bg-white w-full h-full">
     <Header />
     <Hero />
@@ -16,7 +21,7 @@ export const BlogPost = () => (
     <JoinCommunity />
     <Footer />
   </main>
-);
+)};
 
 const Hero = () => {
   return (

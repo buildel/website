@@ -14,8 +14,8 @@ export const meta: MetaFunction = () => {
   });
 };
 
-export async function loader() {
-  return json({});
+export async function loader({ params }: any) {
+  return params.slug;
 }
 
 export const links: LinksFunction = () => {
