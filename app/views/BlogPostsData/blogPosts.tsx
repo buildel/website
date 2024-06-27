@@ -1,12 +1,24 @@
 import { ReactNode } from "react";
 
 export interface IPost {
+  slug: string;
   title: { text: string; animatedText?: string };
   date: string;
   description: string;
-  slug: string;
-  article: any;
+  article: ReactNode;
 }
+
+const Video = ({ src }: { src: string }) => {
+  return (
+    <video src={src} controls className="rounded-xl" autoPlay>
+      <track kind="captions" />
+    </video>
+  );
+};
+
+const Image = ({ src, alt }: { src: string; alt: string }) => {
+  return <img src={src} alt={alt} className="w-full rounded-xl object-cover" />;
+};
 
 export const posts: IPost[] = [
   {
@@ -37,14 +49,14 @@ export const posts: IPost[] = [
         </p>
         <p>There are 2 ways you will use this block:</p>
         <h4> Call it directly with a URL as input</h4>
-        <video src="/assets/posts/browser-url.webm" />
+        <Video src="/assets/posts/browser-url.webm" />
         <p>
           Attach an input with a URL and the tool will fetch the data from that
           URL parse it for you and return in a text form. You can later input
           this text into another block like a Chat or TextOutput.
         </p>
         <h4>Give tool access to it to your chat block</h4>
-        <video src="/assets/posts/browser-llm.webm" />
+        <Video src="/assets/posts/browser-llm.webm" />
         <p>
           You can attach the browser tool through the I/O interface to chat
           block. It can then call the tool by itself and do whatever is needed
@@ -55,7 +67,7 @@ export const posts: IPost[] = [
           Later if you want you can use Buildel built in Chat interface to
           interact rather than through our workflow interface.
         </p>
-        <video src="/assets/posts/browser-chat.mp4" />
+        <Video src="/assets/posts/browser-chat.mp4" />
         <p>
           Browser Tool will also output the webpage it visits as a file so that
           you can input it directly into ie. Document Tool to save it in your
@@ -78,14 +90,14 @@ export const posts: IPost[] = [
           For now we support only in memory databases, but we plan on adding
           support for persistent databases in the future.
         </blockquote>
-        <img src="/assets/posts/csv_search.webp" alt={"CSV Search"} />
+        <Image src="/assets/posts/csv_search.webp" alt={"CSV Search"} />
         <p>
           You can then use the search tool to query that database or give your
           Chat block access to it. It supports multiple tables at the same time
           so don't be afraid to challenge the LLM.
         </p>
         <p>
-          Read an awesome article about it here:{" "}
+          Read an awesome article about it here:
           <a href="https://www.elpassion.com/blog/financial-data-analysis-with-ai">
             How to create an in memory database from your CSV
           </a>
@@ -95,9 +107,9 @@ export const posts: IPost[] = [
           Buildel now supports Mermaid Diagrams. You can ask chat to create a
           Mermaid diagram for you and it will be rendered in our UI.
         </p>
-        <video src="/assets/posts/mermaid.mp4" />
+        <Video src="/assets/posts/mermaid.mp4" />
         <blockquote>
-          You can read more about Mermaid and it's capabilities here:{" "}
+          You can read more about Mermaid and it's capabilities here:
           <a href="https://mermaid.js.org/">Mermaid</a>
         </blockquote>
         <h2>Chat File Input Support</h2>
@@ -114,7 +126,7 @@ export const posts: IPost[] = [
           After that in the interface Chat select the file input you wish the
           chat should be attached to and use the files directly!
         </p>
-        <video src="/assets/posts/file_input.mp4" />
+        <Video src="/assets/posts/file_input.mp4" />
         <h2>Other things...</h2>
         <p>
           Besides that we've fixed multiple bugs, added file inputs to multiple
@@ -131,10 +143,10 @@ export const posts: IPost[] = [
         </p>
         <h2>Keep up</h2>
         <p>
-          If you're interested in our technology you can find us on{" "}
-          <a href="https://github.com/elpassion/buildel">GitHub</a> or{" "}
+          If you're interested in our technology you can find us on
+          <a href="https://github.com/elpassion/buildel">GitHub</a> or
           <a href="https://discord.gg/SUXs7FyRT2">Discord</a>. If you want to
-          build AI apps with or without Buildel hit us up{" "}
+          build AI apps with or without Buildel hit us up
           <a href="https://www.elpassion.com">@EL Passion</a>.
         </p>
       </>

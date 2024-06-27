@@ -1,4 +1,8 @@
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import type {
+  LinksFunction,
+  MetaFunction,
+  LoaderFunctionArgs,
+} from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { generateMetadata } from "~/utils/meta";
 import { BlogPost } from "~/views/BlogPost";
@@ -15,7 +19,7 @@ export const meta: MetaFunction = () => {
   });
 };
 
-export async function loader({ params }: any) {
+export async function loader({ params }: LoaderFunctionArgs) {
   const currentBlogPostData = posts.find(
     (blogPostData) => blogPostData.slug === params.slug
   );
