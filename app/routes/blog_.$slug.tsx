@@ -2,6 +2,7 @@ import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { generateMetadata } from "~/utils/meta";
 import { BlogPost } from "~/views/BlogPost";
+import { posts } from "~/views/BlogPostsData/blogPosts";
 
 export const meta: MetaFunction = () => {
   return generateMetadata({
@@ -15,7 +16,10 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ params }: any) {
-  return params.slug;
+  const currentBlogPostData = posts.find(
+    (blogPostData) => blogPostData.slug === params.slug
+  );
+  return json(currentBlogPostData);
 }
 
 export const links: LinksFunction = () => {

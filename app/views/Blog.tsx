@@ -6,23 +6,7 @@ import {
   HeroHeader,
   HeroSubheader,
 } from "~/components/sections/hero/Hero";
-
-interface IPost {
-  title: string;
-  date: string;
-  description: string;
-  slug: string;
-}
-
-const posts: IPost[] = [
-  {
-    title: "Introducing Buildel 0.1",
-    date: "Mon, Jun 10, 2024",
-    description:
-      "We are thrilled to unveil the latest milestone in our journey: Buildel 0.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
-    slug: "buildel-0_1",
-  },
-];
+import { posts } from "./BlogPostsData/blogPosts";
 
 export const Blog = () => (
   <main className="bg-white w-full h-full">
@@ -52,19 +36,19 @@ const Posts = () => {
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-5 md:gap-y-16 md:grid-cols-10 p-4 layout">
       {posts.map((post) => (
-        <Post key={post.title} {...post} />
+        <Post key={post.title.text} {...post} />
       ))}
     </div>
   );
 };
 
 const Post = ({
-  title,
+  title: { text, animatedText },
   description,
   date,
   slug,
 }: {
-  title: string;
+  title: { text: string; animatedText?: string };
   description: string;
   date: string;
   slug: string;
@@ -72,7 +56,7 @@ const Post = ({
   return (
     <PostCard href={`/blog/${slug}`}>
       <PostCardMeta>{date}</PostCardMeta>
-      <PostCardTitle>{title}</PostCardTitle>
+      <PostCardTitle>{`${text} ${animatedText}`}</PostCardTitle>
       <PostCardDescription>{description}</PostCardDescription>
     </PostCard>
   );
