@@ -38,7 +38,7 @@ export interface IWorkflowConfig {
 }
 
 export const chatWorkflowConfig: IWorkflowConfig = {
-  runId: 75,
+  runId: 2,
   name: "Chat",
   config: {
     version: "1",
@@ -93,7 +93,7 @@ export const chatWorkflowConfig: IWorkflowConfig = {
 };
 
 export const multipleChatsWorkflowConfig: IWorkflowConfig = {
-  runId: 77,
+  runId: 4,
   name: "MultipleModels",
   interface_config: { input: "Input", output: "Output", chat: "Leader" },
   config: {
@@ -145,7 +145,7 @@ export const multipleChatsWorkflowConfig: IWorkflowConfig = {
 };
 
 export const toolsWorkflowConfig: IWorkflowConfig = {
-  runId: 78,
+  runId: 5,
   name: "SpaceX",
   interface_config: {
     input: "Input",
@@ -225,7 +225,7 @@ export const toolsWorkflowConfig: IWorkflowConfig = {
 };
 
 export const memoryWorkflowConfig: IWorkflowConfig = {
-  runId: 76,
+  runId: 3,
   name: "Memory",
   interface_config: {
     input: "Input",

@@ -11,7 +11,7 @@ export function BuildelProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     async function connect() {
-      const organizationId = 27;
+      const organizationId = 2;
       const authUrl = "/buildel/auth";
       const buildel = new BuildelSocket(organizationId, { authUrl });
 
