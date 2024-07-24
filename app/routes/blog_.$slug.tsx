@@ -3,17 +3,16 @@ import type {
   MetaFunction,
   LoaderFunctionArgs,
 } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { generateMetadata } from "~/utils/meta";
 import { BlogPost } from "~/views/BlogPost";
 import { posts } from "~/views/BlogPostsData/blogPosts";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return generateMetadata({
-    title: "Introducing Buildel 0.1",
-    description:
-      "Introducing new blocks: Browser Tool and CSV Search, Mermaid Support, File Input and more.",
-    image: "https://buildel.ai/og-image-0_1.png",
+    title: data!.title.text + " " + data!.title.animatedText + " | Buildel",
+    description: data!.description,
+    image: data!.image.url,
     keywords: [],
     type: "article",
   });
@@ -23,6 +22,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
   const currentBlogPostData = posts.find(
     (blogPostData) => blogPostData.slug === params.slug
   );
+  if (!currentBlogPostData) {
+    return redirect("/blog");
+  }
   return json(currentBlogPostData);
 }
 

@@ -6,6 +6,7 @@ export interface IPost {
   date: string;
   description: string;
   article: ReactNode;
+  image: { url: string };
 }
 
 const Video = ({ src }: { src: string }) => {
@@ -27,6 +28,7 @@ export const posts: IPost[] = [
     date: "Mon, Jul 24, 2024",
     description:
       "After a month a new release is ready. Here is Buildel 0.2 introducing new design, interfaces, bug fixes and UX improvements.",
+    image: { url: "https://buildel.ai/og-image-0_2.png" },
     article: (
       <>
         <p className="lead">
@@ -161,6 +163,7 @@ export const posts: IPost[] = [
     date: "Mon, Jun 10, 2024",
     description:
       "We are thrilled to unveil the latest milestone in our journey: Buildel 0.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
+    image: { url: "https://buildel.ai/og-image-0_1.png" },
     article: (
       <>
         <p className="lead">
