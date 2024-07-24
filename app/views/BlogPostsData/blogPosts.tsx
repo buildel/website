@@ -22,6 +22,140 @@ const Image = ({ src, alt }: { src: string; alt: string }) => {
 
 export const posts: IPost[] = [
   {
+    slug: "buildel-0_2",
+    title: { text: "Release", animatedText: "v0.2" },
+    date: "Mon, Jul 24, 2024",
+    description:
+      "After a month a new release is ready. Here is Buildel 0.2 introducing new design, interfaces, bug fixes and UX improvements.",
+    article: (
+      <>
+        <p className="lead">
+          Buildel 0.2 is here! We've managed to do a lot in the last month
+          including new features, bug fixes and UX improvements. All of this is
+          thanks to our team of developers who worked hard to make the new
+          version a reality.
+        </p>
+        <h2>New design</h2>
+        <h3>Colors</h3>
+        <p>
+          Buildel 0.2 has a new lighter design that is more modern and less
+          cluttered. We've changed the sidebar with all the tools you need to
+          build your workflows.
+        </p>
+        <Image
+          src="/assets/posts/buildel-0_2-design.png"
+          alt="Buildel 0.2 new main view"
+        />
+        <h3>New workflow editor</h3>
+        <p>
+          We've also increased the area of the editor so that you can better see
+          when building. It also now fits our landing page. Blocks now have
+          information at a glimpse about some of their most important settings.
+          Also if you make any mistakes inside of the editor you will now see
+          warnings about it.
+        </p>
+        <Image
+          src="/assets/posts/buildel-0_2-design-2.png"
+          alt="Buildel 0.2 new workflow editor"
+        />
+        <p>
+          We're constantly working on improving the designs further to make the
+          platform better 😎.
+        </p>
+        <h2>New graph database traversal</h2>
+        <p>
+          The document search tool got an update. The bot using it can now
+          traverse the graph database, which means that it can now search a part
+          of document and then retrieve chunks related to it. This makes the
+          search tool more powerful and on average it can find more relevant
+          results. It allowed us to deliver more reliable advanced chat bots
+          returning critical information like financial data etc.
+        </p>
+        <Image
+          src="/assets/posts/buildel-0_2-database-traversal.png"
+          alt="Buildel 0.2 new graph database traversal"
+        />
+        <p>
+          At the same time we've managed to dramatically improve the performance
+          of the graph database traversal tool, which makes it much faster and
+          more efficient which allows the chat to respond faster.
+        </p>
+        <h2>New interfaces</h2>
+        <p>In this release we've also added new interfaces: Form and Bulk.</p>
+        <h3>Form</h3>
+        <p>
+          The Form interface is a simple way to collect data from your users.
+          You can pick which fields from your workflows you would want to
+          collect and which outputs you would want to send back to your users.
+          This interface is great for example if you want to collect user
+          feedback from a survey.
+        </p>
+        <p>You can use text and file inputs.</p>
+        <Image
+          src="/assets/posts/buildel-0_2-form.png"
+          alt={"Form interface"}
+        />
+        <p>
+          We're working on allowing more input types and more customization to
+          the form in the future.
+        </p>
+        <h3>Bulk</h3>
+        <p>
+          The Bulk interface is a way to run multiple workflows at once. You can
+          create a table with inputs, run the workflows and get outputs in
+          return. This is great for example if you want to test if your workflow
+          is working correctly with different inputs. Combining it with another
+          chat you can also dynamically interpret the results of your workflows.
+        </p>
+        <Image
+          src="/assets/posts/buildel-0_2-bulk.png"
+          alt={"Bulk interface"}
+        />
+        <h2>New tool usage</h2>
+        <p>
+          In the new version we now support multiple tools at once. You can now
+          run multiple tools at once in one workflow, which makes it cheaper
+          because the chat no longer needs to make multiple API calls and faster
+          because you don't need to wait for each API call to finish before
+          moving on to the next one. This works with all of our tools and you
+          can combine them in any way you want.
+        </p>
+        <h2>New blocks</h2>
+        <h3>Date tool</h3>
+        <p>
+          The date tool is a simple way of providing your llm with the current
+          date. You can use it as a tool or directly output it into your chat.
+        </p>
+        <Image
+          src="/assets/posts/buildel-0_2-date-tool.png"
+          alt={"Bulk interface"}
+        />
+        <h2>What's next?</h2>
+        <p>
+          We're working on a new "Dataset" feature allowing you to store, share
+          and use data from workflows as test datasets to improve your
+          workflows, measure their performance and monitor for regressions.
+        </p>
+        <h2>Keep up</h2>
+        <p>
+          If you're interested in our technology you can find us on
+          <a href="https://github.com/elpassion/buildel" className="ml-1">
+            GitHub
+          </a>{" "}
+          or
+          <a href="https://discord.gg/SUXs7FyRT2" className="ml-1">
+            Discord
+          </a>
+          . If you want to build AI apps with or without Buildel hit us up
+          <a href="https://www.elpassion.com" className="ml-1">
+            @EL Passion
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
     slug: "buildel-0_1",
     title: { text: "Introducing Buildel", animatedText: "0.1" },
     date: "Mon, Jun 10, 2024",
