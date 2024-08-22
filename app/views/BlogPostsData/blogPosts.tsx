@@ -23,6 +23,184 @@ const Image = ({ src, alt }: { src: string; alt: string }) => {
 
 export const posts: IPost[] = [
   {
+    slug: "buildel-0_3",
+    title: {
+      text: "Unleashing the power of Knowledge Graphs - Release",
+      animatedText: "v0.3",
+    },
+    date: "Thu, Aug 22, 2024",
+    description:
+      "Buildel 0.3 releases with datasets, experiments, graphs, document search improvements and images support. All of that plus UX improvements and bug fixes.",
+    image: { url: "https://buildel.ai/og-image-0_3.png" },
+    article: (
+      <>
+        <p className="lead">
+          The Buildel team has been on fire these past few weeks, and we're
+          excited to unveil a massive update packed with features that will
+          revolutionize the way you build and manage AI applications! ✨ We've
+          added completely new features to help improve your workflows and check
+          for regressions in a timely manner. Adittionally we've explored a
+          completely new (<i>even in our fast AI world</i>), topic of displaying
+          embeddings in a <b>2d graph</b>. Besides that minor updates to some
+          tools and UX improvements. All together makes this a huge release that
+          we hope you will like as much as we do!
+        </p>
+        <h2>
+          Dive Deep into Your Knowledge Base with the All-New Knowledge Graph!
+        </h2>
+        <p>
+          Imagine seeing the intricate relationships between your data
+          visualized in a stunning 2D graph That's exactly what Buildel 0.3
+          brings to the table!
+        </p>
+        <Image
+          src="/assets/posts/graph-1.png"
+          alt="Buildel 0.3 new graph view of knowledge base"
+        />
+        <h3>How it works?</h3>
+        <p>
+          The graph is an approximation of how a multi level embedding structure
+          we generate for the knowledge base search would look like in 2d. It's
+          a lot of complicated math to do that but overall the outcome is:
+        </p>
+        <ul>
+          <li>
+            <b>Uncover hidden connections:</b> Related texts cluster together,
+            while irrelevant ones stay far apart, giving you a clear picture of
+            your knowledge base's structure
+          </li>
+          <li>
+            <b>Effortless exploration:</b> Click on any node to access details,
+            navigate through your data with ease, and unearth valuable insights.
+            Go to next, previous chunk in the document. Find related chunks and
+            all other information about the chunk.
+          </li>
+          <li>
+            <b>Search made simple:</b> Find specific information quickly by
+            searching directly within the graph interface. Understand what your
+            search returns and why it does that. Optimize your search parameters
+            for your usecase.
+          </li>
+        </ul>
+
+        <Image
+          src="/assets/posts/graph-2.png"
+          alt="Buildel 0.3 new graph details view of knowledge base"
+        />
+        <h3>Examples of what information it provides us</h3>
+        <ul>
+          <li>
+            If you or your bot searches for something there's a small chance
+            that 1 query would return chunks that are far away from eachother.
+          </li>
+          <li>
+            If there are many different chunks clustered together you should
+            probably filter unneeded ones before doing a search.
+          </li>
+        </ul>
+        <blockquote>
+          We will explore more about this topic in an upcoming technical blog
+          post. Keep getting informed by joining our discord or registering at{" "}
+          <a href={"https://app.buildel.ai"}>https://app.buildel.ai/</a>
+        </blockquote>
+        <h2>Experiments & Datasets: Say Goodbye to Manual Testing!</h2>
+        <p>
+          Being in production with BuildEL projects keeps us busy with
+          maintanance. What proved to be timeconsuming and complicated in those
+          projects was checking the performance / improvements / degradations of
+          our changes to workflows and knowledge bases. To improve ours and
+          yours lives we're introducing Experiments and Datasets.
+        </p>
+        <h3>Datasets</h3>
+        <p>
+          Datasets are used to store multiple rows of data to run with your
+          workflows. You can upload CSV files filed with rows of your data or
+          manually add them with a JSON editor.
+        </p>
+
+        <Image
+          src="/assets/posts/dataset-1.png"
+          alt="Buildel 0.3 new datasets"
+        />
+
+        <blockquote>
+          Currently we support only JSON dataset rows but we're planning to
+          introduce others soon.
+        </blockquote>
+
+        <h3>Experiments</h3>
+        <p>
+          After setting up your datasets you can now use them to automate your
+          testing with experiments. See the progress of your setup with our
+          summaries for each row of the dataset, each run of the experiment and
+          the experiment as a whole.
+        </p>
+        <Image
+          src="/assets/posts/experiment-1.png"
+          alt="Buildel 0.3 new experiments"
+        />
+        <blockquote>
+          We're working now on improving the documentation and blocks to ensure
+          that you can easily evaluate your workflows.
+        </blockquote>
+        <Image
+          src="/assets/posts/experiment-2.png"
+          alt="Buildel 0.3 new experiments"
+        />
+        <h2>Images</h2>
+        <h3>Image Input</h3>
+        <p>
+          We've added an image input to allow you to send images both to blocks
+          used to ie. transform images to text, but also directly to chat block.
+        </p>
+        <Image
+          src="/assets/posts/image-1.png"
+          alt="Buildel 0.3 new experiments"
+        />
+        <p>
+          When picking image input in your Chat config you will now be able to
+          send images directly through chat input. Similar to ie. ChatGPT
+          interface.
+        </p>
+        <Image
+          src="/assets/posts/image-2.png"
+          alt="Buildel 0.3 new experiments"
+        />
+        <h3>Hugging Face Image Classification</h3>
+        <p>
+          We've also added hugging face compliant block for Image
+          Classification. Now you can input an image directly through Image
+          Input and later send it to this new block and receive the result
+          directly from HF.
+        </p>
+        <Image
+          src="/assets/posts/image-3.png"
+          alt="Hugging Face Image Classification block"
+        />
+        <p>
+          In the near future we're planning to support more Inherence endpoints
+          from hugging face
+        </p>
+        <h2>Keep up</h2>
+        <p>
+          If you're interested in our technology you can find us on
+          <a href="https://github.com/elpassion/buildel" className="ml-1">
+            GitHub
+          </a>{" "}
+          or
+          <a href="https://discord.gg/SUXs7FyRT2" className="ml-1">
+            Discord
+          </a>
+          . If you want to build AI apps with or without Buildel hit us up
+          <a href="https://www.elpassion.com" className="ml-1">
+            @EL Passion
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
     slug: "buildel-0_2",
     title: { text: "Release", animatedText: "v0.2" },
     date: "Mon, Jul 24, 2024",
