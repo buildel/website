@@ -25,7 +25,7 @@ export function BuildelProvider({ children }: { children: React.ReactNode }) {
     return () => {
       if (!buildel) return;
       buildel!.disconnect().then(() => {
-        console.log("Disconnected from Buildel");
+        console.log("Disconnected from BuildEL");
       });
     };
   }, []);

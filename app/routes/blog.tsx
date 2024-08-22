@@ -5,7 +5,7 @@ import { Blog } from "~/views/Blog";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Buildel" },
+    { title: "BuildEL" },
     { name: "description", content: "Build your own AI app without hassle." },
   ];
 };

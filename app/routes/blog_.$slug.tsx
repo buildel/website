@@ -10,7 +10,7 @@ import { posts } from "~/views/BlogPostsData/blogPosts";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return generateMetadata({
-    title: data!.title.text + " " + data!.title.animatedText + " | Buildel",
+    title: data!.title.text + " " + data!.title.animatedText + " | BuildEL",
     description: data!.description,
     image: data!.image.url,
     keywords: [],

@@ -43,7 +43,7 @@ export const Header = () => {
           <a href="/" className="flex items-center">
             <img
               src="/buildel-by-elp-logo-black.svg"
-              alt="Buildel: built by EL Passion logo"
+              alt="BuildEL: built by EL Passion logo"
             />
           </a>
 

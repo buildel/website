@@ -3,7 +3,7 @@ import { urls } from "~/utils/urls";
 export const clientSDK = {
   title: (
     <h3 className="h3-mobile lg:h3-desktop">
-      Access Buildel API easily with our{" "}
+      Access BuildEL API easily with our{" "}
       <span className="gradient-text">client SDK</span>
     </h3>
   ),
@@ -17,12 +17,12 @@ export const clientSDK = {
 export const embed = {
   title: (
     <h3 className="h3-mobile lg:h3-desktop">
-      Embed Buildel Chat directly on{" "}
+      Embed BuildEL Chat directly on{" "}
       <span className="gradient-text">your website</span>
     </h3>
   ),
   subtitle:
-    "It allows for a straightforward integration, offering your visitors the convenience of engaging with Buildel Chat directly on your site.",
+    "It allows for a straightforward integration, offering your visitors the convenience of engaging with BuildEL Chat directly on your site.",
   imageDirectory: "snippets/embed" as const,
   cta: { label: "See documentation", href: urls.documentation.interfaces },
   technologiesTabs: ["HTML", "React"],
@@ -31,12 +31,12 @@ export const embed = {
 export const openAI = {
   title: (
     <h3 className="h3-mobile lg:h3-desktop">
-      Connect to Buildel through an{" "}
+      Connect to BuildEL through an{" "}
       <span className="gradient-text">OpenAI compliant interface</span>
     </h3>
   ),
   subtitle:
-    "It allows for a straightforward integration, offering your visitors the convenience of engaging with Buildel Chat directly on your site.",
+    "It allows for a straightforward integration, offering your visitors the convenience of engaging with BuildEL Chat directly on your site.",
   imageDirectory: "snippets/openai-interface" as const,
   cta: { label: "See documentation", href: urls.documentation.interfaces },
   technologiesTabs: ["openai-interface"],

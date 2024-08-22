@@ -31,7 +31,7 @@ const benefits: IBenefit[] = [
     icon: <UserGroup className="text-2xl" />,
     title: "Open source",
     description:
-      "Buildel is open source. You can <span class='font-bold'>host it for free</span> on your own and contribute to it",
+      "BuildEL is open source. You can <span class='font-bold'>host it for free</span> on your own and contribute to it",
   },
   {
     icon: <Shapes className="text-2xl" />,
@@ -44,7 +44,7 @@ const benefits: IBenefit[] = [
 const content = {
   title: 'From <span class="gradient-text">idea</span> to production',
   subtitle:
-    "Whether crafting a basic application or architecting an advanced AI-driven solution, Buildel supports your development journey at every step",
+    "Whether crafting a basic application or architecting an advanced AI-driven solution, BuildEL supports your development journey at every step",
   cta: { label: "Start building ✨", href: urls.registerBuildel },
 };
 

@@ -44,7 +44,7 @@ export const Integration = () => {
     <section className="bg-dark-background w-full flex flex-col items-center py-24">
       <div className="flex flex-col items-center px-4 lg:px-0 w-full">
         <h2 className="h2-mobile lg:h2-desktop">
-          Integrate <span className="gradient-text">Buildel</span> into your app
+          Integrate <span className="gradient-text">BuildEL</span> into your app
         </h2>
         <p className="text-white/60 mt-5 font-secondary">
           Seamlessly Integrate Workflows to elevate User Experience and

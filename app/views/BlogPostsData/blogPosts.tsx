@@ -30,16 +30,16 @@ export const posts: IPost[] = [
     },
     date: "Thu, Aug 22, 2024",
     description:
-      "Buildel 0.3 releases with datasets, experiments, graphs, document search improvements and images support. All of that plus UX improvements and bug fixes.",
+      "BuildEL 0.3 releases with datasets, experiments, graphs, document search improvements and images support. All of that plus UX improvements and bug fixes.",
     image: { url: "https://buildel.ai/og-image-0_3.png" },
     article: (
       <>
         <p className="lead">
-          The Buildel team has been on fire these past few weeks, and we're
+          The BuildEL team has been on fire these past few weeks, and we're
           excited to unveil a massive update packed with features that will
           revolutionize the way you build and manage AI applications! ✨ We've
-          added completely new features to help improve your workflows and check
-          for regressions in a timely manner. Adittionally we've explored a
+          added new features to help improve your workflows and check for
+          regressions in a timely manner. Adittionally we've explored a
           completely new (<i>even in our fast AI world</i>), topic of displaying
           embeddings in a <b>2d graph</b>. Besides that minor updates to some
           tools and UX improvements. All together makes this a huge release that
@@ -50,12 +50,12 @@ export const posts: IPost[] = [
         </h2>
         <p>
           Imagine seeing the intricate relationships between your data
-          visualized in a stunning 2D graph That's exactly what Buildel 0.3
+          visualized in a stunning 2D graph That's exactly what BuildEL 0.3
           brings to the table!
         </p>
         <Image
           src="/assets/posts/graph-1.png"
-          alt="Buildel 0.3 new graph view of knowledge base"
+          alt="BuildEL 0.3 new graph view of knowledge base"
         />
         <h3>How it works?</h3>
         <p>
@@ -85,7 +85,7 @@ export const posts: IPost[] = [
 
         <Image
           src="/assets/posts/graph-2.png"
-          alt="Buildel 0.3 new graph details view of knowledge base"
+          alt="BuildEL 0.3 new graph details view of knowledge base"
         />
         <h3>Examples of what information it provides us</h3>
         <ul>
@@ -120,7 +120,7 @@ export const posts: IPost[] = [
 
         <Image
           src="/assets/posts/dataset-1.png"
-          alt="Buildel 0.3 new datasets"
+          alt="BuildEL 0.3 new datasets"
         />
 
         <blockquote>
@@ -137,7 +137,7 @@ export const posts: IPost[] = [
         </p>
         <Image
           src="/assets/posts/experiment-1.png"
-          alt="Buildel 0.3 new experiments"
+          alt="BuildEL 0.3 new experiments"
         />
         <blockquote>
           We're working now on improving the documentation and blocks to ensure
@@ -145,7 +145,7 @@ export const posts: IPost[] = [
         </blockquote>
         <Image
           src="/assets/posts/experiment-2.png"
-          alt="Buildel 0.3 new experiments"
+          alt="BuildEL 0.3 new experiments"
         />
         <h2>Images</h2>
         <h3>Image Input</h3>
@@ -155,7 +155,7 @@ export const posts: IPost[] = [
         </p>
         <Image
           src="/assets/posts/image-1.png"
-          alt="Buildel 0.3 new experiments"
+          alt="BuildEL 0.3 new experiments"
         />
         <p>
           When picking image input in your Chat config you will now be able to
@@ -164,7 +164,7 @@ export const posts: IPost[] = [
         </p>
         <Image
           src="/assets/posts/image-2.png"
-          alt="Buildel 0.3 new experiments"
+          alt="BuildEL 0.3 new experiments"
         />
         <h3>Hugging Face Image Classification</h3>
         <p>
@@ -191,7 +191,7 @@ export const posts: IPost[] = [
           <a href="https://discord.gg/SUXs7FyRT2" className="ml-1">
             Discord
           </a>
-          . If you want to build AI apps with or without Buildel hit us up
+          . If you want to build AI apps with or without BuildEL hit us up
           <a href="https://www.elpassion.com" className="ml-1">
             @EL Passion
           </a>
@@ -205,12 +205,12 @@ export const posts: IPost[] = [
     title: { text: "Release", animatedText: "v0.2" },
     date: "Mon, Jul 24, 2024",
     description:
-      "After a month a new release is ready. Here is Buildel 0.2 introducing new design, interfaces, bug fixes and UX improvements.",
+      "After a month a new release is ready. Here is BuildEL 0.2 introducing new design, interfaces, bug fixes and UX improvements.",
     image: { url: "https://buildel.ai/og-image-0_2.png" },
     article: (
       <>
         <p className="lead">
-          Buildel 0.2 is here! We've managed to do a lot in the last month
+          BuildEL 0.2 is here! We've managed to do a lot in the last month
           including new features, bug fixes and UX improvements. All of this is
           thanks to our team of developers who worked hard to make the new
           version a reality.
@@ -218,13 +218,13 @@ export const posts: IPost[] = [
         <h2>New design</h2>
         <h3>Colors</h3>
         <p>
-          Buildel 0.2 has a new lighter design that is more modern and less
+          BuildEL 0.2 has a new lighter design that is more modern and less
           cluttered. We've changed the sidebar with all the tools you need to
           build your workflows.
         </p>
         <Image
           src="/assets/posts/buildel-0_2-design.png"
-          alt="Buildel 0.2 new main view"
+          alt="BuildEL 0.2 new main view"
         />
         <h3>New workflow editor</h3>
         <p>
@@ -236,7 +236,7 @@ export const posts: IPost[] = [
         </p>
         <Image
           src="/assets/posts/buildel-0_2-design-2.png"
-          alt="Buildel 0.2 new workflow editor"
+          alt="BuildEL 0.2 new workflow editor"
         />
         <p>
           We're constantly working on improving the designs further to make the
@@ -253,7 +253,7 @@ export const posts: IPost[] = [
         </p>
         <Image
           src="/assets/posts/buildel-0_2-database-traversal.png"
-          alt="Buildel 0.2 new graph database traversal"
+          alt="BuildEL 0.2 new graph database traversal"
         />
         <p>
           At the same time we've managed to dramatically improve the performance
@@ -326,7 +326,7 @@ export const posts: IPost[] = [
           <a href="https://discord.gg/SUXs7FyRT2" className="ml-1">
             Discord
           </a>
-          . If you want to build AI apps with or without Buildel hit us up
+          . If you want to build AI apps with or without BuildEL hit us up
           <a href="https://www.elpassion.com" className="ml-1">
             @EL Passion
           </a>
@@ -337,15 +337,15 @@ export const posts: IPost[] = [
   },
   {
     slug: "buildel-0_1",
-    title: { text: "Introducing Buildel", animatedText: "0.1" },
+    title: { text: "Introducing BuildEL", animatedText: "0.1" },
     date: "Mon, Jun 10, 2024",
     description:
-      "We are thrilled to unveil the latest milestone in our journey: Buildel 0.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
+      "We are thrilled to unveil the latest milestone in our journey: BuildEL 0.1! With each iteration, we aim to enhance your experience, empower your creativity, and streamline your workflow. Today, we're excited to share the highlights of what's in store with this new version.",
     image: { url: "https://buildel.ai/og-image-0_1.png" },
     article: (
       <>
         <p className="lead">
-          We are thrilled to unveil the latest milestone in our journey: Buildel
+          We are thrilled to unveil the latest milestone in our journey: BuildEL
           0.1! Our fully open source tool for AI workflow automations. For the
           past few weeks we've been working very hard to polish the app enough
           to release the new features and we're excited to share with you some
@@ -353,12 +353,12 @@ export const posts: IPost[] = [
         </p>
         <h2>New blocks</h2>
         <p>
-          We've added new blocks to Buildel that allow you to build more complex
+          We've added new blocks to BuildEL that allow you to build more complex
           workflows. Browser Tool and CSV Search should help you with that.
         </p>
         <h3>Browser Tool</h3>
         <p>
-          Your Buildel workflows will now be able to read any webpage you want.
+          Your BuildEL workflows will now be able to read any webpage you want.
           If you ever need to extract data from a website, this block will be
           perfect for you.
         </p>
@@ -379,7 +379,7 @@ export const posts: IPost[] = [
         </p>
         <h4>Use in chat</h4>
         <p>
-          Later if you want you can use Buildel built in Chat interface to
+          Later if you want you can use BuildEL built in Chat interface to
           interact rather than through our workflow interface.
         </p>
         <Video src="/assets/posts/browser-chat.mp4" />
@@ -396,7 +396,7 @@ export const posts: IPost[] = [
         </blockquote>
         <h3>CSV Search Tool</h3>
         <p>
-          Buildel now supports creating <b>in memory</b> databases based on your
+          BuildEL now supports creating <b>in memory</b> databases based on your
           CSVs. You can throw in a CSV file and it will be parsed into an SQLite
           database.
         </p>
@@ -419,7 +419,7 @@ export const posts: IPost[] = [
         </p>
         <h2>Mermaid Support</h2>
         <p>
-          Buildel now supports Mermaid Diagrams. You can ask chat to create a
+          BuildEL now supports Mermaid Diagrams. You can ask chat to create a
           Mermaid diagram for you and it will be rendered in our UI.
         </p>
         <Video src="/assets/posts/mermaid.mp4" />
@@ -429,7 +429,7 @@ export const posts: IPost[] = [
         </blockquote>
         <h2>Chat File Input Support</h2>
         <p>
-          Finally Buildel Chat Interface has file support. You can now add and
+          Finally BuildEL Chat Interface has file support. You can now add and
           remove files directly from chat.
         </p>
         <p>
@@ -461,7 +461,7 @@ export const posts: IPost[] = [
           If you're interested in our technology you can find us on
           <a href="https://github.com/elpassion/buildel">GitHub</a> or
           <a href="https://discord.gg/SUXs7FyRT2">Discord</a>. If you want to
-          build AI apps with or without Buildel hit us up
+          build AI apps with or without BuildEL hit us up
           <a href="https://www.elpassion.com">@EL Passion</a>.
         </p>
       </>

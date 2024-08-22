@@ -38,7 +38,7 @@ export default function App() {
 }
 
 export const meta: MetaFunction = (a) => {
-  const title = "Buildel";
+  const title = "BuildEL";
   const description = "Build your own AI app without hassle.";
 
   return generateMetadata({

@@ -27,7 +27,7 @@ const Hero = () => {
         />
       </HeroHeader>
 
-      <HeroSubheader>The latest news from Buildel</HeroSubheader>
+      <HeroSubheader>The latest news from BuildEL</HeroSubheader>
     </HeroContainer>
   );
 };

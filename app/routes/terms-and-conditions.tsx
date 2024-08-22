@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="">Last updated: 23rd April 2024</p>
         <div className="prose lg:prose-xl text-neutral-950 mt-8">
-          <p>Thank you for your interest in Buildel!</p>
+          <p>Thank you for your interest in BuildEL!</p>
           <p>
             The services are provided by EL Passion Next sp. z o.o., with its
             registered seat at: Krakowskie Przedmieście 13, 00-071 Warszawa,
@@ -61,14 +61,14 @@ export default function PrivacyPolicy() {
             account, you will need to verify the e-mail address. After
             verification you are able to log into your account using e-mail and
             password or by using Google Single Sign On functionality. If you log
-            in using Google, Buildel does not store your Google account
+            in using Google, BuildEL does not store your Google account
             information besides email address anywhere in the Web app.
           </p>
           <h2>1. Scope of Services</h2>
           <ol role="list">
             <li>
               Based on these Terms and Conditions, EL Passion will provide you
-              (hereinafter the “Client”) with Buildel tool, an AI automation
+              (hereinafter the “Client”) with BuildEL tool, an AI automation
               software that gives users a simple interface to create ai
               workflows. The tool enables users to create, manage, and monitor
               AI workflows, as well as to integrate them with other tools and
