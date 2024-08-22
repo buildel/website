@@ -41,7 +41,7 @@ export const posts: IPost[] = [
           added new features to help improve your workflows and check for
           regressions in a timely manner. Adittionally we've explored a
           completely new (<i>even in our fast AI world</i>), topic of displaying
-          embeddings in a <b>2d graph</b>. Besides that minor updates to some
+          embeddings in a <b>2d graph</b> Besides that minor updates to some
           tools and UX improvements. All together makes this a huge release that
           we hope you will like as much as we do!
         </p>
@@ -50,7 +50,7 @@ export const posts: IPost[] = [
         </h2>
         <p>
           Imagine seeing the intricate relationships between your data
-          visualized in a stunning 2D graph That's exactly what BuildEL 0.3
+          visualized in a stunning 2D graph. That's exactly what BuildEL 0.3
           brings to the table!
         </p>
         <Image
