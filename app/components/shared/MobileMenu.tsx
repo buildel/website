@@ -93,7 +93,7 @@ const Menu = ({ onClose }: MenuProps) => {
             <DiscordLogo className="text-2xl" />
           </a>
           <a
-            href={urls.discordServer}
+            href={urls.githubRepo}
             className="flex justify-center items-center w-full py-3 border border-neutral-800 rounded-lg focus:border-white"
           >
             <GithubLogo className="text-2xl" />
