@@ -7,6 +7,7 @@ import { json, redirect } from "@remix-run/node";
 import { generateMetadata } from "~/utils/meta";
 import { BlogPost } from "~/views/BlogPost";
 import { posts } from "~/views/BlogPostsData/blogPosts";
+import { SEOHandle } from "@nasa-gcn/remix-seo";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return generateMetadata({
@@ -16,6 +17,14 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     keywords: [],
     type: "article",
   });
+};
+
+export const handle: SEOHandle = {
+  getSitemapEntries: async (request) => {
+    return posts.map((post) => {
+      return { route: `/blog/${post.slug}`, priority: 0.7 };
+    });
+  },
 };
 
 export async function loader({ params }: LoaderFunctionArgs) {

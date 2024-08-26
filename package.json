@@ -13,6 +13,7 @@
   "dependencies": {
     "@buildel/buildel": "^0.1.6",
     "@buildel/buildel-auth": "^0.0.2",
+    "@nasa-gcn/remix-seo": "^2.0.1",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
     "@remix-run/serve": "^2.7.2",
