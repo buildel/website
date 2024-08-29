@@ -100,7 +100,7 @@ const Menu = ({ onClose }: MenuProps) => {
           </a>
         </div>
 
-        <Button mode="light" className="w-full">
+        <Button href={urls.registerBuildel} mode="light" className="w-full">
           Sing up
         </Button>
       </div>
