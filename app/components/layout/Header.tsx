@@ -96,6 +96,7 @@ export const Header = () => {
 
           <MobileMenu />
           <Button
+            href={urls.registerBuildel}
             mode="dark"
             className="hidden lg:flex"
             externalHref={urls.registerBuildel}
