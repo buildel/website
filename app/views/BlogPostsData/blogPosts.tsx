@@ -11,7 +11,7 @@ export interface IPost {
 
 const Video = ({ src }: { src: string }) => {
   return (
-    <video src={src} controls className="rounded-xl" autoPlay>
+    <video src={src} controls className="rounded-xl" autoPlay muted>
       <track kind="captions" />
     </video>
   );
@@ -22,6 +22,153 @@ const Image = ({ src, alt }: { src: string; alt: string }) => {
 };
 
 export const posts: IPost[] = [
+  {
+    slug: "buildel-0_4",
+    title: {
+      text: "Unveiling BuildEL 0.4 - A Leap Towards Greater Usability and Flexibility",
+      animatedText: "v0.4",
+    },
+    date: "Thu, Oct 17 2024",
+    description:
+      "BuildEL 0.4 is bringing seamless voice interaction, improved logs, and enhanced workflow control to elevate your AI projects.",
+    image: { url: "https://buildel.ai/og-image-0_3.png" },
+    article: (
+      <>
+        <p className="lead">
+          We’re thrilled to introduce BuildEL 0.4, an update focused on
+          enhancing the user experience, improving workflow management, and
+          adding new dimensions to how you interact with AI applications ✨
+        </p>
+
+        <p className="lead">
+          This release introduces several features that will streamline your
+          processes and bring more control and flexibility to your workflow.
+        </p>
+
+        <h2>Webchat Improvements: Seamless Conversation Management</h2>
+
+        <p>
+          We’ve redesigned the chat interface, making it much more intuitive and
+          readable. The updated design enhances clarity and ease of use.
+        </p>
+
+        <p>
+          Additionally, BuildEL’s Webchat experience has been reimagined to
+          ensure smoother transitions between runs. Now, users can easily rejoin
+          ongoing conversations without losing context, enabling more fluid and
+          consistent interactions!
+        </p>
+
+        <Video src="/assets/posts/v04/re-joinning.webm" />
+
+        <p>
+          This improvement is especially useful for projects that rely on
+          long-running conversations, whether for customer service applications
+          or complex problem-solving tasks.
+        </p>
+
+        <p>
+          On top of these enhancements, we’ve also added functionality that
+          allows the chat to provide references to specific chunks of data from
+          the knowledge base (RAG). Whenever the chat retrieves information from
+          documents, it now includes links to the exact sources and references
+          to the data chunks used. This gives users full transparency and the
+          ability to trace the origins of the information, ensuring accuracy and
+          reliability in responses.
+        </p>
+
+        <h2>Logs Enhancements: More Transparency and Control</h2>
+        <p>
+          Now, you can access logs directly in the workflow builder! This means
+          you no longer have to jump between tabs or windows to troubleshoot
+          your workflows.
+        </p>
+
+        <Video src="/assets/posts/v04/logs.webm" />
+
+        <p>
+          With logs integrated right into your building interface, monitoring
+          execution, tracking errors, and debugging has never been easier. Logs
+          are displayed in real-time as workflows are executed, making it
+          simpler to pinpoint issues and optimize processes as you go. This
+          enhancement is aimed at giving you deeper visibility and more control
+          over your workflows, saving valuable time.
+        </p>
+
+        <p>
+          We’ve also added the option to use the Webchat interface directly
+          within the workflow builder, allowing users to test and interact with
+          their workflows in real-time without leaving the builder environment.
+          This makes it easier to see how conversations and workflows behave
+          together in a seamless manner.
+        </p>
+
+        <h2>Workflow Management</h2>
+
+        <p>
+          Managing workflows can sometimes get overwhelming, but with workflow
+          pinning, you can now have your most critical workflows always at the
+          top of your list. This enhancement provides you with greater
+          flexibility to organize and prioritize your workflows, ensuring quick
+          access to the ones that matter most.
+        </p>
+
+        <Video src="/assets/posts/v04/favorites.webm" />
+
+        <blockquote>
+          This is especially useful for users who take a compositional approach
+          to their workflows and frequently use the workflow call block to
+          trigger one workflow within another.
+        </blockquote>
+
+        <p>
+          By pinning important workflows, you can quickly access and manage
+          them, streamlining your process and keeping everything organized.
+        </p>
+
+        <p>
+          Additionally, we’ve redesigned the workflow cards to display more key
+          information at a glance, making it easier to identify important
+          details without needing to open each workflow. This further enhances
+          the overall management experience and keeps everything in one easily
+          accessible place.
+        </p>
+
+        <h2>Voice Chat: The Future of AI Interaction 🎙️</h2>
+        <p>
+          We’re excited to introduce the new Voice Chat interface in BuildEL!
+          Now, users can engage in real-time, voice-based conversations with
+          their workflows! This feature opens up a world of possibilities for a
+          more natural and intuitive interaction with AI applications.
+        </p>
+
+        <Video src="/assets/posts/v04/voicechat.mp4" />
+
+        <p>
+          Whether you're developing customer service bots, voice-activated
+          systems, or accessible interfaces, the Voice Chat functionality opens
+          up new possibilities for more natural and intuitive communication.
+        </p>
+
+        <h2>Keep up</h2>
+        <p>
+          If you're interested in our technology you can find us on
+          <a href="https://github.com/elpassion/buildel" className="ml-1">
+            GitHub
+          </a>{" "}
+          or
+          <a href="https://discord.gg/SUXs7FyRT2" className="ml-1">
+            Discord
+          </a>
+          . If you want to build AI apps with or without BuildEL hit us up
+          <a href="https://www.elpassion.com" className="ml-1">
+            @EL Passion
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
   {
     slug: "buildel-0_3",
     title: {

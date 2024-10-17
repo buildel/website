@@ -84,7 +84,9 @@ const PostCardMeta = ({ children }: { children: React.ReactNode }) => (
 );
 
 const PostCardTitle = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="mt-auto text-4xl font-primaryBold max-w-[12ch]">{children}</h2>
+  <h2 className="mt-auto text-4xl font-primaryBold line-clamp-4 w-full">
+    {children}
+  </h2>
 );
 
 const PostCardDescription = ({ children }: { children: React.ReactNode }) => (
