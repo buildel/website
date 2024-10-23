@@ -28,7 +28,7 @@ export const posts: IPost[] = [
       text: "Unveiling BuildEL 0.4 - A Leap Towards Greater Usability and Flexibility",
       animatedText: "v0.4",
     },
-    date: "Thu, Oct 17 2024",
+    date: "Wed, Oct 23 2024",
     description:
       "BuildEL 0.4 is bringing seamless voice interaction, improved logs, and enhanced workflow control to elevate your AI projects.",
     image: { url: "https://buildel.ai/og-image-0.4.webp" },
