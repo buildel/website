@@ -47,7 +47,7 @@ export const HeroContainer = ({
   return (
     <section
       className={clsx(
-        "bg-white max-h-[600px] h-[40vh] md:max-h-[800px] md:h-[75vh] w-full relative",
+        "bg-white max-h-[600px] h-[60vh] md:max-h-[800px] md:h-[75vh] w-full relative",
         className
       )}
       id="hero"
