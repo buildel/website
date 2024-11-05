@@ -193,7 +193,7 @@ function BillingPlanItemFeature({ data }: BillingPlanItemFeatureProps) {
 
 const Hero = () => {
   return (
-    <HeroContainer className="md:h-[35vh]">
+    <HeroContainer className="md:!h-[35vh]">
       <HeroHeader>Get Started with Completely Free Access</HeroHeader>
 
       <HeroSubheader>
