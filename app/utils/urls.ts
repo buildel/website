@@ -16,5 +16,5 @@ export const routes = [
   // { name: "Product", path: "/product" },
   { name: "Docs", path: urls.documentation.home, external: true },
   { name: "Blog", path: urls.blog, external: false },
-  // { name: "Pricing", path: "/pricing" },
+  { name: "Pricing", path: "/pricing" },
 ];
