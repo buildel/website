@@ -23,6 +23,140 @@ const Image = ({ src, alt }: { src: string; alt: string }) => {
 
 export const posts: IPost[] = [
   {
+    slug: "buildel-0_5",
+    title: {
+      text: "New Features to Enhance Flexibility and Usability",
+      animatedText: "v0.5",
+    },
+    date: "Fri, Nov 15 2024",
+    description:
+      "Discover the latest updates, from SharePoint integration to advanced browser block functionality, designed to streamline your processes and boost productivity.",
+    image: { url: "https://buildel.ai/og-image-0.5.webp" },
+    article: (
+      <>
+        <p className="lead">
+          We’re excited to unveil a host of new features aimed at enhancing
+          integration, usability, and efficiency in your workflows 🎉.
+        </p>
+
+        <p className="lead">
+          This release includes powerful tools like SharePoint integration,
+          improved markdown rendering, and a brand-new YouTube video block.
+        </p>
+
+        <h2>SharePoint Client Block: Seamless Integration</h2>
+
+        <p>
+          Say hello to the new SharePoint client block! This feature allows you
+          to integrate SharePoint directly into your workflows, making file
+          handling and collaboration effortless. Whether you need to access,
+          upload, or manage files, this block ensures smooth interaction with
+          your SharePoint setup.
+        </p>
+
+        <h2>Connections Get More Flexible</h2>
+
+        <p>
+          We’ve introduced optional parameters for connections, giving you more
+          control over configuration and enabling a greater range of use cases.
+        </p>
+
+        <h2>Markdown Rendering Just Got Smoother</h2>
+
+        <p>
+          Long markdown content can sometimes cause performance hiccups, but not
+          anymore. We’ve optimized rendering, so your markdown documents load
+          faster and smoother than ever before.
+        </p>
+
+        <h2>Streamlined Adjustment Details</h2>
+
+        <p>
+          We’ve merged adjustment detail blocks into a single block for greater
+          clarity and a cleaner user interface.
+        </p>
+
+        <Video src="/assets/posts/v05/details-blocks.webm" />
+
+        <p>
+          This update ensures your focus remains on what matters most—your data.
+        </p>
+
+        <h2>Organized Form Properties</h2>
+
+        <p>
+          Navigating form properties is now easier with our new sectioned
+          layout.
+        </p>
+
+        <Video src="/assets/posts/v05/sections.webm" />
+
+        <p>
+          Grouped properties help you manage and locate settings quickly, saving
+          valuable time.
+        </p>
+
+        <h2>Nested Schema Defaults</h2>
+
+        <p>
+          Configuration just got simpler! Nested schema objects now auto-fill
+          with defaults, reducing setup complexity and ensuring consistency
+          across your blocks.
+        </p>
+
+        <h2>Custom Headers for Browser Blocks</h2>
+
+        <p>
+          Need more control over your web requests? Our browser block now
+          supports custom headers, letting you tailor your HTTP interactions to
+          fit your exact requirements.
+        </p>
+
+        <h2>YouTube Video Block: Visualize Your Content</h2>
+
+        <p>Bring your workflows to life with the new YouTube video block.</p>
+
+        <Video src="/assets/posts/v05/video-block.webm" />
+
+        <p>
+          Easily embed and display videos within the builder, adding a rich
+          visual dimension to your applications.
+        </p>
+
+        <h2>Markdown Link Metadata on Hover</h2>
+
+        <p>
+          External links in markdown now come with hover tooltips that display
+          metadata, giving you valuable context before you click.
+        </p>
+
+        <Video src="/assets/posts/v05/references.webm" />
+
+        <p>
+          This feature is perfect for maintaining a seamless and informed
+          Webchat experience.
+        </p>
+
+        <h2>Keep Up</h2>
+        <p>
+          If you're interested in our technology you can find us on
+          <a href="https://github.com/elpassion/buildel" className="ml-1">
+            GitHub
+          </a>{" "}
+          or
+          <a href="https://discord.gg/SUXs7FyRT2" className="ml-1">
+            Discord
+          </a>
+          . If you want to build AI apps with or without BuildEL hit us up
+          <a href="https://www.elpassion.com" className="ml-1">
+            @EL Passion
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
     slug: "buildel-0_4",
     title: {
       text: "Unveiling BuildEL 0.4 - A Leap Towards Greater Usability and Flexibility",
