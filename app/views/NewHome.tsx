@@ -1,28 +1,21 @@
 import { Header } from "~/components/layout/Header";
-import { TryWorkflows } from "~/components/sections/workflows/TryWorkflows";
-import { AskToBuildWorkflow } from "~/components/sections/workflows/AskToBuildWorkflow";
-import { Benefits } from "~/components/sections/benefits/Benefits";
-import { Blocks } from "~/components/sections/blocks/Blocks";
 import { JoinCommunity } from "~/components/sections/community/JoinCommunity";
 import { Integration } from "~/components/sections/integration/Integration";
 import { Footer } from "~/components/layout/Footer";
 import { Button } from "~/components/shared/New-button";
-import {
-  HeroContainer,
-  HeroHeader,
-  AnimatedWords,
-  HeroSubheader,
-} from "~/components/sections/hero/Hero";
+import { AnimatedWords } from "~/components/sections/hero/Hero";
 import { cn } from "~/lib/utils";
 import { Workflow } from "~/components/icons/Workflow";
 import { motion } from "framer-motion";
-import { BasicLink } from "~/components/shared/BasicLink";
+import { BasicLink, BasicLinkProps } from "~/components/shared/BasicLink";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "~/components/shared/Carousel";
-import { className } from "postcss-selector-parser";
+import { X } from "lucide-react";
+import { TabGroup, useTabsContext } from "~/components/tabs/TabGroup";
+import { Tab, TabButton, TabButtonProps } from "~/components/tabs/Tab";
 
 export const NewHome = () => (
   <MainWrapper>
@@ -31,6 +24,13 @@ export const NewHome = () => (
     <ImplementationSection />
     {/*<Clients />*/}
     <Workflows />
+
+    <SectionWrapper className="border-b">
+      <Section className="border-x min-h-[300px]">
+        <SectionTLCross />
+        <SectionTRCross />
+      </Section>
+    </SectionWrapper>
     {/*<TryWorkflows />*/}
     {/*<AskToBuildWorkflow />*/}
     {/*<Benefits />*/}
@@ -44,7 +44,7 @@ export const NewHome = () => (
 const Hero = () => {
   return (
     <SectionWrapper className="border-b">
-      <Section className="flex gap-4 items-center justify-between py-20 relative border-x">
+      <Section className="relative flex gap-4 items-center justify-between py-20 border-x">
         <img
           alt="background dots"
           src="/new/dots.png"
@@ -106,7 +106,10 @@ const Hero = () => {
 export function ImplementationSection() {
   return (
     <SectionWrapper className="relative pb-20 pt-10 border-b">
-      <div className="layout absolute w-full h-full border-x top-0 left-1/2 -translate-x-1/2" />
+      <div className="layout absolute w-full h-full border-x top-0 left-1/2 -translate-x-1/2 z-[10]">
+        <SectionTLCross />
+        <SectionTRCross />
+      </div>
 
       <ImplementationHeading className="relative mx-auto w-fit font-normal mb-10">
         Take a look at some of the implementations
@@ -138,7 +141,7 @@ function ImplementationCarousel() {
       opts={{
         align: "center",
       }}
-      className="w-full relative"
+      className="w-full relative z-[11]"
     >
       <CarouselContent className="ml-10 mr-8 lg:ml-40 lg:mr-40">
         {Array.from({ length: 8 }).map((_, index) => (
@@ -264,15 +267,172 @@ export function WhatsNewBadge({
   );
 }
 
+const workflows = [
+  {
+    id: "1",
+    name: "Simple Chat",
+    icon: "✨",
+    description:
+      "You can create a simple chat workflow with BuildEL. It is a simple chatbot that can be embedded on your website.",
+    link: "#",
+    linkText: "Explore interfaces",
+  },
+];
+
 export function Workflows() {
   return (
-    <SectionWrapper className="relative bottom-0">
-      <Section className="h-[150px] border-x" />
+    <SectionWrapper className="relative border-b">
+      <Section className="w-full bottom-0 border-x py-20">
+        <SectionTLCross />
+        <SectionTRCross />
 
-      <div className="bg-muted w-full bottom-0">
-        <div className="relative -top-16 z-10 bg-white rounded-2xl shadow-2xl min-h-[35vh] border max-w-6xl mx-auto" />
-      </div>
+        <TabGroup defaultActiveTab="1">
+          <div className="relative bg-secondary rounded-3xl shadow-2xl min-h-[35vh] border max-w-6xl mx-auto overflow-hidden">
+            <Tab tabId="1">
+              <iframe
+                src="https://app.buildel.ai/webchats/43/pipelines/495?alias=latest"
+                height="600"
+                title="chat"
+                className="w-full"
+              />
+            </Tab>
+            <Tab tabId="2">
+              <iframe
+                src="https://app.buildel.ai/forms/43/pipelines/495?alias=latest"
+                className="w-full bg-muted"
+                height="600"
+                title="chat"
+              />
+            </Tab>
+            <Tab tabId="3">
+              <iframe
+                src="https://app.buildel.ai/webchats/43/pipelines/495?alias=latest"
+                height="600"
+                title="chat"
+                className="w-full"
+              />
+            </Tab>
+            <Tab tabId="4">
+              <iframe
+                src="https://app.buildel.ai/forms/43/pipelines/495?alias=latest"
+                className="w-full bg-muted"
+                height="600"
+                title="chat"
+              />
+            </Tab>
+
+            <div className="w-full border-t p-6 lg:p-10 bg-white">
+              <div className="flex gap-4 items-center justify-center mb-6 lg:mb-10">
+                <WorkflowTabButton tabId="1">
+                  ✨<span>Simple Chat</span>
+                </WorkflowTabButton>
+                <WorkflowTabButton tabId="2">
+                  💾
+                  <span>RAG's</span>
+                </WorkflowTabButton>
+                <WorkflowTabButton tabId="3">
+                  🔀
+                  <span>Multiple models</span>
+                </WorkflowTabButton>
+                <WorkflowTabButton tabId="4">
+                  ⚙️
+                  <span>API tools</span>
+                </WorkflowTabButton>
+              </div>
+
+              <Tab tabId="1">
+                <WorkflowTabContent>
+                  You can create a simple chat workflow with BuildEL. It is a
+                  simple chatbot that can be embedded on your website.
+                </WorkflowTabContent>
+
+                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
+              </Tab>
+
+              <Tab tabId="2">
+                <WorkflowTabContent>
+                  Turn workflows into complete apps with data tables and branded
+                  interfaces purpose-built for automation.
+                </WorkflowTabContent>
+
+                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
+              </Tab>
+
+              <Tab tabId="3">
+                <WorkflowTabContent>
+                  Turn workflows into complete apps with data tables and branded
+                  interfaces purpose-built for automation.
+                </WorkflowTabContent>
+
+                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
+              </Tab>
+
+              <Tab tabId="4">
+                <WorkflowTabContent>
+                  Turn workflows into complete apps with data tables and branded
+                  interfaces purpose-built for automation.
+                </WorkflowTabContent>
+
+                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
+              </Tab>
+            </div>
+          </div>
+        </TabGroup>
+      </Section>
     </SectionWrapper>
+  );
+}
+
+function WorkflowTabLink({ className, children, ...rest }: BasicLinkProps) {
+  return (
+    <BasicLink
+      className={cn(
+        "w-fit block mx-auto text-xl underline hover:no-underline",
+        className
+      )}
+      {...rest}
+    >
+      {children}
+    </BasicLink>
+  );
+}
+
+function WorkflowTabContent({
+  className,
+  children,
+  ...rest
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <p
+      className={cn(
+        "text-center text-foreground mx-auto text-xl max-w-[650px] mb-4",
+        className
+      )}
+      {...rest}
+    >
+      {children}
+    </p>
+  );
+}
+
+function WorkflowTabButton({
+  tabId,
+  children,
+  className,
+  ...props
+}: TabButtonProps) {
+  const { activeTabId } = useTabsContext();
+
+  return (
+    <Button
+      asChild
+      variant={activeTabId === tabId ? "default" : "ghost"}
+      size="xl"
+      className={cn("rounded-xl", className)}
+      {...props}
+    >
+      <TabButton tabId={tabId}>{children}</TabButton>
+    </Button>
   );
 }
 
@@ -360,9 +520,43 @@ export function Section({
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <section className={cn("layout", className)} {...rest}>
+    <section className={cn("layout z-10 relative", className)} {...rest}>
       {children}
     </section>
+  );
+}
+
+export function SectionTLCross({
+  className,
+  ...rest
+}: React.HTMLAttributes<SVGAElement>) {
+  return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    <X
+      className={cn(
+        "absolute top-0 left-0 z-[10] text-muted-foreground rotate-45 -translate-x-1/2 -translate-y-1/2",
+        className
+      )}
+      {...rest}
+    />
+  );
+}
+
+export function SectionTRCross({
+  className,
+  ...rest
+}: React.HTMLAttributes<SVGAElement>) {
+  return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    <X
+      className={cn(
+        "absolute top-0 right-0 z-[10] text-muted-foreground rotate-45 translate-x-1/2 -translate-y-1/2",
+        className
+      )}
+      {...rest}
+    />
   );
 }
 
