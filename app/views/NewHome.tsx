@@ -25,12 +25,23 @@ export const NewHome = () => (
     {/*<Clients />*/}
     <Workflows />
 
-    <SectionWrapper className="border-b">
-      <Section className="border-x min-h-[300px]">
+    <StartWithTemplates />
+
+    <KnowledgeBaseSection />
+
+    <ExperimentsSection />
+
+    <GraphSection />
+
+    <StartForFreeSection />
+
+    <SectionWrapper>
+      <Section className="h-[300px] border-x">
         <SectionTLCross />
         <SectionTRCross />
       </Section>
     </SectionWrapper>
+
     {/*<TryWorkflows />*/}
     {/*<AskToBuildWorkflow />*/}
     {/*<Benefits />*/}
@@ -40,6 +51,255 @@ export const NewHome = () => (
     <Footer />
   </MainWrapper>
 );
+
+export function StartWithTemplates() {
+  return (
+    <SectionWrapper className="border-b">
+      <Section className="border-x bg-primary grid grid-cols-2 gap-10 overflow-hidden">
+        <div className="py-20 flex flex-col gap-6">
+          <SectionHeading className="text-secondary">
+            <span>Start with templates</span>
+          </SectionHeading>
+
+          <p className="text-lg text-secondary">
+            We offers a variety of templates to help you get started with your
+            AI projects.
+          </p>
+
+          <Button asChild size="lg" className="w-fit" variant="secondary">
+            <BasicLink to="https://app.buildel.ai" target="_blank">
+              Explore
+            </BasicLink>
+          </Button>
+        </div>
+
+        <div className="relative w-full">
+          <img
+            alt="templates"
+            src="/new/templates.png"
+            className="absolute bottom-0 translate-y-1/2 rounded-3xl"
+          />
+        </div>
+        {/*<SectionTLCross />*/}
+        {/*<SectionTRCross />*/}
+      </Section>
+    </SectionWrapper>
+  );
+}
+
+export function ExperimentsSection() {
+  return (
+    <SectionWrapper className="border-b">
+      <FeaturesSection className="bg-secondary">
+        <FeaturesContentWrapper>
+          <FeaturesHeading>
+            Validate your workflow with BuildEL experiments
+          </FeaturesHeading>
+
+          <FeaturesList>
+            <FeaturesListItem>
+              Validate your workflow with BuildEL experiments
+            </FeaturesListItem>
+
+            <FeaturesListItem>
+              Create custom visualizations with your data
+            </FeaturesListItem>
+
+            <FeaturesListItem>
+              Validate your workflow with BuildEL experiments
+            </FeaturesListItem>
+
+            <FeaturesListItem>
+              Create custom visualizations with your data
+            </FeaturesListItem>
+          </FeaturesList>
+
+          <Button asChild size="lg" className="w-fit">
+            <BasicLink to="https://app.buildel.ai" target="_blank">
+              Explore
+            </BasicLink>
+          </Button>
+        </FeaturesContentWrapper>
+
+        <FeaturesImagesWrapper>
+          <FeaturesImage src="/new/experiments.png" alt="experiments" />
+        </FeaturesImagesWrapper>
+
+        <SectionTLCross />
+        <SectionTRCross />
+      </FeaturesSection>
+    </SectionWrapper>
+  );
+}
+
+export function GraphSection() {
+  return (
+    <SectionWrapper className="border-b">
+      <FeaturesSection className="grid-cols-[3fr_2fr]">
+        <FeaturesImagesWrapper>
+          <FeaturesImage src="/new/graph.png" alt="graph" />
+          <FeaturesImage
+            src="/new/graph-node.png"
+            className="absolute top-1/2 w-[300px] left-0 -translate-y-1/2 -rotate-12 shadow-2xl rounded-2xl"
+            alt="graph summary"
+          />
+        </FeaturesImagesWrapper>
+
+        <FeaturesContentWrapper>
+          <FeaturesHeading>Visualize your data with BuildEL</FeaturesHeading>
+
+          <FeaturesList>
+            <FeaturesListItem>
+              Create custom visualizations with your data
+            </FeaturesListItem>
+            <FeaturesListItem>
+              Use the power of AI to understand your data
+            </FeaturesListItem>
+          </FeaturesList>
+
+          <Button asChild size="lg" className="w-fit">
+            <BasicLink to="https://app.buildel.ai" target="_blank">
+              Explore
+            </BasicLink>
+          </Button>
+        </FeaturesContentWrapper>
+
+        <SectionTLCross />
+        <SectionTRCross />
+      </FeaturesSection>
+    </SectionWrapper>
+  );
+}
+
+export function KnowledgeBaseSection() {
+  return (
+    <SectionWrapper className="border-b">
+      <FeaturesSection>
+        <FeaturesContentWrapper>
+          <FeaturesHeading>
+            The fastest way to plug AI into your own data
+          </FeaturesHeading>
+
+          <FeaturesList>
+            <FeaturesListItem>Chat with your own data/tools</FeaturesListItem>
+            <FeaturesListItem>Plug into your own products</FeaturesListItem>
+            <FeaturesListItem>
+              Use any model (including self-hosted)
+            </FeaturesListItem>
+          </FeaturesList>
+
+          <Button asChild size="lg" className="w-fit">
+            <BasicLink to="https://app.buildel.ai" target="_blank">
+              Explore
+            </BasicLink>
+          </Button>
+        </FeaturesContentWrapper>
+
+        <FeaturesImagesWrapper>
+          <FeaturesImage src="/new/kb.png" alt="workflow" />
+          <FeaturesImage
+            src="/new/chat.png"
+            className="absolute top-1/2 w-[280px] right-0 -translate-y-1/2 rotate-12 shadow-2xl rounded-2xl"
+            alt="usage example"
+          />
+        </FeaturesImagesWrapper>
+      </FeaturesSection>
+    </SectionWrapper>
+  );
+}
+
+export function FeaturesImage({
+  className,
+  ...rest
+}: React.ImgHTMLAttributes<HTMLImageElement>) {
+  return <img className={cn("w-full", className)} {...rest} />;
+}
+
+export function FeaturesListItem({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLLIElement>) {
+  return (
+    <li
+      className={cn("text-lg text-muted-foreground ml-5", className)}
+      {...rest}
+    />
+  );
+}
+
+export function FeaturesList({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLUListElement>) {
+  return (
+    <ul className={cn("flex flex-col gap-3 list-disc", className)} {...rest} />
+  );
+}
+
+export function FeaturesHeading({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  return (
+    <SectionHeading className={cn("max-w-[600px]", className)} {...rest} />
+  );
+}
+
+export function FeaturesSection({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <Section
+      className={cn(
+        "border-x grid grid-cols-[2fr_3fr] items-center gap-4 py-[200px] lg:gap-20",
+        className
+      )}
+      {...rest}
+    />
+  );
+}
+
+export function FeaturesContentWrapper({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return <div className={cn("flex flex-col gap-8", className)} {...rest} />;
+}
+
+export function FeaturesImagesWrapper({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return <div className={cn(className)} {...rest} />;
+}
+
+export function StartForFreeSection() {
+  return (
+    <SectionWrapper className="border-b">
+      <Section className="border-x bg-secondary flex flex-col items-center justify-center py-20">
+        <SectionHeading className="text-center mb-6">
+          <span>
+            Get Started for <span className="gradient-text">Free</span>
+          </span>
+        </SectionHeading>
+
+        <p className="text-2xl text-center max-w-[800px] mb-6">
+          Start for free with BuildEL and effortlessly create advanced AI
+          solutions without coding.
+        </p>
+
+        <Button asChild size="xl">
+          <BasicLink to="https://app.buildel.ai" target="_blank">
+            Start for free
+          </BasicLink>
+        </Button>
+        <SectionTLCross />
+        <SectionTRCross />
+      </Section>
+    </SectionWrapper>
+  );
+}
 
 const Hero = () => {
   return (
@@ -105,15 +365,11 @@ const Hero = () => {
 
 export function ImplementationSection() {
   return (
-    <SectionWrapper className="relative pb-20 pt-10 border-b">
+    <SectionWrapper className="relative py-20 border-b">
       <div className="layout absolute w-full h-full border-x top-0 left-1/2 -translate-x-1/2 z-[10]">
         <SectionTLCross />
         <SectionTRCross />
       </div>
-
-      <ImplementationHeading className="relative mx-auto w-fit font-normal mb-10">
-        Take a look at some of the implementations
-      </ImplementationHeading>
 
       <ImplementationCarousel />
 
@@ -267,18 +523,6 @@ export function WhatsNewBadge({
   );
 }
 
-const workflows = [
-  {
-    id: "1",
-    name: "Simple Chat",
-    icon: "✨",
-    description:
-      "You can create a simple chat workflow with BuildEL. It is a simple chatbot that can be embedded on your website.",
-    link: "#",
-    linkText: "Explore interfaces",
-  },
-];
-
 export function Workflows() {
   return (
     <SectionWrapper className="relative border-b">
@@ -290,7 +534,7 @@ export function Workflows() {
           <div className="relative bg-secondary rounded-3xl shadow-2xl min-h-[35vh] border max-w-6xl mx-auto overflow-hidden">
             <Tab tabId="1">
               <iframe
-                src="https://app.buildel.ai/webchats/43/pipelines/495?alias=latest"
+                src="https://app.buildel.ai/webchats/60/pipelines/556?alias=latest"
                 height="600"
                 title="chat"
                 className="w-full"
@@ -405,7 +649,7 @@ function WorkflowTabContent({
   return (
     <p
       className={cn(
-        "text-center text-foreground mx-auto text-xl max-w-[650px] mb-4",
+        "text-center text-foreground mx-auto text-xl max-w-[650px] mb-10",
         className
       )}
       {...rest}
@@ -526,6 +770,21 @@ export function Section({
   );
 }
 
+export function SectionHeading({
+  children,
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  return (
+    <h2
+      className={cn("text-4xl font-bold text-foreground", className)}
+      {...rest}
+    >
+      {children}
+    </h2>
+  );
+}
+
 export function SectionTLCross({
   className,
   ...rest
@@ -535,7 +794,7 @@ export function SectionTLCross({
     // @ts-ignore
     <X
       className={cn(
-        "absolute top-0 left-0 z-[10] text-muted-foreground rotate-45 -translate-x-1/2 -translate-y-1/2",
+        "hidden lg:block absolute top-0 left-0 z-[10] text-muted-foreground rotate-45 -translate-x-1/2 -translate-y-1/2",
         className
       )}
       {...rest}
@@ -552,7 +811,7 @@ export function SectionTRCross({
     // @ts-ignore
     <X
       className={cn(
-        "absolute top-0 right-0 z-[10] text-muted-foreground rotate-45 translate-x-1/2 -translate-y-1/2",
+        "hidden lg:block absolute top-0 right-0 z-[10] text-muted-foreground rotate-45 translate-x-1/2 -translate-y-1/2",
         className
       )}
       {...rest}
