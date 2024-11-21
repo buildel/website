@@ -1,13 +1,14 @@
 import { NavLink } from "@remix-run/react";
-import { Button } from "~/components/shared/Button";
+import { Button } from "~/components/shared/New-button";
 import { GithubLogo } from "~/icons/GithubLogo";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { MobileMenu } from "~/components/shared/MobileMenu";
 import { useEffect, useRef } from "react";
 import { urls, routes } from "~/utils/urls";
+import { BasicLink } from "~/components/shared/BasicLink";
 
 export const Header = () => {
-  const afterScrollClasses = ["border-b", "border-neutral-100", "bg-white"];
+  const afterScrollClasses = ["bg-white"];
   const hasRendered = useRef(false);
 
   useEffect(() => {
@@ -96,13 +97,11 @@ export const Header = () => {
           </a>
 
           <MobileMenu />
-          <Button
-            href={urls.registerBuildel}
-            mode="dark"
-            className="hidden lg:flex"
-            externalHref={urls.registerBuildel}
-          >
-            Sign up
+
+          <Button className="hidden lg:flex" asChild size="sm">
+            <BasicLink to={urls.registerBuildel} target="_blank">
+              Sign up
+            </BasicLink>
           </Button>
         </div>
       </div>

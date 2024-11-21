@@ -14,12 +14,15 @@
     "@buildel/buildel": "^0.1.6",
     "@buildel/buildel-auth": "^0.0.2",
     "@nasa-gcn/remix-seo": "^2.0.1",
+    "@radix-ui/react-slot": "^1.1.0",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
     "@remix-run/serve": "^2.7.2",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.12",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel-react": "^8.5.1",
     "framer-motion": "^11.0.6",
     "isbot": "^4.1.0",
     "lodash.clonedeep": "^4.5.0",
@@ -28,6 +31,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
