@@ -48,8 +48,7 @@
 }
 
 .layout {
-  @apply w-full max-w-[1168px];
-  @apply px-4 mx-auto;
+  @apply w-full max-w-[1280px] px-4 mx-auto md:px-6 lg:px-10 xl:px-16;
 }
 
 p {

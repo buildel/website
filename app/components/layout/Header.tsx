@@ -37,17 +37,18 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="flex items-center justify-center h-20 fixed top-0 z-20 w-full transition-all">
-      <div className="flex items-center justify-between layout">
-        <div className="flex items-center">
+    <header className="flex items-center justify-center fixed top-0 z-20 w-full transition-all border-b h-[64px]">
+      <div className="flex items-center justify-between layout border-x h-full py-2">
+        <div className="flex items-center gap-10">
           <a href="/" className="flex items-center">
             <img
               src="/buildel-by-elp-logo-black.svg"
               alt="BuildEL: built by EL Passion logo"
+              className="h-10"
             />
           </a>
 
-          <nav className="hidden lg:flex items-center gap-x-10 ml-16">
+          <nav className="hidden lg:flex items-center gap-10">
             {routes.map((route) => {
               if (route.external) {
                 return (
@@ -56,7 +57,7 @@ export const Header = () => {
                     href={route.path}
                     rel="noreferrer"
                     target="_blank"
-                    className="ml-4 text-neutral-950/70 hover:text-neutral-950 transition"
+                    className="text-neutral-950/70 hover:text-neutral-950 transition text-sm"
                   >
                     {route.name}
                   </a>
@@ -66,7 +67,7 @@ export const Header = () => {
                 <NavLink
                   to={route.path}
                   key={route.path}
-                  className="ml-4 text-neutral-950/70 hover:text-neutral-950 transition"
+                  className="text-neutral-950/70 hover:text-neutral-950 transition text-sm"
                 >
                   {route.name}
                 </NavLink>
