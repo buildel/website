@@ -1,5 +1,5 @@
 import { json, LinksFunction, MetaFunction } from "@remix-run/node";
-import { Pricing } from "~/views/Pricing";
+import { Pricing } from "~/views/Pricing/Page";
 
 export const meta: MetaFunction = () => {
   return [

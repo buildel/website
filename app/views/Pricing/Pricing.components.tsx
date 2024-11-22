@@ -1,34 +1,27 @@
-import { Header } from "~/components/layout/Header";
-import { Footer } from "~/components/layout/Footer";
-import {
-  HeroContainer,
-  HeroHeader,
-  HeroSubheader,
-} from "~/components/sections/hero/Hero";
 import { ItemList } from "~/components/itemList/ItemList";
 import clsx from "clsx";
 import { Dot } from "lucide-react";
-import { Clients } from "~/components/sections/hero/Clients";
+import {
+  Section,
+  SectionHeading,
+  SectionTLCross,
+  SectionTRCross,
+  SectionWrapper,
+} from "~/components/layout/Layout.components";
+import { Button } from "~/components/shared/New-button";
+import { BasicLink } from "~/components/shared/BasicLink";
 
-export const Pricing = () => (
-  <main className="bg-white w-full h-full">
-    <Header />
+export function PricingSection() {
+  return (
+    <SectionWrapper className="border-b">
+      <Section className="flex flex-col items-center justify-center pb-20">
+        <PricingList />
+      </Section>
+    </SectionWrapper>
+  );
+}
 
-    <Hero />
-
-    <div className="mb-14">
-      <PricingList />
-    </div>
-
-    <div className="mb-20">
-      <Clients />
-    </div>
-
-    <Footer />
-  </main>
-);
-
-function PricingList() {
+export function PricingList() {
   return (
     <ItemList
       className="gap-6 grid grid-cols-[290px] justify-center max-w-screen-xl mx-auto px-4 md:px-8"
@@ -129,7 +122,7 @@ function BillingPlanListItem({
   return (
     <article
       className={clsx(
-        "relative rounded-lg border p-4 grow h-[500px] overflow-hidden text-neutral-950",
+        "relative rounded-lg border p-4 grow h-[500px] overflow-hidden text-neutral-950 bg-white",
         {
           "border-neutral-700": recommended,
           "border-neutral-300": !recommended,
@@ -190,15 +183,3 @@ function BillingPlanItemFeature({ data }: BillingPlanItemFeatureProps) {
     </p>
   );
 }
-
-const Hero = () => {
-  return (
-    <HeroContainer className="md:!h-[35vh]">
-      <HeroHeader>Get Started with Completely Free Access</HeroHeader>
-
-      <HeroSubheader>
-        Open for everyone, from solo creators to large enterprises!
-      </HeroSubheader>
-    </HeroContainer>
-  );
-};
