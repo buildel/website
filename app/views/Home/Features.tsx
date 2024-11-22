@@ -51,7 +51,7 @@ export function ExperimentsSection() {
         </FeaturesContentWrapper>
 
         <FeaturesImagesWrapper>
-          <FeaturesImage src="/new/experiments.png" alt="experiments" />
+          <FeaturesImage src="/new/experiments.webp" alt="experiments" />
         </FeaturesImagesWrapper>
 
         <SectionTLCross />
@@ -66,9 +66,9 @@ export function GraphSection() {
     <SectionWrapper className="border-b">
       <FeaturesSection className="md:grid-cols-[3fr_2fr]">
         <FeaturesImagesWrapper className="order-2 md:order-1">
-          <FeaturesImage src="/new/graph.png" alt="graph" />
+          <FeaturesImage src="/new/graph.webp" alt="graph" />
           <ParallaxImage
-            src="/new/graph-node.png"
+            src="/new/graph-node.webp"
             className="hidden md:block absolute top-1/2 md:w-[250px] lg:w-[300px] left-0 -translate-y-1/2 -rotate-12"
             alt="graph summary"
             range={[200, -150]}
@@ -126,9 +126,9 @@ export function KnowledgeBaseSection() {
         </FeaturesContentWrapper>
 
         <FeaturesImagesWrapper>
-          <FeaturesImage src="/new/kb.png" alt="workflow" />
+          <FeaturesImage src="/new/kb.webp" alt="workflow" />
           <ParallaxImage
-            src="/new/chat.png"
+            src="/new/chat.webp"
             className="absolute top-1/2 w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] right-0 md:-translate-y-1/2 rotate-12"
             alt="usage example"
           />
