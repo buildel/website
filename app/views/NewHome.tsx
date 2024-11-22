@@ -6,7 +6,6 @@ import { Button } from "~/components/shared/New-button";
 import { AnimatedWords } from "~/components/sections/hero/Hero";
 import { cn } from "~/lib/utils";
 import { Workflow } from "~/components/icons/Workflow";
-import { motion } from "framer-motion";
 import { BasicLink, BasicLinkProps } from "~/components/shared/BasicLink";
 import {
   Carousel,
@@ -20,6 +19,8 @@ import { useLoaderData } from "@remix-run/react";
 import { loader } from "~/routes/_index";
 import { BlockType } from "~/api/blockTypes.types";
 import Autoplay from "embla-carousel-autoplay";
+import { useScroll, motion, useTransform } from "framer-motion";
+import { forwardRef } from "react";
 
 export const NewHome = () => (
   <MainWrapper>
@@ -128,6 +129,9 @@ export function resolveBlockTypeIconPath(path: string) {
 }
 
 export function StartWithTemplates() {
+  const { scrollYProgress } = useScroll();
+  const mdy = useTransform(scrollYProgress, [0, 1], [500, -300]);
+  const y = useTransform(scrollYProgress, [0, 1], [400, -200]);
   return (
     <SectionWrapper className="border-b">
       <Section className="border-x bg-primary grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden">
@@ -149,10 +153,18 @@ export function StartWithTemplates() {
         </div>
 
         <div className="relative w-full">
-          <img
+          <motion.img
             alt="templates"
             src="/new/templates.png"
-            className="absolute bottom-0 w-[350px] md:w-auto translate-y-2/3 md:translate-y-1/2 rounded-3xl"
+            className="hidden md:block absolute bottom-0 w-[350px] md:w-auto translate-y-2/3 md:translate-y-1/2 rounded-3xl"
+            style={{ y: mdy }}
+          />
+
+          <motion.img
+            alt="templates"
+            src="/new/templates.png"
+            className="md:hidden absolute bottom-0 w-[350px] md:w-auto translate-y-2/3 md:translate-y-1/2 rounded-3xl"
+            style={{ y: y }}
           />
         </div>
       </Section>
@@ -211,10 +223,11 @@ export function GraphSection() {
       <FeaturesSection className="md:grid-cols-[3fr_2fr]">
         <FeaturesImagesWrapper className="order-2 md:order-1">
           <FeaturesImage src="/new/graph.png" alt="graph" />
-          <FeaturesImage
+          <ParallaxImage
             src="/new/graph-node.png"
-            className="hidden md:block absolute top-1/2 md:w-[250px] lg:w-[300px] left-0 -translate-y-1/2 -rotate-12 shadow-2xl rounded-2xl"
+            className="hidden md:block absolute top-1/2 md:w-[250px] lg:w-[300px] left-0 -translate-y-1/2 -rotate-12"
             alt="graph summary"
+            range={[200, -150]}
           />
         </FeaturesImagesWrapper>
 
@@ -270,9 +283,9 @@ export function KnowledgeBaseSection() {
 
         <FeaturesImagesWrapper>
           <FeaturesImage src="/new/kb.png" alt="workflow" />
-          <FeaturesImage
+          <ParallaxImage
             src="/new/chat.png"
-            className="absolute top-1/2 w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] right-0 md:-translate-y-1/2 rotate-12 shadow-2xl rounded-2xl"
+            className="absolute top-1/2 w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] right-0 md:-translate-y-1/2 rotate-12"
             alt="usage example"
           />
         </FeaturesImagesWrapper>
@@ -281,10 +294,34 @@ export function KnowledgeBaseSection() {
   );
 }
 
+export function ParallaxImage({
+  className,
+  targetRef,
+  range = [200, -250],
+  ...rest
+}: React.ImgHTMLAttributes<HTMLImageElement> & {
+  targetRef?: React.RefObject<HTMLDivElement>;
+  className?: string;
+  range?: number[];
+}) {
+  const { scrollYProgress } = useScroll({ target: targetRef });
+  const y = useTransform(scrollYProgress, [0, 1], range);
+
+  return (
+    <div className={cn(className)}>
+      <motion.img
+        style={{ y: y }}
+        className="shadow-2xl rounded-2xl w-full"
+        {...rest}
+      />
+    </div>
+  );
+}
+
 export function FeaturesImage({
   className,
   ...rest
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
+}: React.ImgHTMLAttributes<HTMLImageElement> & { className?: string }) {
   return <img className={cn("w-full", className)} {...rest} />;
 }
 
@@ -846,17 +883,26 @@ export function HeroContentInnerWrapper({
   );
 }
 
-export function SectionWrapper({
-  children,
-  className,
-  ...rest
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={cn("", className)} {...rest}>
-      {children}
-    </div>
-  );
-}
+export const SectionWrapper = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(
+  (
+    {
+      children,
+      className,
+
+      ...rest
+    },
+    ref
+  ) => {
+    return (
+      <div ref={ref} className={cn("", className)} {...rest}>
+        {children}
+      </div>
+    );
+  }
+);
 
 export function Section({
   children,
