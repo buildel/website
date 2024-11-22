@@ -1,4 +1,7 @@
-import { Section, SectionWrapper } from "~/components/layout/Layout.components";
+import { BasicLink } from "~/components/shared/BasicLink";
+import { AnimatedWords } from "~/components/sections/hero/Hero";
+import { Button } from "~/components/shared/New-button";
+import { SectionWrapper, Section } from "~/components/layout/Layout.components";
 import {
   HeroButtonsWrapper,
   HeroContentInnerWrapper,
@@ -6,15 +9,11 @@ import {
   HeroHeading,
   HeroSubheading,
 } from "~/components/sections/hero/Hero.components";
-import { BasicLink } from "~/components/shared/BasicLink";
-import { Button } from "~/components/shared/New-button";
-
-import { PricingList } from "~/views/Pricing/Pricing.components";
 
 export const Hero = () => {
   return (
-    <SectionWrapper className="border-b overflow-hidden">
-      <Section className="relative flex gap-20 md:gap-10 items-center justify-between pt-[140px] pb-20 md:pt-[160px] border-x flex-col md:flex-row">
+    <SectionWrapper className="overflow-hidden border-b">
+      <Section className="relative flex gap-4 sm:gap-6 md:gap-8 items-center justify-between pt-[160px] pb-20 md:pt-[200px] md:pb-[140px] border-x flex-col">
         <img
           alt="background dots"
           src="/new/dots.png"
@@ -28,15 +27,17 @@ export const Hero = () => {
 
         <div className="absolute bottom-0 right-0 top-0 w-[200px] bg-gradient-to-l from-white to-transparent pointer-events-none" />
 
-        <HeroContentWrapper className="relative">
-          <HeroContentInnerWrapper>
-            <HeroHeading className="text-center max-w-[500px] md:text-left">
-              Get Started with Completely{" "}
-              <span className="gradient-text">Free</span> Access{" "}
+        <HeroContentWrapper className="relative items-center">
+          <HeroContentInnerWrapper className="items-center justify-center">
+            <HeroHeading className="text-center max-w-[500px] w-full block">
+              <span className="block">News for </span>
+              <AnimatedWords
+                words={["everybody", "sales", "engineers", "marketeers", "you"]}
+              />
             </HeroHeading>
 
-            <HeroSubheading className="sm:max-w-[460px] text-center md:text-left">
-              Open for everyone, from solo creators to large enterprises!
+            <HeroSubheading className="sm:max-w-[460px] text-center mx-auto">
+              The latest news from BuildEL
             </HeroSubheading>
 
             <HeroButtonsWrapper>
@@ -57,10 +58,6 @@ export const Hero = () => {
             </HeroButtonsWrapper>
           </HeroContentInnerWrapper>
         </HeroContentWrapper>
-
-        <div className="relative grow">
-          <PricingList />
-        </div>
       </Section>
     </SectionWrapper>
   );

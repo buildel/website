@@ -9,9 +9,9 @@ import {
   HeroPreHeader,
 } from "~/components/sections/hero/Hero";
 import { loader } from "~/routes/blog_.$slug";
-import { posts } from "./BlogPostsData/blogPosts";
+import { posts } from "../BlogPostsData/blogPosts";
 
-export const BlogPost = () => {
+export const Page = () => {
   const data = useLoaderData<typeof loader>();
 
   return (
