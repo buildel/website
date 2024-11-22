@@ -25,7 +25,7 @@ export const Footer = () => {
             alt="buildel logo"
           />
 
-          <div className="flex items-center lg:mt-8 gap-x-5 text-neutral-800">
+          <div className="flex items-center lg:mt-8 gap-x-5 text-secondary/80">
             <a href={urls.discordServer} target="_blank" rel="noreferrer">
               <DiscordLogo className="text-2xl" />
             </a>
@@ -38,13 +38,13 @@ export const Footer = () => {
         <div className="w-full flex gap-x-20 mt-12 lg:mt-0">
           {sitemap.map((item) => (
             <div key={item.groupName}>
-              <p>{item.groupName}</p>
+              <p className="text-secondary/70">{item.groupName}</p>
               <ul className="mt-3 flex flex-col">
                 {item.links.map((link) => (
                   <li key={link.label} className="mt-2">
                     <NavLink
                       to={link.href}
-                      className="text-neutral-400 hover:text-neutral-100"
+                      className="text-secondary/90 hover:text-neutral-100"
                     >
                       {link.label}
                     </NavLink>

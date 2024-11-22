@@ -2,7 +2,7 @@ import { urls } from "~/utils/urls";
 
 export const clientSDK = {
   title: (
-    <h3 className="h3-mobile lg:h3-desktop">
+    <h3 className="text-3xl text-secondary">
       Access BuildEL API easily with our{" "}
       <span className="gradient-text">client SDK</span>
     </h3>
@@ -16,7 +16,7 @@ export const clientSDK = {
 
 export const embed = {
   title: (
-    <h3 className="h3-mobile lg:h3-desktop">
+    <h3 className="text-3xl text-secondary">
       Embed BuildEL Chat directly on{" "}
       <span className="gradient-text">your website</span>
     </h3>
@@ -30,7 +30,7 @@ export const embed = {
 
 export const openAI = {
   title: (
-    <h3 className="h3-mobile lg:h3-desktop">
+    <h3 className="text-3xl text-secondary">
       Connect to BuildEL through an{" "}
       <span className="gradient-text">OpenAI compliant interface</span>
     </h3>
