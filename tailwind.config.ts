@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
-import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: ["class"],
@@ -264,42 +263,6 @@ export default {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        ".h1-desktop": {
-          "font-size": "4.375em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h1-mobile": {
-          "font-size": "2.5em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h2-desktop": {
-          "font-size": "2.5em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h2-mobile": {
-          "font-size": "2em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h3-desktop": {
-          "font-size": "2.25em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h3-mobile": {
-          "font-size": "1.75em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h4-desktop": {
-          "font-size": "1.75em",
-          "font-family": "Gilroy-Bold",
-        },
-        ".h4-mobile": {
-          "font-size": "1.25em",
-          "font-family": "Gilroy-Bold",
-        },
-      });
-    }),
     require("@tailwindcss/line-clamp"),
     require("tailwindcss-animate"),
   ],
