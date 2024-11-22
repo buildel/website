@@ -5,9 +5,9 @@ import { BasicLink } from "~/components/shared/BasicLink";
 
 export const JoinCommunity = () => {
   return (
-    <div className="w-full flex justify-center items-center py-16 relative px-4 lg:px-0 lg:h-[500px]">
-      <div className="layout !p-6 lg:!p-12 flex flex-col bg-black rounded-3xl z-[2] relative overflow-hidden">
-        <h4 className="text-3xl font-semibold text-secondary w-full lg:w-2/3 mb-7">
+    <div className="w-full flex justify-center items-center py-16 relative px-4 lg:px-0 h-[400px] lg:h-[500px]">
+      <div className="layout !p-8 lg:!p-12 flex flex-col bg-black rounded-3xl z-[2] relative overflow-hidden">
+        <h4 className="text-2xl md:text-3xl font-semibold text-secondary w-full lg:w-2/3 mb-7">
           Join our growing community. Find inspiration, support and connect with
           other builders
         </h4>

@@ -2,7 +2,7 @@ import { urls } from "~/utils/urls";
 
 export const clientSDK = {
   title: (
-    <h3 className="text-3xl text-secondary">
+    <h3 className="text-2xl md:text-3xl text-secondary font-semibold">
       Access BuildEL API easily with our{" "}
       <span className="gradient-text">client SDK</span>
     </h3>

@@ -55,9 +55,10 @@ export function Blocks() {
   const { blockTypes } = useLoaderData<typeof loader>();
 
   return (
-    <SectionWrapper className="min-h-[300px] flex flex-col items-center justify-center gap-10 py-40">
+    <SectionWrapper className="min-h-[220px] md:min-h-[300px] flex flex-col items-center justify-center gap-10 py-20 md:py-40">
       <SectionHeading>
-        Over <span>{blockTypes.length}</span> blocks
+        Over <span className="gradient-text">{blockTypes.length} blocks </span>
+        to fulfill your needs
       </SectionHeading>
 
       <BlockCarousel blocks={blockTypes} />
@@ -129,13 +130,13 @@ export function resolveBlockTypeIconPath(path: string) {
 export function StartWithTemplates() {
   return (
     <SectionWrapper className="border-b">
-      <Section className="border-x bg-primary grid grid-cols-2 gap-10 overflow-hidden">
-        <div className="py-20 flex flex-col gap-6">
+      <Section className="border-x bg-primary grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden">
+        <div className="pt-14 pb-[120px] md:py-20 flex flex-col gap-6">
           <SectionHeading className="text-secondary">
             <span>Start with templates</span>
           </SectionHeading>
 
-          <p className="text-lg text-secondary">
+          <p className="text-base md:text-lg text-secondary">
             We offers a variety of templates to help you get started with your
             AI projects.
           </p>
@@ -151,11 +152,9 @@ export function StartWithTemplates() {
           <img
             alt="templates"
             src="/new/templates.png"
-            className="absolute bottom-0 translate-y-1/2 rounded-3xl"
+            className="absolute bottom-0 w-[350px] md:w-auto translate-y-2/3 md:translate-y-1/2 rounded-3xl"
           />
         </div>
-        {/*<SectionTLCross />*/}
-        {/*<SectionTRCross />*/}
       </Section>
     </SectionWrapper>
   );
@@ -209,17 +208,17 @@ export function ExperimentsSection() {
 export function GraphSection() {
   return (
     <SectionWrapper className="border-b">
-      <FeaturesSection className="grid-cols-[3fr_2fr]">
-        <FeaturesImagesWrapper>
+      <FeaturesSection className="md:grid-cols-[3fr_2fr]">
+        <FeaturesImagesWrapper className="order-2 md:order-1">
           <FeaturesImage src="/new/graph.png" alt="graph" />
           <FeaturesImage
             src="/new/graph-node.png"
-            className="absolute top-1/2 w-[300px] left-0 -translate-y-1/2 -rotate-12 shadow-2xl rounded-2xl"
+            className="hidden md:block absolute top-1/2 md:w-[250px] lg:w-[300px] left-0 -translate-y-1/2 -rotate-12 shadow-2xl rounded-2xl"
             alt="graph summary"
           />
         </FeaturesImagesWrapper>
 
-        <FeaturesContentWrapper>
+        <FeaturesContentWrapper className="order-1 md:order-2">
           <FeaturesHeading>Visualize your data with BuildEL</FeaturesHeading>
 
           <FeaturesList>
@@ -247,7 +246,7 @@ export function GraphSection() {
 
 export function KnowledgeBaseSection() {
   return (
-    <SectionWrapper className="border-b">
+    <SectionWrapper className="border-b overflow-hidden">
       <FeaturesSection>
         <FeaturesContentWrapper>
           <FeaturesHeading>
@@ -273,7 +272,7 @@ export function KnowledgeBaseSection() {
           <FeaturesImage src="/new/kb.png" alt="workflow" />
           <FeaturesImage
             src="/new/chat.png"
-            className="absolute top-1/2 w-[280px] right-0 -translate-y-1/2 rotate-12 shadow-2xl rounded-2xl"
+            className="absolute top-1/2 w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] right-0 md:-translate-y-1/2 rotate-12 shadow-2xl rounded-2xl"
             alt="usage example"
           />
         </FeaturesImagesWrapper>
@@ -295,7 +294,10 @@ export function FeaturesListItem({
 }: React.HTMLAttributes<HTMLLIElement>) {
   return (
     <li
-      className={cn("text-lg text-muted-foreground ml-5", className)}
+      className={cn(
+        "text-base md:text-lg text-muted-foreground ml-5",
+        className
+      )}
       {...rest}
     />
   );
@@ -306,7 +308,10 @@ export function FeaturesList({
   ...rest
 }: React.HTMLAttributes<HTMLUListElement>) {
   return (
-    <ul className={cn("flex flex-col gap-3 list-disc", className)} {...rest} />
+    <ul
+      className={cn("flex flex-col gap-1 md:gap-3 list-disc", className)}
+      {...rest}
+    />
   );
 }
 
@@ -326,7 +331,7 @@ export function FeaturesSection({
   return (
     <Section
       className={cn(
-        "border-x grid grid-cols-[2fr_3fr] items-center gap-4 py-[200px] lg:gap-20",
+        "border-x grid grid-cols-1 md:grid-cols-[2fr_3fr] items-center gap-10 md:gap-4 py-[100px] md:py-[200px] lg:gap-20",
         className
       )}
       {...rest}
@@ -338,7 +343,9 @@ export function FeaturesContentWrapper({
   className,
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("flex flex-col gap-8", className)} {...rest} />;
+  return (
+    <div className={cn("flex flex-col gap-4 md:gap-8", className)} {...rest} />
+  );
 }
 
 export function FeaturesImagesWrapper({
@@ -351,14 +358,14 @@ export function FeaturesImagesWrapper({
 export function StartForFreeSection() {
   return (
     <SectionWrapper className="border-b">
-      <Section className="border-x bg-secondary flex flex-col items-center justify-center py-20">
+      <Section className="border-x bg-secondary flex flex-col items-center justify-center py-14 md:py-20">
         <SectionHeading className="text-center mb-6">
           <span>
             Get Started for <span className="gradient-text">Free</span>
           </span>
         </SectionHeading>
 
-        <p className="text-2xl text-center max-w-[800px] mb-6">
+        <p className="text-xl md:text-2xl text-center max-w-[800px] mb-6">
           Start for free with BuildEL and effortlessly create advanced AI
           solutions without coding.
         </p>
@@ -377,8 +384,8 @@ export function StartForFreeSection() {
 
 const Hero = () => {
   return (
-    <SectionWrapper className="border-b">
-      <Section className="relative flex gap-4 items-center justify-between py-20 border-x">
+    <SectionWrapper className="border-b overflow-hidden">
+      <Section className="relative flex gap-4 sm:gap-6 md:gap-8 items-center justify-between py-14 md:py-20 border-x flex-col md:flex-row">
         <img
           alt="background dots"
           src="/new/dots.png"
@@ -393,19 +400,22 @@ const Hero = () => {
         <div className="absolute bottom-0 right-0 top-0 w-[200px] bg-gradient-to-l from-white to-transparent pointer-events-none" />
 
         <HeroContentWrapper className="relative">
-          <BasicLink to="/blog/buildel-0_5">
+          <BasicLink
+            to="/blog/buildel-0_5"
+            className="w-fit block mx-auto md:ml-0"
+          >
             <WhatsNewBadge>Whats new? v0.5 is out!</WhatsNewBadge>
           </BasicLink>
 
           <HeroContentInnerWrapper>
-            <HeroHeading className="max-w-[360px]">
+            <HeroHeading className=" text-center max-w-[300px] md:text-left md:max-w-[360px]">
               <span>AI Automation for </span>
               <AnimatedWords
                 words={["everybody", "sales", "engineers", "marketeers", "you"]}
               />
             </HeroHeading>
 
-            <HeroSubheading className="max-w-[460px]">
+            <HeroSubheading className="sm:max-w-[460px] text-center md:text-left">
               Boost Efficiency & Automate Tasks: Build Your AI Dream Team in
               Minutes without Writing a Line of Code
             </HeroSubheading>
@@ -430,7 +440,7 @@ const Hero = () => {
         </HeroContentWrapper>
 
         <div className="relative">
-          <Workflow />
+          <Workflow className="min-w-[350px] min-h-[350px] sm:min-w-[450px] sm:min-h-[450px] md:min-w-[553px] md:min-h-[552px]" />
         </div>
       </Section>
     </SectionWrapper>
@@ -439,7 +449,7 @@ const Hero = () => {
 
 export function ImplementationSection() {
   return (
-    <SectionWrapper className="relative py-20 border-b">
+    <SectionWrapper className="relative py-14 md:py-20 border-b">
       <div className="layout absolute w-full h-full border-x top-0 left-1/2 -translate-x-1/2 z-[10]">
         <SectionTLCross />
         <SectionTRCross />
@@ -505,7 +515,9 @@ function ImplementationCarouselContentWrapper({
   className,
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("flex flex-col gap-3", className)} {...rest} />;
+  return (
+    <div className={cn("flex flex-col gap-1 md:gap-3", className)} {...rest} />
+  );
 }
 
 function ImplementationCarouselItemLogo({
@@ -535,7 +547,7 @@ function ImplementationCarouselItem({
   return (
     <article
       className={cn(
-        "min-h-[210px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col justify-between group",
+        "min-h-[160px] md:min-h-[210px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col justify-between group",
         className
       )}
       {...rest}
@@ -552,7 +564,10 @@ export function ImplementationCarouselItemHeading({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("text-foreground font-semibold text-xl", className)}
+      className={cn(
+        "text-foreground font-semibold text-lg md:text-xl",
+        className
+      )}
       {...rest}
     >
       {children}
@@ -567,7 +582,10 @@ export function ImplementationCarouselItemContent({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("text-base text-neutral-500 font-light", className)}
+      className={cn(
+        "text-sm md:text-base text-neutral-500 font-light",
+        className
+      )}
       {...rest}
     >
       {children}
@@ -600,7 +618,7 @@ export function WhatsNewBadge({
 export function Workflows() {
   return (
     <SectionWrapper className="relative border-b">
-      <Section className="w-full bottom-0 border-x py-20">
+      <Section className="w-full bottom-0 border-x py-14 md:py-20">
         <SectionTLCross />
         <SectionTRCross />
 
@@ -609,38 +627,34 @@ export function Workflows() {
             <Tab tabId="1">
               <iframe
                 src="https://app.buildel.ai/webchats/60/pipelines/556?alias=latest"
-                height="600"
                 title="chat"
-                className="w-full"
+                className="w-full h-[400px] md:h-[600px]"
               />
             </Tab>
             <Tab tabId="2">
               <iframe
                 src="https://app.buildel.ai/forms/43/pipelines/495?alias=latest"
-                className="w-full bg-muted"
-                height="600"
+                className="w-full h-[400px] md:h-[600px]"
                 title="chat"
               />
             </Tab>
             <Tab tabId="3">
               <iframe
                 src="https://app.buildel.ai/webchats/43/pipelines/495?alias=latest"
-                height="600"
+                className="w-full h-[400px] md:h-[600px]"
                 title="chat"
-                className="w-full"
               />
             </Tab>
             <Tab tabId="4">
               <iframe
                 src="https://app.buildel.ai/forms/43/pipelines/495?alias=latest"
-                className="w-full bg-muted"
-                height="600"
+                className="w-full h-[400px] md:h-[600px]"
                 title="chat"
               />
             </Tab>
 
             <div className="w-full border-t p-6 lg:p-10 bg-white">
-              <div className="flex gap-4 items-center justify-center mb-6 lg:mb-10">
+              <div className="flex gap-2 md:gap-4 items-center justify-center mb-4 md:mb-6 lg:mb-10 overflow-x-auto">
                 <WorkflowTabButton tabId="1">
                   ✨<span>Simple Chat</span>
                 </WorkflowTabButton>
@@ -705,7 +719,7 @@ function WorkflowTabLink({ className, children, ...rest }: BasicLinkProps) {
   return (
     <BasicLink
       className={cn(
-        "w-fit block mx-auto text-xl underline hover:no-underline",
+        "w-fit block mx-auto text-base md:text-xl underline hover:no-underline",
         className
       )}
       {...rest}
@@ -723,7 +737,7 @@ function WorkflowTabContent({
   return (
     <p
       className={cn(
-        "text-center text-foreground mx-auto text-xl max-w-[650px] mb-10",
+        "text-center text-foreground mx-auto text-base md:text-xl max-w-[650px] mb-4 md:mb-10",
         className
       )}
       {...rest}
@@ -760,7 +774,10 @@ export function HeroButtonsWrapper({
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("flex items-center gap-4", className)} {...rest}>
+    <div
+      className={cn("flex items-center gap-2 sm:gap-4", className)}
+      {...rest}
+    >
       {children}
     </div>
   );
@@ -772,7 +789,10 @@ export function HeroSubheading({
   ...rest
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn("text-lg text-muted-foreground", className)} {...rest}>
+    <p
+      className={cn("text-base md:text-lg text-muted-foreground", className)}
+      {...rest}
+    >
       {children}
     </p>
   );
@@ -786,7 +806,7 @@ export function HeroHeading({
   return (
     <h1
       className={cn(
-        "text-5xl font-bold text-foreground leading-[64px]",
+        "text-4xl md:text-5xl font-bold text-foreground md:leading-[64px]",
         className
       )}
       {...rest}
@@ -814,7 +834,13 @@ export function HeroContentInnerWrapper({
   ...rest
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...rest}>
+    <div
+      className={cn(
+        "flex flex-col gap-4 md:gap-6 items-center md:items-start",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </div>
   );
@@ -851,7 +877,10 @@ export function SectionHeading({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
-      className={cn("text-4xl font-bold text-foreground", className)}
+      className={cn(
+        "text-3xl md:text-4xl font-bold text-foreground",
+        className
+      )}
       {...rest}
     >
       {children}

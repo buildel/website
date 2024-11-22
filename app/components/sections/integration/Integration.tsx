@@ -43,10 +43,10 @@ export const Integration = () => {
   return (
     <section className="bg-dark-background w-full flex flex-col items-center py-24">
       <div className="flex flex-col items-center px-4 lg:px-0 w-full">
-        <h2 className="text-4xl text-secondary font-semibold">
+        <h2 className="text-3xl md:text-4xl text-secondary font-semibold">
           Integrate <span className="gradient-text">BuildEL</span> into your app
         </h2>
-        <p className="text-secondary/80 mt-5 text-lg">
+        <p className="text-secondary/80 mt-5 text-base md:text-lg">
           Seamlessly Integrate Workflows to elevate User Experience and
           Streamline Operations
         </p>
