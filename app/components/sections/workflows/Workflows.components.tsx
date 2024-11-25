@@ -51,12 +51,45 @@ export function WorkflowTabButton({
   return (
     <Button
       asChild
-      variant={activeTabId === tabId ? "default" : "ghost"}
+      variant="ghost"
       size="lg"
-      className={cn("rounded-xl", className)}
+      className={cn(
+        "w-full flex flex-col gap-1 md:gap-2 py-4 px-4 md:px-10 md:py-6 md:h-[205px] lg:h-[166px] items-start border rounded-xl hover:bg-indigo-500/5 h-full grow",
+        {
+          "bg-indigo-500/5 border-indigo-500/50": activeTabId === tabId,
+        },
+        className
+      )}
       {...props}
     >
       <TabButton tabId={tabId}>{children}</TabButton>
     </Button>
+  );
+}
+
+export function WorkflowTabButtonHeading({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  return (
+    <h4
+      className={cn("text-lg md:text-xl flex gap-2 items-center", className)}
+      {...rest}
+    />
+  );
+}
+
+export function WorkflowTabButtonParagraph({
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <p
+      className={cn(
+        "text-sm text-muted-foreground font-normal md:text-base whitespace-pre-wrap text-left",
+        className
+      )}
+      {...rest}
+    />
   );
 }
