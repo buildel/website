@@ -19,7 +19,7 @@ import {
 export function ExperimentsSection() {
   return (
     <SectionWrapper className="border-b">
-      <FeaturesSection className="bg-secondary">
+      <FeaturesSection className="bg-indigo-500/5">
         <FeaturesContentWrapper>
           <FeaturesHeading>
             Validate your workflow with BuildEL experiments

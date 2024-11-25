@@ -1,22 +1,22 @@
 import { TabGroup } from "~/components/tabs/TabGroup";
 import { Tab } from "~/components/tabs/Tab";
 
-import {
-  WorkflowTabButton,
-  WorkflowTabContent,
-  WorkflowTabLink,
-} from "~/components/sections/workflows/Workflows.components";
+import { WorkflowTabButton } from "~/components/sections/workflows/Workflows.components";
 import {
   SectionWrapper,
   Section,
   SectionTRCross,
   SectionTLCross,
+  SectionHeading,
 } from "~/components/layout/Layout.components";
 
 export function Workflows() {
   return (
     <SectionWrapper className="relative border-b">
       <Section className="w-full bottom-0 border-x py-14 md:py-20">
+        <SectionHeading className="text-center mb-10 md:mb-14">
+          Try out <span className="gradient-text">BuildEL</span> interfaces
+        </SectionHeading>
         <SectionTLCross />
         <SectionTRCross />
 
@@ -24,35 +24,35 @@ export function Workflows() {
           <div className="relative bg-secondary rounded-3xl shadow-2xl min-h-[35vh] border max-w-6xl mx-auto overflow-hidden">
             <Tab tabId="1">
               <iframe
-                src="https://app.buildel.ai/webchats/60/pipelines/556?alias=latest"
+                src="https://app.buildel.ai/webchats/2/pipelines/2?alias=latest"
                 title="chat"
                 className="w-full h-[400px] md:h-[600px]"
               />
             </Tab>
             <Tab tabId="2">
               <iframe
-                src="https://app.buildel.ai/forms/43/pipelines/495?alias=latest"
+                src="https://app.buildel.ai/forms/2/pipelines/3?alias=latest"
                 className="w-full h-[400px] md:h-[600px]"
                 title="chat"
               />
             </Tab>
             <Tab tabId="3">
               <iframe
-                src="https://app.buildel.ai/webchats/43/pipelines/495?alias=latest"
+                src="https://app.buildel.ai/webchats/2/pipelines/4?alias=latest"
                 className="w-full h-[400px] md:h-[600px]"
                 title="chat"
               />
             </Tab>
             <Tab tabId="4">
               <iframe
-                src="https://app.buildel.ai/forms/43/pipelines/495?alias=latest"
+                src="https://app.buildel.ai/webchats/2/pipelines/5?alias=latest"
                 className="w-full h-[400px] md:h-[600px]"
                 title="chat"
               />
             </Tab>
 
             <div className="w-full border-t p-6 lg:p-10 bg-white">
-              <div className="flex gap-2 md:gap-4 items-center justify-center mb-4 md:mb-6 lg:mb-10 overflow-x-auto">
+              <div className="flex gap-2 md:gap-4 items-center justify-center overflow-x-auto">
                 <WorkflowTabButton tabId="1">
                   ✨<span>Simple Chat</span>
                 </WorkflowTabButton>
@@ -70,41 +70,41 @@ export function Workflows() {
                 </WorkflowTabButton>
               </div>
 
-              <Tab tabId="1">
-                <WorkflowTabContent>
-                  You can create a simple chat workflow with BuildEL. It is a
-                  simple chatbot that can be embedded on your website.
-                </WorkflowTabContent>
+              {/*<Tab tabId="1">*/}
+              {/*  <WorkflowTabContent>*/}
+              {/*    You can create a simple chat workflow with BuildEL. It is a*/}
+              {/*    simple chatbot that can be embedded on your website.*/}
+              {/*  </WorkflowTabContent>*/}
 
-                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
-              </Tab>
+              {/*  <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>*/}
+              {/*</Tab>*/}
 
-              <Tab tabId="2">
-                <WorkflowTabContent>
-                  Turn workflows into complete apps with data tables and branded
-                  interfaces purpose-built for automation.
-                </WorkflowTabContent>
+              {/*<Tab tabId="2">*/}
+              {/*  <WorkflowTabContent>*/}
+              {/*    Turn workflows into complete apps with data tables and branded*/}
+              {/*    interfaces purpose-built for automation.*/}
+              {/*  </WorkflowTabContent>*/}
 
-                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
-              </Tab>
+              {/*  <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>*/}
+              {/*</Tab>*/}
 
-              <Tab tabId="3">
-                <WorkflowTabContent>
-                  Turn workflows into complete apps with data tables and branded
-                  interfaces purpose-built for automation.
-                </WorkflowTabContent>
+              {/*<Tab tabId="3">*/}
+              {/*  <WorkflowTabContent>*/}
+              {/*    Turn workflows into complete apps with data tables and branded*/}
+              {/*    interfaces purpose-built for automation.*/}
+              {/*  </WorkflowTabContent>*/}
 
-                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
-              </Tab>
+              {/*  <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>*/}
+              {/*</Tab>*/}
 
-              <Tab tabId="4">
-                <WorkflowTabContent>
-                  Turn workflows into complete apps with data tables and branded
-                  interfaces purpose-built for automation.
-                </WorkflowTabContent>
+              {/*<Tab tabId="4">*/}
+              {/*  <WorkflowTabContent>*/}
+              {/*    Turn workflows into complete apps with data tables and branded*/}
+              {/*    interfaces purpose-built for automation.*/}
+              {/*  </WorkflowTabContent>*/}
 
-                <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>
-              </Tab>
+              {/*  <WorkflowTabLink to="#">Explore interfaces</WorkflowTabLink>*/}
+              {/*</Tab>*/}
             </div>
           </div>
         </TabGroup>

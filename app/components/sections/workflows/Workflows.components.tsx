@@ -52,7 +52,7 @@ export function WorkflowTabButton({
     <Button
       asChild
       variant={activeTabId === tabId ? "default" : "ghost"}
-      size="xl"
+      size="lg"
       className={cn("rounded-xl", className)}
       {...props}
     >
