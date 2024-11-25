@@ -7,7 +7,7 @@ import {
   HeroSubheading,
 } from "~/components/sections/hero/Hero.components";
 import { BasicLink } from "~/components/shared/BasicLink";
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 
 import { PricingList } from "~/views/Pricing/Pricing.components";
 

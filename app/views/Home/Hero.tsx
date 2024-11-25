@@ -1,7 +1,7 @@
+import { Suspense, lazy } from "react";
 import { BasicLink } from "~/components/shared/BasicLink";
 import { AnimatedWords } from "~/components/sections/hero/Hero";
-import { Button } from "~/components/shared/New-button";
-import { Workflow } from "~/components/icons/Workflow";
+import { Button } from "~/components/shared/Button";
 import { SectionWrapper, Section } from "~/components/layout/Layout.components";
 import {
   HeroButtonsWrapper,
@@ -12,6 +12,12 @@ import {
 } from "~/components/sections/hero/Hero.components";
 import { WhatsNewBadge } from "~/components/badges/WhatsNew";
 
+const LazyWorkflowImage = lazy(() =>
+  import("~/components/icons/Workflow").then((module) => ({
+    default: module.Workflow,
+  }))
+);
+
 export const Hero = () => {
   return (
     <SectionWrapper className="border-b overflow-hidden">
@@ -21,6 +27,7 @@ export const Hero = () => {
           src="/new/dots.png"
           className="absolute top-0 left-0 right-0 bottom-0 h-full w-full pointer-events-none"
         />
+
         <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-white to-transparent pointer-events-none" />
 
         <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-white to-transparent pointer-events-none" />
@@ -70,7 +77,9 @@ export const Hero = () => {
         </HeroContentWrapper>
 
         <div className="relative">
-          <Workflow className="min-w-[350px] min-h-[350px] sm:min-w-[450px] sm:min-h-[450px] md:min-w-[553px] md:min-h-[552px]" />
+          <Suspense fallback="">
+            <LazyWorkflowImage className="min-w-[350px] min-h-[350px] sm:min-w-[450px] sm:min-h-[450px] md:min-w-[553px] md:min-h-[552px]" />
+          </Suspense>
         </div>
       </Section>
     </SectionWrapper>

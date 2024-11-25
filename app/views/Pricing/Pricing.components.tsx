@@ -1,15 +1,7 @@
 import { ItemList } from "~/components/itemList/ItemList";
 import clsx from "clsx";
 import { Dot } from "lucide-react";
-import {
-  Section,
-  SectionHeading,
-  SectionTLCross,
-  SectionTRCross,
-  SectionWrapper,
-} from "~/components/layout/Layout.components";
-import { Button } from "~/components/shared/New-button";
-import { BasicLink } from "~/components/shared/BasicLink";
+import { Section, SectionWrapper } from "~/components/layout/Layout.components";
 
 export function PricingSection() {
   return (

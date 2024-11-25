@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 import { BasicLink } from "~/components/shared/BasicLink";
 import {
   SectionWrapper,

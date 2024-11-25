@@ -1,5 +1,5 @@
 import { NavLink } from "@remix-run/react";
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 import { GithubLogo } from "~/icons/GithubLogo";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { MobileMenu } from "~/components/shared/MobileMenu";

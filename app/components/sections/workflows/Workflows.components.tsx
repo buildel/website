@@ -2,7 +2,7 @@ import { BasicLink, BasicLinkProps } from "~/components/shared/BasicLink";
 import { cn } from "~/lib/utils";
 import { TabButton, TabButtonProps } from "~/components/tabs/Tab";
 import { useTabsContext } from "~/components/tabs/TabGroup";
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 
 export function WorkflowTabLink({
   className,

@@ -1,13 +1,11 @@
 import { posts } from "~/views/Blog/BlogPostsData/blogPosts";
 import {
   Section,
-  SectionHeading,
   SectionTLCross,
   SectionTRCross,
   SectionWrapper,
 } from "~/components/layout/Layout.components";
-import { Button } from "~/components/shared/New-button";
-import { BasicLink } from "~/components/shared/BasicLink";
+
 import { cn } from "~/lib/utils";
 
 export function PostsSection({

@@ -1,6 +1,6 @@
 import { BasicLink } from "~/components/shared/BasicLink";
 import { AnimatedWords } from "~/components/sections/hero/Hero";
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 import { SectionWrapper, Section } from "~/components/layout/Layout.components";
 import {
   HeroButtonsWrapper,

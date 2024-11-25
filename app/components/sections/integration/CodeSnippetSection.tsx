@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 import { Tab } from "~/components/shared/Tab";
 import clsx from "clsx";
 import { BasicLink } from "~/components/shared/BasicLink";

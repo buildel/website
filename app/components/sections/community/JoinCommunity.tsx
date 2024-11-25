@@ -1,4 +1,4 @@
-import { Button } from "~/components/shared/New-button";
+import { Button } from "~/components/shared/Button";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { urls } from "~/utils/urls";
 import { BasicLink } from "~/components/shared/BasicLink";
