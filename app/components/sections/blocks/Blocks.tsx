@@ -27,7 +27,7 @@ export function BlockCarousel({ blocks }: BlockCarouselProps) {
         {blocks.map((block) => (
           <CarouselItem
             key={block.type}
-            className="basis-full md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 4xl:basis-1/6 pl-4 lg:pl-6 min-h-[200px]"
+            className="basis-full md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 4xl:basis-1/5 pl-4 lg:pl-6 min-h-[200px]"
           >
             <BasicLink to="#">
               <BlockCarouselItem data={block} />
@@ -43,19 +43,19 @@ interface BlockCarouselItemProps {
 }
 export function BlockCarouselItem({ data }: BlockCarouselItemProps) {
   return (
-    <article className="flex flex-col gap-2 border rounded-2xl shadow-xl p-4 min-h-[134px]">
+    <article className="flex flex-col gap-2 border rounded-xl shadow-xl p-4 md:p-6 min-h-[134px] md:min-h-[164px]">
       <div className="flex gap-2 items-center">
-        <div className="rounded-lg  p-1.5 w-8 h-8 shrink-0 border">
+        <div className="rounded-lg p-1.5 w-10 h-10 shrink-0 border flex justify-center items-center">
           <img
             className="w-5 h-5 shrink-0"
             src={resolveBlockTypeIconPath(`type/${data.type}`)}
             alt={data.type}
           />
         </div>
-        <h4 className="text-base">{data.type}</h4>
+        <h4 className="text-base md:text-xl font-semibold">{data.type}</h4>
       </div>
       <p
-        className="text-muted-foreground text-sm line-clamp-3"
+        className="text-muted-foreground text-sm md:text-base line-clamp-3"
         title={data.description}
       >
         {data.description}

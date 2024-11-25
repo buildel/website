@@ -27,25 +27,21 @@ export function ExperimentsSection() {
 
           <FeaturesList>
             <FeaturesListItem>
-              Validate your workflow with BuildEL experiments
+              Experiment with workflows to ensure they perform as expected
             </FeaturesListItem>
 
             <FeaturesListItem>
-              Create custom visualizations with your data
+              Get immediate insights and results from your experiments
             </FeaturesListItem>
 
             <FeaturesListItem>
-              Validate your workflow with BuildEL experiments
-            </FeaturesListItem>
-
-            <FeaturesListItem>
-              Create custom visualizations with your data
+              Quickly adjust and refine workflows based on experimental outcomes
             </FeaturesListItem>
           </FeaturesList>
 
           <Button asChild size="lg" className="w-fit">
             <BasicLink to="https://app.buildel.ai" target="_blank">
-              Explore
+              Explore Experiments
             </BasicLink>
           </Button>
         </FeaturesContentWrapper>
@@ -80,16 +76,26 @@ export function GraphSection() {
 
           <FeaturesList>
             <FeaturesListItem>
-              Create custom visualizations with your data
+              Easily understand complex data relationships through visual
+              representations
             </FeaturesListItem>
             <FeaturesListItem>
-              Use the power of AI to understand your data
+              Navigate through the graph to see how your data points are
+              interrelated
+            </FeaturesListItem>
+            <FeaturesListItem>
+              Easily find where specific documents are positioned within the
+              graph
+            </FeaturesListItem>
+            <FeaturesListItem>
+              Click on nodes to access detailed information and insights about
+              each data point
             </FeaturesListItem>
           </FeaturesList>
 
           <Button asChild size="lg" className="w-fit">
             <BasicLink to="https://app.buildel.ai" target="_blank">
-              Explore
+              Start Exploring
             </BasicLink>
           </Button>
         </FeaturesContentWrapper>
@@ -116,11 +122,13 @@ export function KnowledgeBaseSection() {
             <FeaturesListItem>
               Use any model (including self-hosted)
             </FeaturesListItem>
+            <FeaturesListItem>Instant AI Insights</FeaturesListItem>
+            <FeaturesListItem>Effortless Integration</FeaturesListItem>
           </FeaturesList>
 
           <Button asChild size="lg" className="w-fit">
             <BasicLink to="https://app.buildel.ai" target="_blank">
-              Explore
+              Integrate Your Data
             </BasicLink>
           </Button>
         </FeaturesContentWrapper>

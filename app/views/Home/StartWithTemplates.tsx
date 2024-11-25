@@ -26,7 +26,7 @@ export function StartWithTemplates() {
 
           <Button asChild size="lg" className="w-fit" variant="secondary">
             <BasicLink to="https://app.buildel.ai" target="_blank">
-              Explore
+              Browse Templates
             </BasicLink>
           </Button>
         </div>

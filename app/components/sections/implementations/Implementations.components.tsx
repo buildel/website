@@ -6,19 +6,59 @@ import {
 } from "~/components/shared/Carousel";
 import { BasicLink } from "~/components/shared/BasicLink";
 
-export function ImplementationHeading({
-  className,
-  children,
-  ...rest
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <h3 className={cn("text-muted-foreground text-base", className)} {...rest}>
-      {children}
-    </h3>
-  );
+export const implementationCarousel = [
+  {
+    id: "2",
+    heading: "Time Reporting Automation",
+    content:
+      "ElChrono cut reporting time by 50% with a Slack bot for effortless hour logging.",
+    logo: "/assets/clients/Chrono-logo.svg",
+  },
+  {
+    id: "6",
+    heading: "Client Inquiry Automation",
+    content:
+      "EY enhanced customer support by 60% with a bot that leverages a vast client database to answer user inquiries.",
+    logo: "/assets/clients/EY-logo.svg",
+  },
+  {
+    id: "4",
+    heading: "Release Note Automation",
+    content:
+      "BuildEL improved release note preparation with a bot that analyzes recent commits and generates LinkedIn posts.",
+    logo: "/buildel-by-elp-logo-black.svg",
+  },
+  {
+    id: "3",
+    heading: "Invoice Management Streamlined",
+    content:
+      "ELPassion enhanced invoicing efficiency by 40% using a bot that automates invoice analysis.",
+    logo: "/assets/clients/elp_logo_default.svg",
+  },
+  {
+    id: "1",
+    heading: "Automated Translations Boost Efficiency",
+    content:
+      "BuildEL implemented automation for HubSpot page translations, streamlining the creation of new multilingual content.",
+    logo: "/assets/clients/elp_logo_default.svg",
+  },
+
+  {
+    id: "5",
+    heading: "Podcast Transcription Efficiency",
+    content:
+      "ELPassion streamlined transcription with a workflow that generates SRT files from uploaded podcasts using Deepgram.",
+    logo: "/assets/clients/elp_logo_default.svg",
+  },
+];
+
+interface ImplementationCarouselProps {
+  implementations: typeof implementationCarousel;
 }
 
-export function ImplementationCarousel() {
+export function ImplementationCarousel({
+  implementations,
+}: ImplementationCarouselProps) {
   return (
     <Carousel
       opts={{
@@ -27,24 +67,23 @@ export function ImplementationCarousel() {
       className="w-full relative z-[11]"
     >
       <CarouselContent className="ml-10 mr-8 lg:ml-40 lg:mr-40">
-        {Array.from({ length: 8 }).map((_, index) => (
+        {implementations.map(({ heading, id, content, logo }) => (
           <CarouselItem
-            key={index}
+            key={id}
             className="basis-full md:basis-1/2 2xl:basis-1/3 4xl:basis-1/5 pl-4 lg:pl-6"
           >
             <BasicLink to="#">
               <ImplementationCarouselItem>
                 <ImplementationCarouselContentWrapper>
                   <ImplementationCarouselItemHeading className="mb-3">
-                    Turn Yourself into a Lego Figure
+                    {heading}
                   </ImplementationCarouselItemHeading>
                   <ImplementationCarouselItemContent>
-                    BuildEL is a platform that allows you to create your own AI
-                    workflows without writing a single line of code.
+                    {content}
                   </ImplementationCarouselItemContent>
                 </ImplementationCarouselContentWrapper>
 
-                <ImplementationCarouselItemLogo />
+                <ImplementationCarouselItemLogo src={logo} alt={heading} />
               </ImplementationCarouselItem>
             </BasicLink>
           </CarouselItem>
@@ -65,16 +104,16 @@ export function ImplementationCarouselContentWrapper({
 
 export function ImplementationCarouselItemLogo({
   className,
+  src,
   ...rest
-}: React.HTMLAttributes<HTMLImageElement>) {
+}: React.ImgHTMLAttributes<HTMLImageElement>) {
   return (
     <img
-      src={`/assets/clients/elp_logo_default.svg`}
+      src={src}
       className={cn(
-        "opacity-20 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition h-5 w-fit",
+        "opacity-20 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition h-6 w-fit",
         className
       )}
-      alt="EL Passion logo"
       {...rest}
     />
   );
@@ -90,7 +129,7 @@ export function ImplementationCarouselItem({
   return (
     <article
       className={cn(
-        "min-h-[160px] md:min-h-[210px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col justify-between group",
+        "min-h-[160px] md:min-h-[210px] 2xl:min-h-[235px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col justify-between group",
         className
       )}
       {...rest}

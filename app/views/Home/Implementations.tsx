@@ -1,4 +1,7 @@
-import { ImplementationCarousel } from "~/components/sections/implementations/Implementations.components";
+import {
+  implementationCarousel,
+  ImplementationCarousel,
+} from "~/components/sections/implementations/Implementations.components";
 import {
   SectionWrapper,
   SectionTLCross,
@@ -13,7 +16,7 @@ export function ImplementationSection() {
         <SectionTRCross />
       </div>
 
-      <ImplementationCarousel />
+      <ImplementationCarousel implementations={implementationCarousel} />
 
       <div className="hidden absolute bottom-0 left-0 top-0 md:block w-[150px] lg:w-[300px] bg-gradient-to-r from-white to-transparent pointer-events-none" />
       <div className="absolute bottom-0 right-0 top-0 w-[150px] lg:w-[300px] bg-gradient-to-l from-white to-transparent pointer-events-none" />
