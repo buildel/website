@@ -1,10 +1,15 @@
 import { cn } from "~/lib/utils";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "~/components/shared/Carousel";
 import { BasicLink } from "~/components/shared/BasicLink";
+import { Section } from "~/components/layout/Layout.components";
+import { useCallback, useEffect, useState } from "react";
+import { Button } from "~/components/shared/Button";
+import * as React from "react";
 
 export const implementationCarousel = [
   {
@@ -59,37 +64,122 @@ interface ImplementationCarouselProps {
 export function ImplementationCarousel({
   implementations,
 }: ImplementationCarouselProps) {
-  return (
-    <Carousel
-      opts={{
-        align: "center",
-      }}
-      className="w-full relative z-[11]"
-    >
-      <CarouselContent className="ml-6 mr-8 lg:ml-40 lg:mr-40">
-        {implementations.map(({ heading, id, content, logo }) => (
-          <CarouselItem
-            key={id}
-            className="basis-full md:basis-1/2 2xl:basis-1/3 4xl:basis-1/5 pl-4 lg:pl-6"
-          >
-            <BasicLink to="#">
-              <ImplementationCarouselItem>
-                <ImplementationCarouselContentWrapper>
-                  <ImplementationCarouselItemHeading className="mb-2">
-                    {heading}
-                  </ImplementationCarouselItemHeading>
-                  <ImplementationCarouselItemContent>
-                    {content}
-                  </ImplementationCarouselItemContent>
-                </ImplementationCarouselContentWrapper>
+  const [api, setApi] = useState<CarouselApi | null>(null);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-                <ImplementationCarouselItemLogo src={logo} alt={heading} />
-              </ImplementationCarouselItem>
-            </BasicLink>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
+  const onPrev = () => {
+    api?.scrollPrev();
+  };
+
+  const onNext = () => {
+    api?.scrollNext();
+  };
+
+  const onSelect = useCallback((api: CarouselApi | null) => {
+    if (!api) return;
+
+    setCanScrollNext(api.canScrollNext());
+    setCanScrollPrev(api.canScrollPrev());
+    setScrollSnaps(api.scrollSnapList());
+    setActiveIndex(api.selectedScrollSnap());
+  }, []);
+
+  const onDotClick = (index: number) => {
+    if (!api) return;
+
+    api.scrollTo(index);
+  };
+
+  useEffect(() => {
+    if (!api) return;
+
+    onSelect(api);
+    api.on("reInit", onSelect);
+    api.on("select", onSelect);
+
+    return () => {
+      api?.off("select", onSelect);
+    };
+  }, [api, onSelect]);
+
+  return (
+    <>
+      <Section className="mb-3 flex justify-center md:justify-end gap-2">
+        <Button
+          size="sm"
+          variant="ghost"
+          disabled={!canScrollPrev}
+          onClick={onPrev}
+        >
+          Prev
+        </Button>
+        <Button
+          size="sm"
+          variant="ghost"
+          disabled={!canScrollNext}
+          onClick={onNext}
+        >
+          Next
+        </Button>
+      </Section>
+
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "center",
+        }}
+        className="w-full relative z-[11]"
+      >
+        <CarouselContent className="ml-6 mr-8 lg:ml-40 lg:mr-40">
+          {implementations.map(({ heading, id, content, logo }) => (
+            <CarouselItem
+              key={id}
+              className="basis-full md:basis-1/2 2xl:basis-1/3 4xl:basis-1/5 pl-4 lg:pl-6"
+            >
+              <BasicLink to="#">
+                <ImplementationCarouselItem>
+                  <ImplementationCarouselContentWrapper>
+                    <ImplementationCarouselItemHeading className="mb-2">
+                      {heading}
+                    </ImplementationCarouselItemHeading>
+                    <ImplementationCarouselItemContent>
+                      {content}
+                    </ImplementationCarouselItemContent>
+                  </ImplementationCarouselContentWrapper>
+
+                  <ImplementationCarouselItemLogo src={logo} alt={heading} />
+                </ImplementationCarouselItem>
+              </BasicLink>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      <Section className="mt-4 min-h-[10px]">
+        <div className="md:mr-2 w-full flex justify-center md:justify-end gap-2">
+          {scrollSnaps.length > 1
+            ? scrollSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={cn(
+                    "rounded-full w-2.5 h-2.5 border-2 transition",
+                    {
+                      "border-input hover:border-foreground/50":
+                        index !== activeIndex,
+                      "border-foreground/50": index === activeIndex,
+                    }
+                  )}
+                  onClick={() => onDotClick(index)}
+                />
+              ))
+            : null}
+        </div>
+      </Section>
+    </>
   );
 }
 

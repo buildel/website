@@ -10,7 +10,7 @@ import {
 
 export function ImplementationSection() {
   return (
-    <SectionWrapper className="relative py-14 md:py-20 border-b">
+    <SectionWrapper className="relative py-14 md:py-16 border-b">
       <div className="layout absolute w-full h-full border-x top-0 left-1/2 -translate-x-1/2 z-[10]">
         <SectionTLCross />
         <SectionTRCross />
