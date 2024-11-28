@@ -31,9 +31,7 @@ export const Hero = () => {
           <HeroContentInnerWrapper className="items-center justify-center">
             <HeroHeading className="text-center max-w-[500px] w-full block">
               <span className="block">News for </span>
-              <AnimatedWords
-                words={["everybody", "sales", "engineers", "marketeers", "you"]}
-              />
+              <AnimatedWords words={["marketeers", "engineers", "sales"]} />
             </HeroHeading>
 
             <HeroSubheading className="sm:max-w-[460px] text-center mx-auto">

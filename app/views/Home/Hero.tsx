@@ -11,12 +11,44 @@ import {
   HeroSubheading,
 } from "~/components/sections/hero/Hero.components";
 import { WhatsNewBadge } from "~/components/badges/WhatsNew";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "~/components/shared/Carousel";
+import {
+  ImplementationCarouselContentWrapper,
+  ImplementationCarouselItem,
+  ImplementationCarouselItemContent,
+  ImplementationCarouselItemHeading,
+  ImplementationCarouselItemLogo,
+} from "~/components/sections/implementations/Implementations.components";
+import Fade from "embla-carousel-fade";
+import Autoplay from "embla-carousel-autoplay";
 
-const LazyWorkflowImage = lazy(() =>
-  import("~/components/icons/Workflow").then((module) => ({
-    default: module.Workflow,
+const LazyMarketeersWorkflowImage = lazy(() =>
+  import("~/components/icons/MarketeersWorkflow").then((module) => ({
+    default: module.MarketeersWorkflow,
   }))
 );
+
+const LazyEngineersWorkflowImage = lazy(() =>
+  import("~/components/icons/EngineersWorkflow").then((module) => ({
+    default: module.MarketeersWorkflow,
+  }))
+);
+
+const LazySalesWorkflowImage = lazy(() =>
+  import("~/components/icons/SalesWorkflow").then((module) => ({
+    default: module.MarketeersWorkflow,
+  }))
+);
+
+const slides = [
+  { id: 1, component: LazyMarketeersWorkflowImage },
+  { id: 2, component: LazyEngineersWorkflowImage },
+  { id: 3, component: LazySalesWorkflowImage },
+];
 
 export const Hero = () => {
   return (
@@ -45,11 +77,9 @@ export const Hero = () => {
           </BasicLink>
 
           <HeroContentInnerWrapper>
-            <HeroHeading className=" text-center max-w-[300px] md:text-left md:max-w-[360px]">
-              <span>AI Automation for </span>
-              <AnimatedWords
-                words={["everybody", "sales", "engineers", "marketeers", "you"]}
-              />
+            <HeroHeading className=" text-center max-w-[220px] md:text-left md:max-w-[300px]">
+              <span>AI Agents for </span>
+              <AnimatedWords words={["marketeers", "engineers", "sales"]} />
             </HeroHeading>
 
             <HeroSubheading className="sm:max-w-[460px] text-center md:text-left">
@@ -76,9 +106,26 @@ export const Hero = () => {
           </HeroContentInnerWrapper>
         </HeroContentWrapper>
 
-        <div className="relative">
+        <div className="relative w-[350px] h-[350px] md:w-[553px] md:h-[552px] sm:w-[450px] sm:h-[450px]">
           <Suspense fallback="">
-            <LazyWorkflowImage className="min-w-[350px] min-h-[350px] sm:min-w-[450px] sm:min-h-[450px] md:min-w-[553px] md:min-h-[552px]" />
+            <Carousel
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              plugins={[Fade(), Autoplay({ delay: 3000 })]}
+            >
+              <CarouselContent className="w-[350px] h-[350px] md:w-[553px] md:h-[552px] sm:w-[450px] sm:h-[450px]">
+                {slides.map(({ id, component: Component }) => (
+                  <CarouselItem
+                    key={id}
+                    className="basis-full flex justify-center w-full h-full"
+                  >
+                    <Component className="w-full h-full" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </Suspense>
         </div>
       </Section>

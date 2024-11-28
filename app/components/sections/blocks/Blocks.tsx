@@ -6,6 +6,7 @@ import {
 } from "~/components/shared/Carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { BasicLink } from "~/components/shared/BasicLink";
+import startCase from "lodash.startcase";
 
 export interface BlockCarouselProps {
   blocks: BlockType[];
@@ -52,7 +53,9 @@ export function BlockCarouselItem({ data }: BlockCarouselItemProps) {
             alt={data.type}
           />
         </div>
-        <h4 className="text-base md:text-xl font-semibold">{data.type}</h4>
+        <h4 className="text-base md:text-xl font-semibold">
+          {startCase(data.type)}
+        </h4>
       </div>
       <p
         className="text-muted-foreground text-sm md:text-base line-clamp-3"

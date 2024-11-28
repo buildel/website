@@ -9,14 +9,14 @@ import { BasicLink } from "~/components/shared/BasicLink";
 export const implementationCarousel = [
   {
     id: "2",
-    heading: "Time Reporting Automation",
+    heading: "Time Reporting Agent",
     content:
-      "ElChrono cut reporting time by 50% with a Slack bot for effortless hour logging.",
+      "EL Chrono cut reporting time by 50% with a Slack bot for effortless hour logging.",
     logo: "/assets/clients/Chrono-logo.svg",
   },
   {
     id: "6",
-    heading: "Client Inquiry Automation",
+    heading: "Virtual Compliance Officer",
     content:
       "EY enhanced customer support by 60% with a bot that leverages a vast client database to answer user inquiries.",
     logo: "/assets/clients/EY-logo.svg",
@@ -28,27 +28,27 @@ export const implementationCarousel = [
       "BuildEL improved release note preparation with a bot that analyzes recent commits and generates LinkedIn posts.",
     logo: "/buildel-by-elp-logo-black.svg",
   },
+
+  {
+    id: "1",
+    heading: "Multilingual Website Translation",
+    content:
+      "BuildEL implemented automation for HubSpot page translations, streamlining the creation of new multilingual content.",
+    logo: "/assets/clients/HubSpot_logo.svg",
+  },
   {
     id: "3",
-    heading: "Invoice Management Streamlined",
+    heading: "Invoice Management",
     content:
       "ELPassion enhanced invoicing efficiency by 40% using a bot that automates invoice analysis.",
     logo: "/assets/clients/elp_logo_default.svg",
   },
   {
-    id: "1",
-    heading: "Automated Translations Boost Efficiency",
-    content:
-      "BuildEL implemented automation for HubSpot page translations, streamlining the creation of new multilingual content.",
-    logo: "/assets/clients/elp_logo_default.svg",
-  },
-
-  {
     id: "5",
-    heading: "Podcast Transcription Efficiency",
+    heading: "Podcast Transcription",
     content:
-      "ELPassion streamlined transcription with a workflow that generates SRT files from uploaded podcasts using Deepgram.",
-    logo: "/assets/clients/elp_logo_default.svg",
+      "Iteracja Podcast streamlined transcription of audio content with a workflow that generates SRT files from uploaded podcasts using Deepgram.",
+    logo: "/assets/clients/Iteracja.svg",
   },
 ];
 
@@ -66,7 +66,7 @@ export function ImplementationCarousel({
       }}
       className="w-full relative z-[11]"
     >
-      <CarouselContent className="ml-10 mr-8 lg:ml-40 lg:mr-40">
+      <CarouselContent className="ml-6 mr-8 lg:ml-40 lg:mr-40">
         {implementations.map(({ heading, id, content, logo }) => (
           <CarouselItem
             key={id}
@@ -75,7 +75,7 @@ export function ImplementationCarousel({
             <BasicLink to="#">
               <ImplementationCarouselItem>
                 <ImplementationCarouselContentWrapper>
-                  <ImplementationCarouselItemHeading className="mb-3">
+                  <ImplementationCarouselItemHeading className="mb-2">
                     {heading}
                   </ImplementationCarouselItemHeading>
                   <ImplementationCarouselItemContent>
@@ -129,7 +129,7 @@ export function ImplementationCarouselItem({
   return (
     <article
       className={cn(
-        "min-h-[160px] md:min-h-[210px] 2xl:min-h-[235px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col justify-between group",
+        "min-h-[200px] md:min-h-[210px] 2xl:min-h-[235px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col gap-2 justify-between group",
         className
       )}
       {...rest}
