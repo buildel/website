@@ -6,9 +6,7 @@ export default function PrivacyPolicy() {
     <main className="bg-white w-full h-full">
       <Header />
       <section className="bg-white w-full relative layout pt-24 text-neutral-950 text-left leading-tight">
-        <h1 className="h1-mobile lg:h1-desktop text-neutral-950">
-          Privacy Policy
-        </h1>
+        <h1 className="text-3xl text-neutral-950">Privacy Policy</h1>
         <p className="">Last updated: 23rd April 2024</p>
         <div className="prose lg:prose-xl text-neutral-950 mt-8">
           <h2>Privacy Policy</h2>

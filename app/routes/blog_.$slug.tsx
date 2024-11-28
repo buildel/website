@@ -5,8 +5,8 @@ import type {
 } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { generateMetadata } from "~/utils/meta";
-import { BlogPost } from "~/views/BlogPost";
-import { posts } from "~/views/BlogPostsData/blogPosts";
+import { Page } from "~/views/Blog/Post/Page";
+import { posts } from "~/views/Blog/BlogPostsData/blogPosts";
 import { SEOHandle } from "@nasa-gcn/remix-seo";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -55,4 +55,4 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export default BlogPost;
+export default Page;

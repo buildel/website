@@ -13,6 +13,6 @@ export const wrapperVariants: Variants = {
 };
 
 export const letterVariants: Variants = {
-  hide: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hide: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.3 } },
 };

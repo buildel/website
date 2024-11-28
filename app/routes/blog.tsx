@@ -1,7 +1,7 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { BlockTypeApi } from "~/api/blockTypesApi";
-import { Blog } from "~/views/Blog";
+import { Blog } from "~/views/Blog/Page";
 
 export const meta: MetaFunction = () => {
   return [

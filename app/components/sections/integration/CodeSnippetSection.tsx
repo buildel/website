@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { Button } from "~/components/shared/Button";
 import { Tab } from "~/components/shared/Tab";
 import clsx from "clsx";
+import { BasicLink } from "~/components/shared/BasicLink";
 
 interface CodeSnippetSectionProps {
   title: ReactElement;
@@ -31,9 +32,13 @@ export const CodeSnippetSection = ({
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between layout pb-14 lg:h-[500px]">
       <div className="flex flex-col w-full lg:w-2/5 mt-14">
         {title}
-        <p className="mt-4 mb-6 text-neutral-300 font-secondary">{subtitle}</p>
-        <Button mode="light" externalHref={cta.href} className="w-max">
-          {cta.label}
+
+        <p className="mt-4 mb-6 text-secondary/80 font-secondary">{subtitle}</p>
+
+        <Button className="w-max" asChild size="lg" variant="secondary">
+          <BasicLink to={cta.href} target="_blank">
+            {cta.label}
+          </BasicLink>
         </Button>
       </div>
 

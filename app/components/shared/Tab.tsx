@@ -26,7 +26,7 @@ export const Tab = ({
         className,
         {
           "text-neutral-950": !active && mode === "light",
-          "bg-white text-neutral-950 font-primaryBold": active && mode === "light",
+          "bg-white text-neutral-950 font-bold": active && mode === "light",
 
           "text-white": !active && mode === "dark",
           "bg-dark-background": active && mode === "dark",
@@ -35,7 +35,7 @@ export const Tab = ({
     >
       {icon}{" "}
       <span
-        className={clsx("whitespace-nowrap block font-primaryMedium", {
+        className={clsx("whitespace-nowrap block font-normal", {
           "bg-gradient-to-br from-[#3E43BA] to-[#D0D1F5] text-transparent bg-clip-text":
             active && gradientText,
         })}

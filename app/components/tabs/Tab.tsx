@@ -11,25 +11,34 @@ export const Tab: React.FC<TabProps> = ({ children, tabId }) => {
   return <div>{children}</div>;
 };
 
-export interface TabButtonProps extends PropsWithChildren {
+export interface TabButtonProps
+  extends React.HTMLAttributes<HTMLButtonElement> {
   tabId: string;
-  className?: string;
-  component?: "link" | "button";
 }
-export const TabButton: React.FC<TabButtonProps> = ({
-  children,
-  className,
-  tabId,
-}) => {
-  const { setActiveTab } = useTabsContext();
+export const TabButton = React.forwardRef<HTMLButtonElement, TabButtonProps>(
+  ({ children, className, tabId, onClick, ...rest }, ref) => {
+    const { setActiveTab } = useTabsContext();
 
-  const handleSetActiveTab = useCallback(() => {
-    setActiveTab(tabId);
-  }, [setActiveTab, tabId]);
+    const handleSetActiveTab = useCallback(
+      (e: React.MouseEvent<HTMLButtonElement>) => {
+        setActiveTab(tabId);
+        onClick?.(e);
+      },
+      [setActiveTab, tabId, onClick]
+    );
 
-  return (
-    <button type="button" className={className} onClick={handleSetActiveTab}>
-      {children}
-    </button>
-  );
-};
+    return (
+      <button
+        type="button"
+        className={className}
+        onClick={handleSetActiveTab}
+        ref={ref}
+        {...rest}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+TabButton.displayName = "TabButton";

@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
-import plugin from "tailwindcss/plugin";
 
 export default {
+  darkMode: ["class"],
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -20,7 +20,6 @@ export default {
       },
       colors: {
         dark: "#121212",
-
         primary: {
           "50": "#fef6ec",
           "100": "#fcedd9",
@@ -32,6 +31,8 @@ export default {
           "700": "#af690d",
           "800": "#93580b",
           "900": "#633c08",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
           "50": "#eff6fb",
@@ -44,6 +45,8 @@ export default {
           "700": "#2874a4",
           "800": "#205d83",
           "900": "#17435e",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         neutral: {
           "50": "#f5f5f5",
@@ -84,8 +87,8 @@ export default {
           "900": "#713F12",
         },
         "brand-blue": {
-          900: "#4348BB",
-          100: "#C8C9EB",
+          "100": "#C8C9EB",
+          "900": "#4348BB",
         },
         "accent-blue": "#1117A9",
         "grey-background": "#F7F7F7",
@@ -164,9 +167,41 @@ export default {
           "800": "#912018",
           "900": "#7A271A",
         },
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
       },
       fontFamily: {
-        sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
+        sans: ["DM Sans", "Inter", ...defaultTheme.fontFamily.sans],
         primaryMedium: ["Gilroy-Medium", "sans"],
         primaryBold: ["Gilroy-Bold", "sans"],
         primaryExtraBold: ["Gilroy-ExtraBold", "sans"],
@@ -174,6 +209,10 @@ export default {
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/dots-background.svg')",
+      },
+      screens: {
+        "3xl": "1920px",
+        "4xl": "2160px",
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
@@ -192,14 +231,18 @@ export default {
           },
         },
         meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
-          "70%": { opacity: "1" },
+          "0%": {
+            transform: "rotate(215deg) translateX(0)",
+            opacity: "1",
+          },
+          "70%": {
+            opacity: "1",
+          },
           "100%": {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: "0",
           },
         },
-
         scroll: {
           to: {
             transform: "translate(calc(-50% - 0.5rem))",
@@ -211,46 +254,16 @@ export default {
           },
         },
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
   plugins: [
     require("@tailwindcss/typography"),
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        ".h1-desktop": {
-          "font-size": "4.375em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h1-mobile": {
-          "font-size": "2.5em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h2-desktop": {
-          "font-size": "2.5em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h2-mobile": {
-          "font-size": "2em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h3-desktop": {
-          "font-size": "2.25em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h3-mobile": {
-          "font-size": "1.75em",
-          "font-family": "Gilroy-ExtraBold",
-        },
-        ".h4-desktop": {
-          "font-size": "1.75em",
-          "font-family": "Gilroy-Bold",
-        },
-        ".h4-mobile": {
-          "font-size": "1.25em",
-          "font-family": "Gilroy-Bold",
-        },
-      });
-    }),
     require("@tailwindcss/line-clamp"),
+    require("tailwindcss-animate"),
   ],
 } satisfies Config;

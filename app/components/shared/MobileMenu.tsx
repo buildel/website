@@ -7,6 +7,7 @@ import { Button } from "~/components/shared/Button";
 import { DiscordLogo } from "~/icons/DiscordLogo";
 import { GithubLogo } from "~/icons/GithubLogo";
 import { AnimatedX } from "~/icons/animated/AnimatedX";
+import { BasicLink } from "~/components/shared/BasicLink";
 
 export const MobileMenu = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ export const MobileMenu = () => {
     <>
       {!open && (
         <button
-          className="md:hidden px-3 py-2 rounded-full bg-dark-background flex items-center gap-x-2"
+          className="lg:hidden px-3 py-2 rounded-full bg-primary flex items-center gap-x-2 text-secondary text-sm"
           onClick={() => setOpen(true)}
         >
           <BurgerMenu className="text-white" /> Menu
@@ -34,7 +35,7 @@ interface MenuProps {
 }
 const Menu = ({ onClose }: MenuProps) => {
   return (
-    <motion.div className="absolute left-0 top-0 bg-dark-background w-full h-auto z-10 flex flex-col">
+    <motion.div className="absolute left-0 top-0 bg-primary w-full h-auto z-10 flex flex-col text-secondary">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -42,7 +43,7 @@ const Menu = ({ onClose }: MenuProps) => {
         className="w-full flex px-4 h-20 justify-end"
       >
         <button
-          className="md:hidden px-3 py-2 rounded-full bg-dark-background flex items-center gap-x-2"
+          className="lg:hidden px-3 py-2 rounded-full bg-primary flex items-center gap-x-2"
           onClick={onClose}
         >
           <AnimatedX />
@@ -100,8 +101,8 @@ const Menu = ({ onClose }: MenuProps) => {
           </a>
         </div>
 
-        <Button href={urls.registerBuildel} mode="light" className="w-full">
-          Sing up
+        <Button className="w-full" variant="secondary">
+          <BasicLink to={urls.registerBuildel}>Sing up</BasicLink>
         </Button>
       </div>
     </motion.div>
