@@ -28,9 +28,9 @@ export function BlockCarousel({ blocks }: BlockCarouselProps) {
         {blocks.map((block) => (
           <CarouselItem
             key={block.type}
-            className="basis-full md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 4xl:basis-1/5 pl-4 lg:pl-6 min-h-[200px]"
+            className="basis-full md:basis-1/2 2xl:basis-1/3 4xl:basis-1/4 pl-4 lg:pl-6 min-h-[200px]"
           >
-            <BasicLink to="#">
+            <BasicLink to="#" className="h-full">
               <BlockCarouselItem data={block} />
             </BasicLink>
           </CarouselItem>
@@ -44,7 +44,7 @@ interface BlockCarouselItemProps {
 }
 export function BlockCarouselItem({ data }: BlockCarouselItemProps) {
   return (
-    <article className="flex flex-col gap-2 border rounded-xl shadow-xl p-4 md:p-6 min-h-[134px] md:min-h-[164px]">
+    <article className="flex flex-col gap-2 border rounded-xl shadow-xl p-4 md:p-6 min-h-[134px] md:min-h-[170px]">
       <div className="flex gap-2 items-center">
         <div className="rounded-lg p-1.5 w-10 h-10 shrink-0 border flex justify-center items-center">
           <img

@@ -15,7 +15,7 @@ export function PostsSection({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <SectionWrapper className={cn("", className)} {...rest}>
-      <Section className="border-x flex flex-col items-center justify-center !p-0">
+      <Section className="md:border-x flex flex-col items-center justify-center !p-0">
         {children}
 
         <Posts />

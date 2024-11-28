@@ -21,7 +21,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
         x="134.203"
         y="61.852"
         stroke="#E0E0E0"
-        stroke-opacity=".6"
+        strokeOpacity=".6"
         rx="7.5"
       />
       <path
@@ -40,17 +40,17 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
       </g>
       <path
         stroke="#6A6A6A"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M158.6 89.458v-2.043h10.892v2.043M162.004 98.308h4.085M164.047 87.415v10.893"
       />
       <path
         stroke="#6A6A6A"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-opacity=".5"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeOpacity=".5"
+        strokeWidth="2"
         d="M406.79 86.637a.778.778 0 1 0 0-1.557.778.778 0 0 0 0 1.557ZM406.79 81.191a.778.778 0 1 0 0-1.557.778.778 0 0 0 0 1.557ZM406.79 92.084a.778.778 0 1 0 0-1.557.778.778 0 0 0 0 1.556Z"
       />
       <path
@@ -75,7 +75,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
         x="133.703"
         y="154.714"
         fill="#7252FF"
-        fill-opacity=".05"
+        fillOpacity=".05"
         rx="8"
       />
       <rect
@@ -84,7 +84,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
         x="134.203"
         y="155.214"
         stroke="#7252FF"
-        stroke-opacity=".48"
+        strokeOpacity=".48"
         rx="7.5"
       />
       <path
@@ -107,10 +107,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
       />
       <path
         stroke="#6A6A6A"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-opacity=".5"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeOpacity=".5"
+        strokeWidth="2"
         d="M406.79 180a.778.778 0 1 0 0-1.556.778.778 0 0 0 0 1.556ZM406.79 174.554a.778.778 0 1 0 0-1.556.778.778 0 0 0 0 1.556ZM406.79 185.446a.778.778 0 1 0 0-1.556.778.778 0 0 0 0 1.556Z"
       />
       <path
@@ -131,7 +131,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
         x="17.5"
         y="296.425"
         stroke="#E0E0E0"
-        stroke-opacity=".6"
+        strokeOpacity=".6"
         rx="7.5"
       />
       <path
@@ -148,7 +148,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           rx="4"
         />
       </g>
-      <g clip-path="url(#e)">
+      <g clipPath="url(#e)">
         <path
           fill="#555"
           d="M55.258 325.052a4.943 4.943 0 0 0-.425-4.06 4.999 4.999 0 0 0-5.384-2.398 4.944 4.944 0 0 0-3.728-1.662 5 5 0 0 0-4.768 3.461 4.942 4.942 0 0 0-3.305 2.397 5 5 0 0 0 .615 5.861 4.943 4.943 0 0 0 .425 4.06 4.997 4.997 0 0 0 5.383 2.398 4.943 4.943 0 0 0 3.729 1.662 5.001 5.001 0 0 0 4.77-3.463 4.946 4.946 0 0 0 3.305-2.398 5 5 0 0 0-.617-5.859v.001ZM47.8 335.474a3.703 3.703 0 0 1-2.38-.86c.03-.016.083-.045.117-.066l3.95-2.282a.643.643 0 0 0 .325-.562v-5.57l1.67.964c.018.009.03.026.032.046v4.612a3.722 3.722 0 0 1-3.714 3.718Zm-7.988-3.411a3.703 3.703 0 0 1-.444-2.491l.118.07 3.95 2.281c.2.117.449.117.65 0l4.822-2.785v1.928a.063.063 0 0 1-.023.052l-3.994 2.306a3.723 3.723 0 0 1-5.079-1.361Zm-1.04-8.624a3.708 3.708 0 0 1 1.935-1.63l-.002.137v4.563a.644.644 0 0 0 .325.562l4.822 2.784-1.67.965a.06.06 0 0 1-.056.005l-3.994-2.308a3.722 3.722 0 0 1-1.36-5.077v-.001Zm13.718 3.193-4.823-2.785 1.67-.964a.06.06 0 0 1 .056-.005l3.994 2.306a3.719 3.719 0 0 1-.574 6.709v-4.7a.64.64 0 0 0-.322-.561h-.001Zm1.662-2.501a15.12 15.12 0 0 0-.118-.071l-3.95-2.281a.644.644 0 0 0-.65 0l-4.822 2.785v-1.928a.063.063 0 0 1 .023-.052l3.994-2.304a3.718 3.718 0 0 1 5.521 3.851h.002Zm-10.448 3.436-1.67-.964a.059.059 0 0 1-.032-.046v-4.612a3.719 3.719 0 0 1 6.097-2.856l-.117.067-3.95 2.281a.642.642 0 0 0-.325.562l-.003 5.567v.001Zm.907-1.955 2.148-1.241 2.149 1.24v2.481l-2.149 1.24-2.148-1.24v-2.48Z"
@@ -156,10 +156,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
       </g>
       <path
         stroke="#6A6A6A"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-opacity=".5"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeOpacity=".5"
+        strokeWidth="2"
         d="M257.576 321.211c.379 0 .685-.348.685-.778 0-.43-.306-.778-.685-.778-.379 0-.685.348-.685.778 0 .43.306.778.685.778ZM257.576 315.765c.379 0 .685-.348.685-.778 0-.43-.306-.778-.685-.778-.379 0-.685.348-.685.778 0 .43.306.778.685.778ZM257.576 326.657c.379 0 .685-.348.685-.778 0-.43-.306-.778-.685-.778-.379 0-.685.348-.685.778 0 .43.306.778.685.778Z"
       />
       <path
@@ -180,7 +180,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
         x="289.418"
         y="296.425"
         stroke="#E0E0E0"
-        stroke-opacity=".6"
+        strokeOpacity=".6"
         rx="7.5"
       />
       <path
@@ -197,7 +197,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           rx="4"
         />
       </g>
-      <g clip-path="url(#g)">
+      <g clipPath="url(#g)">
         <path
           fill="#D97757"
           d="m312.924 330.296 3.933-2.206.067-.192-.067-.106h-.19l-.659-.04-2.248-.061-1.949-.081-1.889-.102-.475-.1-.447-.588.046-.293.4-.268.571.05 1.267.086 1.898.132 1.377.081 2.041.212h.324l.046-.131-.112-.081-.086-.081-1.965-1.33-2.126-1.407-1.113-.81-.604-.409-.303-.385-.132-.84.547-.602.734.05.187.051.745.572 1.59 1.23 2.075 1.527.305.253.12-.085.016-.061-.136-.228-1.13-2.039-1.205-2.075-.536-.86-.142-.516a2.492 2.492 0 0 1-.087-.607l.624-.844.344-.112.83.112.35.303.517 1.178.835 1.858 1.295 2.525.38.748.203.693.076.213h.132v-.122l.106-1.421.198-1.746.191-2.246.067-.633.313-.759.623-.41.487.234.399.571-.055.369-.239 1.543-.466 2.419-.303 1.618h.177l.202-.201.821-1.089 1.377-1.72.608-.683.709-.753.455-.359h.861l.633.94-.283.972-.887 1.123-.734.951-1.053 1.417-.658 1.133.06.092.157-.017 2.38-.505 1.286-.233 1.534-.262.694.323.076.329-.273.672-1.641.405-1.924.386-2.866.677-.035.025.041.051 1.291.121.551.03h1.352l2.517.188.658.435.395.532-.066.404-1.012.516-1.367-.324-3.191-.758-1.093-.274h-.152v.091l.911.89 1.672 1.509 2.09 1.941.106.482-.268.379-.283-.041-1.838-1.38-.709-.623-1.605-1.35h-.107v.142l.37.541 1.955 2.934.101.9-.141.294-.507.177-.557-.101-1.145-1.604-1.179-1.806-.952-1.619-.117.066-.562 6.045-.263.309-.608.233-.506-.384-.268-.623.268-1.23.325-1.603.262-1.275.238-1.583.142-.527-.01-.035-.117.015-1.195 1.639-1.816 2.454-1.439 1.538-.345.136-.597-.308.056-.552.334-.49 1.99-2.53 1.2-1.569.775-.905-.005-.131h-.046l-5.286 3.43-.941.121-.406-.38.051-.621.192-.203 1.59-1.093-.005.005Z"
@@ -205,10 +205,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
       </g>
       <path
         stroke="#6A6A6A"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-opacity=".5"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeOpacity=".5"
+        strokeWidth="2"
         d="M529.494 321.211c.379 0 .685-.348.685-.778 0-.43-.306-.778-.685-.778-.379 0-.685.348-.685.778 0 .43.306.778.685.778ZM529.494 315.765c.379 0 .685-.348.685-.778 0-.43-.306-.778-.685-.778-.379 0-.685.348-.685.778 0 .43.306.778.685.778ZM529.494 326.657c.379 0 .685-.348.685-.778 0-.43-.306-.778-.685-.778-.379 0-.685.348-.685.778 0 .43.306.778.685.778Z"
       />
       <path
@@ -229,7 +229,7 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           rx="12"
         />
       </g>
-      <g fill-rule="evenodd" clip-path="url(#i)" clip-rule="evenodd">
+      <g fillRule="evenodd" clipPath="url(#i)" clipRule="evenodd">
         <path
           fill="#007EBB"
           d="M223.667 511h32.666a4.666 4.666 0 0 0 4.667-4.667v-32.666a4.666 4.666 0 0 0-4.667-4.667h-32.666a4.666 4.666 0 0 0-4.667 4.667v32.666a4.666 4.666 0 0 0 4.667 4.667Z"
@@ -276,10 +276,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           height="35.51"
           x="145.707"
           y="74.523"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -305,10 +305,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           height="35.51"
           x="145.707"
           y="167.886"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -334,10 +334,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           height="35.51"
           x="29.004"
           y="309.097"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -363,10 +363,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           height="35.51"
           x="300.922"
           y="309.097"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -392,10 +392,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           height="72.855"
           x="204.059"
           y="452.642"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -421,10 +421,10 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           height="72.855"
           x="289.252"
           y="452.642"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -461,8 +461,8 @@ export function MarketeersWorkflow({ className }: { className?: string }) {
           gradientTransform="matrix(0 276.5 -273.458 0 281 276.5)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".455" stop-color="#fff" stop-opacity=".9" />
-          <stop offset=".98" stop-color="#fff" stop-opacity="0" />
+          <stop offset=".455" stopColor="#fff" stopOpacity=".9" />
+          <stop offset=".98" stopColor="#fff" stopOpacity="0" />
         </radialGradient>
       </defs>
     </svg>

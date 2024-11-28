@@ -112,8 +112,18 @@ export const Hero = () => {
               opts={{
                 align: "center",
                 loop: true,
+                dragFree: false,
               }}
-              plugins={[Fade(), Autoplay({ delay: 3000 })]}
+              plugins={[
+                Fade(),
+                Autoplay({
+                  delay: 3000,
+                  stopOnFocusIn: false,
+                  stopOnMouseEnter: false,
+                  stopOnInteraction: false,
+                  active: true,
+                }),
+              ]}
             >
               <CarouselContent className="w-[350px] h-[350px] md:w-[553px] md:h-[552px] sm:w-[450px] sm:h-[450px]">
                 {slides.map(({ id, component: Component }) => (
