@@ -13,7 +13,7 @@ export function StartWithTemplates() {
   const y = useTransform(scrollYProgress, [0, 1], [400, -200]);
   return (
     <SectionWrapper className="border-b">
-      <Section className="border-x bg-primary grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden">
+      <Section className="md:border-x bg-primary grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden">
         <div className="pt-14 pb-[120px] md:py-20 flex flex-col gap-6">
           <SectionHeading className="text-secondary">
             <span>Start with templates</span>

@@ -17,7 +17,7 @@ import {
 export function Workflows() {
   return (
     <SectionWrapper className="relative border-b">
-      <Section className="w-full bottom-0 border-x !px-0 sm:!px-4 md:!px-6 py-14 md:py-20">
+      <Section className="w-full bottom-0 border-x !px-1 sm:!px-4 md:!px-6 py-14 md:py-20">
         <SectionHeading className="text-center mb-10 md:mb-14 max-w-[360px] md:max-w-[450px] mx-auto">
           Try out <span className="gradient-text">BuildEL</span> interfaces
         </SectionHeading>
@@ -26,34 +26,36 @@ export function Workflows() {
 
         <TabGroup defaultActiveTab="1">
           <div className="relative bg-secondary rounded-3xl shadow-2xl min-h-[35vh] border max-w-6xl mx-auto overflow-hidden">
-            <Tab tabId="1">
-              <iframe
-                src="https://app.buildel.ai/webchats/2/pipelines/2?alias=latest"
-                title="chat"
-                className="w-full h-[500px] md:h-[600px]"
-              />
-            </Tab>
-            <Tab tabId="2">
-              <iframe
-                src="https://app.buildel.ai/forms/2/pipelines/3?alias=latest"
-                className="w-full h-[500px] md:h-[600px]"
-                title="chat"
-              />
-            </Tab>
-            <Tab tabId="3">
-              <iframe
-                src="https://app.buildel.ai/webchats/2/pipelines/4?alias=latest"
-                className="w-full h-[500px] md:h-[600px]"
-                title="chat"
-              />
-            </Tab>
-            <Tab tabId="4">
-              <iframe
-                src="https://app.buildel.ai/webchats/2/pipelines/5?alias=latest"
-                className="w-full h-[500px] md:h-[600px]"
-                title="chat"
-              />
-            </Tab>
+            <div className="px-1">
+              <Tab tabId="1">
+                <iframe
+                  src="https://app.buildel.ai/webchats/2/pipelines/2?alias=latest"
+                  title="chat"
+                  className="w-full h-[500px] md:h-[600px]"
+                />
+              </Tab>
+              <Tab tabId="2">
+                <iframe
+                  src="https://app.buildel.ai/forms/2/pipelines/3?alias=latest"
+                  className="w-full h-[500px] md:h-[600px]"
+                  title="chat"
+                />
+              </Tab>
+              <Tab tabId="3">
+                <iframe
+                  src="https://app.buildel.ai/webchats/2/pipelines/4?alias=latest"
+                  className="w-full h-[500px] md:h-[600px]"
+                  title="chat"
+                />
+              </Tab>
+              <Tab tabId="4">
+                <iframe
+                  src="https://app.buildel.ai/webchats/2/pipelines/5?alias=latest"
+                  className="w-full h-[500px] md:h-[600px]"
+                  title="chat"
+                />
+              </Tab>
+            </div>
 
             <div className="w-full border-t p-4 lg:p-10 bg-white">
               <div className="flex flex-col gap-2 md:gap-4 md:flex-row items-center justify-center">
