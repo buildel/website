@@ -10,6 +10,7 @@ import { Section } from "~/components/layout/Layout.components";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "~/components/shared/Button";
 import * as React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const implementationCarousel = [
   {
@@ -114,7 +115,7 @@ export function ImplementationCarousel({
           disabled={!canScrollPrev}
           onClick={onPrev}
         >
-          Prev
+          <ChevronLeft className="w-6 h-6" />
         </Button>
         <Button
           size="sm"
@@ -122,7 +123,7 @@ export function ImplementationCarousel({
           disabled={!canScrollNext}
           onClick={onNext}
         >
-          Next
+          <ChevronRight className="w-6 h-6" />
         </Button>
       </Section>
 
