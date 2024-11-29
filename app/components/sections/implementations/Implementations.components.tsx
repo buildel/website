@@ -201,8 +201,9 @@ export function ImplementationCarouselItemLogo({
   return (
     <img
       src={src}
+      height={24}
       className={cn(
-        "opacity-20 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition h-6 w-fit",
+        "opacity-20 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition h-6 max-w-fit object-contain object-left",
         className
       )}
       {...rest}
@@ -220,7 +221,7 @@ export function ImplementationCarouselItem({
   return (
     <article
       className={cn(
-        "min-h-[200px] md:min-h-[210px] 2xl:min-h-[235px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col gap-2 justify-between group",
+        "min-h-[200px] md:min-h-[210px] 2xl:min-h-[235px] border bg-white rounded-xl p-4 lg:p-6 flex flex-col gap-2 justify-between group ",
         className
       )}
       {...rest}
@@ -256,7 +257,7 @@ export function ImplementationCarouselItemContent({
   return (
     <p
       className={cn(
-        "text-sm md:text-base text-neutral-500 font-light",
+        "text-sm md:text-base text-neutral-500 font-light line-clamp-3",
         className
       )}
       {...rest}

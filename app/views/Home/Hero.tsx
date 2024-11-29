@@ -16,13 +16,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "~/components/shared/Carousel";
-import {
-  ImplementationCarouselContentWrapper,
-  ImplementationCarouselItem,
-  ImplementationCarouselItemContent,
-  ImplementationCarouselItemHeading,
-  ImplementationCarouselItemLogo,
-} from "~/components/sections/implementations/Implementations.components";
 import Fade from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
 
