@@ -70,7 +70,7 @@ export const Hero = () => {
           </BasicLink>
 
           <HeroContentInnerWrapper>
-            <HeroHeading className=" text-center max-w-[220px] md:text-left md:max-w-[300px]">
+            <HeroHeading className="text-center max-w-[220px] md:text-left md:max-w-[300px]">
               <span>AI Agents for </span>
               <AnimatedWords words={["marketeers", "engineers", "sales"]} />
             </HeroHeading>

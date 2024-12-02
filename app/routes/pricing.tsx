@@ -1,4 +1,4 @@
-import { json, LinksFunction, MetaFunction } from "@remix-run/node";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Pricing } from "~/views/Pricing/Page";
 
 export const meta: MetaFunction = () => {
@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  return json({});
+  return {};
 }
 
 export const links: LinksFunction = () => {

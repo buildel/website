@@ -3,7 +3,7 @@ import type {
   MetaFunction,
   LoaderFunctionArgs,
 } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { generateMetadata } from "~/utils/meta";
 import { Page } from "~/views/Blog/Post/Page";
 import { posts } from "~/views/Blog/BlogPostsData/blogPosts";
@@ -34,7 +34,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   if (!currentBlogPostData) {
     return redirect("/blog");
   }
-  return json(currentBlogPostData);
+  return currentBlogPostData;
 }
 
 export const links: LinksFunction = () => {

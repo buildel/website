@@ -1,5 +1,5 @@
 import { BuildelAuth } from "@buildel/buildel-auth";
-import { ActionFunctionArgs, json } from "@remix-run/node";
+import { ActionFunctionArgs } from "@remix-run/node";
 
 export async function action({ request }: ActionFunctionArgs) {
   const apiKey = process.env.BUILDEL_API_KEY;
@@ -15,5 +15,5 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const authData = buildelAuth.generateAuth(socketId, channelName);
 
-  return json(authData);
+  return authData;
 }
