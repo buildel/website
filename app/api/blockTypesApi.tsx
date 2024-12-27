@@ -7,9 +7,11 @@ export class BlockTypeApi {
 
   async getBlockTypes(): Promise<{ data: BlockType[] }> {
     if (cache) return cache;
-    const response = await this.client(
-      `${process.env.API_URL}/api/block_types`
-    ).then((res) => res.json());
+    const response = await this.client(`${process.env.API_URL}/api/block_types`)
+      .then((res) => res.json())
+      .catch(() => {
+        return { data: [] };
+      });
     cache = response;
 
     setTimeout(() => (cache = undefined), 1000 * 60 * 5);
