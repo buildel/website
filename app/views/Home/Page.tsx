@@ -14,11 +14,8 @@ import { ImplementationSection } from "~/views/Home/Implementations";
 import { Hero } from "~/views/Home/Hero";
 import { Workflows } from "~/views/Home/Workflows";
 import { Blocks } from "~/views/Home/Blocks";
-import { useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/_index";
 
 export const Home = () => {
-  const { blockTypes } = useLoaderData<typeof loader>();
   return (
     <MainWrapper>
       <Header />
@@ -39,7 +36,7 @@ export const Home = () => {
 
       <StartForFreeSection />
 
-      <Blocks blocks={blockTypes} />
+      <Blocks />
 
       <JoinCommunity />
 

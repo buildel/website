@@ -1,13 +1,23 @@
-import {
-  BlockCarousel,
-  BlockCarouselProps,
-} from "~/components/sections/blocks/Blocks";
+import { BlockCarousel } from "~/components/sections/blocks/Blocks";
 import {
   SectionWrapper,
   SectionHeading,
 } from "~/components/layout/Layout.components";
+import { useState } from "react";
+import { BlockTypeApi } from "~/api/blockTypesApi";
+import { useEffect } from "react";
+import { BlockType } from "~/api/blockTypes.types";
 
-export function Blocks({ blocks }: BlockCarouselProps) {
+export function Blocks() {
+  const [blocks, setBlocks] = useState<BlockType[]>([]);
+
+  useEffect(() => {
+    const blockTypesApi = new BlockTypeApi();
+    blockTypesApi.getBlockTypes().then((res) => {
+      setBlocks(res.data);
+    });
+  }, []);
+
   return (
     <SectionWrapper className="relative min-h-[220px] md:min-h-[300px] flex flex-col items-center justify-center gap-10 py-20 md:py-40">
       <SectionHeading className="text-center max-w-[440px]">

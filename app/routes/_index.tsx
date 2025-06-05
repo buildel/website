@@ -1,5 +1,4 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { BlockTypeApi } from "~/api/blockTypesApi";
 import { Home } from "~/views/Home/Page";
 
 export const meta: MetaFunction = () => {
@@ -10,10 +9,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const blockTypesApi = new BlockTypeApi();
-  const res = await blockTypesApi.getBlockTypes();
-
-  return { blockTypes: res.data };
+  return {};
 }
 
 export const links: LinksFunction = () => {

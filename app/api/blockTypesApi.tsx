@@ -1,20 +1,14 @@
 import { BlockType } from "./blockTypes.types";
 
-let cache = undefined as any;
-
 export class BlockTypeApi {
-  constructor(private client = fetch) {}
+  constructor() {}
 
   async getBlockTypes(): Promise<{ data: BlockType[] }> {
-    if (cache) return cache;
-    const response = await this.client(`${process.env.API_URL}/api/block_types`)
+    const response = await fetch(`https://buildel-api.fly.dev/api/block_types`)
       .then((res) => res.json())
-      .catch(() => {
+      .catch((e) => {
         return { data: [] };
       });
-    cache = response;
-
-    setTimeout(() => (cache = undefined), 1000 * 60 * 5);
 
     return response;
   }
